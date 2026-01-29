@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- Brand Colors (Core) --- */
+  --primary: #6C46FD;
+  --primary-hover: #5A39E6;
+  --primary-active: #4B2FD1;
+  --primary-soft: #EDE8FF;
+
+  /* --- UI Backgrounds --- */
+  --background: #FAFAFF;
+  --section: #F4F3FF;
+  --card: #FFFFFF;
+  --border-subtle: #E6E4F5;
+
+  /* --- Typography --- */
+  --text-heading: #1C1B29;
+  --text-body: #4B4A68;
+  --text-muted: #7C7B9A;
+  --text-disabled: #A7A6C5;
+
+  /* --- Footer --- */
+  --footer-bg: #121125;
+  --footer-text: #B8B7D9;
+  --footer-border: #2A2942;
+
+  --path-duck: path("M 0,20 A 20,20 0 0 1 20,0 L 280,0 A 20,20 0 0 1 300,20 L 300,145 A 20,20 0 0 1 280,165 L 150,165 A 20,20 0 0 0 130,185 L 130,280 A 20,20 0 0 1 110,300 L 20,300 A 20,20 0 0 1 0,280 Z");
+  --path-duck-550: path("M 0,20 A 20,20 0 0 1 20,0 L 530,0 A 20,20 0 0 1 550,20 L 550,400 A 20,20 0 0 1 530,420 L 300,420 A 20,20 0 0 0 280,440 L 280,530 A 20,20 0 0 1 260,550 L 20,550 A 20,20 0 0 1 0,530 Z");
+  --path-duck-10px: path("M 0,10 A 10,10 0 0 1 10,0 L 540,0 A 10,10 0 0 1 550,10 L 550,410 A 10,10 0 0 1 540,420 L 290,420 A 10,10 0 0 0 280,430 L 280,540 A 10,10 0 0 1 270,550 L 10,550 A 10,10 0 0 1 0,540 Z");
+  --path-duck-15px: path("M 0,15 A 15,15 0 0 1 15,0 L 535,0 A 15,15 0 0 1 550,15 L 550,405 A 15,15 0 0 1 535,420 L 295,420 A 15,15 0 0 0 280,435 L 280,535 A 15,15 0 0 1 265,550 L 15,550 A 15,15 0 0 1 0,535 Z");
+}
+
+.clip-duck {
+  clip-path: var(--path-duck);
+}
+
+.clip-duck-large {
+  clip-path: var(--path-duck-550);
+}
+
+.clip-duck-sharp {
+  clip-path: var(--path-duck-10px);
+}
+
+.clip-duck-sharp-15px {
+  clip-path: var(--path-duck-15px);
 }
 
 @theme inline {
+  /* Shadcn & Tailwind v4 Mapping */
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-foreground: var(--text-heading);
+
+  /* Primary Action Colors */
+  --color-primary: var(--primary);
+  --color-primary-foreground: #FFFFFF;
+  --color-primary-hover: var(--primary-hover);
+
+  /* Secondary/Muted Actions (Soft Purple) */
+  --color-secondary: var(--section);
+  --color-secondary-foreground: var(--primary);
+
+  --color-muted: var(--section);
+  --color-muted-foreground: var(--text-muted);
+
+  /* Accents & UI Elements */
+  --color-accent: var(--primary-soft);
+  --color-accent-foreground: var(--primary);
+
+  --color-border: var(--border-subtle);
+  --color-input: var(--border-subtle);
+  --color-ring: var(--primary);
+
+  /* Custom UI Extras */
+  --color-bg-section: var(--section);
+  --color-bg-card: var(--card);
+  --color-text-body: var(--text-body);
+  --color-footer-bg: var(--footer-bg);
+  --color-footer-text: var(--footer-text);
+
+  /* Shadow & Effects */
+  --shadow-brand: 0 8px 30px rgba(108, 70, 253, 0.12);
+  --radius-xl: 1.5rem;
+  --radius-lg: 1rem;
+  --radius-md: 0.75rem;
+  --radius-sm: 0.5rem;
+
+  /* Fonts */
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-manrope);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* --- Base Styles --- */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-text-body antialiased;
+    font-family: var(--font-inter), Arial, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-foreground font-bold tracking-tight;
+    font-family: var(--font-manrope), sans-serif;
+  }
 }

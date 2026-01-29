@@ -1,0 +1,121 @@
+"use client"
+import PrimaryButton from "@/components/shared/PrimaryButton";
+import SectionContainer from "@/components/shared/SectionContainer";
+
+export default function HeroSection() {
+    return (
+        <div className="relative overflow-hidden bg-[var(--background)] py-24 sm:py-32 before:absolute  before:bg-[var(--primary)] before:size-[50rem] before:rounded-full before:opacity-50 before:end-[calc(50%-740px)] before:translate-x-1/2 before:top-0 before:blur-[100px] before:opacity-[0.25]" >
+            <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--primary-soft),var(--background))] opacity-40" />
+
+            <SectionContainer className="relative grid grid-cols-2">
+                <div className="text-left space-y-8">
+                    <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-[var(--primary-soft)] text-[var(--primary)] text-sm font-semibold tracking-wide uppercase">
+                        Unlimited Design Subscription
+                    </div>
+
+                    <h1 className="text-5xl sm:text-7xl font-extrabold text-[var(--text-heading)] leading-[1.1] tracking-tight">
+                        Boost Your Brand with Expert <br />
+                        <span className="text-[var(--primary)]">
+                            <TypeAnimation
+                                preRenderFirstString={true}
+                                sequence={[
+                                    500,
+                                    'Branding', // initially rendered starting point
+                                    1000,
+                                    'UI/UX',
+                                    1000,
+                                    'Web Development',
+                                    1000,
+                                    'Apps Development',
+                                    500,
+                                ]}
+                                speed={50}
+                                repeat={Infinity}
+                            />
+                        </span>
+                    </h1>
+                    <p className="text-xl text-[var(--text-muted)]">
+                        Premium quality, fast delivery, and scalable solutions tailored to your business goals.
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row items-center justify-start gap-4 pt-4">
+                        <PrimaryButton href="/pricing" className="w-full sm:w-auto px-10 py-4 text-lg">
+                            View Pricing
+                        </PrimaryButton>
+                        <Link
+                            href="/portfolio"
+                            className="text-[var(--text-heading)] font-semibold hover:text-[var(--primary)] transition-colors flex items-center gap-2"
+                        >
+                            See our work
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="9 5l7 7-7 7" />
+                            </svg>
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Hero Image / Mockup Placeholder */}
+                <div className="mt-20 relative ">
+                    <div className="absolute top-0 left-0 z-10 p-4 bg-[var(--primary)] text-white backdrop-blur-sm">
+                        Trusted by 800+ Tech Giants.
+                    </div>
+                    <div className="clip-duck-sharp-15px w-[550px] h-[550px] ms-auto bg-white shadow-2xl border border-[var(--border-subtle)] overflow-hidden">
+                        {/* TODO: Add hero mockup image */}
+                        <div className="w-full h-full aspect-[1/1]  bg-gradient-to-br from-[var(--section)] to-white flex items-center justify-center font-medium text-[var(--text-muted)]">
+                            <img src="/images/hero/hero-img.jpeg" alt="" />
+                        </div>
+                    </div>
+                    <div className="absolute bottom-[-105px] right-[-40px]">
+                        <Card className="w-fit p-6 rounded-sm bg-[var(--section)]">
+
+                            <AvatarGroup className="">
+                                <Avatar size="lg">
+                                    <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                                    <AvatarFallback>CN</AvatarFallback>
+                                </Avatar>
+                                <Avatar size="lg">
+                                    <AvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
+                                    <AvatarFallback>LR</AvatarFallback>
+                                </Avatar>
+                                <Avatar size="lg">
+                                    <AvatarImage
+                                        src="https://github.com/evilrabbit.png"
+                                        alt="@evilrabbit"
+                                    />
+                                    <AvatarFallback>ER</AvatarFallback>
+                                </Avatar>
+                                <Avatar size="lg">
+                                    <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                                    <AvatarFallback>CN</AvatarFallback>
+                                </Avatar>
+                                <Avatar size="lg">
+                                    <AvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
+                                    <AvatarFallback>LR</AvatarFallback>
+                                </Avatar>
+                                <Avatar size="lg">
+                                    <AvatarImage
+                                        src="https://github.com/evilrabbit.png"
+                                        alt="@evilrabbit"
+                                    />
+                                    <AvatarFallback>ER</AvatarFallback>
+                                </Avatar>
+                            </AvatarGroup>
+                            <div className="flex items-center gap-2">
+                                <h3 className="text-6xl">4.9</h3>
+                                <Rating name="read-only" value={2.5} precision={0.5} readOnly />
+                            </div>
+                            <p>Based on 600+ Google Reviews.</p>
+                        </Card>
+                    </div>
+                </div>
+            </SectionContainer>
+        </div>
+    );
+}
+
+// Inline Link import since I'm using it
+import Link from "next/link"; import { TypeAnimation } from "react-type-animation";
+import { Avatar, AvatarFallback, AvatarGroup, AvatarImage } from "../ui/avatar";
+import { Card } from "../ui/card";
+import { Rating } from "@mui/material";
+
