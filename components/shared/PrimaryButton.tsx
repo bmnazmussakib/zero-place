@@ -18,7 +18,7 @@ export default function PrimaryButton({
     type = "button",
 }: PrimaryButtonProps) {
     const styles = cn(
-        "inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white transition-all duration-200 bg-[var(--primary)] rounded-full hover:bg-[var(--primary-hover)] active:bg-[var(--primary-active)] shadow-md",
+        "inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white transition-all duration-200 bg-primary rounded-full hover:bg-primary-hover active:bg-primary-active shadow-md",
         className
     );
 

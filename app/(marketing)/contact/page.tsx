@@ -3,27 +3,11 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Button } from "@/components/ui/button";
-import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
-import { Badge } from "@/components/ui/badge";
-import { Send, Mail, MapPin, Phone } from "lucide-react";
 import { toast } from "sonner";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 const formSchema = z.object({
     name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -33,7 +17,12 @@ const formSchema = z.object({
 });
 
 export default function ContactPage() {
-    const form = useForm<z.infer<typeof formSchema>>({
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors },
+    } = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
@@ -43,10 +32,9 @@ export default function ContactPage() {
     });
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-        // This will eventually call the API route
         console.log(values);
         toast.success("Message sent successfully! We'll get back to you soon.");
-        form.reset();
+        reset();
     }
 
     return (
@@ -70,13 +58,13 @@ export default function ContactPage() {
 
                         <div className="grid gap-6">
                             {[
-                                { icon: Mail, label: "Email Us", value: "hello@zeroplace.com" },
-                                { icon: Phone, label: "Call Us", value: "+1 (555) 000-0000" },
-                                { icon: MapPin, label: "Visit Us", value: "123 Design Street, Creative City, NY 10001" },
+                                { label: "Email Us", value: "hello@zeroplace.com" },
+                                { label: "Call Us", value: "+1 (555) 000-0000" },
+                                { label: "Visit Us", value: "123 Design Street, Creative City, NY 10001" },
                             ].map((item, idx) => (
                                 <div key={idx} className="flex items-center gap-4">
                                     <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-                                        <item.icon className="w-6 h-6" />
+                                        <div className="w-6 h-6 bg-primary rounded-full" />
                                     </div>
                                     <div>
                                         <h3 className="text-sm font-semibold text-text-muted">{item.label}</h3>
@@ -89,85 +77,50 @@ export default function ContactPage() {
 
                     {/* Contact Form */}
                     <div className="bg-card p-8 lg:p-12 rounded-[2.5rem] shadow-brand border border-border-subtle">
-                        <Form {...form}>
-                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                                <div className="grid gap-6 md:grid-cols-2">
-                                    <FormField
-                                        control={form.control}
-                                        name="name"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>Full Name</FormLabel>
-                                                <FormControl>
-                                                    <Input placeholder="John Doe" {...field} className="h-12" />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
-                                    <FormField
-                                        control={form.control}
-                                        name="email"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>Email Address</FormLabel>
-                                                <FormControl>
-                                                    <Input placeholder="john@example.com" {...field} className="h-12" />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
+                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                            <div className="grid gap-6 md:grid-cols-2">
+                                <div className="space-y-2">
+                                    <label className="text-sm font-medium">Full Name</label>
+                                    <Input placeholder="John Doe" {...register("name")} className="h-12" />
+                                    {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
                                 </div>
+                                <div className="space-y-2">
+                                    <label className="text-sm font-medium">Email Address</label>
+                                    <Input placeholder="john@example.com" {...register("email")} className="h-12" />
+                                    {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+                                </div>
+                            </div>
 
-                                <FormField
-                                    control={form.control}
-                                    name="service"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Service Interested In</FormLabel>
-                                            <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                                <FormControl>
-                                                    <SelectTrigger className="h-12">
-                                                        <SelectValue placeholder="Select a service" />
-                                                    </SelectTrigger>
-                                                </FormControl>
-                                                <SelectContent>
-                                                    <SelectItem value="graphics">Graphics Design</SelectItem>
-                                                    <SelectItem value="app">App Design</SelectItem>
-                                                    <SelectItem value="web">Web Design</SelectItem>
-                                                    <SelectItem value="branding">Brand Identity</SelectItem>
-                                                    <SelectItem value="audit">UI/UX Audit</SelectItem>
-                                                </SelectContent>
-                                            </Select>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
+                            <div className="space-y-2">
+                                <label className="text-sm font-medium">Service Interested In</label>
+                                <select
+                                    {...register("service")}
+                                    className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                >
+                                    <option value="">Select a service</option>
+                                    <option value="graphics">Graphics Design</option>
+                                    <option value="app">App Design</option>
+                                    <option value="web">Web Design</option>
+                                    <option value="branding">Brand Identity</option>
+                                    <option value="audit">UI/UX Audit</option>
+                                </select>
+                                {errors.service && <p className="text-sm text-destructive">{errors.service.message}</p>}
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="text-sm font-medium">Tell us about your project</label>
+                                <Textarea
+                                    placeholder="What's on your mind?..."
+                                    className="min-h-[150px] py-4"
+                                    {...register("message")}
                                 />
+                                {errors.message && <p className="text-sm text-destructive">{errors.message.message}</p>}
+                            </div>
 
-                                <FormField
-                                    control={form.control}
-                                    name="message"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Tell us about your project</FormLabel>
-                                            <FormControl>
-                                                <Textarea
-                                                    placeholder="What's on your mind?..."
-                                                    className="min-h-[150px] py-4"
-                                                    {...field}
-                                                />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-
-                                <Button type="submit" className="w-full h-14 text-lg font-bold rounded-2xl gap-2">
-                                    Send Message <Send className="w-5 h-5" />
-                                </Button>
-                            </form>
-                        </Form>
+                            <Button type="submit" className="w-full h-14 text-lg font-bold rounded-2xl gap-2">
+                                Send Message
+                            </Button>
+                        </form>
                     </div>
                 </div>
             </div>

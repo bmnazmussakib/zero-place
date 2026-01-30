@@ -4,18 +4,18 @@ import SectionContainer from "@/components/shared/SectionContainer";
 
 export default function HeroSection() {
     return (
-        <div className="relative overflow-hidden bg-[var(--background)] py-24 sm:py-32 before:absolute  before:bg-[var(--primary)] before:size-[50rem] before:rounded-full before:opacity-50 before:end-[calc(50%-740px)] before:translate-x-1/2 before:top-0 before:blur-[100px] before:opacity-[0.25]" >
-            <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--primary-soft),var(--background))] opacity-40" />
+        <div className="relative overflow-hidden bg-background py-24 sm:py-32 before:absolute before:bg-primary before:size-[50rem] before:rounded-full before:opacity-50 before:end-[calc(50%-740px)] before:translate-x-1/2 before:top-0 before:blur-[100px] before:opacity-[0.25]" >
+            <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--primary-soft),var(--color-background))] opacity-40" />
 
             <SectionContainer className="relative grid grid-cols-2">
                 <div className="text-left space-y-8">
-                    <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-[var(--primary-soft)] text-[var(--primary)] text-sm font-semibold tracking-wide uppercase">
+                    <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-accent text-primary text-sm font-semibold tracking-wide uppercase">
                         Unlimited Design Subscription
                     </div>
 
-                    <h1 className="text-5xl sm:text-7xl font-extrabold text-[var(--text-heading)] leading-[1.1] tracking-tight">
+                    <h1 className="text-5xl sm:text-7xl font-extrabold text-foreground leading-[1.1] tracking-tight">
                         Boost Your Brand with Expert <br />
-                        <span className="text-[var(--primary)]">
+                        <span className="text-primary">
                             <TypeAnimation
                                 preRenderFirstString={true}
                                 sequence={[
@@ -34,7 +34,7 @@ export default function HeroSection() {
                             />
                         </span>
                     </h1>
-                    <p className="text-xl text-[var(--text-muted)]">
+                    <p className="text-xl text-muted-foreground">
                         Premium quality, fast delivery, and scalable solutions tailored to your business goals.
                     </p>
 
@@ -44,7 +44,7 @@ export default function HeroSection() {
                         </PrimaryButton>
                         <Link
                             href="/portfolio"
-                            className="text-[var(--text-heading)] font-semibold hover:text-[var(--primary)] transition-colors flex items-center gap-2"
+                            className="text-foreground font-semibold hover:text-primary transition-colors flex items-center gap-2"
                         >
                             See our work
                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,18 +56,17 @@ export default function HeroSection() {
 
                 {/* Hero Image / Mockup Placeholder */}
                 <div className="mt-20 relative ">
-                    <div className="absolute top-0 left-0 z-10 p-4 bg-[var(--primary)] text-white backdrop-blur-sm">
+                    <div className="absolute top-0 left-0 z-10 p-4 bg-primary text-white backdrop-blur-sm">
                         Trusted by 800+ Tech Giants.
                     </div>
-                    <div className="clip-duck-sharp-15px w-[550px] h-[550px] ms-auto bg-white shadow-2xl border border-[var(--border-subtle)] overflow-hidden">
-                        {/* TODO: Add hero mockup image */}
-                        <div className="w-full h-full aspect-[1/1]  bg-gradient-to-br from-[var(--section)] to-white flex items-center justify-center font-medium text-[var(--text-muted)]">
+                    <div className="clip-duck-sharp-15px w-[550px] h-[550px] ms-auto bg-white shadow-2xl border border-border overflow-hidden">
+                        <div className="w-full h-full aspect-square bg-linear-to-br from-secondary to-white flex items-center justify-center font-medium text-muted-foreground">
                             <img src="/images/hero/hero-img.jpeg" alt="" />
                         </div>
                     </div>
-                    <div className="absolute bottom-[-105px] right-[-40px]">
-                        <Card className="w-fit p-6 rounded-sm bg-[var(--section)]">
 
+                    <div className="absolute bottom-[-105px] right-[-40px]">
+                        <Card className="w-fit p-6 rounded-sm bg-secondary">
                             <AvatarGroup className="">
                                 <Avatar size="lg">
                                     <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
