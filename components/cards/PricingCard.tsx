@@ -1,5 +1,6 @@
 import { PricingTier } from "@/types";
-import PrimaryButton from "@/components/shared/PrimaryButton";
+import PremiumButton from "@/components/shared/PremiumButton";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 interface PricingCardProps {
@@ -48,15 +49,15 @@ export default function PricingCard({ tier }: PricingCardProps) {
                 ))}
             </ul>
 
-            <PrimaryButton
-                href="/book-a-call"
-                className={cn(
-                    "w-full py-4",
-                    !tier.isPopular && "bg-[var(--primary-soft)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white"
-                )}
+            <PremiumButton
+                asChild
+                className="w-full"
+                variant={tier.isPopular ? "primary" : "outline"}
             >
-                Get Started
-            </PrimaryButton>
+                <Link href="/book-a-call">
+                    Get Started
+                </Link>
+            </PremiumButton>
         </div>
     );
 }

@@ -1,10 +1,11 @@
 "use client"
-import PrimaryButton from "@/components/shared/PrimaryButton";
+import PremiumButton from "@/components/shared/PremiumButton";
 import SectionContainer from "@/components/shared/SectionContainer";
+import { Play } from "lucide-react";
 
 export default function HeroSection() {
     return (
-        <div className="relative overflow-hidden bg-background py-24 sm:py-32 before:absolute before:bg-primary before:size-[50rem] before:rounded-full before:opacity-50 before:end-[calc(50%-740px)] before:translate-x-1/2 before:top-0 before:blur-[100px] before:opacity-[0.25]" >
+        <div className="relative overflow-hidden bg-background before:absolute before:bg-primary before:size-[30rem] before:rounded-full before:opacity-50 before:end-[calc(50%-740px)] before:translate-x-1/2 before:top-0 before:blur-[100px] before:opacity-[0.25]" >
             <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--primary-soft),var(--color-background))] opacity-40" />
 
             <SectionContainer className="relative grid grid-cols-2">
@@ -39,18 +40,20 @@ export default function HeroSection() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-start gap-4 pt-4">
-                        <PrimaryButton href="/pricing" className="w-full sm:w-auto px-10 py-4 text-lg">
-                            View Pricing
-                        </PrimaryButton>
-                        <Link
-                            href="/portfolio"
-                            className="text-foreground font-semibold hover:text-primary transition-colors flex items-center gap-2"
+                        <PremiumButton asChild className="w-full sm:w-auto">
+                            <Link href="/pricing">
+                                View Pricing
+                            </Link>
+                        </PremiumButton>
+                        <PremiumButton
+                            asChild
+                            variant="outline"
+                            className="w-full sm:w-auto"
                         >
-                            See our work
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="9 5l7 7-7 7" />
-                            </svg>
-                        </Link>
+                            <Link href="/portfolio">
+                                See our work
+                            </Link>
+                        </PremiumButton>
                     </div>
                 </div>
 
@@ -59,13 +62,13 @@ export default function HeroSection() {
                     <div className="absolute top-0 left-0 z-10 p-4 bg-primary text-white backdrop-blur-sm">
                         Trusted by 800+ Tech Giants.
                     </div>
-                    <div className="clip-duck-sharp-15px w-[550px] h-[550px] ms-auto bg-white shadow-2xl border border-border overflow-hidden">
+                    <div className="w-[550px] h-[550px] ms-auto bg-white shadow-2xl border border-border overflow-hidden">
                         <div className="w-full h-full aspect-square bg-linear-to-br from-secondary to-white flex items-center justify-center font-medium text-muted-foreground">
                             <img src="/images/hero/hero-img.jpeg" alt="" />
                         </div>
                     </div>
 
-                    <div className="absolute bottom-[-105px] right-[-40px]">
+                    {/* <div className="absolute bottom-[-105px] right-[-40px]">
                         <Card className="w-fit p-6 rounded-sm bg-secondary">
                             <AvatarGroup className="">
                                 <Avatar size="lg">
@@ -105,7 +108,7 @@ export default function HeroSection() {
                             </div>
                             <p>Based on 600+ Google Reviews.</p>
                         </Card>
-                    </div>
+                    </div> */}
                 </div>
             </SectionContainer>
         </div>

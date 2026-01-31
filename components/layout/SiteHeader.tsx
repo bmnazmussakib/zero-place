@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { navItems } from "@/lib/constants";
 import Logo from "@/components/shared/Logo";
-import PrimaryButton from "@/components/shared/PrimaryButton";
+import PremiumButton from "@/components/shared/PremiumButton";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -43,9 +43,11 @@ export default function SiteHeader() {
                 </nav>
 
                 <div className="flex items-center gap-4">
-                    <PrimaryButton href="/book-a-call" className="hidden sm:inline-flex">
-                        Book a Call
-                    </PrimaryButton>
+                    <PremiumButton asChild className="hidden sm:inline-flex">
+                        <Link href="/book-a-call">
+                            Book a Call
+                        </Link>
+                    </PremiumButton>
                     {/* Mobile Nav would go here if using Sheet */}
                 </div>
             </div>

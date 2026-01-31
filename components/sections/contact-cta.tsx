@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import PremiumButton from "../shared/PremiumButton";
 
 export function ContactCTA() {
     return (
@@ -18,23 +18,27 @@ export function ContactCTA() {
                         <p className="text-footer-text text-lg lg:text-xl max-w-2xl">
                             Join 2,500+ businesses that already trust ZeroPlace for their premium design needs.
                         </p>
-                        <div className="flex flex-wrap items-center justify-center gap-4 mt-4">
-                            <Button size="lg" className="rounded-full px-8 h-14 text-lg" asChild>
+                        <div className="flex flex-wrap items-center justify-center gap-6 mt-4">
+                            <PremiumButton asChild>
                                 <Link href="/contact">
-                                    Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
+                                    Start Your Project
                                 </Link>
-                            </Button>
-                            <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-lg text-white border-white/20 hover:bg-white/5">
+                            </PremiumButton>
+                            <PremiumButton
+                                variant="outline"
+                                className="text-white border-white/20"
+                                asChild
+                            >
                                 <Link href="/about">
                                     Learn Our Process
                                 </Link>
-                            </Button>
+                            </PremiumButton>
                         </div>
                     </div>
 
                     {/* Decorative background elements */}
-                    <div className="absolute top-0 right-0 -z-0 w-96 h-96 bg-primary/20 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2" />
-                    <div className="absolute bottom-0 left-0 -z-0 w-64 h-64 bg-primary/10 blur-[80px] rounded-full -translate-x-1/2 translate-y-1/2" />
+                    <div className="absolute top-0 right-0 z-0 w-96 h-96 bg-primary/20 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2" />
+                    <div className="absolute bottom-0 left-0 z-0 w-64 h-64 bg-primary/10 blur-[80px] rounded-full -translate-x-1/2 translate-y-1/2" />
                 </div>
             </div>
         </section>

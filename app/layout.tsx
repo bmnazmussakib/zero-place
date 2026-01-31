@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Inter, Funnel_Display } from "next/font/google";
 import "./globals.css";
+import 'swiper/css';
 
 const inter = Inter({
-  variable: "--font-inter",
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+
+const funnelDisplay = Funnel_Display({
+  variable: "--font-heading",
   subsets: ["latin"],
+  display: 'swap',
 });
+
+
 
 export const metadata: Metadata = {
   title: "Purple Design Agency | Unlimited Graphic Design",
@@ -23,12 +28,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${funnelDisplay.variable}`}>
       <body
-        className={`${inter.variable} ${manrope.variable} antialiased`}
+        className="antialiased"
       >
         {children}
       </body>
     </html>
+
   );
 }

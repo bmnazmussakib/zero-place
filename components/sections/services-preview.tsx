@@ -1,96 +1,103 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import {
-    Palette,
-    Smartphone,
-    Globe,
-    ExternalLink,
-    Zap,
-    Layout
-} from "lucide-react";
+"use client";
 
-const services = [
-    {
-        title: "Graphics Design",
-        description: "Visual identities that resonate and leave a lasting impression.",
-        icon: Palette,
-        color: "bg-blue-500/10 text-blue-500",
-    },
-    {
-        title: "App Design",
-        description: "Seamless and intuitive mobile experiences your users will love.",
-        icon: Smartphone,
-        color: "bg-purple-500/10 text-purple-500",
-    },
-    {
-        title: "Web Design",
-        description: "Stunning, high-performance websites built for conversions.",
-        icon: Globe,
-        color: "bg-emerald-500/10 text-emerald-500",
-    },
-    {
-        title: "Brand Identity",
-        description: "Complete branding solutions from logos to typefaces.",
-        icon: Zap,
-        color: "bg-orange-500/10 text-orange-500",
-    },
-    {
-        title: "UI/UX Audit",
-        description: "Deep dive into your product to find and fix friction points.",
-        icon: Layout,
-        color: "bg-pink-500/10 text-pink-500",
-    }
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, FreeMode } from 'swiper/modules';
+import SectionContainer from '../shared/SectionContainer';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/free-mode';
+
+const serviceImages = [
+    "/images/services/service-card-2.jpg",
+    "/images/services/service-card-5.jpg",
+    "/images/services/service-card-6.jpg",
+    "/images/services/service-card-7.jpg",
+    "/images/services/service-card-12.jpg",
+    "/images/services/service-card-2.jpg",
+    "/images/services/service-card-5.jpg",
+    "/images/services/service-card-6.jpg",
 ];
 
 export function ServicesPreview() {
     return (
-        <section className="py-24 bg-section/50">
-            <div className="container">
-                <div className="text-center max-w-2xl mx-auto mb-16">
-                    <Badge variant="outline" className="mb-4 border-primary/20 text-primary">
-                        Our Services
-                    </Badge>
-                    <h2 className="text-3xl font-bold lg:text-4xl mb-4">
-                        Custom Design Solutions for <span className="text-primary">Every Need</span>
-                    </h2>
-                    <p className="text-text-muted">
-                        We offer a wide range of specialized design services to help you scale your business faster.
+        <section className="py-20 overflow-hidden">
+            <SectionContainer className="py-0 mb-12">
+                <div className="text-center">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
+                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                        Explore our wide range of professional services tailored to help your brand grow and succeed in the digital landscape.
                     </p>
                 </div>
+            </SectionContainer>
 
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {services.map((service, index) => (
-                        <Card key={index} className="group border-none shadow-sm hover:shadow-brand transition-all duration-300">
-                            <CardContent className="p-8">
-                                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 ${service.color}`}>
-                                    <service.icon className="w-6 h-6" />
+            <div className="services-marquee-wrapper relative w-full">
+                {/* Gradient Masks */}
+                <div className="absolute inset-y-0 left-0 w-24 bg-linear-to-r from-background to-transparent z-10 pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 w-24 bg-linear-to-l from-background to-transparent z-10 pointer-events-none" />
+
+                <Swiper
+                    modules={[Autoplay, FreeMode]}
+                    loop={true}
+                    slidesPerView={1.2}
+                    spaceBetween={20}
+                    speed={8000}
+                    autoplay={{
+                        delay: 0,
+                        disableOnInteraction: false,
+                    }}
+                    freeMode={true}
+                    allowTouchMove={true}
+                    breakpoints={{
+                        480: {
+                            slidesPerView: 2.2,
+                            spaceBetween: 10,
+                        },
+                        768: {
+                            slidesPerView: 3.2,
+                            spaceBetween: 10,
+                        },
+                        1024: {
+                            slidesPerView: 3.2,
+                            spaceBetween: 20,
+                        },
+                        1440: {
+                            slidesPerView: 4.2,
+                            spaceBetween: 20,
+                        },
+                        1920: {
+                            slidesPerView: 4.2,
+                            spaceBetween: 20,
+                        },
+                    }}
+                    className="services-swiper marquee-linear px-4"
+                >
+                    {serviceImages.map((src, index) => (
+                        <SwiperSlide key={index}>
+                            <div className="group relative aspect-3/4 overflow-hidden rounded-2xl bg-muted transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
+                                <img
+                                    src={src}
+                                    alt={`Service ${index + 1}`}
+                                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100 flex flex-col justify-end p-6">
+                                    <span className="text-primary-soft text-sm font-semibold mb-2 opacity-0 -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                                        Professional
+                                    </span>
+                                    <p className="text-white font-heading font-bold text-xl leading-tight">
+                                        Creative {index % 2 === 0 ? "Design" : "Strategy"}
+                                    </p>
+
+                                    <div className="mt-4 h-1 w-0 bg-primary transition-all duration-500 group-hover:w-full" />
                                 </div>
-                                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                                    {service.title}
-                                </h3>
-                                <p className="text-text-body text-sm leading-relaxed mb-6">
-                                    {service.description}
-                                </p>
-                                <div className="flex items-center text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                                    Learn more <ExternalLink className="ml-2 w-4 h-4" />
-                                </div>
-                            </CardContent>
-                        </Card>
+                            </div>
+                        </SwiperSlide>
                     ))}
-
-                    <Card className="flex items-center justify-center p-8 bg-primary text-white border-none shadow-brand">
-                        <div className="text-center">
-                            <h3 className="text-2xl font-bold mb-4">Need something else?</h3>
-                            <p className="text-primary-foreground/80 mb-6 text-sm">
-                                We're always open to custom projects and unique challenges.
-                            </p>
-                            <button className="bg-white text-primary px-6 py-2 rounded-full font-bold hover:bg-opacity-90 transition-all">
-                                Let's Talk
-                            </button>
-                        </div>
-                    </Card>
-                </div>
+                </Swiper>
             </div>
         </section>
     );
 }
+
+

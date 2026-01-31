@@ -1,13 +1,34 @@
+import Link from "next/link";
 import HeroSection from "@/components/sections/HeroSection";
 import SectionContainer from "@/components/shared/SectionContainer";
 import { pricingTiers } from "@/lib/constants";
 import PricingCard from "@/components/cards/PricingCard";
-import PrimaryButton from "@/components/shared/PrimaryButton";
+import PremiumButton from "@/components/shared/PremiumButton";
+import OurBrands from "@/components/sections/OurBrands";
+import { ServicesPreview } from "@/components/sections/services-preview";
+import { OurWorks } from "@/components/sections/OurWorks";
+import WorkStep from "@/components/sections/WorkStep";
+import FAQ from "@/components/sections/FAQ";
+import Testimonial from "@/components/sections/Testimonial";
 
 export default function HomePage() {
     return (
         <>
             <HeroSection />
+
+            {/* Brand Section */}
+            <OurBrands />
+
+            <ServicesPreview />
+
+            <OurWorks />
+
+            <WorkStep />
+
+            <FAQ />
+
+            <Testimonial />
+
 
             <SectionContainer id="pricing" className="bg-[var(--section)] hidden">
                 <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
@@ -31,9 +52,11 @@ export default function HomePage() {
                     <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto">
                         Book a call with us today and let's discuss how we can help you grow.
                     </p>
-                    <PrimaryButton href="/book-a-call" className="bg-white text-[var(--primary)] hover:bg-gray-100">
-                        Book a Free 15-min Call
-                    </PrimaryButton>
+                    <PremiumButton asChild className="bg-white text-primary border-transparent">
+                        <Link href="/book-a-call">
+                            Book a Free 15-min Call
+                        </Link>
+                    </PremiumButton>
                 </div>
             </SectionContainer>
         </>

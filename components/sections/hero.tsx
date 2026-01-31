@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MoveRight, Play } from "lucide-react";
 import Image from "next/image";
+import PremiumButton from "../shared/PremiumButton";
 
 export function Hero() {
     return (
@@ -19,16 +19,16 @@ export function Hero() {
                             We create premium digital experiences that help your business scale
                             and stand out in a crowded market.
                         </p>
-                        <div className="flex flex-wrap gap-4">
-                            <Button size="lg" className="rounded-full px-8 gap-2">
-                                All Services <MoveRight className="w-4 h-4" />
-                            </Button>
-                            <Button size="lg" variant="outline" className="rounded-full px-8 gap-2">
-                                <div className="bg-primary/10 p-1.5 rounded-full">
-                                    <Play className="w-4 h-4 fill-primary text-primary" />
-                                </div>
+                        <div className="flex flex-wrap gap-6">
+                            <PremiumButton>
+                                All Services
+                            </PremiumButton>
+                            <PremiumButton
+                                variant="outline"
+                                icon={<Play className="w-5 h-5 fill-current" />}
+                            >
                                 How it works
-                            </Button>
+                            </PremiumButton>
                         </div>
                         <div className="flex items-center gap-4 mt-8">
                             <div className="flex -space-x-3">
@@ -44,7 +44,7 @@ export function Hero() {
                         </div>
                     </div>
                     <div className="relative aspect-square lg:aspect-video rounded-3xl overflow-hidden shadow-brand bg-card border border-border-subtle">
-                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-linear-to-tr from-primary/10 via-transparent to-transparent" />
                         <img
                             src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1000&auto=format&fit=crop"
                             className="w-full h-full object-cover"

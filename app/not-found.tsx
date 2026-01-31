@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SectionContainer from "@/components/shared/SectionContainer";
-import PrimaryButton from "@/components/shared/PrimaryButton";
+import PremiumButton from "@/components/shared/PremiumButton";
 
 export default function NotFound() {
   return (
@@ -9,11 +9,13 @@ export default function NotFound() {
       <div className="space-y-6 relative">
         <h2 className="text-4xl font-bold">Page not found</h2>
         <p className="text-[var(--text-body)] max-w-md mx-auto">
-          The page you're looking for doesn't exist or has been moved. 
+          The page you're looking for doesn't exist or has been moved.
           Let's get you back on track.
         </p>
         <div className="pt-4">
-          <PrimaryButton href="/">Go back home</PrimaryButton>
+          <PremiumButton asChild>
+            <Link href="/">Go back home</Link>
+          </PremiumButton>
         </div>
       </div>
     </SectionContainer>

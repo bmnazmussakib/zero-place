@@ -1,5 +1,6 @@
 import SectionContainer from "@/components/shared/SectionContainer";
-import PrimaryButton from "@/components/shared/PrimaryButton";
+import PremiumButton from "@/components/shared/PremiumButton";
+import Link from "next/link";
 
 export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
   return (
@@ -9,12 +10,14 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           {params.slug.replace(/-/g, ' ')}
         </h1>
         <p className="text-2xl text-[var(--text-body)] leading-relaxed">
-          The best {params.slug.replace(/-/g, ' ')} for growth-focused agencies and startups. 
+          The best {params.slug.replace(/-/g, ' ')} for growth-focused agencies and startups.
           Expect nothing but excellence.
         </p>
-        <PrimaryButton href="/book-a-call" className="px-10 py-4 text-lg">
-          Get Started with this Service
-        </PrimaryButton>
+        <PremiumButton asChild>
+          <Link href="/book-a-call">
+            Get Started with this Service
+          </Link>
+        </PremiumButton>
       </div>
     </SectionContainer>
   );
