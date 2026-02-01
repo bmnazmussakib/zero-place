@@ -3,11 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
 const formSchema = z.object({
     name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -44,9 +40,9 @@ export default function ContactPage() {
                     {/* Contact Info */}
                     <div className="flex flex-col gap-8">
                         <div>
-                            <Badge variant="outline" className="mb-4 border-primary/20 text-primary uppercase tracking-widest px-4 py-1">
+                            <div className="badge badge-outline mb-4 border-primary/20 text-primary uppercase tracking-widest px-4 py-1">
                                 Get in Touch
-                            </Badge>
+                            </div>
                             <h1 className="text-4xl font-bold lg:text-6xl mb-6">
                                 Let's Start a <span className="text-primary italic">Conversation</span>
                             </h1>
@@ -81,13 +77,13 @@ export default function ContactPage() {
                             <div className="grid gap-6 md:grid-cols-2">
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium">Full Name</label>
-                                    <Input placeholder="John Doe" {...register("name")} className="h-12" />
-                                    {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
+                                    <input placeholder="John Doe" {...register("name")} className="input input-bordered h-12 w-full" />
+                                    {errors.name && <p className="text-sm text-error">{errors.name.message}</p>}
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium">Email Address</label>
-                                    <Input placeholder="john@example.com" {...register("email")} className="h-12" />
-                                    {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+                                    <input placeholder="john@example.com" {...register("email")} className="input input-bordered h-12 w-full" />
+                                    {errors.email && <p className="text-sm text-error">{errors.email.message}</p>}
                                 </div>
                             </div>
 
@@ -95,7 +91,7 @@ export default function ContactPage() {
                                 <label className="text-sm font-medium">Service Interested In</label>
                                 <select
                                     {...register("service")}
-                                    className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                    className="select select-bordered h-12 w-full"
                                 >
                                     <option value="">Select a service</option>
                                     <option value="graphics">Graphics Design</option>
@@ -109,17 +105,17 @@ export default function ContactPage() {
 
                             <div className="space-y-2">
                                 <label className="text-sm font-medium">Tell us about your project</label>
-                                <Textarea
+                                <textarea
                                     placeholder="What's on your mind?..."
-                                    className="min-h-[150px] py-4"
+                                    className="textarea textarea-bordered min-h-[150px] py-4 w-full"
                                     {...register("message")}
                                 />
-                                {errors.message && <p className="text-sm text-destructive">{errors.message.message}</p>}
+                                {errors.message && <p className="text-sm text-error">{errors.message.message}</p>}
                             </div>
 
-                            <Button type="submit" className="w-full h-14 text-lg font-bold rounded-2xl gap-2">
+                            <button type="submit" className="btn btn-primary w-full h-14 text-lg font-bold rounded-2xl gap-2">
                                 Send Message
-                            </Button>
+                            </button>
                         </form>
                     </div>
                 </div>

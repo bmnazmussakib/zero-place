@@ -44,10 +44,8 @@ function OurBrands() {
                     </div>
 
                     <div className="">
-                        <PremiumButton asChild>
-                            <Link href="/pricing">
-                                Get Started
-                            </Link>
+                        <PremiumButton href="/pricing">
+                            Get Started
                         </PremiumButton>
                     </div>
                 </div>

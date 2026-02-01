@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import PremiumButton from "../shared/PremiumButton";
@@ -9,9 +8,9 @@ export function ContactCTA() {
             <div className="container">
                 <div className="relative overflow-hidden rounded-[3rem] bg-footer-bg p-12 lg:p-24 text-center">
                     <div className="relative z-10 flex flex-col items-center gap-6">
-                        <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+                        <div className="badge badge-secondary bg-primary/10 text-primary border-primary/20">
                             Get Started
-                        </Badge>
+                        </div>
                         <h2 className="text-4xl font-bold text-white lg:text-6xl max-w-3xl">
                             Ready to create something <span className="text-primary italic font-serif">extraordinary?</span>
                         </h2>
@@ -19,19 +18,15 @@ export function ContactCTA() {
                             Join 2,500+ businesses that already trust ZeroPlace for their premium design needs.
                         </p>
                         <div className="flex flex-wrap items-center justify-center gap-6 mt-4">
-                            <PremiumButton asChild>
-                                <Link href="/contact">
-                                    Start Your Project
-                                </Link>
+                            <PremiumButton href="/contact">
+                                Start Your Project
                             </PremiumButton>
                             <PremiumButton
                                 variant="outline"
                                 className="text-white border-white/20"
-                                asChild
+                                href="/about"
                             >
-                                <Link href="/about">
-                                    Learn Our Process
-                                </Link>
+                                Learn Our Process
                             </PremiumButton>
                         </div>
                     </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import { Badge } from "@/components/ui/badge";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import PremiumButton from "../shared/PremiumButton";
@@ -78,21 +77,19 @@ export function OurWorks() {
             <SectionContainer className="py-0 mb-12">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div className="max-w-2xl">
-                        <Badge variant="outline" className="mb-4 border-primary/20 text-primary">
+                        <div className="badge badge-outline mb-4 border-primary/20 text-primary">
                             Portfolio
-                        </Badge>
+                        </div>
                         <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
                             Our <span className="text-primary">Creative</span> Masterpieces
                         </h2>
                     </div>
                     <PremiumButton
-                        asChild
+                        href="/works"
                         variant="outline"
                         className="text-primary border-primary/20 hover:border-primary"
                     >
-                        <Link href="/works">
-                            Explore Full Portfolio
-                        </Link>
+                        Explore Full Portfolio
                     </PremiumButton>
                 </div>
             </SectionContainer>

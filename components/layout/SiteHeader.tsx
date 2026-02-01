@@ -43,10 +43,8 @@ export default function SiteHeader() {
                 </nav>
 
                 <div className="flex items-center gap-4">
-                    <PremiumButton asChild className="hidden sm:inline-flex">
-                        <Link href="/book-a-call">
-                            Book a Call
-                        </Link>
+                    <PremiumButton href="/book-a-call" className="hidden sm:inline-flex">
+                        Book a Call
                     </PremiumButton>
                     {/* Mobile Nav would go here if using Sheet */}
                 </div>

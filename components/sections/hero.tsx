@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import { MoveRight, Play } from "lucide-react";
 import Image from "next/image";
 import PremiumButton from "../shared/PremiumButton";
@@ -9,9 +8,9 @@ export function Hero() {
             <div className="container relative z-10">
                 <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
                     <div className="flex flex-col items-start gap-6">
-                        <Badge variant="secondary" className="px-4 py-1.5 text-sm font-medium border-primary/20 bg-primary/5 text-primary">
+                        <div className="badge badge-secondary px-4 py-1.5 text-sm font-medium border-primary/20 bg-primary/5 text-primary">
                             The Best Design Agency
-                        </Badge>
+                        </div>
                         <h1 className="text-5xl font-extrabold tracking-tight lg:text-7xl">
                             Design <span className="text-primary">Without</span> Limits
                         </h1>

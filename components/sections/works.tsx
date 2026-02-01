@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import SectionContainer from "../shared/SectionContainer";
@@ -32,9 +31,9 @@ export function Works() {
                     <div className="container">
                         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
                             <div className="max-w-2xl">
-                                <Badge variant="outline" className="mb-4 border-primary/20 text-primary">
+                                <div className="badge badge-outline mb-4 border-primary/20 text-primary">
                                     Portfolio
-                                </Badge>
+                                </div>
                                 <h2 className="text-3xl font-bold lg:text-4xl">
                                     Our <span className="text-primary">Creative</span> Masterpieces
                                 </h2>
@@ -58,11 +57,11 @@ export function Works() {
                                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                         alt={work.title}
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <div className="absolute bottom-0 left-0 p-8 w-full translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                                        <Badge className="bg-primary/90 text-white border-none mb-3">
+                                        <div className="badge bg-primary/90 text-white border-none mb-3">
                                             {work.category}
-                                        </Badge>
+                                        </div>
                                         <h3 className="text-xl font-bold text-white mb-2">
                                             {work.title}
                                         </h3>
