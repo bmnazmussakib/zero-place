@@ -1,6 +1,8 @@
 export interface NavItem {
     title: string;
     href: string;
+    children?: NavItem[];
+    type?: 'dropdown' | 'megamenu' | 'link';
 }
 
 export interface PricingTier {

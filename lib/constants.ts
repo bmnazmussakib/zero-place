@@ -1,10 +1,42 @@
 import { NavItem, PricingTier, Service } from "@/types";
 
 export const navItems: NavItem[] = [
-    { title: "Services", href: "/services" },
+    {
+        title: "Solutions",
+        href: "#",
+        type: "megamenu",
+        children: [
+            {
+                title: "Design",
+                href: "#",
+                children: [
+                    { title: "Graphic Design", href: "/services/graphic-design" },
+                    { title: "Website Design", href: "/services/website-design" },
+                    { title: "Motion Graphics", href: "/services/motion-graphics" },
+                ]
+            },
+            {
+                title: "Development",
+                href: "#",
+                children: [
+                    { title: "Web Development", href: "/services/web-dev" },
+                    { title: "App Development", href: "/services/app-dev" },
+                ]
+            }
+        ]
+    },
+    {
+        title: "Resources",
+        href: "#",
+        type: "dropdown",
+        children: [
+            { title: "Blog", href: "/blog" },
+            { title: "Case Studies", href: "/case-studies" },
+            { title: "Documentation", href: "/docs" },
+        ]
+    },
     { title: "Portfolio", href: "/portfolio" },
     { title: "Pricing", href: "/pricing" },
-    { title: "Blog", href: "/blog" },
 ];
 
 export const pricingTiers: PricingTier[] = [

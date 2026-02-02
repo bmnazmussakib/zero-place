@@ -1,14 +1,28 @@
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-export default function Logo() {
+export default function Logo({
+    className,
+    variant = "color"
+}: {
+    className?: string;
+    variant?: "white" | "color";
+}) {
+    const isWhite = variant === "white";
+
     return (
-        <Link href="/" className="flex items-center gap-2 group">
-            {/* <div className="w-8 h-8 bg-[var(--primary)] rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
-                <span className="text-white font-black text-xl leading-none">P</span>
-            </div> */}
-            <img src="/images/logo.png" alt="" className="w-10" />
-            <span className="text-xl font-bold text-[var(--text-heading)] tracking-tight">
-                Zero<span className="text-[var(--primary)]">Place</span>
+        <Link href="/" className={cn("flex items-center gap-2 group", className)}>
+            <img
+                src={isWhite ? "/images/logo-white.png" : "/images/logo.png"}
+                alt="ZeroPlace"
+                className="w-8"
+            />
+            <span className={cn(
+                "text-2xl font-bold tracking-tight font-heading",
+                isWhite ? "text-white" : "text-text-heading"
+            )}>
+                Zero
+                <span className={isWhite ? "text-white" : "text-primary"}>place</span>
             </span>
         </Link>
     );

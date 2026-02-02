@@ -35,7 +35,7 @@ export default function SiteHeader() {
                         <Link
                             key={item.href}
                             href={item.href}
-                            className="text-sm font-medium text-[var(--text-body)] hover:text-[var(--primary)] transition-colors"
+                            className="text-base font-medium text-[var(--text-body)] hover:text-[var(--primary)] transition-colors"
                         >
                             {item.title}
                         </Link>

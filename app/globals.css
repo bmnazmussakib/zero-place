@@ -65,6 +65,9 @@
   --color-footer-text: var(--footer-text);
   --color-footer-border: var(--footer-border);
 
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-sans);
+
   --shadow-brand: 0 8px 30px rgba(108, 70, 253, 0.12);
   --radius-xl: 1.5rem;
   --radius-lg: 1rem;

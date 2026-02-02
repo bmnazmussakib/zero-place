@@ -86,13 +86,13 @@ export default function SiteFooter() {
                 </div>
             </div>
 
-            
+
 
             <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-8">
                     {/* Brand Column */}
                     <div className="lg:col-span-4 space-y-10">
-                        <Logo />
+                        <Logo variant="white" />
                         <p className="max-w-xs text-base leading-relaxed text-zinc-400">
                             Every great solution starts understanding the time into learn about. Unlimited design requests for modern brands.
                         </p>
@@ -121,7 +121,6 @@ export default function SiteFooter() {
                             {['Manage IT Service', 'Cloud Computing', 'Cyber Security', 'Software Develop', 'Change Manage', 'IT Consulting'].map((item) => (
                                 <li key={item}>
                                     <Link href="#" className="text-sm font-medium hover:text-primary transition-all duration-300 flex items-center gap-3 group">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-primary scale-0 group-hover:scale-100 transition-transform" />
                                         {item}
                                     </Link>
                                 </li>
@@ -142,7 +141,6 @@ export default function SiteFooter() {
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link href="#" className="text-sm font-medium hover:text-primary transition-all duration-300 flex items-center gap-3 group">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-primary scale-0 group-hover:scale-100 transition-transform" />
                                         {item.name}
                                         {item.badge && (
                                             <span className="text-[10px] font-black px-2 py-0.5 bg-primary text-white rounded-md ml-1 shadow-lg shadow-primary/20">
