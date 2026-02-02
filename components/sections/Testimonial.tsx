@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCards, Navigation } from 'swiper/modules';
 import { ChevronUp, ChevronDown, Quote } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import SectionBadge from '../shared/SectionBadge';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -50,16 +51,16 @@ export default function Testimonial() {
                     {/* Left Column: Info */}
                     <div className="w-full lg:w-1/2 space-y-10 text-center lg:text-left">
                         <div className="space-y-6">
-                            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-sm tracking-wide">
+                            <SectionBadge className="mb-6">
                                 Testimonials
-                            </span>
+                            </SectionBadge>
                             <h2 className="text-4xl md:text-6xl font-heading font-black text-foreground leading-[1.1] tracking-tight">
                                 Why Businesses <br /> Love Zero Place
                             </h2>
                         </div>
 
                         <div className="flex flex-col md:flex-row items-center gap-6 justify-center lg:justify-start">
-                            <div className="flex -space-x-3">
+                            {/* <div className="flex -space-x-3">
                                 {[1, 2, 3, 4].map((i) => (
                                     <div key={i} className="w-12 h-12 rounded-full border-4 border-background bg-zinc-200 overflow-hidden ring-1 ring-primary/10">
                                         <img
@@ -72,10 +73,32 @@ export default function Testimonial() {
                                 <div className="w-12 h-12 rounded-full border-4 border-background bg-primary flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-primary/20 ring-1 ring-primary/10">
                                     +
                                 </div>
+                            </div> */}
+                            <div className="avatar-group -space-x-3">
+                                <div className="avatar border-2 border-white">
+                                    <div className="w-12">
+                                        <img src="https://img.daisyui.com/images/profile/demo/batperson@192.webp" />
+                                    </div>
+                                </div>
+                                <div className="avatar border-2 border-white">
+                                    <div className="w-12">
+                                        <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
+                                    </div>
+                                </div>
+                                <div className="avatar border-3 border-white">
+                                    <div className="w-12">
+                                        <img src="https://img.daisyui.com/images/profile/demo/averagebulk@192.webp" />
+                                    </div>
+                                </div>
+                                <div className="avatar border-3 border-white">
+                                    <div className="w-12">
+                                        <img src="https://i.pravatar.cc/300" />
+                                    </div>
+                                </div>
                             </div>
                             <div className="text-sm md:text-base font-medium space-y-1">
                                 <p className="text-foreground font-black">669k+ Active</p>
-                                <p className="text-muted-foreground">users world-wide</p>
+                                <p className="text-muted-foreground">Users world-wide</p>
                             </div>
                         </div>
                     </div>

@@ -5,6 +5,7 @@ import SectionContainer from '../shared/SectionContainer';
 import { Plus, Minus, ArrowUpRight, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import PremiumButton from '../shared/PremiumButton';
+import SectionBadge from '../shared/SectionBadge';
 
 const FAQ_DATA = [
     {
@@ -39,9 +40,9 @@ export default function FAQ() {
                     {/* Left Column: Info & Contact */}
                     <div className="w-full lg:w-5/12 space-y-12">
                         <div className="space-y-6">
-                            <span className="inline-block text-primary font-bold tracking-wider uppercase text-xs px-4 py-1.5 bg-primary/5 border border-primary/10 rounded-full">
+                            <SectionBadge className="mb-6">
                                 Read FAQs
-                            </span>
+                            </SectionBadge>
                             <h2 className="text-4xl md:text-5xl font-heading font-bold leading-tight tracking-tight text-foreground">
                                 Quick Answers For Your Important Questions
                             </h2>

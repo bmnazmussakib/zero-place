@@ -1,5 +1,6 @@
 "use client"
 import PremiumButton from "@/components/shared/PremiumButton";
+import SectionBadge from "../shared/SectionBadge";
 import SectionContainer from "@/components/shared/SectionContainer";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
@@ -11,8 +12,33 @@ export default function HeroSection() {
 
             <SectionContainer className="relative grid grid-cols-2">
                 <div className="text-left space-y-8">
-                    <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-accent text-primary text-sm font-semibold tracking-wide uppercase">
+                    <SectionBadge>
                         Unlimited Design Subscription
+                    </SectionBadge>
+                    <div className="flex items-center gap-2">
+                        <div className="avatar-group -space-x-3">
+                            <div className="avatar border-2 border-white">
+                                <div className="w-6">
+                                    <img src="https://img.daisyui.com/images/profile/demo/batperson@192.webp" />
+                                </div>
+                            </div>
+                            <div className="avatar border-2 border-white">
+                                <div className="w-6">
+                                    <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
+                                </div>
+                            </div>
+                            <div className="avatar border-3 border-white">
+                                <div className="w-6">
+                                    <img src="https://img.daisyui.com/images/profile/demo/averagebulk@192.webp" />
+                                </div>
+                            </div>
+                            <div className="avatar border-3 border-white">
+                                <div className="w-6">
+                                    <img src="https://i.pravatar.cc/300" />
+                                </div>
+                            </div>
+                        </div>
+                        <p>150+ Happy Clients</p>
                     </div>
 
                     <h1 className="text-5xl sm:text-7xl font-extrabold text-text-heading leading-[1.1] tracking-tight">
@@ -36,6 +62,7 @@ export default function HeroSection() {
                             />
                         </span>
                     </h1>
+
                     <p className="text-xl text-text-muted">
                         Premium quality, fast delivery, and scalable solutions tailored to your business goals.
                     </p>

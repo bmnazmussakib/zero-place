@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../zero-place-ts"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../types"
+		}
+	],
+	"settings": {}
+}

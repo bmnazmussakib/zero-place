@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import PremiumButton from "../shared/PremiumButton";
+import SectionBadge from "../shared/SectionBadge";
 
 export function ContactCTA() {
     return (
@@ -8,9 +9,9 @@ export function ContactCTA() {
             <div className="container">
                 <div className="relative overflow-hidden rounded-[3rem] bg-footer-bg p-12 lg:p-24 text-center">
                     <div className="relative z-10 flex flex-col items-center gap-6">
-                        <div className="badge badge-secondary bg-primary/10 text-primary border-primary/20">
+                        <SectionBadge>
                             Get Started
-                        </div>
+                        </SectionBadge>
                         <h2 className="text-4xl font-bold text-white lg:text-6xl max-w-3xl">
                             Ready to create something <span className="text-primary italic font-serif">extraordinary?</span>
                         </h2>

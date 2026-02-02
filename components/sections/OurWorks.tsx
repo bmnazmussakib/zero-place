@@ -4,6 +4,7 @@ import React from 'react';
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import PremiumButton from "../shared/PremiumButton";
+import SectionBadge from '../shared/SectionBadge';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules';
 import SectionContainer from '../shared/SectionContainer';
@@ -55,7 +56,6 @@ const works = [
     }
 ];
 
-
 export function OurWorks() {
     const swiperConfig = {
         modules: [Autoplay, FreeMode],
@@ -74,36 +74,33 @@ export function OurWorks() {
 
     return (
         <section className="py-20 overflow-hidden">
-            <SectionContainer className="py-0 mb-12">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                    <div className="max-w-2xl">
-                        <div className="badge badge-outline mb-4 border-primary/20 text-primary">
-                            Portfolio
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                            Our <span className="text-primary">Creative</span> Masterpieces
-                        </h2>
-                    </div>
-                    <PremiumButton
-                        href="/works"
-                        variant="outline"
-                        className="text-primary border-primary/20 hover:border-primary"
-                    >
-                        Explore Full Portfolio
-                    </PremiumButton>
+            {/* Header - centered */}
+            <SectionContainer className="mb-12 md:mb-16">
+                <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+                    <SectionBadge className="mb-4">
+                        Portfolio
+                    </SectionBadge>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+                        Our <span className="text-primary">Creative</span> Masterpieces
+                    </h2>
+                    {/* Optional subtitle if you want more context */}
+                    {/* <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
+                        Explore some of our favorite projects across branding, UI/UX, development and more.
+                    </p> */}
                 </div>
             </SectionContainer>
 
-            <div className="flex flex-col gap-6 w-full relative">
+            {/* Sliders */}
+            <div className="relative w-full">
                 {/* Gradient Masks */}
-                <div className="absolute inset-y-0 left-0 w-24 bg-linear-to-r from-background to-transparent z-10 pointer-events-none" />
-                <div className="absolute inset-y-0 right-0 w-24 bg-linear-to-l from-background to-transparent z-10 pointer-events-none" />
+                <div className="absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-                {/* Top Slider - Moving Left */}
+                {/* Top row - moving left */}
                 <Swiper
                     {...swiperConfig}
                     autoplay={{ delay: 0, disableOnInteraction: false }}
-                    className="services-swiper marquee-linear w-full px-4"
+                    className="services-swiper marquee-linear w-full px-4 md:px-6 mb-6 md:mb-8"
                 >
                     {works.map((work, index) => (
                         <SwiperSlide key={index}>
@@ -112,11 +109,11 @@ export function OurWorks() {
                     ))}
                 </Swiper>
 
-                {/* Bottom Slider - Moving Right */}
+                {/* Bottom row - moving right */}
                 <Swiper
                     {...swiperConfig}
                     autoplay={{ delay: 0, disableOnInteraction: false, reverseDirection: true }}
-                    className="services-swiper marquee-linear w-full px-4"
+                    className="services-swiper marquee-linear w-full px-4 md:px-6"
                 >
                     {[...works].reverse().map((work, index) => (
                         <SwiperSlide key={index}>
@@ -124,6 +121,17 @@ export function OurWorks() {
                         </SwiperSlide>
                     ))}
                 </Swiper>
+            </div>
+
+            {/* Call-to-action button - centered, below sliders */}
+            <div className="mt-12 md:mt-16 flex justify-center">
+                <PremiumButton
+                    href="/works"
+                    variant="outline"
+                    className="text-primary border-primary/30 hover:border-primary hover:bg-primary/5 min-w-[240px]"
+                >
+                    Explore Full Portfolio
+                </PremiumButton>
             </div>
         </section>
     );
@@ -137,11 +145,11 @@ function WorkCard({ work, index }: { work: any; index: number }) {
                 alt={work.title}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100 flex flex-col justify-end p-6 text-left">
-                <span className="text-primary-soft text-xs font-semibold mb-2 opacity-0 -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 px-2 py-0.5 border border-primary-soft/30 bg-white rounded-full w-fit">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100 flex flex-col justify-end p-5 md:p-6 text-left">
+                <span className="text-primary-soft text-xs font-semibold mb-2 opacity-0 -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 px-2.5 py-1 border border-primary-soft/30 bg-white/90 rounded-full w-fit">
                     {work.category}
                 </span>
-                <p className="text-white font-heading font-bold text-lg leading-tight">
+                <p className="text-white font-heading font-bold text-base md:text-lg leading-tight">
                     {work.title}
                 </p>
 
@@ -150,4 +158,3 @@ function WorkCard({ work, index }: { work: any; index: number }) {
         </div>
     );
 }
-

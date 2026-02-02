@@ -20,6 +20,7 @@ import {
     Play
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ScrollToTop } from '../shared/ScrollToTop';
 
 export default function SiteFooter() {
     const [scrolled, setScrolled] = useState(false);
@@ -51,11 +52,11 @@ export default function SiteFooter() {
                         </div>
 
                         <div className="w-full lg:w-5/12 space-y-8 relative z-10">
-                            <form className="relative flex flex-col sm:flex-row items-center gap-2 p-1.5 sm:bg-black sm:rounded-full border border-white/10 group focus-within:border-white/40 transition-all duration-300">
+                            <form className="relative flex flex-col sm:flex-row items-center gap-2 p-1.5 sm:bg-slate-50 sm:rounded-full border border-white/10 group focus-within:border-white/40 transition-all duration-300">
                                 <input
                                     type="email"
                                     placeholder="Enter email here..."
-                                    className="w-full sm:flex-1 bg-black sm:bg-transparent px-8 py-4 sm:py-3 rounded-full sm:rounded-none text-white placeholder:text-zinc-500 outline-none border border-white/10 sm:border-none"
+                                    className="w-full sm:flex-1 bg-slate-50 sm:bg-transparent px-8 py-4 sm:py-3 rounded-full sm:rounded-none text-white placeholder:text-zinc-500 outline-none border border-white/10 sm:border-none"
                                     required
                                 />
                                 <PremiumButton
@@ -84,6 +85,8 @@ export default function SiteFooter() {
                     </div>
                 </div>
             </div>
+
+            
 
             <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-8">
@@ -199,7 +202,7 @@ export default function SiteFooter() {
                     </div>
 
                     {/* Scroll to Top */}
-                    <div
+                    {/* <div
                         className={cn(
                             "fixed bottom-10 right-10 z-50 flex flex-col items-center gap-3 transition-all duration-700 transform",
                             scrolled ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20 pointer-events-none"
@@ -214,7 +217,8 @@ export default function SiteFooter() {
                         >
                             <ArrowUp className="w-6 h-6 group-hover:-translate-y-1.5 transition-transform" strokeWidth={3} />
                         </button>
-                    </div>
+                    </div> */}
+                    <ScrollToTop />
                 </div>
             </div>
 

@@ -13,6 +13,7 @@ import {
     Zap
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import SectionBadge from '../shared/SectionBadge';
 import PremiumButton from '../shared/PremiumButton';
 
 const STEPS = [
@@ -72,9 +73,9 @@ export default function WorkStep() {
             <div className="flex flex-col lg:flex-row gap-16 items-start relative">
                 {/* Sticky Sidebar Header */}
                 <div className="lg:sticky lg:top-32 w-full lg:w-1/3 space-y-6 self-start">
-                    <div className="badge badge-outline border-primary/20 text-primary px-4 py-3 text-xs font-bold uppercase tracking-widest">
+                    <SectionBadge>
                         Our Process
-                    </div>
+                    </SectionBadge>
                     <h2 className="text-5xl md:text-6xl font-heading font-extrabold tracking-tight leading-[1.1]">
                         How it <span className="text-primary italic">Works</span>
                     </h2>
