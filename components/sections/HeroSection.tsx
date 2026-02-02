@@ -82,13 +82,26 @@ export default function HeroSection() {
                 </div>
 
                 {/* Hero Image / Mockup Placeholder */}
-                <div className="mt-20 relative">
-                    <div className="absolute top-0 left-0 z-10 p-4 bg-primary text-white backdrop-blur-sm">
-                        Trusted by 800+ Tech Giants.
+                <div className="mt-20 relative group animate-float">
+                    <div className="absolute -top-6 -left-12 z-10 px-6 py-4 bg-white/90 backdrop-blur-md border border-primary/20 rounded-2xl shadow-2xl animate-float flex items-center gap-3">
+                        <div className="flex -space-x-2">
+                            {[1, 2, 3].map((i) => (
+                                <div key={i} className="size-8 rounded-full border-2 border-white overflow-hidden bg-section">
+                                    <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="" />
+                                </div>
+                            ))}
+                        </div>
+                        <div className="flex flex-col">
+                            <span className="text-xs font-bold text-text-heading leading-tight italic">Trusted by</span>
+                            <span className="text-sm font-black text-primary leading-tight">800+ Tech Giants</span>
+                        </div>
                     </div>
-                    <div className="w-[550px] h-[550px] ms-auto bg-white shadow-2xl border border-border-subtle overflow-hidden">
-                        <div className="w-full h-full aspect-square bg-linear-to-br from-section to-white flex items-center justify-center font-medium text-text-muted">
-                            <img src="/images/hero/hero-img.jpeg" alt="Hero Showcase" className="w-full h-full object-cover" />
+                    <div className="w-full lg:w-[550px] aspect-square ms-auto relative">
+                        <div className="absolute inset-0 bg-primary/5 rounded-[3rem] -rotate-3 transition-transform group-hover:rotate-0 duration-500" />
+                        <div className="relative w-full h-full bg-white shadow-3xl rounded-[3rem] border border-border-subtle overflow-hidden">
+                            <div className="w-full h-full bg-linear-to-br from-section to-white flex items-center justify-center">
+                                <img src="/images/hero/hero-img.jpeg" alt="Hero Showcase" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                            </div>
                         </div>
                     </div>
                 </div>
