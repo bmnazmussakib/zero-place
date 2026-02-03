@@ -12,6 +12,7 @@
     "@emotion/styled": "^11.14.1",
     "@hookform/resolvers": "^5.2.2",
     "@mui/material": "^7.3.7",
+    "@radix-ui/react-slot": "^1.2.4",
     "clsx": "^2.1.1",
     "daisyui": "^5.5.16",
     "date-fns": "^4.1.0",
