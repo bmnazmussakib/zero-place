@@ -1,29 +1,65 @@
 "use client";
 
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, FreeMode } from 'swiper/modules';
 import SectionContainer from '../shared/SectionContainer';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/free-mode';
+import * as Icons from "lucide-react";
 
 const serviceImages = [
-    "/images/services/service-card-2.jpg",
-    "/images/services/service-card-5.jpg",
-    "/images/services/service-card-6.jpg",
-    "/images/services/service-card-7.jpg",
-    "/images/services/service-card-12.jpg",
-    "/images/services/service-card-2.jpg",
-    "/images/services/service-card-5.jpg",
-    "/images/services/service-card-6.jpg",
+    {
+        id: 1,
+        title: "UI/UX Design",
+        description:
+            "We make user interfaces that actually make sense. Real people, real needs, no frustrating experiences.",
+        image: "/images/services/service-card-2.jpg",
+        icon: "LayoutDashboard"
+    },
+    {
+        id: 2,
+        title: "Website Design",
+        description:
+            "Websites that don't just look good but actually do something for your business. More clicks, more stays, more customers.",
+        image: "/images/services/service-card-5.jpg",
+        icon: "Globe"
+    },
+    {
+        id: 3,
+        title: "Product Design",
+        description:
+            "Software shouldn't give people headaches. We simplify the complex stuff so your customers stick around instead of giving up.",
+        image: "/images/services/service-card-6.jpg",
+        icon: "Package"
+    },
+    {
+        id: 4,
+        title: "Mobile App Design",
+        description:
+            "Apps people actually want to use. Clean, smart designs that work how people expect them to work.",
+        image: "/images/services/service-card-7.jpg",
+        icon: "Smartphone"
+    },
+    {
+        id: 5,
+        title: "Branding",
+        description:
+            "Your brand should say something worth hearing. We help you find your voice and make it stick.",
+        image: "/images/services/service-card-12.jpg",
+        icon: "Brush"
+    },
+    {
+        id: 6,
+        title: "Website Development",
+        description:
+            "Websites that won't break when you need them most. Fast, reliable, and ready to grow when you do.",
+        image: "/images/services/service-card-2.jpg",
+        icon: "Code"
+    }
 ];
+
 
 export function ServicesPreview() {
     return (
-        <section className="py-20 overflow-hidden">
-            <SectionContainer className="py-0 mb-12">
+        <section className="overflow-hidden bg-gray-50 py-16">
+            <SectionContainer className="mb-16">
                 <div className="text-center">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -32,70 +68,24 @@ export function ServicesPreview() {
                 </div>
             </SectionContainer>
 
-            <div className="services-marquee-wrapper relative w-full">
-                {/* Gradient Masks */}
-                <div className="absolute inset-y-0 left-0 w-24 bg-linear-to-r from-background to-transparent z-10 pointer-events-none" />
-                <div className="absolute inset-y-0 right-0 w-24 bg-linear-to-l from-background to-transparent z-10 pointer-events-none" />
 
-                <Swiper
-                    modules={[Autoplay, FreeMode]}
-                    loop={true}
-                    slidesPerView={1.2}
-                    spaceBetween={20}
-                    speed={8000}
-                    autoplay={{
-                        delay: 0,
-                        disableOnInteraction: false,
-                    }}
-                    freeMode={true}
-                    allowTouchMove={true}
-                    breakpoints={{
-                        480: {
-                            slidesPerView: 2.2,
-                            spaceBetween: 10,
-                        },
-                        768: {
-                            slidesPerView: 3.2,
-                            spaceBetween: 10,
-                        },
-                        1024: {
-                            slidesPerView: 3.2,
-                            spaceBetween: 20,
-                        },
-                        1440: {
-                            slidesPerView: 4.2,
-                            spaceBetween: 20,
-                        },
-                        1920: {
-                            slidesPerView: 4.2,
-                            spaceBetween: 20,
-                        },
-                    }}
-                    className="services-swiper marquee-linear px-4"
-                >
-                    {serviceImages.map((src, index) => (
-                        <SwiperSlide key={index}>
-                            <div className="group relative aspect-3/4 overflow-hidden rounded-2xl bg-muted transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
-                                <img
-                                    src={src}
-                                    alt={`Service ${index + 1}`}
-                                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                />
-                                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100 flex flex-col justify-end p-6">
-                                    <span className="text-primary-soft text-sm font-semibold mb-2 opacity-0 -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                                        Professional
-                                    </span>
-                                    <p className="text-white font-heading font-bold text-xl leading-tight">
-                                        Creative {index % 2 === 0 ? "Design" : "Strategy"}
-                                    </p>
 
-                                    <div className="mt-4 h-1 w-0 bg-primary transition-all duration-500 group-hover:w-full" />
+            <SectionContainer className="py-0 ">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {serviceImages.map((item, index) => {
+                        const Icon = (Icons as any)[item.icon];
+                        return (
+                            <div key={index} className="space-y-4 bg-white p-6 rounded-md">
+                                <div className="p-3 rounded-xl bg-primary/10 w-fit">
+                                    <Icon size={28} strokeWidth={1.5} className="text-primary" />
                                 </div>
+                                <h4 className='text-2xl font-light'>{item.title}</h4>
+                                <p className="text-text-muted leading-relaxed">{item.description}</p>
                             </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </div>
+                        );
+                    })}
+                </div>
+            </SectionContainer>
         </section>
     );
 }
