@@ -13,10 +13,8 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           The best {params.slug.replace(/-/g, ' ')} for growth-focused agencies and startups.
           Expect nothing but excellence.
         </p>
-        <PremiumButton asChild>
-          <Link href="/book-a-call">
-            Get Started with this Service
-          </Link>
+        <PremiumButton href="/book-a-call">
+          Get Started with this Service
         </PremiumButton>
       </div>
     </SectionContainer>
