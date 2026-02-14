@@ -33,7 +33,7 @@ export default function SiteHeader() {
                 <nav className="hidden md:flex items-center gap-8">
                     {navItems.map((item) => (
                         <Link
-                            key={item.href}
+                            key={item.title}
                             href={item.href}
                             className="text-base font-medium text-[var(--text-body)] hover:text-[var(--primary)] transition-colors"
                         >

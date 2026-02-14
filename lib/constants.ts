@@ -61,6 +61,29 @@ export const pricingTiers: PricingTier[] = [
     },
 ];
 
+export const subscriptionTiers: PricingTier[] = [
+    {
+        name: "Starter",
+        price: "$49",
+        description: "Basic features for individuals and small teams.",
+        features: ["Unlimited requests", "Average 3-4 day delivery", "Standard support", "No contract"],
+    },
+    {
+        name: "Growth",
+        price: "$99",
+        description: "Advanced features for growing businesses.",
+        features: ["Priority requests", "Average 1-2 day delivery", "Priority support", "Source files included"],
+        isPopular: true,
+    },
+    {
+        name: "Enterprise",
+        price: "$199",
+        description: "Full potential for large scale organizations.",
+        features: ["Direct slack access", "Dedicated designer", "Fastest delivery", "Custom onboarding"],
+    },
+];
+
+
 export const services: Service[] = [
     {
         title: "UI/UX Design",

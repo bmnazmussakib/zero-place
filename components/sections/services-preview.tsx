@@ -2,7 +2,7 @@
 
 import React from 'react';
 import SectionContainer from '../shared/SectionContainer';
-import * as Icons from "lucide-react";
+import Image from 'next/image';
 
 const serviceImages = [
     {
@@ -11,7 +11,8 @@ const serviceImages = [
         description:
             "We make user interfaces that actually make sense. Real people, real needs, no frustrating experiences.",
         image: "/images/services/service-card-2.jpg",
-        icon: "LayoutDashboard"
+        icon: "LayoutDashboard",
+        imageIcon: "https://framerusercontent.com/images/8z76sKxLPVjqsmAodbiYaTNqT6k.png"
     },
     {
         id: 2,
@@ -19,7 +20,8 @@ const serviceImages = [
         description:
             "Websites that don't just look good but actually do something for your business. More clicks, more stays, more customers.",
         image: "/images/services/service-card-5.jpg",
-        icon: "Globe"
+        icon: "Globe",
+        imageIcon: "https://framerusercontent.com/images/ikSvZd1RCc2BDrqL4bILjC20NA8.png"
     },
     {
         id: 3,
@@ -27,7 +29,8 @@ const serviceImages = [
         description:
             "Software shouldn't give people headaches. We simplify the complex stuff so your customers stick around instead of giving up.",
         image: "/images/services/service-card-6.jpg",
-        icon: "Package"
+        icon: "Package",
+        imageIcon: "https://framerusercontent.com/images/8wDkVxlj0xqU5rEKdSqJz9S77I.png"
     },
     {
         id: 4,
@@ -35,7 +38,8 @@ const serviceImages = [
         description:
             "Apps people actually want to use. Clean, smart designs that work how people expect them to work.",
         image: "/images/services/service-card-7.jpg",
-        icon: "Smartphone"
+        icon: "Smartphone",
+        imageIcon: "https://framerusercontent.com/images/9BkEf4xmhxJJ8CGgZTFFQXKfFbc.png"
     },
     {
         id: 5,
@@ -43,7 +47,8 @@ const serviceImages = [
         description:
             "Your brand should say something worth hearing. We help you find your voice and make it stick.",
         image: "/images/services/service-card-12.jpg",
-        icon: "Brush"
+        icon: "Brush",
+        imageIcon: "https://framerusercontent.com/images/V9fJFzeUHoyUXAGCmORzDx90sM.png"
     },
     {
         id: 6,
@@ -51,7 +56,8 @@ const serviceImages = [
         description:
             "Websites that won't break when you need them most. Fast, reliable, and ready to grow when you do.",
         image: "/images/services/service-card-2.jpg",
-        icon: "Code"
+        icon: "Code",
+        imageIcon: "https://framerusercontent.com/images/1zxlDQLwA25TphCR2a6V7cSYXI.png"
     }
 ];
 
@@ -73,11 +79,10 @@ export function ServicesPreview() {
             <SectionContainer className="py-0 ">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {serviceImages.map((item, index) => {
-                        const Icon = (Icons as any)[item.icon];
                         return (
-                            <div key={index} className="space-y-4 bg-white p-6 rounded-md">
+                            <div key={index} className="space-y-4 bg-white p-6 rounded-md cursor-pointer transition-all duration-300">
                                 <div className="p-3 rounded-xl bg-primary/10 w-fit">
-                                    <Icon size={28} strokeWidth={1.5} className="text-primary" />
+                                    <Image src={item.imageIcon} alt={item.title} width={32} height={32} className="object-contain" />
                                 </div>
                                 <h4 className='text-2xl font-light'>{item.title}</h4>
                                 <p className="text-text-muted leading-relaxed">{item.description}</p>

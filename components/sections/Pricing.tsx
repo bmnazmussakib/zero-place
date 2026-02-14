@@ -84,9 +84,10 @@ export default function Pricing() {
                                         ))}
                                     </div>
 
-                                    <button className="w-full bg-primary text-white hover:bg-primary/90 rounded-full py-4 text-[11px] font-black uppercase tracking-[0.2em] mt-4 transition-all duration-300 shadow-xl shadow-primary/20 hover:scale-[1.02]">
+                                    <button className="w-full bg-primary text-white hover:bg-primary/90 rounded-full py-4 text-[11px] font-black uppercase tracking-[0.2em] mt-4 transition-all duration-300  hover:scale-[1.02]">
                                         SELECT THIS PLAN
                                     </button>
+                                    
                                 </div>
                             </div>
                         ))}
@@ -107,19 +108,19 @@ export default function Pricing() {
                         {/* Custom Toggle */}
                         <div className="flex items-center gap-4  shadow-primary/5 shrink-0">
                             <span className={cn(
-                                "text-[11px] font-black uppercase tracking-widest transition-colors",
+                                "text-sm font-black uppercase tracking-widest transition-colors",
                                 billingCycle === "subscription" ? "text-primary" : "text-text-muted"
                             )}>
                                 Subscription
                             </span>
                             <input
                                 type="checkbox"
-                                className="toggle toggle-primary bg-white border-neutral-300 checked:bg-primary checked:border-primary"
+                                className="toggle toggle-primary bg-primary border-neutral-200 checked:bg-white checked:border-primary"
                                 checked={billingCycle === "onetime"}
                                 onChange={(e) => setBillingCycle(e.target.checked ? "onetime" : "subscription")}
                             />
                             <span className={cn(
-                                "text-[11px] font-black uppercase tracking-widest transition-colors",
+                                "text-sm font-black uppercase tracking-widest transition-colors",
                                 billingCycle === "onetime" ? "text-primary" : "text-text-muted"
                             )}>
                                 One-Time

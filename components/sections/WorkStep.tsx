@@ -79,7 +79,7 @@ export default function WorkStep() {
                         Our Process
                     </SectionBadge>
                     <h2 className="text-4xl md:text-5xl font-extrabold text-text-heading tracking-tight">
-                        One Goal, <span className="text-primary italic">Seamless Steps</span>
+                        One Goal, <span className="text-primary ">Seamless Steps</span>
                     </h2>
                     <p className="text-lg text-text-muted max-w-2xl mx-auto">
                         We've streamlined our design process to be as efficient and transparent as possible, moving from selection to delivery in record time.
@@ -102,6 +102,10 @@ export default function WorkStep() {
                             640: { slidesPerView: 2 },
                             1024: { slidesPerView: 3 },
                             1440: { slidesPerView: 4 },
+                        }}
+                        autoplay={{
+                            delay: 3000,
+                            disableOnInteraction: false,
                         }}
                         className="pb-16"
                     >

@@ -34,7 +34,7 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section className="bg-background py-24 overflow-hidden">
+        <section className="bg-footer-bg py-24 overflow-hidden">
             <SectionContainer>
                 <div className="flex flex-col lg:flex-row gap-16">
                     {/* Left Column: Info & Contact */}
@@ -43,7 +43,7 @@ export default function FAQ() {
                             <SectionBadge className="mb-6">
                                 Read FAQs
                             </SectionBadge>
-                            <h2 className="text-4xl md:text-5xl font-heading font-bold leading-tight tracking-tight text-foreground">
+                            <h2 className="text-4xl md:text-5xl font-heading font-bold leading-tight tracking-tight text-white">
                                 Quick Answers For Your Important Questions
                             </h2>
                             <div>
@@ -59,10 +59,10 @@ export default function FAQ() {
                                 Getting started is easy! Simply reach out us through our contact form or give us a call & we'll schedule.
                             </p>
 
-                            <div className="flex items-center justify-between p-4 bg-section rounded-2xl border border-primary/5">
+                            <div className="flex items-center justify-between p-4 bg-white rounded-2xl border border-border/50">
                                 <div className="space-y-1">
                                     <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider">Call us now</p>
-                                    <p className="text-sm font-bold font-heading text-foreground">+1 (888) 333-8181</p>
+                                    <p className="text-sm font-bold font-heading text-primary">+1 (888) 333-8181</p>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <div className="w-10 h-10 rounded-full bg-white overflow-hidden border border-border/50">
@@ -89,7 +89,7 @@ export default function FAQ() {
                                     key={index}
                                     className={cn(
                                         "rounded-2xl border transition-all duration-500",
-                                        isOpen ? "bg-white border-primary/20 shadow-md" : "bg-white/50 border-border/50 hover:border-primary/20"
+                                        isOpen ? "bg-transparent border-primary/20 shadow-md" : "bg-footer-bg border-primary/20 hover:border-primary/20"
                                     )}
                                 >
                                     <button
@@ -98,18 +98,18 @@ export default function FAQ() {
                                     >
                                         <span className={cn(
                                             "text-lg md:text-xl font-heading font-medium transition-colors duration-300",
-                                            isOpen ? "text-primary" : "text-foreground"
+                                            isOpen ? "text-primary" : "text-white"
                                         )}>
                                             {faq.question}
                                         </span>
                                         <div className={cn(
                                             "flex-none w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500",
-                                            isOpen ? "bg-primary" : "bg-primary/5"
+                                            isOpen ? "bg-primary" : "bg-white/5"
                                         )}>
                                             {isOpen ? (
                                                 <Minus className="w-4 h-4 text-white" strokeWidth={3} />
                                             ) : (
-                                                <Plus className="w-4 h-4 text-primary" strokeWidth={3} />
+                                                <Plus className="w-4 h-4 text-white" strokeWidth={3} />
                                             )}
                                         </div>
                                     </button>
@@ -119,7 +119,7 @@ export default function FAQ() {
                                         isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                                     )}>
                                         <div className="overflow-hidden">
-                                            <div className="px-6 md:px-8 pb-8 pt-0 text-muted-foreground leading-relaxed text-sm md:text-base border-t border-border/30 mt-2">
+                                            <div className="px-6 md:px-8 pb-8 pt-0 text-muted-foreground leading-relaxed text-sm md:text-base border-t border-primary/20 mt-2">
                                                 <div className="pt-4">
                                                     {faq.answer}
                                                 </div>

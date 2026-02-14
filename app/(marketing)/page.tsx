@@ -18,7 +18,6 @@ export default function HomePage() {
         <>
             <HeroSection />
 
-            {/* Brand Section */}
             <OurBrands />
 
             <ServicesPreview />
@@ -27,9 +26,9 @@ export default function HomePage() {
 
             <WorkStep />
 
-            <RealtimeDashboard />
 
             <Pricing />
+            <RealtimeDashboard />
 
             <FAQ />
 
