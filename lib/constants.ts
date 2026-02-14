@@ -26,7 +26,7 @@ export const navItems: NavItem[] = [
         ]
     },
     {
-        title: "Resources",
+        title: "Service",
         href: "#",
         type: "dropdown",
         children: [

@@ -26,7 +26,7 @@ export default function PricingPage() {
       />
 
       <OurBrands />
-       <OurWorks />
+      <OurWorks />
       <FAQ />
       <Testimonial />
     </div>
