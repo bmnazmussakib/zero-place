@@ -6,6 +6,7 @@ import { PricingTier } from "@/types";
 import SectionBadge from "@/components/shared/SectionBadge";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import PremiumButton from '../shared/PremiumButton';
 
 interface PricingHeroProps {
     badge: string;
@@ -68,7 +69,7 @@ export default function PricingHero({
                                 <div className={cn(
                                     "px-8 py-3 rounded-full border border-black font-bold text-xs uppercase tracking-widest transition-all",
                                     activeIndex === index
-                                        ? "bg-black text-white"
+                                        ? "bg-primary text-white border-primary"
                                         : "bg-white text-black hover:bg-black hover:text-white"
                                 )}>
                                     View
@@ -104,9 +105,13 @@ export default function PricingHero({
                             ))}
                         </div>
 
-                        <button className="w-full bg-white border-2 border-primary/20 hover:border-primary text-text-heading rounded-full py-5 text-sm font-black uppercase tracking-[0.2em] transition-all hover:scale-[1.02] shadow-sm">
+                        {/* <button className="w-full bg-white border-2 border-primary/20 hover:border-primary text-text-heading rounded-full py-5 text-sm font-black uppercase tracking-[0.2em] transition-all hover:scale-[1.02] shadow-sm">
                             SELECT THIS PLAN
-                        </button>
+                        </button> */}
+
+                        <PremiumButton href="/pricing" className='w-full'>
+                            Select this plan
+                        </PremiumButton>
                     </div>
                 </div>
 

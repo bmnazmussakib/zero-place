@@ -22,7 +22,7 @@ const PremiumButton = ({
   const buttonBase = cn(
     'group relative inline-flex items-center justify-center gap-2.5',
     'text-base font-bold py-1.5 pr-1.5 pl-8 text-center rounded-full overflow-hidden whitespace-nowrap z-[2]',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ',
     // Pseudo-element for expanding background
     'before:content-[""] before:absolute before:w-[42px] before:h-[calc(100%-12px)]',
     'before:right-1.5 before:top-1.5 before:-z-10 before:rounded-full',
@@ -48,10 +48,10 @@ const PremiumButton = ({
   );
 
   // Text with slide-up animation
-  const textStyles = `relative overflow-hidden`;
+  const textStyles = `relative overflow-hidden `;
   const textInner = cn(
     'flex leading-relaxed transition-transform duration-400 ease-in-out',
-    'group-hover:-translate-y-[30px]',
+    'group-hover:-translate-y-[30px] ',
     `${variant === 'primary' ? 'text-white' : 'text-primary'}`
   );
 
@@ -73,7 +73,7 @@ const PremiumButton = ({
       <span className={textStyles}>
         <span
           className={textInner}
-          style={{ textShadow: variant === 'primary' ? '0 30px 0 var(--primary)' : '0 30px 0 #fff' }}
+          style={{ textShadow: variant === 'primary' ? '0 30px 0 var(--primary) ' : '0 30px 0 #fff ' }}
         >
           {children}
         </span>

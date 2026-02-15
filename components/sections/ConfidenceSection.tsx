@@ -5,6 +5,7 @@ import SectionContainer from "@/components/shared/SectionContainer";
 import SectionBadge from "@/components/shared/SectionBadge";
 import { Zap, ShieldCheck, Store } from "lucide-react";
 import { cn } from "@/lib/utils";
+import PremiumButton from "../shared/PremiumButton";
 
 const features = [
     {
@@ -43,9 +44,9 @@ export default function ConfidenceSection() {
                             </p>
                         </div>
 
-                        <button className="bg-primary text-white px-8 py-5 rounded-full text-sm font-black uppercase tracking-widest hover:bg-primary-hover shadow-lg shadow-primary/20 transition-all hover:scale-[1.05]">
-                            GET APP DOWNLOAD
-                        </button>
+                        <PremiumButton href="/pricing">
+                            Read More
+                        </PremiumButton>
                     </div>
 
                     <div className="lg:col-span-6 relative">
