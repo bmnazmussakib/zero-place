@@ -10,8 +10,8 @@ import React from 'react';
 
 export const navItems: NavItem[] = [
     {
-        title: "Solutions",
-        href: "#",
+        title: "Services",
+        href: "/services",
         type: "megamenu",
         children: [
             {
@@ -33,16 +33,16 @@ export const navItems: NavItem[] = [
             }
         ]
     },
-    {
-        title: "Service",
-        href: "#",
-        type: "dropdown",
-        children: [
-            { title: "Blog", href: "/blog" },
-            { title: "Case Studies", href: "/case-studies" },
-            { title: "Documentation", href: "/docs" },
-        ]
-    },
+    // {
+    //     title: "Service",
+    //     href: "#",
+    //     type: "dropdown",
+    //     children: [
+    //         { title: "Blog", href: "/blog" },
+    //         { title: "Case Studies", href: "/case-studies" },
+    //         { title: "Documentation", href: "/docs" },
+    //     ]
+    // },
     { title: "Portfolio", href: "/portfolio" },
     { title: "Pricing", href: "/pricing" },
 ];

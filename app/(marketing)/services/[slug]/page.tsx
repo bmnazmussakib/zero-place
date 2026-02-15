@@ -1,22 +1,16 @@
 import SectionContainer from "@/components/shared/SectionContainer";
 import PremiumButton from "@/components/shared/PremiumButton";
 import Link from "next/link";
+import ServiceHero from "@/components/sections/ServiceHero";
+import ServiceWhy from "@/components/sections/ServiceWhy";
+import ServicePricing from "@/components/sections/ServicePricing";
 
 export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
   return (
-    <SectionContainer className="pt-24 pb-32">
-      <div className="max-w-3xl space-y-8">
-        <h1 className="text-4xl font-black capitalize leading-none text-foreground">
-          {params.slug.replace(/-/g, ' ')}
-        </h1>
-        <p className="text-2xl text-[var(--text-body)] leading-relaxed">
-          The best {params.slug.replace(/-/g, ' ')} for growth-focused agencies and startups.
-          Expect nothing but excellence.
-        </p>
-        <PremiumButton href="/book-a-call">
-          Get Started with this Service
-        </PremiumButton>
-      </div>
-    </SectionContainer>
+    <>
+    <ServiceHero />
+    <ServiceWhy />
+    <ServicePricing />
+    </>
   );
 }

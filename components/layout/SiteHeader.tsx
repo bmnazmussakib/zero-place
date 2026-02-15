@@ -91,13 +91,15 @@ export default function SiteHeader() {
                             >
                                 {item.children && item.children.length > 0 ? (
                                     <>
-                                        <div
-                                            tabIndex={0}
-                                            role="button"
-                                            className="text-base font-bold text-text-body hover:text-primary transition-colors flex items-center gap-1 px-4 h-full"
-                                        >
-                                            {item.title}
-                                        </div>
+                                        <Link href={item?.href}>
+                                            <div
+                                                tabIndex={0}
+                                                role="button"
+                                                className="text-base font-bold text-text-body hover:text-primary transition-colors flex items-center gap-1 px-4 h-full"
+                                            >
+                                                {item.title}
+                                            </div>
+                                        </Link>
                                         <div
                                             tabIndex={0}
                                             className={cn(
