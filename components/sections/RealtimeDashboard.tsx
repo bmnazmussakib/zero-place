@@ -28,8 +28,8 @@ export default function RealtimeDashboard() {
             <SectionContainer className="relative z-10">
                 <div className="text-center space-y-4 mb-16">
                     <SectionBadge>Take Control in Real Time</SectionBadge>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-text-heading tracking-tight max-w-3xl mx-auto leading-tight">
-                        Real-Time Dashboard 
+                    <h2 className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter max-w-3xl mx-auto">
+                        Real-Time Dashboard
                     </h2>
                 </div>
 

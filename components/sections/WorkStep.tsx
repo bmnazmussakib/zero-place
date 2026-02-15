@@ -78,7 +78,7 @@ export default function WorkStep() {
                     <SectionBadge>
                         Our Process
                     </SectionBadge>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-text-heading tracking-tight">
+                    <h2 className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter">
                         One Goal, <span className="text-primary ">Seamless Steps</span>
                     </h2>
                     <p className="text-lg text-text-muted max-w-2xl mx-auto">
@@ -127,7 +127,7 @@ export default function WorkStep() {
                                         </div>
 
                                         <div className="grow space-y-4">
-                                            <h3 className="text-2xl font-bold text-text-heading leading-tight">
+                                            <h3 className="text-2xl md:text-3xl font-heading font-black text-text-heading leading-tight">
                                                 {step.title}
                                             </h3>
                                             <p className="text-text-muted text-base leading-relaxed">

@@ -69,7 +69,7 @@ export default function HeroSection() {
                         <p className="text-sm font-medium text-text-muted">150+ Happy Clients</p>
                     </div>
 
-                    <h1 className="text-5xl sm:text-7xl font-extrabold text-text-heading leading-[1.1] tracking-tight min-h-[3.3em] sm:min-h-[2.2em]">
+                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-black text-text-heading leading-[0.95] tracking-tighter min-h-[3.3em] sm:min-h-[2.2em]">
                         Boost Your Brand with Expert <br />
                         <span className="text-primary">
                             <TypeAnimation

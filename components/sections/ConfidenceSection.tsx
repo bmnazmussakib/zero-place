@@ -36,7 +36,7 @@ export default function ConfidenceSection() {
                             <SectionBadge className="bg-white/50 border-primary/20 text-primary">
                                 Smarter Way to Pay
                             </SectionBadge>
-                            <h2 className="text-5xl md:text-7xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter">
+                            <h2 className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[1] tracking-normal">
                                 Powering Payments <br /> with Confidence
                             </h2>
                             <p className="text-text-body text-lg leading-relaxed max-w-lg font-medium">
@@ -70,7 +70,7 @@ export default function ConfidenceSection() {
                                 <feature.icon size={28} strokeWidth={2.5} />
                             </div>
                             <div className="space-y-3">
-                                <h3 className="text-xl font-heading font-black text-text-heading">
+                                <h3 className="text-2xl md:text-3xl font-heading font-black text-text-heading leading-tight">
                                     {feature.title}
                                 </h3>
                                 <p className="text-text-muted text-sm font-medium leading-relaxed">

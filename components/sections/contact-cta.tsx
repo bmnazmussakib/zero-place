@@ -12,7 +12,7 @@ export function ContactCTA() {
                         <SectionBadge>
                             Get Started
                         </SectionBadge>
-                        <h2 className="text-4xl font-bold text-white lg:text-6xl max-w-3xl">
+                        <h2 className="text-5xl md:text-6xl font-heading font-black text-white leading-[0.9] tracking-tighter max-w-3xl">
                             Ready to create something <span className="text-primary italic font-serif">extraordinary?</span>
                         </h2>
                         <p className="text-footer-text text-lg lg:text-xl max-w-2xl">

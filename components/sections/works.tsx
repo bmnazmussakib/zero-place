@@ -34,7 +34,7 @@ export function Works() {
                                 <div className="badge badge-outline mb-4 border-primary/20 text-primary">
                                     Portfolio
                                 </div>
-                                <h2 className="text-3xl font-bold lg:text-4xl">
+                                <h2 className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter">
                                     Our <span className="text-primary">Creative</span> Masterpieces
                                 </h2>
                             </div>
@@ -62,7 +62,7 @@ export function Works() {
                                         <div className="badge bg-primary/90 text-white border-none mb-3">
                                             {work.category}
                                         </div>
-                                        <h3 className="text-xl font-bold text-white mb-2">
+                                        <h3 className="text-2xl md:text-3xl font-heading font-black text-white leading-tight mb-2">
                                             {work.title}
                                         </h3>
                                         <Link href={`/works/${index}`} className="text-white/80 text-sm font-medium hover:text-white transition-colors">

@@ -64,7 +64,7 @@ export default function SiteHeader() {
                 setHoveredItem(null);
             }}
         >
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-stretch justify-between relative">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between relative">
                 <div className="flex items-center">
                     <Logo />
                 </div>
@@ -96,7 +96,7 @@ export default function SiteHeader() {
                                         <div
                                             tabIndex={0}
                                             className={cn(
-                                                "dropdown-content z-10 p-6 bg-white/95 backdrop-blur-xl shadow-3xl rounded-4xl border border-primary/5 animate-in fade-in zoom-in-95 duration-200",
+                                                "dropdown-content z-10 p-6 bg-white/95 backdrop-blur-xl shadow-3xl rounded-2xl border border-primary/5 animate-in fade-in zoom-in-95 duration-200",
                                                 "before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4 mt-0 ",
                                                 item.type === "megamenu"
                                                     ? "absolute left-1/2 -translate-x-1/2 top-full w-[calc(100vw-4rem)] max-w-7xl"
@@ -117,7 +117,7 @@ export default function SiteHeader() {
                                                                     <li key={sub.title}>
                                                                         <Link
                                                                             href={sub.href}
-                                                                            className="flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 transition-all group"
+                                                                            className="flex items-center gap-3 p-3 rounded-md hover:bg-primary/5 transition-all group"
                                                                         >
                                                                             <span className="text-base font-bold text-text-heading group-hover:text-primary transition-colors">
                                                                                 {sub.title}
@@ -135,7 +135,7 @@ export default function SiteHeader() {
                                                         <li key={child.title}>
                                                             <Link
                                                                 href={child.href}
-                                                                className="text-base font-bold text-text-heading hover:text-primary p-3 flex rounded-xl transition-all hover:bg-primary/5"
+                                                                className="text-base font-bold text-text-heading hover:text-primary p-3 flex rounded-md transition-all hover:bg-primary/5 "
                                                             >
                                                                 {child.title}
                                                             </Link>

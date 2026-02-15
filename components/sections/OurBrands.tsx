@@ -37,7 +37,7 @@ function OurBrands() {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
                         <div className="lg:col-span-5 space-y-8">
                             <div className="space-y-4">
-                                <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-white">
+                                <h2 className="text-5xl md:text-6xl font-heading font-black text-white leading- tracking-normal">
                                     Trusted by <span className="text-primary ">Global</span> Brands
                                 </h2>
                                 <p className="text-xl text-muted-foreground leading-relaxed">

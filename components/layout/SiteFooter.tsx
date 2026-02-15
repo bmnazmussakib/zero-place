@@ -46,7 +46,7 @@ export default function SiteFooter() {
                         <div className="absolute -bottom-1/2 -left-1/4 w-[60%] h-full bg-black/10 rounded-full blur-3xl pointer-events-none group-hover/cta:bg-black/20 transition-all duration-700" />
 
                         <div className="w-full lg:w-1/2 relative z-10 text-center lg:text-left space-y-4">
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-[1.1] tracking-tight">
+                            <h2 className="text-5xl md:text-6xl lg:text-6xl font-heading font-bold text-white leading-[1.1] tracking-tight">
                                 Don't Miss Out <br className="hidden md:block" /> the Future!
                             </h2>
                         </div>

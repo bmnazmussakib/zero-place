@@ -80,7 +80,7 @@ export function OurWorks() {
                     <SectionBadge className="mb-4">
                         Portfolio
                     </SectionBadge>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+                    <h2 className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter">
                         Our <span className="text-primary">Creative</span> Masterpieces
                     </h2>
                     {/* Optional subtitle if you want more context */}
@@ -130,7 +130,7 @@ export function OurWorks() {
                     variant="outline"
                     className=""
                 >
-                    Read More 
+                    Read More
                 </PremiumButton>
             </div>
         </section>

@@ -60,7 +60,7 @@ export default function Pricing() {
                                 className="flex-1 bg-white rounded-4xl p-8 shadow-2xl shadow-black/5 border border-transparent transition-all duration-500 hover:border-primary/20 group"
                             >
                                 <div className="space-y-6">
-                                    <h3 className="text-xl font-bold text-text-heading">{plan.name}</h3>
+                                    <h3 className="text-2xl md:text-3xl font-heading font-black text-text-heading leading-tight">{plan.name}</h3>
                                     <div className="flex items-baseline gap-1">
                                         <span className="text-5xl font-black text-text-heading tracking-tight transition-all duration-300">
                                             {getPrice(plan)}
@@ -87,7 +87,7 @@ export default function Pricing() {
                                     <button className="w-full bg-primary text-white hover:bg-primary/90 rounded-full py-4 text-[11px] font-black uppercase tracking-[0.2em] mt-4 transition-all duration-300  hover:scale-[1.02]">
                                         SELECT THIS PLAN
                                     </button>
-                                    
+
                                 </div>
                             </div>
                         ))}
@@ -97,7 +97,7 @@ export default function Pricing() {
                     <div className="lg:col-span-5 space-y-8">
                         <div className="space-y-4">
                             <SectionBadge>Pricing Plan</SectionBadge>
-                            <h2 className="text-5xl md:text-7xl font-black text-text-heading leading-none tracking-tighter">
+                            <h2 className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter">
                                 Flexible Pricing for Every Business
                             </h2>
                             <p className="text-text-muted text-lg leading-relaxed max-w-lg">

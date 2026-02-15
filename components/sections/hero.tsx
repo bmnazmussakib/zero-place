@@ -12,7 +12,7 @@ export function Hero() {
                         <SectionBadge>
                             The Best Design Agency
                         </SectionBadge>
-                        <h1 className="text-5xl font-extrabold tracking-tight lg:text-7xl">
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-black text-text-heading leading-[0.95] tracking-tighter">
                             Design <span className="text-primary">Without</span> Limits
                         </h1>
                         <p className="max-w-[600px] text-lg text-text-body lg:text-xl">

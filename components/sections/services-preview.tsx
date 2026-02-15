@@ -67,7 +67,7 @@ export function ServicesPreview() {
         <section className="overflow-hidden bg-gray-50 py-16">
             <SectionContainer className="mb-16">
                 <div className="text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
+                    <h2 className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter mb-4">Our Services</h2>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                         Explore our wide range of professional services tailored to help your brand grow and succeed in the digital landscape.
                     </p>

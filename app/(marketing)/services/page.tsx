@@ -5,8 +5,8 @@ import Link from "next/link";
 export default function ServicesPage() {
   return (
     <SectionContainer>
-       <div className="text-center mb-16 space-y-4">
-        <h1 className="text-5xl font-bold">What We Do</h1>
+      <div className="text-center mb-16 space-y-4">
+        <h1 className="text-4xl font-bold">What We Do</h1>
         <p className="text-xl text-[var(--text-body)]">Comprehensive design services tailored to your brand.</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

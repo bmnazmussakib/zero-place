@@ -54,7 +54,7 @@ export default function Testimonial() {
                             <SectionBadge className="mb-6">
                                 Testimonials
                             </SectionBadge>
-                            <h2 className="text-4xl md:text-6xl font-heading font-black text-foreground leading-[1.1] tracking-tight">
+                            <h2 className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[1] tracking-normal">
                                 Why Businesses <br /> Love Zero Place
                             </h2>
                         </div>

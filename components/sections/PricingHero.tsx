@@ -31,7 +31,7 @@ export default function PricingHero({
                 <div className="lg:col-span-7 space-y-12">
                     <div className="space-y-6">
                         <SectionBadge>{badge}</SectionBadge>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter">
+                        <h1 className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[1] tracking-normal">
                             {titlePrefix} <br />
                             <span className="text-primary italic">
                                 {plans[activeIndex].name}
@@ -58,11 +58,11 @@ export default function PricingHero({
                                         {tier.name}
                                     </span> */}
                                     <h3 className={cn(
-                                        "text-3xl font-heading font-black transition-all",
+                                        "text-2xl md:text-3xl font-heading font-black text-text-heading leading-tight transition-all",
                                         activeIndex === index ? "text-primary scale-110" : "text-text-heading"
                                     )}>
                                         {/* Plan - {index + 1} */}
-                                         {tier.name}
+                                        {tier.name}
                                     </h3>
                                 </div>
 
@@ -84,7 +84,7 @@ export default function PricingHero({
                     <div key={activeIndex} className="bg-white rounded-[2.5rem] p-12 shadow-2xl shadow-black/5 border border-black/5 animate-in fade-in slide-in-from-right-8 duration-500">
 
                         <div className="mb-10">
-                            <h3 className="text-2xl font-heading font-black text-text-heading mb-6">{plans[activeIndex].name}</h3>
+                            <h3 className="text-2xl md:text-3xl font-heading font-black text-text-heading leading-tight mb-6">{plans[activeIndex].name}</h3>
                             <div className="flex items-baseline gap-2">
                                 <span className="text-6xl font-heading font-black text-text-heading">{plans[activeIndex].price}</span>
                                 <span className="text-text-muted font-bold text-xl">{priceSuffix}</span>

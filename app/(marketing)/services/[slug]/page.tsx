@@ -6,7 +6,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
   return (
     <SectionContainer className="pt-24 pb-32">
       <div className="max-w-3xl space-y-8">
-        <h1 className="text-6xl font-black capitalize leading-none text-foreground">
+        <h1 className="text-4xl font-black capitalize leading-none text-foreground">
           {params.slug.replace(/-/g, ' ')}
         </h1>
         <p className="text-2xl text-[var(--text-body)] leading-relaxed">

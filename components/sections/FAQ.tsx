@@ -43,7 +43,7 @@ export default function FAQ() {
                             <SectionBadge className="mb-6">
                                 Read FAQs
                             </SectionBadge>
-                            <h2 className="text-4xl md:text-5xl font-heading font-bold leading-tight tracking-tight text-white">
+                            <h2 className="text-5xl md:text-6xl font-heading font-black text-white leading-[1] tracking-normal">
                                 Quick Answers For Your Important Questions
                             </h2>
                             <div>
@@ -119,7 +119,7 @@ export default function FAQ() {
                                         isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                                     )}>
                                         <div className="overflow-hidden">
-                                            <div className="px-6 md:px-8 pb-8 pt-0 text-muted-foreground leading-relaxed text-sm md:text-base border-t border-primary/20 mt-2">
+                                            <div className="px-6 md:px-8 pb-8 pt-0 text-white/50 leading-relaxed text-sm md:text-base border-t border-primary/20 mt-2">
                                                 <div className="pt-4">
                                                     {faq.answer}
                                                 </div>
