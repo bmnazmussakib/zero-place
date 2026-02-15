@@ -40,10 +40,10 @@ export default function SiteFooter() {
             {/* Overlapping Subscription CTA */}
             <div className="absolute top-0 left-0 right-0 -translate-y-1/2 z-20">
                 <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
-                    <div className="bg-primary rounded-[3rem] p-10 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-10 shadow-2xl shadow-primary/30 relative overflow-hidden group">
+                    <div className="bg-primary rounded-[3rem] p-10 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-10 shadow-2xl shadow-primary/30 relative overflow-hidden group/cta">
                         {/* Decorative Background Elements */}
                         <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-bl from-white/10 to-transparent pointer-events-none" />
-                        <div className="absolute -bottom-1/2 -left-1/4 w-[60%] h-full bg-black/10 rounded-full blur-3xl pointer-events-none group-hover:bg-black/20 transition-all duration-700" />
+                        <div className="absolute -bottom-1/2 -left-1/4 w-[60%] h-full bg-black/10 rounded-full blur-3xl pointer-events-none group-hover/cta:bg-black/20 transition-all duration-700" />
 
                         <div className="w-full lg:w-1/2 relative z-10 text-center lg:text-left space-y-4">
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-[1.1] tracking-tight">
@@ -52,7 +52,7 @@ export default function SiteFooter() {
                         </div>
 
                         <div className="w-full lg:w-5/12 space-y-8 relative z-10">
-                            <form className="relative flex flex-col sm:flex-row items-center gap-2 p-1.5 sm:bg-slate-50 sm:rounded-full border border-white/10 group focus-within:border-white/40 transition-all duration-300">
+                            <form className="relative flex flex-col sm:flex-row items-center gap-2 p-1.5 sm:bg-slate-50 sm:rounded-full border border-white/10 focus-within:border-white/40 transition-all duration-300">
                                 <input
                                     type="email"
                                     placeholder="Enter email here..."

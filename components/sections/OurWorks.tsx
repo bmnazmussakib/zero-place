@@ -128,9 +128,9 @@ export function OurWorks() {
                 <PremiumButton
                     href="/works"
                     variant="outline"
-                    className="text-primary border-primary/30 hover:border-primary hover:bg-primary/5 min-w-[240px]"
+                    className=""
                 >
-                    Explore Full Portfolio
+                    Read More 
                 </PremiumButton>
             </div>
         </section>

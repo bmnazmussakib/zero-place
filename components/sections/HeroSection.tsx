@@ -10,6 +10,7 @@ import { EffectFade, Autoplay } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-fade';
+import Link from 'next/link';
 
 const HERO_SLIDES = [
     {
@@ -101,13 +102,9 @@ export default function HeroSection() {
                         <PremiumButton href="/pricing" className="w-full sm:w-auto">
                             View Pricing
                         </PremiumButton>
-                        <PremiumButton
-                            href="/portfolio"
-                            variant="outline"
-                            className="w-full sm:w-auto"
-                        >
+                        <Link href="/portfolio">
                             See our work
-                        </PremiumButton>
+                        </Link>
                     </div>
                 </div>
 
