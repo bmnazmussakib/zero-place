@@ -64,10 +64,12 @@ export default function SiteHeader() {
                 setHoveredItem(null);
             }}
         >
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
-                <Logo />
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-stretch justify-between relative">
+                <div className="flex items-center">
+                    <Logo />
+                </div>
 
-                <nav className="hidden md:flex items-center h-full">
+                <nav className="hidden md:flex items-stretch h-full">
                     <ul className="menu menu-horizontal p-0 gap-2 items-stretch text-text-body h-full">
                         {navItems.map((item) => (
                             <li
@@ -87,7 +89,7 @@ export default function SiteHeader() {
                                         <div
                                             tabIndex={0}
                                             role="button"
-                                            className="text-base font-bold text-text-body hover:text-primary transition-colors flex items-center gap-1 px-4"
+                                            className="text-base font-bold text-text-body hover:text-primary transition-colors flex items-center gap-1 px-4 h-full"
                                         >
                                             {item.title}
                                         </div>
@@ -95,10 +97,10 @@ export default function SiteHeader() {
                                             tabIndex={0}
                                             className={cn(
                                                 "dropdown-content z-10 p-6 bg-white/95 backdrop-blur-xl shadow-3xl rounded-4xl border border-primary/5 animate-in fade-in zoom-in-95 duration-200",
-                                                "before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4 mt-4",
+                                                "before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4 mt-0 ",
                                                 item.type === "megamenu"
                                                     ? "absolute left-1/2 -translate-x-1/2 top-full w-[calc(100vw-4rem)] max-w-7xl"
-                                                    : "absolute left-0 top-full w-64"
+                                                    : "absolute left-0 top-14 w-64"
                                             )}
                                         >
                                             {item.type === "megamenu" ? (
@@ -157,7 +159,7 @@ export default function SiteHeader() {
                     </ul>
                 </nav>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 self-center">
                     <PremiumButton href="/book-a-call" className="hidden sm:inline-flex">
                         Book a Call
                     </PremiumButton>
