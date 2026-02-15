@@ -44,8 +44,13 @@ export default function SiteHeader() {
             <Link
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center py-4 px-4 text-lg font-bold text-text-heading hover:text-primary transition-all"
+                className="flex items-center gap-3 py-4 px-4 text-lg font-bold text-text-heading hover:text-primary transition-all group"
             >
+                {item.icon && (
+                    <span className="shrink-0 text-text-muted group-hover:text-primary transition-colors">
+                        {item.icon}
+                    </span>
+                )}
                 {item.title}
             </Link>
         );
@@ -119,6 +124,11 @@ export default function SiteHeader() {
                                                                             href={sub.href}
                                                                             className="flex items-center gap-3 p-3 rounded-md hover:bg-primary/5 transition-all group"
                                                                         >
+                                                                            {sub.icon && (
+                                                                                <span className="shrink-0 text-text-muted group-hover:text-primary transition-colors">
+                                                                                    {sub.icon}
+                                                                                </span>
+                                                                            )}
                                                                             <span className="text-base font-bold text-text-heading group-hover:text-primary transition-colors">
                                                                                 {sub.title}
                                                                             </span>

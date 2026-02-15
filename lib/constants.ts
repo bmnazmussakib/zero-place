@@ -1,4 +1,12 @@
 import { NavItem, PricingTier, Service } from "@/types";
+import {
+    Palette,
+    Globe,
+    Video,
+    Code2,
+    Smartphone
+} from "lucide-react";
+import React from 'react';
 
 export const navItems: NavItem[] = [
     {
@@ -10,17 +18,17 @@ export const navItems: NavItem[] = [
                 title: "Design",
                 href: "#",
                 children: [
-                    { title: "Graphic Design", href: "/services/graphic-design" },
-                    { title: "Website Design", href: "/services/website-design" },
-                    { title: "Motion Graphics", href: "/services/motion-graphics" },
+                    { title: "Graphic Design", href: "/services/graphic-design", icon: React.createElement(Palette, { size: 18 }) },
+                    { title: "Website Design", href: "/services/website-design", icon: React.createElement(Globe, { size: 18 }) },
+                    { title: "Motion Graphics", href: "/services/motion-graphics", icon: React.createElement(Video, { size: 18 }) },
                 ]
             },
             {
                 title: "Development",
                 href: "#",
                 children: [
-                    { title: "Web Development", href: "/services/web-dev" },
-                    { title: "App Development", href: "/services/app-dev" },
+                    { title: "Web Development", href: "/services/web-dev", icon: React.createElement(Code2, { size: 18 }) },
+                    { title: "App Development", href: "/services/app-dev", icon: React.createElement(Smartphone, { size: 18 }) },
                 ]
             }
         ]
