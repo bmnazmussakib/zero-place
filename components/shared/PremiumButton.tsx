@@ -48,7 +48,7 @@ const PremiumButton = ({
   );
 
   // Text with slide-up animation
-  const textStyles = `relative overflow-hidden text-red-500 `;
+  const textStyles = `relative overflow-hidden`;
   const textInner = cn(
     'flex leading-relaxed transition-transform duration-400 ease-in-out',
     'group-hover:-translate-y-[30px]',
@@ -71,9 +71,9 @@ const PremiumButton = ({
   const content = (
     <>
       <span className={textStyles}>
-        <span 
+        <span
           className={textInner}
-          style={{ textShadow: '0 30px 0 #fff' }}
+          style={{ textShadow: variant === 'primary' ? '0 30px 0 var(--primary)' : '0 30px 0 #fff' }}
         >
           {children}
         </span>
