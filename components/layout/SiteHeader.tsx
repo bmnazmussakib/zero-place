@@ -7,6 +7,7 @@ import PremiumButton from "@/components/shared/PremiumButton";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X, ChevronDown } from "lucide-react";
+import SectionContainer from "../shared/SectionContainer";
 
 export default function SiteHeader() {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -69,122 +70,124 @@ export default function SiteHeader() {
                 setHoveredItem(null);
             }}
         >
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between relative">
-                <div className="flex items-center">
-                    <Logo />
-                </div>
+            <SectionContainer>
+                <div className="flex items-center justify-between relative">
+                    <div className="flex items-center">
+                        <Logo />
+                    </div>
 
-                <nav className="hidden md:flex items-stretch h-full">
-                    <ul className="menu menu-horizontal p-0 gap-2 items-stretch text-text-body h-full">
-                        {navItems.map((item) => (
-                            <li
-                                key={item.title}
-                                className={cn(
-                                    item.type === "megamenu" ? "static" : "relative",
-                                    item.children && "dropdown flex",
-                                    isMenuBox && hoveredItem === item.title && "dropdown-open"
-                                )}
-                                onMouseEnter={() => {
-                                    setIsMenuBox(true);
-                                    setHoveredItem(item.title);
-                                }}
-                            >
-                                {item.children && item.children.length > 0 ? (
-                                    <>
-                                        <Link href={item?.href}>
+                    <nav className="hidden md:flex items-stretch h-full">
+                        <ul className="menu menu-horizontal p-0 gap-2 items-stretch text-text-body h-full">
+                            {navItems.map((item) => (
+                                <li
+                                    key={item.title}
+                                    className={cn(
+                                        item.type === "megamenu" ? "static" : "relative",
+                                        item.children && "dropdown flex",
+                                        isMenuBox && hoveredItem === item.title && "dropdown-open"
+                                    )}
+                                    onMouseEnter={() => {
+                                        setIsMenuBox(true);
+                                        setHoveredItem(item.title);
+                                    }}
+                                >
+                                    {item.children && item.children.length > 0 ? (
+                                        <>
+                                            <Link href={item?.href}>
+                                                <div
+                                                    tabIndex={0}
+                                                    role="button"
+                                                    className="text-base font-bold text-text-body hover:text-primary transition-colors flex items-center gap-1 px-4 h-full"
+                                                >
+                                                    {item.title}
+                                                </div>
+                                            </Link>
                                             <div
                                                 tabIndex={0}
-                                                role="button"
-                                                className="text-base font-bold text-text-body hover:text-primary transition-colors flex items-center gap-1 px-4 h-full"
+                                                className={cn(
+                                                    "dropdown-content z-10 p-6 bg-white/95 backdrop-blur-xl shadow-3xl rounded-2xl border border-primary/5 animate-in fade-in zoom-in-95 duration-200",
+                                                    "before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4 mt-0 ",
+                                                    item.type === "megamenu"
+                                                        ? "absolute left-1/2 -translate-x-1/2 top-full w-[calc(100vw-4rem)] max-w-7xl"
+                                                        : "absolute left-0 top-14 w-64"
+                                                )}
                                             >
-                                                {item.title}
-                                            </div>
-                                        </Link>
-                                        <div
-                                            tabIndex={0}
-                                            className={cn(
-                                                "dropdown-content z-10 p-6 bg-white/95 backdrop-blur-xl shadow-3xl rounded-2xl border border-primary/5 animate-in fade-in zoom-in-95 duration-200",
-                                                "before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4 mt-0 ",
-                                                item.type === "megamenu"
-                                                    ? "absolute left-1/2 -translate-x-1/2 top-full w-[calc(100vw-4rem)] max-w-7xl"
-                                                    : "absolute left-0 top-14 w-64"
-                                            )}
-                                        >
-                                            {item.type === "megamenu" ? (
-                                                <div className="grid grid-cols-4 gap-8">
-                                                    {item.children.map((child: any) => (
-                                                        <div key={child.title} className="space-y-4">
-                                                            {/* <div className="px-4 py-2 bg-primary/5 rounded-xl">
+                                                {item.type === "megamenu" ? (
+                                                    <div className="grid grid-cols-4 gap-8">
+                                                        {item.children.map((child: any) => (
+                                                            <div key={child.title} className="space-y-4">
+                                                                {/* <div className="px-4 py-2 bg-primary/5 rounded-xl">
                                                                 <h4 className="text-sm font-black text-primary uppercase tracking-[0.2em]">
                                                                     {child.title}
                                                                 </h4>
                                                             </div> */}
-                                                            <ul className="space-y-1">
-                                                                {child.children?.map((sub: any) => (
-                                                                    <li key={sub.title}>
-                                                                        <Link
-                                                                            href={sub.href}
-                                                                            className="flex items-center gap-3 p-3 rounded-md hover:bg-primary/5 transition-all group"
-                                                                        >
-                                                                            {sub.icon && (
-                                                                                <span className="shrink-0 text-text-muted group-hover:text-primary transition-colors">
-                                                                                    {sub.icon}
+                                                                <ul className="space-y-1">
+                                                                    {child.children?.map((sub: any) => (
+                                                                        <li key={sub.title}>
+                                                                            <Link
+                                                                                href={sub.href}
+                                                                                className="flex items-center gap-3 p-3 rounded-md hover:bg-primary/5 transition-all group"
+                                                                            >
+                                                                                {sub.icon && (
+                                                                                    <span className="shrink-0 text-text-muted group-hover:text-primary transition-colors">
+                                                                                        {sub.icon}
+                                                                                    </span>
+                                                                                )}
+                                                                                <span className="text-base font-bold text-text-heading group-hover:text-primary transition-colors">
+                                                                                    {sub.title}
                                                                                 </span>
-                                                                            )}
-                                                                            <span className="text-base font-bold text-text-heading group-hover:text-primary transition-colors">
-                                                                                {sub.title}
-                                                                            </span>
-                                                                        </Link>
-                                                                    </li>
-                                                                ))}
-                                                            </ul>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            ) : (
-                                                <ul className="space-y-1 p-0 m-0 w-full">
-                                                    {item.children.map((child: any) => (
-                                                        <li key={child.title}>
-                                                            <Link
-                                                                href={child.href}
-                                                                className="text-base font-bold text-text-heading hover:text-primary p-3 flex rounded-md transition-all hover:bg-primary/5 "
-                                                            >
-                                                                {child.title}
-                                                            </Link>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            )}
-                                        </div>
-                                    </>
-                                ) : (
-                                    <Link
-                                        href={item.href}
-                                        onMouseEnter={() => setHoveredItem(item.title)}
-                                        className="text-base font-bold text-text-body hover:text-primary transition-colors px-4 flex items-center"
-                                    >
-                                        {item.title}
-                                    </Link>
-                                )}
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
+                                                                            </Link>
+                                                                        </li>
+                                                                    ))}
+                                                                </ul>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                ) : (
+                                                    <ul className="space-y-1 p-0 m-0 w-full">
+                                                        {item.children.map((child: any) => (
+                                                            <li key={child.title}>
+                                                                <Link
+                                                                    href={child.href}
+                                                                    className="text-base font-bold text-text-heading hover:text-primary p-3 flex rounded-md transition-all hover:bg-primary/5 "
+                                                                >
+                                                                    {child.title}
+                                                                </Link>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                )}
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <Link
+                                            href={item.href}
+                                            onMouseEnter={() => setHoveredItem(item.title)}
+                                            className="text-base font-bold text-text-body hover:text-primary transition-colors px-4 flex items-center"
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
 
-                <div className="flex items-center gap-4 self-center">
-                    <PremiumButton href="/book-a-call" className="hidden sm:inline-flex">
-                        Book a Call
-                    </PremiumButton>
+                    <div className="flex items-center gap-4 self-center">
+                        <PremiumButton href="/book-a-call" className="hidden sm:inline-flex">
+                            Book a Call
+                        </PremiumButton>
 
-                    {/* Mobile Menu Toggle */}
-                    <button
-                        className="p-2 md:hidden text-text-heading hover:bg-primary/5 rounded-xl transition-all"
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    >
-                        {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                    </button>
+                        {/* Mobile Menu Toggle */}
+                        <button
+                            className="p-2 md:hidden text-text-heading hover:bg-primary/5 rounded-xl transition-all"
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        >
+                            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </SectionContainer>
 
             {/* Mobile Navigation Overlay */}
             <div className={cn(
