@@ -71,27 +71,29 @@ export default function ServicePricing() {
 
                     <div className="relative ">
                         {/* DaisyUI Tabs – unique name="pricing_tabs" */}
-                        <div className="tabs tabs-bordered tabs-lg absolute top-8 right-8 md:top-10 md:right-12 lg:top-12 lg:right-16">
+                        <div className="tabs tabs-bordered tabs-lg absolute top-8 right-8 md:top-10 md:right-12 lg:top-12 lg:right-16 z-20 bg-white rounded-full border border-primary p-2">
                             <input
                                 type="radio"
                                 name="pricing_tabs"
-                                className="tab [--tab-bg:white] [--tab-border-color:white/30] text-[#0f0e21]"
+                                className="tab [--tab-bg:white] [--tab-border-color:white/30] text-[#0f0e21] checked:bg-[#6c46fd] checked:text-white! rounded-full font-bold capitalize"
                                 aria-label="1 month"
-                                defaultChecked
+                                checked={activePlan === '1month'}
                                 onChange={() => setActivePlan('1month')}
                             />
                             <input
                                 type="radio"
                                 name="pricing_tabs"
-                                className="tab [--tab-bg:white] [--tab-border-color:white/30] text-[#0f0e21]"
-                                aria-label="3 months 10% off"
+                                className="tab [--tab-bg:white] [--tab-border-color:white/30] text-[#0f0e21] checked:bg-[#6c46fd] checked:text-white! rounded-full font-bold capitalize"
+                                aria-label="3 months"
+                                checked={activePlan === '3months'}
                                 onChange={() => setActivePlan('3months')}
                             />
                             <input
                                 type="radio"
                                 name="pricing_tabs"
-                                className="tab [--tab-bg:white] [--tab-border-color:white/30] text-[#0f0e21]"
-                                aria-label="6 months 20% off"
+                                className="tab [--tab-bg:white] [--tab-border-color:white/30] text-[#0f0e21] checked:bg-[#6c46fd] checked:text-white! rounded-full font-bold capitalize"
+                                aria-label="6 months"
+                                checked={activePlan === '6months'}
                                 onChange={() => setActivePlan('6months')}
                             />
                         </div>
@@ -132,23 +134,23 @@ export default function ServicePricing() {
 
                             {/* Price & CTA – bottom right, updates with tab */}
                             <div className="absolute bottom-10 md:bottom-12 lg:bottom-16 right-8 md:right-12 lg:right-16 text-right">
+                                {current.discountLabel && (
+                                    <div className="text-xl font-semibold opacity-90 ">
+                                        {current.discountLabel}
+                                    </div>
+                                )}
                                 <div className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-3">
                                     {current.price}
                                     <span className="text-2xl md:text-3xl font-bold opacity-80"> /PER MONTH</span>
                                 </div>
 
-                                {current.discountLabel && (
-                                    <div className="text-xl font-semibold opacity-90 mb-6">
-                                        {current.discountLabel}
-                                    </div>
-                                )}
 
                                 <button
                                     className="
-                mt-4 inline-block rounded-full bg-white px-10 py-5 text-lg md:text-xl
-                font-bold text-[#0f0e21] shadow-xl
-                hover:bg-gray-100 active:scale-95 transition-all
-              "
+                                                mt-4 inline-block rounded-full bg-white px-10 py-5 text-lg md:text-xl
+                                                font-bold text-[#0f0e21] shadow-xl
+                                                hover:bg-gray-100 active:scale-95 transition-all
+                                            "
                                 >
                                     GET STARTED
                                 </button>
