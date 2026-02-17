@@ -14,7 +14,7 @@ export default function ServiceHero() {
                         <div className="absolute left-1/2 top-1/3 h-64 w-64 -translate-x-1/2 rounded-full bg-indigo-500/10 blur-3xl"></div>
                     </div>
 
-                    <div className="relative  px-5 sm:px-8 lg:px-12">
+                    <div className="relative">
                         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
                             {/* Breadcrumb */}
                             <nav className="mb-6 text-sm font-medium text-gray-500">
@@ -77,7 +77,7 @@ export default function ServiceHero() {
                             </div>
 
                             {/* Floating illustration card - positioned to right/bottom like in screenshot */}
-                            <div className="relative mt-10 w-full max-w-md self-center lg:absolute lg:right-12 lg:top-1/2 lg:-translate-y-1/3 lg:mt-0 lg:w-96 xl:w-[420px]">
+                            <div className="relative mt-10 w-full max-w-md self-center lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/3 lg:mt-0 lg:w-96 xl:w-[420px]">
                                 <div className="relative aspect-[4/3.2] overflow-hidden rounded-3xl border border-gray-100 bg-white/80 shadow-2xl shadow-[#6c46fd]/15 backdrop-blur-md">
                                     {/* Inner decorative elements */}
                                     <div className="absolute inset-0">

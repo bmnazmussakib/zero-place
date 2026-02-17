@@ -14,7 +14,7 @@ export default function ServiceWhy() {
                         <div className="absolute inset-0 bg-gradient-to-br from-[#6c46fd]/5 via-transparent to-indigo-500/5"></div>
                     </div>
 
-                    <div className="relative px-5 sm:px-8 lg:px-12">
+                    <div className="relative ">
                         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
                             {/* Left side - two stat cards */}
                             <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 w-full lg:w-auto">
