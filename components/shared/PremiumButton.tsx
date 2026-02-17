@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 interface PremiumButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   variant?: 'primary' | 'outline' | 'dark';
+  size?: 'small' | 'medium' | 'large';
   icon?: React.ReactNode;
   href?: string;
   className?: string;
@@ -13,21 +14,57 @@ interface PremiumButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 const PremiumButton = ({
   children,
   variant = 'primary',
-  icon = <ArrowUpRight className="w-5 h-5" />,
+  size = 'medium',
+  icon = <ArrowUpRight className={cn(
+    size === 'small' ? "w-4 h-4" : size === 'large' ? "w-6 h-6" : "w-5 h-5"
+  )} />,
   className,
   href,
   ...props
 }: PremiumButtonProps) => {
+
+  // define size-specific values
+  const sizeStyles = {
+    small: {
+      button: 'text-sm py-1 pr-1 pl-6',
+      iconContainer: 'w-[32px] h-[32px] text-[18px]',
+      bgEffect: 'before:w-[32px] before:h-[calc(100%-8px)] before:right-1 before:top-1',
+      hoverEffect: 'hover:before:w-[calc(100%-8px)]',
+      translateY: 'group-hover:-translate-y-[24px]',
+      textShadow: '0 24px 0',
+    },
+    medium: {
+      button: 'text-base py-1.5 pr-1.5 pl-8',
+      iconContainer: 'w-[42px] h-[42px] text-[22px]',
+      bgEffect: 'before:w-[42px] before:h-[calc(100%-12px)] before:right-1.5 before:top-1.5',
+      hoverEffect: 'hover:before:w-[calc(100%-12px)]',
+      translateY: 'group-hover:-translate-y-[30px]', // Matches original
+      textShadow: '0 30px 0',
+    },
+    large: {
+      button: 'text-lg py-2.5 pr-2 pl-10',
+      iconContainer: 'w-[52px] h-[52px] text-[26px]',
+      bgEffect: 'before:w-[56px] before:h-[56px] before:right-2 before:top-2',
+      hoverEffect: 'hover:before:w-[calc(100%-16px)]',
+      translateY: 'group-hover:-translate-y-[36px]',
+      textShadow: '0 36px 0',
+    }
+  };
+
+  const currentSize = sizeStyles[size] || sizeStyles.medium;
+
   // Base button styles with the expanding background effect
   const buttonBase = cn(
     'group relative inline-flex items-center justify-between gap-2.5',
-    'text-base font-bold py-1.5 pr-1.5 pl-8 text-center rounded-full overflow-hidden whitespace-nowrap z-[2]',
+    'font-bold text-center rounded-full overflow-hidden whitespace-nowrap z-[2]',
+    currentSize.button,
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ',
     // Pseudo-element for expanding background
-    'before:content-[""] before:absolute before:w-[42px] before:h-[calc(100%-12px)]',
-    'before:right-1.5 before:top-1.5 before:-z-10 before:rounded-full',
+    'before:content-[""] before:absolute',
+    currentSize.bgEffect,
+    'before:-z-10 before:rounded-full',
     'before:transition-all before:duration-300 before:ease-in-out',
-    'hover:before:w-[calc(100%-12px)]',
+    currentSize.hoverEffect,
     // Variant-specific styles
     variant === 'primary' && [
       'bg-primary',
@@ -51,14 +88,15 @@ const PremiumButton = ({
   const textStyles = `relative overflow-hidden flex-1`;
   const textInner = cn(
     'flex leading-relaxed transition-transform duration-400 ease-in-out',
-    'group-hover:-translate-y-[30px] ',
+    currentSize.translateY,
     `${variant === 'primary' ? 'text-white' : 'text-primary'}`
   );
 
   // Icon container with rotation animation
   const iconContainer = cn(
     'relative inline-flex justify-center items-center',
-    'text-[22px] leading-none w-[42px] h-[42px]',
+    'leading-none',
+    currentSize.iconContainer,
     'overflow-hidden rounded-full z-10'
   );
 
@@ -73,7 +111,7 @@ const PremiumButton = ({
       <span className={textStyles}>
         <span
           className={textInner}
-          style={{ textShadow: variant === 'primary' ? '0 30px 0 var(--primary) ' : '0 30px 0 #fff ' }}
+          style={{ textShadow: variant === 'primary' ? `${currentSize.textShadow} var(--primary)` : `${currentSize.textShadow} #fff` }}
         >
           {children}
         </span>

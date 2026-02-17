@@ -1,6 +1,7 @@
 // serviceHero.tsx
 import React from 'react';
 import SectionContainer from '../shared/SectionContainer';
+import PremiumButton from '../shared/PremiumButton';
 
 export default function ServiceHero() {
     return (
@@ -47,7 +48,7 @@ export default function ServiceHero() {
                             </p>
 
                             {/* CTA Button - rounded pill, gradient, arrow */}
-                            <div className="mb-16 lg:mb-0">
+                            <div className="mb-16 lg:mb-0 hidden">
                                 <a
                                     href="#book-demo"
                                     className="
@@ -75,6 +76,10 @@ export default function ServiceHero() {
                                     <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                                 </a>
                             </div>
+
+                            <PremiumButton size="large" href="/book-a-call" className="hidden sm:inline-flex">
+                        Book a Call
+                    </PremiumButton>
 
                             {/* Floating illustration card - positioned to right/bottom like in screenshot */}
                             <div className="relative mt-10 w-full max-w-md self-center lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/3 lg:mt-0 lg:w-96 xl:w-[420px]">

@@ -139,15 +139,15 @@ export default function ServicePricing() {
                                         {current.discountLabel}
                                     </div>
                                 )}
-                                <div className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-3">
+                                <div className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-3">
                                     {current.price}
-                                    <span className="text-2xl md:text-3xl font-bold opacity-80"> /PER MONTH</span>
+                                    <span className="text-xl md:text-2xl font-bold opacity-80"> /PER MONTH</span>
                                 </div>
 
 
                                 <button
                                     className="
-                                                mt-4 inline-block rounded-full bg-white px-10 py-5 text-lg md:text-xl
+                                                mt-4 inline-block rounded-full bg-white px-8 py-4 text-lg md:text-lg
                                                 font-bold text-[#0f0e21] shadow-xl
                                                 hover:bg-gray-100 active:scale-95 transition-all
                                             "
