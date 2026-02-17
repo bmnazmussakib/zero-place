@@ -6,6 +6,7 @@ import SectionContainer from "@/components/shared/SectionContainer";
 import { TypeAnimation } from "react-type-animation";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Autoplay } from 'swiper/modules';
+import * as motion from "motion/react-client";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -31,6 +32,27 @@ const HERO_SLIDES = [
     },
 ];
 
+const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
+
+const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2
+        }
+    }
+};
+
+const imageReveal = {
+    hidden: { opacity: 0, scale: 0.95, x: 20 },
+    visible: { opacity: 1, scale: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } }
+};
+
 export default function HeroSection() {
     const swiperRef = useRef<any>(null);
 
@@ -39,11 +61,20 @@ export default function HeroSection() {
             <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--primary-soft),var(--color-background))] opacity-40" />
 
             <SectionContainer className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center py-20">
-                <div className="text-left space-y-8">
-                    <SectionBadge>
-                        Unlimited Design Subscription
-                    </SectionBadge>
-                    <div className="flex items-center gap-2">
+                <motion.div
+                    className="text-left space-y-8"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={staggerContainer}
+                >
+                    <motion.div variants={fadeInUp}>
+                        <SectionBadge>
+                            Unlimited Design Subscription
+                        </SectionBadge>
+                    </motion.div>
+
+                    <motion.div className="flex items-center gap-2" variants={fadeInUp}>
                         <div className="avatar-group -space-x-3">
                             <div className="avatar border-2 border-white">
                                 <div className="w-6">
@@ -67,9 +98,9 @@ export default function HeroSection() {
                             </div>
                         </div>
                         <p className="text-sm font-medium text-text-muted">150+ Happy Clients</p>
-                    </div>
+                    </motion.div>
 
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-black text-text-heading leading-[0.95] tracking-tighter min-h-[3.3em] sm:min-h-[2.2em]">
+                    <motion.h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-black text-text-heading leading-[0.95] tracking-tighter min-h-[3.3em] sm:min-h-[2.2em]" variants={fadeInUp}>
                         Boost Your Brand with Expert <br />
                         <span className="text-primary">
                             <TypeAnimation
@@ -92,26 +123,38 @@ export default function HeroSection() {
                                 repeat={Infinity}
                             />
                         </span>
-                    </h1>
+                    </motion.h1>
 
-                    <p className="text-xl text-text-muted max-w-xl">
+                    <motion.p className="text-xl text-text-muted max-w-xl" variants={fadeInUp}>
                         Premium quality, fast delivery, and scalable solutions tailored to your business goals.
-                    </p>
+                    </motion.p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-start gap-4 pt-4">
+                    <motion.div className="flex flex-col sm:flex-row items-center justify-start gap-4 pt-4" variants={fadeInUp}>
                         <PremiumButton size="large" href="/pricing" className="w-full sm:w-auto">
                             View Pricing
                         </PremiumButton>
                         <Link href="/portfolio">
                             See our work
                         </Link>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
                 {/* Hero Image / Mockup Slider */}
-                <div className="relative group animate-float max-w-[600px] mx-auto lg:mx-0 w-full">
-                    {/* Badge Overlay */}
-                    <div className="absolute -top-6 -left-6 lg:-left-12 z-20 px-6 py-4 bg-white/90 backdrop-blur-md border border-primary/20 rounded-2xl shadow-2xl animate-float flex items-center gap-3">
+                <motion.div
+                    className="relative group animate-float max-w-[600px] mx-auto lg:mx-0 w-full"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={imageReveal}
+                >
+                    {/* Badge Overlay - Animate independently if needed, but kept within group for now */}
+                    <motion.div
+                        className="absolute -top-6 -left-6 lg:-left-12 z-20 px-6 py-4 bg-white/90 backdrop-blur-md border border-primary/20 rounded-2xl shadow-2xl animate-float flex items-center gap-3"
+                        initial={{ opacity: 0, y: 20, rotate: -5 }}
+                        whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+                        transition={{ delay: 0.8, duration: 0.5 }}
+                        viewport={{ once: true }}
+                    >
                         <div className="flex -space-x-2">
                             {[1, 2, 3].map((i) => (
                                 <div key={i} className="size-8 rounded-full border-2 border-white overflow-hidden bg-section">
@@ -123,7 +166,7 @@ export default function HeroSection() {
                             <span className="text-xs font-bold text-text-heading leading-tight italic">Trusted by</span>
                             <span className="text-sm font-black text-primary leading-tight">800+ Tech Giants</span>
                         </div>
-                    </div>
+                    </motion.div>
 
                     <div className="w-full aspect-square relative">
                         <div className="absolute inset-0 bg-primary/5 rounded-[3rem] -rotate-3 transition-transform group-hover:rotate-0 duration-500" />
@@ -157,7 +200,7 @@ export default function HeroSection() {
                             </Swiper>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </SectionContainer>
         </div>
     );

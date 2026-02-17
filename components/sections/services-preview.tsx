@@ -3,6 +3,7 @@
 import React from 'react';
 import SectionContainer from '../shared/SectionContainer';
 import Image from 'next/image';
+import * as motion from "motion/react-client";
 
 const serviceImages = [
     {
@@ -61,38 +62,73 @@ const serviceImages = [
     }
 ];
 
+const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
+
+const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2
+        }
+    }
+};
+
+const cardVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
 
 export function ServicesPreview() {
     return (
         <section className="overflow-hidden bg-gray-50 py-16">
             <SectionContainer className="mb-16">
-                <div className="text-center">
+                <motion.div
+                    className="text-center"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeInUp}
+                >
                     <h2 className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter mb-4">Our Services</h2>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                         Explore our wide range of professional services tailored to help your brand grow and succeed in the digital landscape.
                     </p>
-                </div>
+                </motion.div>
             </SectionContainer>
 
 
 
             <SectionContainer className="py-0 ">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <motion.div
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={staggerContainer}
+                >
                     {serviceImages.map((item, index) => {
                         return (
-                            <div key={index} className="space-y-4 bg-white p-6 rounded-md cursor-pointer transition-all duration-300">
+                            <motion.div
+                                key={index}
+                                className="space-y-4 bg-white p-6 rounded-md cursor-pointer transition-all duration-300"
+                                variants={cardVariant}
+                            >
                                 <div className="p-3 rounded-xl bg-primary/10 w-fit">
                                     <Image src={item.imageIcon} alt={item.title} width={32} height={32} className="object-contain" />
                                 </div>
                                 <h4 className='text-2xl font-light'>{item.title}</h4>
                                 <p className="text-text-muted leading-relaxed">{item.description}</p>
-                            </div>
+                            </motion.div>
                         );
                     })}
-                </div>
+                </motion.div>
             </SectionContainer>
         </section>
     );
 }
-
 

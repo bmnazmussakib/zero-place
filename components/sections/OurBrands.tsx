@@ -3,6 +3,7 @@ import SectionContainer from '../shared/SectionContainer'
 import Marquee from "react-fast-marquee";
 import Link from 'next/link';
 import PremiumButton from '../shared/PremiumButton';
+import * as motion from "motion/react-client";
 
 const BRANDS = [
     { name: 'Ventoo', logo: '/images/brands/ventoo-logo.svg' },
@@ -29,30 +30,63 @@ function BrandCard({ logo, name }: { logo: string; name: string }) {
     );
 }
 
+const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
+
+const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.1
+        }
+    }
+};
+
+const fadeInRight = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.7 } }
+};
+
 function OurBrands() {
     return (
         <>
             <div className='bg-footer-bg'>
                 <SectionContainer className="py-24">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-                        <div className="lg:col-span-5 space-y-8">
-                            <div className="space-y-4">
+                        <motion.div
+                            className="lg:col-span-5 space-y-8"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={staggerContainer}
+                        >
+                            <motion.div className="space-y-4" variants={fadeInUp}>
                                 <h2 className="text-5xl md:text-6xl font-heading font-black text-white leading- tracking-normal">
                                     Trusted by <span className="text-primary ">Global</span> Brands
                                 </h2>
                                 <p className="text-xl text-muted-foreground leading-relaxed">
                                     Your brand designs are too important to be left in the hands of unreliable freelancers. Why not hire an experienced designer who knows your brand by heart?
                                 </p>
-                            </div>
+                            </motion.div>
 
-                            <div className="">
+                            <motion.div className="" variants={fadeInUp}>
                                 <PremiumButton href="/pricing">
                                     Get Started
                                 </PremiumButton>
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
 
-                        <div className="lg:col-span-7 flex flex-col gap-2 relative">
+                        <motion.div
+                            className="lg:col-span-7 flex flex-col gap-2 relative"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={fadeInRight}
+                        >
                             {/* Decorative background element */}
                             <div className="absolute -inset-4 bg-primary/5 rounded-3xl -z-10 blur-3xl opacity-50" />
 
@@ -86,7 +120,7 @@ function OurBrands() {
                                     ))}
                                 </Marquee>
                             </div>
-                        </div>
+                        </motion.div>
 
                     </div>
                 </SectionContainer>
