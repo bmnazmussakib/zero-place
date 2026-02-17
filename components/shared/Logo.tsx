@@ -18,12 +18,13 @@ export default function Logo({
                 className="w-8"
             />
             <span className={cn(
-                "text-2xl font-bold tracking-tight font-heading",
+                "text-2xl font-black tracking-tight font-heading",
                 isWhite ? "text-white" : "text-text-heading"
             )}>
                 Zero
-                <span className={isWhite ? "text-white" : "text-primary"}>place</span>
+                <span className="font-normal" >place</span>
             </span>
+            {/* <img src="/images/zero-place-color-logo.svg" alt="" /> */}
         </Link>
     );
 }
