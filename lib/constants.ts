@@ -158,3 +158,60 @@ export const categories = [
     "UI/UX Design + Mobile App", "Website", "SAAS",
     "Social Media banners & Ad Creative", "Gifs", "Printing", "Videos"
 ];
+
+export const servicesCategories = [
+    {
+        title: "Graphic Design",
+        slug: "graphic-design",
+        image: "/images/services/service-card-2.jpg",
+        color: "bg-[#1C1C1E]",
+        textColor: "text-white",
+        colSpan: 1,
+        description: "Social media, ads, and branding assets."
+    },
+    {
+        title: "Website Design",
+        slug: "website-design",
+        image: "/images/services/service-card-5.jpg",
+        color: "bg-[#FFD600]",
+        textColor: "text-black",
+        colSpan: 1,
+        description: "Beautiful and functional interfaces."
+    },
+    {
+        title: "Motion Graphics",
+        slug: "motion-graphics",
+        image: "/images/services/service-card-12.jpg",
+        color: "bg-[#1C1C1E]",
+        textColor: "text-white",
+        colSpan: 1,
+        description: "Animated logos and videos."
+    },
+    {
+        title: "Web Development",
+        slug: "web-dev",
+        image: "/images/services/service-card-6.jpg",
+        color: "bg-[#F3F4F6]",
+        textColor: "text-black",
+        colSpan: 1,
+        description: "Robust and scalable web solutions."
+    },
+    {
+        title: "App Development",
+        slug: "app-dev",
+        image: "/images/services/service-card-7.jpg",
+        color: "bg-[#1C1C1E]",
+        textColor: "text-white",
+        colSpan: 1,
+        description: "Native and cross-platform mobile apps."
+    },
+    {
+        title: "Branding",
+        slug: "branding-services",
+        image: "/images/work/examples-10.png",
+        color: "bg-[#FFD600]",
+        textColor: "text-black",
+        colSpan: 1,
+        description: "Logo, typography, and brand identity."
+    },
+];

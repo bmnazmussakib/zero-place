@@ -1,25 +1,38 @@
 import SectionContainer from "@/components/shared/SectionContainer";
-import { services } from "@/lib/constants";
-import Link from "next/link";
+import { servicesCategories } from "@/lib/constants";
+import ServicesGrid from "@/components/sections/ServicesGrid";
+import OurBrands from "@/components/sections/OurBrands";
+import ServicesHeroCTA from "@/components/sections/ServicesHeroCTA";
+import ServiceDifferentiators from "@/components/sections/ServiceDifferentiators";
+import ServiceBenefits from "@/components/sections/ServiceBenefits";
+import Testimonial from "@/components/sections/Testimonial";
+import { OurWorks } from "@/components/sections/OurWorks";
+import ServiceFAQ from "@/components/sections/ServiceFAQ";
+import FAQ from "@/components/sections/FAQ";
 
 export default function ServicesPage() {
   return (
-    <SectionContainer>
-      <div className="text-center mb-16 space-y-4">
-        <h1 className="text-4xl font-bold">What We Do</h1>
-        <p className="text-xl text-[var(--text-body)]">Comprehensive design services tailored to your brand.</p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {services.map(service => (
-          <Link key={service.slug} href={`/services/${service.slug}`} className="p-8 bg-white rounded-2xl border border-[var(--border-subtle)] hover:border-[var(--primary)] transition-all group shadow-sm">
-            <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-            <p className="text-[var(--text-body)] mb-6">{service.description}</p>
-            <span className="text-[var(--primary)] font-semibold flex items-center gap-2 group-hover:gap-3 transition-all">
-              Learn more <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="9 5l7 7-7 7" /></svg>
-            </span>
-          </Link>
-        ))}
-      </div>
-    </SectionContainer>
+    <div className="bg-gray-50/50 min-h-screen pt-24 pb-32">
+      <SectionContainer>
+        <ServicesHeroCTA />
+
+
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">All Services</h2>
+          <p className="text-xl text-[var(--text-body)] max-w-2xl">
+            We help you build a brand that stands out. From logo design to full-scale web development.
+          </p>
+        </div>
+      </SectionContainer>
+
+      <ServicesGrid services={servicesCategories} />
+      <OurBrands />
+      <ServiceDifferentiators />
+      <ServiceBenefits />
+      <Testimonial />
+      <OurWorks />
+      <FAQ />
+      {/* <ServiceFAQ /> */}
+    </div>
   );
 }
