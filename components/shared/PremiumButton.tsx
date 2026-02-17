@@ -78,7 +78,7 @@ const PremiumButton = ({
     ],
     variant === 'dark' && [
       'bg-neutral-900',
-      'before:bg-neutral-900/60',
+      'before:bg-white',
       'focus-visible:ring-neutral-900/50',
     ],
     className
@@ -89,7 +89,7 @@ const PremiumButton = ({
   const textInner = cn(
     'flex leading-relaxed transition-transform duration-400 ease-in-out',
     currentSize.translateY,
-    `${variant === 'primary' ? 'text-white' : 'text-primary'}`
+    `${variant === 'outline' ? 'text-primary' : 'text-white'}`
   );
 
   // Icon container with rotation animation
@@ -103,7 +103,7 @@ const PremiumButton = ({
   const iconWrapper = cn(
     'transition-transform duration-300 ease-in-out',
     'rotate-0 group-hover:rotate-45',
-    `${variant === 'primary' ? 'text-primary' : 'text-white'}`
+    `${variant === 'outline' ? 'text-white' : variant === 'dark' ? 'text-neutral-900' : 'text-primary'}`
   );
 
   const content = (
@@ -111,7 +111,13 @@ const PremiumButton = ({
       <span className={textStyles}>
         <span
           className={textInner}
-          style={{ textShadow: variant === 'primary' ? `${currentSize.textShadow} var(--primary)` : `${currentSize.textShadow} #fff` }}
+          style={{
+            textShadow: variant === 'primary'
+              ? `${currentSize.textShadow} var(--primary)`
+              : variant === 'dark'
+                ? `${currentSize.textShadow} #171717`
+                : `${currentSize.textShadow} #fff`
+          }}
         >
           {children}
         </span>
