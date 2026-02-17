@@ -71,7 +71,7 @@ export default function ServicePricing() {
 
                     <div className="relative ">
                         {/* DaisyUI Tabs – unique name="pricing_tabs" */}
-                        <div className="tabs tabs-bordered tabs-lg absolute top-8 right-8 md:top-10 md:right-12 lg:top-12 lg:right-16 z-20 bg-white rounded-full border border-primary p-2">
+                        <div className="tabs tabs-bordered tabs-lg lg:mb-0 mb-10 w-fit mx-auto lg:absolute static top-8 right-8 md:top-10 md:right-12 lg:top-12 lg:right-16 z-20 bg-white rounded-full border border-primary p-2">
                             <input
                                 type="radio"
                                 name="pricing_tabs"
@@ -99,10 +99,10 @@ export default function ServicePricing() {
                         </div>
                         {/* Main card with irregular shape + brand gradient */}
                         <div
-                            className='relative overflow-hidden text-white p-8 md:p-12 lg:p-16 mask-[url(/images/price_cta-bg.png)] bg-gradient-to-br from-[#6c46fd]/80 via-indigo-600 to-purple-700 w-full h-full mask-top-right mask-cover mask-no-repeat rounded-4xl'
+                            className='relative overflow-hidden text-white p-8 md:p-12 lg:p-16 xl:mask-[url(/images/price_cta-bg.png)] bg-gradient-to-br from-[#6c46fd]/80 via-indigo-600 to-purple-700 w-full h-full xl:mask-top-right xl:mask-cover xl:mask-no-repeat rounded-4xl'
                         >
                             {/* Visual tag */}
-                            <div className="absolute top-10 left-8 md:left-12 ">
+                            <div className="lg:absolute top-10 left-8 md:left-12 ">
                                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 backdrop-blur-sm px-5 py-2 text-sm font-medium text-white border border-white/30 shadow-sm">
                                     <span className="text-lg">✎</span> Visual
                                 </span>
@@ -133,7 +133,7 @@ export default function ServicePricing() {
                             </div>
 
                             {/* Price & CTA – bottom right, updates with tab */}
-                            <div className="absolute bottom-10 md:bottom-12 lg:bottom-16 right-8 md:right-12 lg:right-16 text-right">
+                            <div className="lg:absolute static bottom-10 md:bottom-12 lg:bottom-16 right-8 md:right-12 lg:right-16 lg:text-right text-center">
                                 {current.discountLabel && (
                                     <div className="text-xl font-semibold opacity-90 ">
                                         {current.discountLabel}

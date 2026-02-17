@@ -33,6 +33,16 @@ export default function TestPremiumButton() {
                     <PremiumButton size="large" variant="dark">Dark</PremiumButton>
                 </div>
             </div>
+
+            <div>
+                <h2 className="text-2xl font-bold mb-4">Custom Colors</h2>
+                <div className="flex gap-4 items-center flex-wrap">
+                    <PremiumButton bgColor="#FF5733" textColor="#fff">Orange Button</PremiumButton>
+                    <PremiumButton bgColor="#2ECC71" textColor="#000">Green Button</PremiumButton>
+                    <PremiumButton bgColor="#9B59B6" textColor="#fff" size="large">Purple Large</PremiumButton>
+                    <PremiumButton bgColor="#F1C40F" textColor="#000" size="small">Yellow Small</PremiumButton>
+                </div>
+            </div>
         </SectionContainer>
     );
 }

@@ -109,3 +109,52 @@ export const services: Service[] = [
         slug: "branding-services",
     },
 ];
+
+export const portfolioItems = [
+    {
+        title: "Brand Identity - Zeno",
+        category: "Branding",
+        image: "/images/work/examples-10.png",
+    },
+    {
+        title: "Mobile App - Fitness Tracker",
+        category: "UI/UX Design + Mobile App",
+        image: "/images/work/examples-17.png",
+    },
+    {
+        title: "E-Commerce Experience",
+        category: "Website",
+        image: "/images/work/examples-11.png",
+    },
+    {
+        title: "Presentation Deck - Pitch",
+        category: "Presentation Design",
+        image: "/images/work/examples-5-1.png",
+    },
+    {
+        title: "SaaS Dashboard Concept",
+        category: "SAAS",
+        image: "/images/work/examples-4-1.png",
+    },
+    {
+        title: "Social Media Banner Set",
+        category: "Social Media banners & Ad Creative",
+        image: "/images/work/examples-3-1.png",
+    },
+    {
+        title: "Company Quarterly Report",
+        category: "Infographics",
+        image: "/images/work/examples-12.png",
+    },
+    {
+        title: "Modern Logo Collection",
+        category: "Logo",
+        image: "/images/work/examples-9-1.png",
+    },
+];
+
+export const categories = [
+    "All", "Branding", "Infographics", "Logo", "Presentation Design",
+    "UI/UX Design + Mobile App", "Website", "SAAS",
+    "Social Media banners & Ad Creative", "Gifs", "Printing", "Videos"
+];

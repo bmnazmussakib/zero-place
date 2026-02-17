@@ -6,6 +6,8 @@ interface PremiumButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   children: React.ReactNode;
   variant?: 'primary' | 'outline' | 'dark';
   size?: 'small' | 'medium' | 'large';
+  bgColor?: string;
+  textColor?: string;
   icon?: React.ReactNode;
   href?: string;
   className?: string;
@@ -15,6 +17,8 @@ const PremiumButton = ({
   children,
   variant = 'primary',
   size = 'medium',
+  bgColor,
+  textColor,
   icon = <ArrowUpRight className={cn(
     size === 'small' ? "w-4 h-4" : size === 'large' ? "w-6 h-6" : "w-5 h-5"
   )} />,
@@ -66,20 +70,25 @@ const PremiumButton = ({
     'before:transition-all before:duration-300 before:ease-in-out',
     currentSize.hoverEffect,
     // Variant-specific styles
-    variant === 'primary' && [
+    !bgColor && variant === 'primary' && [
       'bg-primary',
       'before:bg-white',
       'focus-visible:ring-red-200',
     ],
-    variant === 'outline' && [
+    !bgColor && variant === 'outline' && [
       'bg-transparent border-2 border-primary',
       'before:bg-primary',
       'focus-visible:ring-primary',
     ],
-    variant === 'dark' && [
+    !bgColor && variant === 'dark' && [
       'bg-neutral-900',
       'before:bg-white',
       'focus-visible:ring-neutral-900/50',
+    ],
+    // Force white background for custom colored buttons
+    bgColor && [
+      'before:bg-white',
+      'focus-visible:ring-gray-200',
     ],
     className
   );
@@ -89,7 +98,7 @@ const PremiumButton = ({
   const textInner = cn(
     'flex leading-relaxed transition-transform duration-400 ease-in-out',
     currentSize.translateY,
-    `${variant === 'outline' ? 'text-primary' : 'text-white'}`
+    !bgColor && `${variant === 'outline' ? 'text-primary' : 'text-white'}`
   );
 
   // Icon container with rotation animation
@@ -103,7 +112,14 @@ const PremiumButton = ({
   const iconWrapper = cn(
     'transition-transform duration-300 ease-in-out',
     'rotate-0 group-hover:rotate-45',
-    `${variant === 'outline' ? 'text-white' : variant === 'dark' ? 'text-neutral-900' : 'text-primary'}`
+    !bgColor && `${variant === 'outline' ? 'text-white' : variant === 'dark' ? 'text-neutral-900' : 'text-primary'}`
+  );
+
+  // Determine shadow color for custom bg
+  const shadowColor = bgColor || (
+    variant === 'primary' ? 'var(--primary)' :
+      variant === 'dark' ? '#171717' :
+        '#fff'
   );
 
   const content = (
@@ -112,19 +128,27 @@ const PremiumButton = ({
         <span
           className={textInner}
           style={{
-            textShadow: variant === 'primary'
-              ? `${currentSize.textShadow} var(--primary)`
-              : variant === 'dark'
-                ? `${currentSize.textShadow} #171717`
-                : `${currentSize.textShadow} #fff`
+            color: textColor || (bgColor ? '#fff' : undefined), // Initial text color
+            textShadow: `${currentSize.textShadow} ${shadowColor}`
           }}
         >
           {children}
         </span>
       </span>
       <span className={iconContainer}>
-        <span className={iconWrapper}>
-          {icon}
+        <span
+          className={iconWrapper}
+          style={{
+            color: bgColor && !textColor ? '#000' : (textColor && !bgColor ? '#fff' : undefined) // Simple fallback for icon color logic in custom mode
+          }}
+        >
+          {React.isValidElement(icon) ? React.cloneElement(icon as React.ReactElement<any>, {
+            className: cn(
+              (icon.props as any).className,
+              bgColor ? '' : ''
+            ),
+            style: bgColor ? { color: bgColor } : {}
+          }) : icon}
         </span>
       </span>
     </>
@@ -132,14 +156,24 @@ const PremiumButton = ({
 
   if (href) {
     return (
-      <a href={href} className={buttonBase} {...(props as any)}>
+      <a
+        href={href}
+        className={buttonBase}
+        style={bgColor ? { backgroundColor: bgColor } : {}}
+        {...(props as any)}
+      >
         {content}
       </a>
     );
   }
 
   return (
-    <button type="button" className={buttonBase} {...props}>
+    <button
+      type="button"
+      className={buttonBase}
+      style={bgColor ? { backgroundColor: bgColor } : {}}
+      {...props}
+    >
       {content}
     </button>
   );

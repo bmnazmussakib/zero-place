@@ -109,7 +109,7 @@ export default function PricingHero({
                             SELECT THIS PLAN
                         </button> */}
 
-                        <PremiumButton href="/pricing" className='w-full'>
+                        <PremiumButton size='large' href="/pricing" className='w-full'>
                             Select this plan
                         </PremiumButton>
                     </div>
