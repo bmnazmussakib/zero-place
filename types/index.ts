@@ -6,11 +6,16 @@ export interface NavItem {
     type?: 'dropdown' | 'megamenu' | 'link';
 }
 
+export interface PricingFeature {
+    name: string;
+    price: number;
+}
+
 export interface PricingTier {
     name: string;
-    price: string;
+    price: string; // display label (e.g. "Starting at")
     description: string;
-    features: string[];
+    features: PricingFeature[];
     isPopular?: boolean;
 }
 
