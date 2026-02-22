@@ -48,7 +48,7 @@ export default function PricingCard({ tier, index }: PricingCardProps) {
 
                 <ul className="space-y-5 mb-12 flex-1">
                     {tier.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-4 text-base font-medium text-text-body leading-tight">
+                        <li key={feature.name} className="flex items-start gap-4 text-base font-medium text-text-body leading-tight">
                             <div className="mt-1 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                                 <svg
                                     className="w-3 h-3 text-primary"
@@ -60,7 +60,7 @@ export default function PricingCard({ tier, index }: PricingCardProps) {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
                             </div>
-                            {feature}
+                            {feature.name}
                         </li>
                     ))}
                 </ul>
