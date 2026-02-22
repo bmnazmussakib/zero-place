@@ -41,7 +41,7 @@ export default function Testimonial() {
     const swiperRef = useRef<any>(null);
 
     return (
-        <section className="bg-background py-24 md:py-32 overflow-hidden relative">
+        <section className="bg-white py-24 md:py-32 overflow-hidden relative">
             {/* Background Decorative Rings */}
             <div className="absolute top-1/2 -right-64 -translate-y-1/2 w-[600px] h-[600px] border-40 border-primary/5 rounded-full pointer-events-none" />
             <div className="absolute top-1/2 -right-32 -translate-y-1/2 w-[400px] h-[400px] border-20 border-primary/5 rounded-full pointer-events-none" />

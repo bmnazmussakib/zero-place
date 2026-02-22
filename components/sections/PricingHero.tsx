@@ -58,7 +58,7 @@ export default function PricingHero({
                         <SectionBadge>{badge}</SectionBadge>
                         <h1 className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[1] tracking-normal">
                             {titlePrefix} <br />
-                            <span className="text-primary italic">
+                            <span className="text-primary">
                                 {activePlan.name}
                             </span>
                         </h1>
@@ -74,21 +74,21 @@ export default function PricingHero({
                                 key={index}
                                 onMouseEnter={() => setActiveIndex(index)}
                                 className={cn(
-                                    "group flex items-center justify-between py-10 transition-all duration-300 cursor-pointer",
+                                    "group flex items-center justify-between py-5 transition-all duration-300 cursor-pointer",
                                     activeIndex === index ? "px-4" : "px-0"
                                 )}
                             >
                                 <div className="flex items-center gap-12">
                                     <h3 className={cn(
-                                        "text-2xl md:text-3xl font-heading font-black text-text-heading leading-tight transition-all",
-                                        activeIndex === index ? "text-primary scale-110" : "text-text-heading"
+                                        "text-xl md:text-2xl font-heading font-black  leading-tight transition-all",
+                                        activeIndex === index ? "text-primary scale-105" : "text-text-heading"
                                     )}>
                                         {tier.name}
                                     </h3>
                                 </div>
 
                                 <div className={cn(
-                                    "px-8 py-3 rounded-full border border-black font-bold text-xs uppercase tracking-widest transition-all",
+                                    "px-5 py-2 rounded-full border border-black font-bold text-xs uppercase tracking-widest transition-all",
                                     activeIndex === index
                                         ? "bg-primary text-white border-primary"
                                         : "bg-white text-black hover:bg-black hover:text-white"

@@ -57,7 +57,7 @@ export default function HeroSection() {
     const swiperRef = useRef<any>(null);
 
     return (
-        <div className="relative overflow-hidden bg-background before:absolute before:bg-primary before:size-120 before:rounded-full before:opacity-[0.25] before:end-[calc(50%-740px)] before:translate-x-1/2 before:top-0 before:blur-[100px]" >
+        <div className="relative overflow-hidden bg-white before:absolute before:bg-primary before:size-120 before:rounded-full before:opacity-[0.25] before:end-[calc(50%-740px)] before:translate-x-1/2 before:top-0 before:blur-[100px]" >
             <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--primary-soft),var(--color-background))] opacity-40" />
 
             <SectionContainer className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center py-20">
@@ -107,16 +107,16 @@ export default function HeroSection() {
                                 preRenderFirstString={true}
                                 sequence={[
                                     HERO_SLIDES[0].text,
-                                    2000,
+                                    8000,
                                     () => swiperRef.current?.slideTo(1),
                                     HERO_SLIDES[1].text,
-                                    2000,
+                                    8000,
                                     () => swiperRef.current?.slideTo(2),
                                     HERO_SLIDES[2].text,
-                                    2000,
+                                    8000,
                                     () => swiperRef.current?.slideTo(3),
                                     HERO_SLIDES[3].text,
-                                    2000,
+                                    8000,
                                     () => swiperRef.current?.slideTo(0),
                                 ]}
                                 speed={50}
@@ -133,15 +133,15 @@ export default function HeroSection() {
                         <PremiumButton size="large" href="/pricing" className="w-full sm:w-auto">
                             View Pricing
                         </PremiumButton>
-                        <Link href="/portfolio">
+                        {/* <Link href="/portfolio">
                             See our work
-                        </Link>
+                        </Link> */}
                     </motion.div>
                 </motion.div>
 
                 {/* Hero Image / Mockup Slider */}
                 <motion.div
-                    className="relative group animate-float max-w-[600px] mx-auto lg:mx-0 w-full"
+                    className="relative group animate-float max-w-[600px] mx-auto lg:mr-0 w-full"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}

@@ -8,7 +8,7 @@ import { OurWorks } from "@/components/sections/OurWorks";
 
 export default function PricingPage() {
   return (
-    <div className="bg-[#FAF9F6] min-h-screen">
+    <div className="bg-[#ffffff] min-h-screen">
       <PricingHero
         badge="One Time Plan"
         titlePrefix="One Time Pricing for"

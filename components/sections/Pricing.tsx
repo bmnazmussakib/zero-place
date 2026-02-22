@@ -48,7 +48,7 @@ export default function Pricing() {
     };
 
     return (
-        <section id="pricing" className="py-24 bg-[#F8F9FA]">
+        <section id="pricing" className="py-24 bg-footer-bg">
             <SectionContainer>
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
@@ -97,7 +97,7 @@ export default function Pricing() {
                     <div className="lg:col-span-5 space-y-8">
                         <div className="space-y-4">
                             <SectionBadge>Pricing Plan</SectionBadge>
-                            <h2 className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter">
+                            <h2 className="text-5xl md:text-6xl font-heading font-black text-white leading-[0.9] tracking-tighter">
                                 Flexible Pricing for Every Business
                             </h2>
                             <p className="text-text-muted text-lg leading-relaxed max-w-lg">

@@ -124,7 +124,7 @@ export function OurWorks() {
             </div>
 
             {/* Call-to-action button - centered, below sliders */}
-            <div className="mt-12 md:mt-16 flex justify-center">
+            <div className="mt-12 md:mt-16 flex justify-center hidden">
                 <PremiumButton
                     href="/works"
                     variant="outline"
