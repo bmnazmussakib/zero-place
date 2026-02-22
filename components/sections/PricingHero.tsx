@@ -1,4 +1,5 @@
 'use client'
+import { PricingTier } from "@/types";
 import * as motion from "motion/react-client";
 import { AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
@@ -14,6 +15,30 @@ interface PricingHeroProps {
     plans: PricingTier[];
     priceSuffix?: string;
 }
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.1
+        }
+    }
+} as const;
+
+const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            type: "spring",
+            damping: 25,
+            stiffness: 120
+        }
+    }
+} as const;
 
 export default function PricingHero({
     badge,
@@ -45,32 +70,8 @@ export default function PricingHero({
     };
 
     const totalPrice = activePlan.features
-        .filter((_, i) => selectedFeatures.has(i))
+        .filter((_, idx) => selectedFeatures.has(idx))
         .reduce((sum, f) => sum + f.price, 0);
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.1
-            }
-        }
-    };
-
-    const fadeInUp = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                type: "spring",
-                damping: 25,
-                stiffness: 120
-            }
-        }
-    };
 
     return (
         <SectionContainer className="pt-24 pb-32">
@@ -233,7 +234,6 @@ export default function PricingHero({
                             </div>
 
                             <PremiumButton
-                                motionProps={{ whileHover: { scale: 1.02 }, whileTap: { scale: 0.98 } }}
                                 size='large'
                                 href="/contact"
                                 className='w-full'
