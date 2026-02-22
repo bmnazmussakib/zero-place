@@ -3,6 +3,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { cn } from "@/lib/utils";
 import SectionContainer from '../shared/SectionContainer';
 import * as motion from "motion/react-client";
 import { AnimatePresence } from "motion/react";
@@ -122,19 +123,32 @@ export default function ServicePricing() {
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="tabs tabs-bordered tabs-lg lg:mb-0 mb-10 w-fit mx-auto lg:absolute static top-8 right-8 md:top-10 md:right-12 lg:top-12 lg:right-16 z-20 bg-white rounded-full border border-primary p-2 shadow-lg"
+                        className="flex items-center gap-1.5 lg:mb-0 mb-10 w-fit mx-auto lg:absolute static top-8 right-8 md:top-10 md:right-12 lg:top-12 lg:right-16 z-20 bg-white rounded-full border border-primary p-2 shadow-lg"
                     >
-                        {(['1month', '3months', '6months'] as Plan[]).map((plan) => (
-                            <input
-                                key={plan}
-                                type="radio"
-                                name="pricing_tabs"
-                                className="tab [--tab-bg:white] [--tab-border-color:white/30] text-[#0f0e21] checked:bg-[#6c46fd] checked:text-white! rounded-full font-bold capitalize transition-all duration-300"
-                                aria-label={plan === '1month' ? '1 month' : plan.replace('months', ' months')}
-                                checked={activePlan === plan}
-                                onChange={() => setActivePlan(plan)}
-                            />
-                        ))}
+                        {(['1month', '3months', '6months'] as Plan[]).map((plan) => {
+                            const isActive = activePlan === plan;
+                            return (
+                                <button
+                                    key={plan}
+                                    onClick={() => setActivePlan(plan)}
+                                    className={cn(
+                                        "relative px-6 py-2.5 rounded-full font-bold text-sm uppercase tracking-tighter transition-colors duration-300",
+                                        isActive ? "text-white" : "text-primary hover:bg-gray-50"
+                                    )}
+                                >
+                                    {isActive && (
+                                        <motion.div
+                                            layoutId="pricing-tab-highlight"
+                                            className="absolute inset-0 bg-primary rounded-full z-0"
+                                            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                        />
+                                    )}
+                                    <span className="relative z-10">
+                                        {plan === '1month' ? '1 month' : plan.replace('months', ' months')}
+                                    </span>
+                                </button>
+                            );
+                        })}
                     </motion.div>
 
                     {/* Main card */}
