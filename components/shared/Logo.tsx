@@ -15,10 +15,10 @@ export default function Logo({
             <img
                 src={isWhite ? "/images/logo-white.png" : "/images/logo.png"}
                 alt="ZeroPlace"
-                className="w-8"
+                className="w-10"
             />
             <span className={cn(
-                "text-2xl font-black tracking-tight font-heading",
+                "text-3xl font-black tracking-tight font-heading",
                 isWhite ? "text-white" : "text-text-heading"
             )}>
                 Zero

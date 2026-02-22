@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { navItems } from "@/lib/constants";
 import Logo from "@/components/shared/Logo";
 import PremiumButton from "@/components/shared/PremiumButton";
@@ -10,10 +11,18 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import SectionContainer from "../shared/SectionContainer";
 
 export default function SiteHeader() {
+    const pathname = usePathname();
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
     const [isMenuBox, setIsMenuBox] = useState<boolean>(false);
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
+    // Close menu on route change
+    useEffect(() => {
+        setIsMenuBox(false);
+        setHoveredItem(null);
+        setIsMobileMenuOpen(false);
+    }, [pathname]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -97,9 +106,16 @@ export default function SiteHeader() {
                                                 <div
                                                     tabIndex={0}
                                                     role="button"
-                                                    className="text-base font-bold text-text-body hover:text-primary transition-colors flex items-center gap-1 px-4 h-full"
+                                                    className="group text-base font-bold text-text-body hover:text-primary transition-colors flex items-center gap-1 px-4 h-full"
                                                 >
-                                                    {item.title}
+                                                    <span className="relative overflow-hidden h-[26px] flex items-center">
+                                                        <span
+                                                            className="flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-[26px]"
+                                                            style={{ textShadow: '0 26px 0 currentColor' }}
+                                                        >
+                                                            {item.title}
+                                                        </span>
+                                                    </span>
                                                 </div>
                                             </Link>
                                             <div
@@ -133,8 +149,13 @@ export default function SiteHeader() {
                                                                                         {sub.icon}
                                                                                     </span>
                                                                                 )}
-                                                                                <span className="text-base font-bold text-text-heading group-hover:text-primary transition-colors">
-                                                                                    {sub.title}
+                                                                                <span className="relative overflow-hidden h-[26px] flex items-center">
+                                                                                    <span
+                                                                                        className="text-base font-bold text-text-heading group-hover:text-primary flex flex-col transition-all duration-500 ease-in-out group-hover:-translate-y-[26px]"
+                                                                                        style={{ textShadow: '0 26px 0 currentColor' }}
+                                                                                    >
+                                                                                        {sub.title}
+                                                                                    </span>
                                                                                 </span>
                                                                             </Link>
                                                                         </li>
@@ -151,7 +172,14 @@ export default function SiteHeader() {
                                                                     href={child.href}
                                                                     className="text-base font-bold text-text-heading hover:text-primary p-3 flex rounded-md transition-all hover:bg-primary/5 "
                                                                 >
-                                                                    {child.title}
+                                                                    <span className="relative overflow-hidden h-[26px] flex items-center">
+                                                                        <span
+                                                                            className="flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-[26px]"
+                                                                            style={{ textShadow: '0 26px 0 currentColor' }}
+                                                                        >
+                                                                            {child.title}
+                                                                        </span>
+                                                                    </span>
                                                                 </Link>
                                                             </li>
                                                         ))}
@@ -163,9 +191,16 @@ export default function SiteHeader() {
                                         <Link
                                             href={item.href}
                                             onMouseEnter={() => setHoveredItem(item.title)}
-                                            className="text-base font-bold text-text-body hover:text-primary transition-colors px-4 flex items-center"
+                                            className="group text-base font-bold text-text-body hover:text-primary transition-colors px-4 flex items-center"
                                         >
-                                            {item.title}
+                                            <span className="relative overflow-hidden h-[26px] flex items-center">
+                                                <span
+                                                    className="flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-[26px]"
+                                                    style={{ textShadow: '0 26px 0 currentColor' }}
+                                                >
+                                                    {item.title}
+                                                </span>
+                                            </span>
                                         </Link>
                                     )}
                                 </li>
