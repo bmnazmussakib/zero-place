@@ -16,84 +16,136 @@ import {
     Briefcase
 } from 'lucide-react';
 
+import * as motion from "motion/react-client";
+
 const features = [
     {
-        icon: <Infinity className="w-5 h-5 text-[#6c46fd]" />,
+        icon: <Infinity className="w-5 h-5" />,
         text: "Unlimited requests"
     },
     {
-        icon: <Users className="w-5 h-5 text-[#6c46fd]" />,
+        icon: <Users className="w-5 h-5" />,
         text: "Real-time collaboration"
     },
     {
-        icon: <RefreshCcw className="w-5 h-5 text-[#6c46fd]" />,
+        icon: <RefreshCcw className="w-5 h-5" />,
         text: "Unlimited revisions"
     },
     {
-        icon: <Trello className="w-5 h-5 text-[#6c46fd]" />,
+        icon: <Trello className="w-5 h-5" />,
         text: "Trello Project Management"
     },
     {
-        icon: <FolderOpen className="w-5 h-5 text-[#6c46fd]" />,
+        icon: <FolderOpen className="w-5 h-5" />,
         text: "Unlimited brand profiles"
     },
     {
-        icon: <DollarSign className="w-5 h-5 text-[#6c46fd]" />,
+        icon: <DollarSign className="w-5 h-5" />,
         text: "7-day money-back guarantee"
     },
     {
-        icon: <FileCode2 className="w-5 h-5 text-[#6c46fd]" />,
+        icon: <FileCode2 className="w-5 h-5" />,
         text: "Native source files"
     },
     {
-        icon: <XCircle className="w-5 h-5 text-[#6c46fd]" />,
+        icon: <XCircle className="w-5 h-5" />,
         text: "Cancel anytime"
     },
     {
-        icon: <Briefcase className="w-5 h-5 text-[#6c46fd]" />,
+        icon: <Briefcase className="w-5 h-5" />,
         text: "Art Director"
     },
     {
-        icon: <GraduationCap className="w-5 h-5 text-[#6c46fd]" />,
+        icon: <GraduationCap className="w-5 h-5" />,
         text: "Middle+/Senior Designer"
     },
     {
-        icon: <Users className="w-5 h-5 text-[#6c46fd]" />,
+        icon: <Users className="w-5 h-5" />,
         text: "Project Manager"
     }
 ];
 
 export default function ServiceDifferentiators() {
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                damping: 25,
+                stiffness: 120
+            } as const
+        }
+    };
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.1
+            }
+        }
+    };
+
     return (
         <SectionContainer className="py-20 md:py-32">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
                 {/* Left Column: Heading & Description */}
-                <div className="max-w-xl">
-                    <SectionBadge className="mb-6">
-                        SEE HOW WE COMPARE
-                    </SectionBadge>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-[#0f0e21] mb-6 leading-tight">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={containerVariants}
+                    className="max-w-xl"
+                >
+                    <motion.div variants={fadeInUp}>
+                        <SectionBadge className="mb-6">
+                            SEE HOW WE COMPARE
+                        </SectionBadge>
+                    </motion.div>
+                    <motion.h2
+                        variants={fadeInUp}
+                        className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-[#0f0e21] mb-6 leading-tight"
+                    >
                         What Makes Us Different?
-                    </h2>
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                    </motion.h2>
+                    <motion.p
+                        variants={fadeInUp}
+                        className="text-lg text-gray-600 leading-relaxed"
+                    >
                         We will take care of all your creative needs. No inefficient freelancers. No lengthy hiring procedures. No contracts. Just your work getting done!
-                    </p>
-                </div>
+                    </motion.p>
+                </motion.div>
 
                 {/* Right Column: Feature List */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={containerVariants}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8"
+                >
                     {features.map((feature, index) => (
-                        <div key={index} className="flex items-center gap-3 group">
-                            <div className="shrink-0 mt-0.5 p-2 rounded-lg bg-[#6c46fd]/5 text-[#6c46fd] transition-colors group-hover:bg-[#6c46fd]/10">
+                        <motion.div
+                            key={index}
+                            variants={fadeInUp}
+                            whileHover={{ scale: 1.05, x: 5 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                            className="flex items-center gap-3 group cursor-default"
+                        >
+                            <div className="shrink-0 mt-0.5 p-2 rounded-lg bg-[#6c46fd]/5 text-[#6c46fd] transition-colors group-hover:bg-[#6c46fd] group-hover:text-white">
                                 {feature.icon}
                             </div>
                             <span className="text-gray-700 text-lg font-medium group-hover:text-[#6c46fd] transition-colors">
                                 {feature.text}
                             </span>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
 
             </div>
         </SectionContainer>

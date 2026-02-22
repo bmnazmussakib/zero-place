@@ -7,7 +7,7 @@ import { portfolioItems, categories } from "@/lib/constants";
 
 export default function PortfolioPage() {
   return (
-    <div className="bg-[#FAF9F6] min-h-screen">
+    <div className="bg-white min-h-screen">
       <SectionContainer className="pt-24 pb-32">
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-20 space-y-6">

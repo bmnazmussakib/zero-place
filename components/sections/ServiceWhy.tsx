@@ -1,34 +1,71 @@
 // components/WhyDuckDesign.tsx  (or whatever name you prefer)
 
-import React from 'react';
+import * as motion from "motion/react-client";
 import SectionContainer from '../shared/SectionContainer';
 
 export default function ServiceWhy() {
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                damping: 25,
+                stiffness: 120
+            } as const
+        }
+    };
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.1
+            }
+        }
+    };
+
     return (
         <>
             <section className="relative bg-white py-20 md:py-28 overflow-hidden">
+                {/* Optional subtle background gradient / pattern */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 0.07 }}
+                    transition={{ duration: 1.5 }}
+                    className="absolute inset-0 pointer-events-none"
+                >
+                    <div className="absolute inset-0 bg-linear-to-br from-[#6c46fd]/5 via-transparent to-indigo-500/5"></div>
+                </motion.div>
+
                 <SectionContainer>
-
-                    {/* Optional subtle background gradient / pattern */}
-                    <div className="absolute inset-0 opacity-[0.07] pointer-events-none">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#6c46fd]/5 via-transparent to-indigo-500/5"></div>
-                    </div>
-
-                    <div className="relative ">
+                    <div className="relative">
                         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
                             {/* Left side - two stat cards */}
-                            <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 w-full lg:w-auto">
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, margin: "-100px" }}
+                                variants={containerVariants}
+                                className="flex flex-col sm:flex-row gap-6 sm:gap-8 w-full lg:w-auto"
+                            >
                                 {/* Card 1 - 7+ years */}
-                                <div
+                                <motion.div
+                                    variants={fadeInUp}
+                                    whileHover={{ y: -10, scale: 1.02 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
                                     className="
-                flex-1 min-w-[240px] aspect-[4/3.5] max-w-xs
-                rounded-3xl p-8 md:p-10
-                bg-gradient-to-br from-[#6c46fd]/10 to-indigo-600/5
-                border border-[#6c46fd]/15
-                shadow-xl shadow-[#6c46fd]/10
-                flex flex-col items-center justify-center text-center
-                transition-all hover:shadow-[#6c46fd]/20 hover:scale-[1.02]
-              "
+                                        flex-1 min-w-[240px] aspect-[4/3.5] max-w-xs
+                                        rounded-3xl p-8 md:p-10
+                                        bg-linear-to-br from-[#6c46fd]/10 to-indigo-600/5
+                                        border border-[#6c46fd]/15
+                                        shadow-xl shadow-[#6c46fd]/10
+                                        flex flex-col items-center justify-center text-center
+                                        transition-colors hover:shadow-[#6c46fd]/20 cursor-default
+                                    "
                                 >
                                     <div className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#6c46fd] tracking-tight mb-3">
                                         7+
@@ -41,19 +78,22 @@ export default function ServiceWhy() {
                                         <br />
                                         on the market
                                     </p>
-                                </div>
+                                </motion.div>
 
                                 {/* Card 2 - 3% */}
-                                <div
+                                <motion.div
+                                    variants={fadeInUp}
+                                    whileHover={{ y: -10, scale: 1.02 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
                                     className="
-                flex-1 min-w-[240px] aspect-[4/3.5] max-w-xs
-                rounded-3xl p-8 md:p-10
-                bg-gradient-to-br from-[#6c46fd] to-indigo-700
-                text-white
-                shadow-2xl shadow-[#6c46fd]/30
-                flex flex-col items-center justify-center text-center
-                transition-all hover:shadow-[#6c46fd]/40 hover:scale-[1.02]
-              "
+                                        flex-1 min-w-[240px] aspect-[4/3.5] max-w-xs
+                                        rounded-3xl p-8 md:p-10
+                                        bg-linear-to-br from-[#6c46fd] to-indigo-700
+                                        text-white
+                                        shadow-2xl shadow-[#6c46fd]/30
+                                        flex flex-col items-center justify-center text-center
+                                        transition-colors hover:shadow-[#6c46fd]/40 cursor-default
+                                    "
                                 >
                                     <div className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-3">
                                         3%
@@ -63,27 +103,33 @@ export default function ServiceWhy() {
                                         <br />
                                         duck.design
                                     </div>
-                                </div>
-                            </div>
+                                </motion.div>
+                            </motion.div>
 
                             {/* Right side - main text block */}
-                            <div className="max-w-2xl text-center lg:text-left">
-                                <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#0f0e21] leading-tight mb-6 md:mb-8">
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, margin: "-100px" }}
+                                variants={containerVariants}
+                                className="max-w-2xl text-center lg:text-left"
+                            >
+                                <motion.h2 variants={fadeInUp} className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#0f0e21] leading-tight mb-6 md:mb-8">
                                     A dedicated{' '}
-                                    <span className="bg-gradient-to-r from-[#6c46fd] to-indigo-600 bg-clip-text text-transparent">
+                                    <span className="bg-linear-to-r from-[#6c46fd] to-indigo-600 bg-clip-text text-transparent">
                                         super
                                     </span>{' '}
                                     team for all types of graphic
                                     <br className="hidden sm:block" />
                                     design from A to Z
-                                </h2>
+                                </motion.h2>
 
-                                <p className="text-lg md:text-xl leading-relaxed text-gray-700 mb-8 md:mb-10">
+                                <motion.p variants={fadeInUp} className="text-lg md:text-xl leading-relaxed text-gray-700 mb-8 md:mb-10">
                                     There's no limit to what you can get designed at Duck.Design. Whether you need an out-of-this-world
                                     illustration, beautiful print designs, or engaging digital marketing assets, Duck.Design's global community of
                                     world-class graphic designers can make it happen.
-                                </p>
-                            </div>
+                                </motion.p>
+                            </motion.div>
                         </div>
                     </div>
                 </SectionContainer>

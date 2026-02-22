@@ -40,16 +40,16 @@ const PremiumButton = ({
     medium: {
       button: 'text-base py-1.5 pr-1.5 pl-8',
       iconContainer: 'w-[42px] h-[42px] text-[22px]',
-      bgEffect: 'before:w-[42px] before:h-[calc(100%-12px)] before:right-1.5 before:top-1.5',
-      hoverEffect: 'hover:before:w-[calc(100%-12px)]',
+      bgEffect: 'before:w-[48px] before:h-[48px] before:right-[3px] before:top-[3px]',
+      hoverEffect: 'hover:before:w-[calc(100%-6px)]',
       translateY: 'group-hover:-translate-y-[30px]', // Matches original
       textShadow: '0 30px 0',
     },
     large: {
       button: 'text-lg py-2.5 pr-2 pl-10',
       iconContainer: 'w-[52px] h-[52px] text-[26px]',
-      bgEffect: 'before:w-[56px] before:h-[56px] before:right-2 before:top-2',
-      hoverEffect: 'hover:before:w-[calc(100%-16px)]',
+      bgEffect: 'before:w-[64px] before:h-[64px] before:right-1 before:top-1',
+      hoverEffect: 'hover:before:w-[calc(100%-8px)]',
       translateY: 'group-hover:-translate-y-[36px]',
       textShadow: '0 36px 0',
     }

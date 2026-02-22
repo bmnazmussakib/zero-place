@@ -4,6 +4,8 @@ import React from 'react';
 import SectionContainer from '../shared/SectionContainer';
 import { CreditCard, Zap, CheckCircle, Clock, Users, UserCheck } from 'lucide-react';
 
+import * as motion from "motion/react-client";
+
 const benefits = [
     {
         icon: <CreditCard className="w-8 h-8 text-[#6c46fd]" />,
@@ -44,18 +46,54 @@ const benefits = [
 ];
 
 export default function ServiceBenefits() {
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                damping: 25,
+                stiffness: 120
+            } as const
+        }
+    };
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.1
+            }
+        }
+    };
+
     return (
-        <section className="bg-white py-20 md:py-28">
+        <section className="bg-white py-20 md:py-28 relative overflow-hidden">
             <SectionContainer>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={containerVariants}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+                >
                     {benefits.map((benefit, index) => (
-                        <div
+                        <motion.div
                             key={index}
-                            className="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg shadow-[#6c46fd]/5 hover:shadow-[#6c46fd]/10 hover:border-[#6c46fd]/20 transition-all duration-300 flex flex-col items-start gap-5 group"
+                            variants={fadeInUp}
+                            whileHover={{ y: -8 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                            className="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg shadow-[#6c46fd]/5 hover:shadow-[#6c46fd]/10 hover:border-[#6c46fd]/20 transition-colors duration-300 flex flex-col items-start gap-5 group cursor-default"
                         >
-                            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${benefit.iconBg} mb-2 group-hover:scale-110 transition-transform duration-300`}>
+                            <motion.div
+                                whileHover={{ scale: 1.1, rotate: 5 }}
+                                className={`w-16 h-16 rounded-2xl flex items-center justify-center ${benefit.iconBg} mb-2 transition-transform duration-300`}
+                            >
                                 {benefit.icon}
-                            </div>
+                            </motion.div>
                             <div>
                                 <h3 className="text-xl md:text-2xl font-bold text-[#0f0e21] mb-3 group-hover:text-[#6c46fd] transition-colors">
                                     {benefit.title}
@@ -64,9 +102,9 @@ export default function ServiceBenefits() {
                                     {benefit.description}
                                 </p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </SectionContainer>
         </section>
     );
