@@ -35,7 +35,7 @@ const HERO_SLIDES = [
 const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-};
+} as const;
 
 const staggerContainer = {
     hidden: { opacity: 0 },
@@ -46,12 +46,12 @@ const staggerContainer = {
             delayChildren: 0.2
         }
     }
-};
+} as const;
 
 const imageReveal = {
     hidden: { opacity: 0, scale: 0.95, x: 20 },
     visible: { opacity: 1, scale: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } }
-};
+} as const;
 
 export default function HeroSection() {
     const swiperRef = useRef<any>(null);
