@@ -22,6 +22,7 @@ export const metadata: Metadata = {
   description: "Subscription-based design agency for modern brands. Unlimited requests, flat monthly fee.",
 };
 
+import { ViewTransitions } from 'next-view-transitions'
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 
 export default function RootLayout({
@@ -30,15 +31,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${funnelDisplay.variable}`}>
-      <body
-        className="antialiased"
-      >
-        <SmoothScrollProvider>
-          {children}
-        </SmoothScrollProvider>
-      </body>
-    </html>
-
+    <ViewTransitions>
+      <html lang="en" className={`${inter.variable} ${funnelDisplay.variable}`}>
+        <body
+          className="antialiased"
+        >
+          <SmoothScrollProvider>
+            {children}
+          </SmoothScrollProvider>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }
