@@ -80,7 +80,15 @@ const staggerContainer = {
 
 const cardVariant = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            type: "spring",
+            damping: 20,
+            stiffness: 100
+        } as const
+    }
 };
 
 export function ServicesPreview() {
@@ -115,13 +123,19 @@ export function ServicesPreview() {
                         return (
                             <motion.div
                                 key={index}
-                                className="space-y-4 bg-white p-6 rounded-md cursor-pointer transition-all duration-300"
+                                className="group relative space-y-4 bg-white p-6 rounded-md cursor-pointer border border-transparent shadow-sm"
                                 variants={cardVariant}
+                                whileHover={{
+                                    y: -8,
+                                    borderColor: "rgba(0,0,0,0.05)",
+                                    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                                }}
+                                whileTap={{ scale: 0.98 }}
                             >
-                                <div className="p-3 rounded-xl bg-primary/10 w-fit">
+                                <div className="p-3 rounded-xl bg-primary/10 w-fit transition-colors group-hover:bg-primary/20">
                                     <Image src={item.imageIcon} alt={item.title} width={32} height={32} className="object-contain" />
                                 </div>
-                                <h4 className='text-2xl font-light'>{item.title}</h4>
+                                <h4 className='text-2xl font-light group-hover:text-primary transition-colors'>{item.title}</h4>
                                 <p className="text-text-muted leading-relaxed">{item.description}</p>
                             </motion.div>
                         );

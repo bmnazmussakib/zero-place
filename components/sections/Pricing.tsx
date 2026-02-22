@@ -6,6 +6,8 @@ import SectionBadge from "@/components/shared/SectionBadge";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import PremiumButton from "@/components/shared/PremiumButton";
+import * as motion from "motion/react-client";
+import { AnimatePresence } from "motion/react";
 
 const PLANS = [
     {
@@ -47,25 +49,74 @@ export default function Pricing() {
         return billingCycle === "subscription" ? "/per month" : "/lifetime";
     };
 
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                damping: 25,
+                stiffness: 120
+            } as const
+        }
+    };
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.1
+            }
+        }
+    };
+
     return (
-        <section id="pricing" className="py-24 bg-footer-bg">
+        <section id="pricing" className="py-24 bg-footer-bg overflow-hidden">
             <SectionContainer>
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
                     {/* Left Side: Pricing Cards */}
-                    <div className="lg:col-span-7 flex flex-col md:flex-row gap-6">
+                    <motion.div
+                        className="lg:col-span-7 flex flex-col md:flex-row gap-6"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={containerVariants}
+                    >
                         {PLANS.map((plan, index) => (
-                            <div
+                            <motion.div
                                 key={index}
-                                className="flex-1 bg-white rounded-4xl p-8 shadow-2xl shadow-black/5 border border-transparent transition-all duration-500 hover:border-primary/20 group"
+                                variants={fadeInUp}
+                                whileHover={{
+                                    y: -8,
+                                    borderColor: "rgba(108, 70, 253, 0.2)",
+                                    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                                }}
+                                whileTap={{ scale: 0.98 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                                className="flex-1 bg-white rounded-4xl p-8 shadow-2xl shadow-black/5 border border-transparent group cursor-default"
                             >
                                 <div className="space-y-6">
                                     <h3 className="text-2xl md:text-3xl font-heading font-black text-text-heading leading-tight">{plan.name}</h3>
-                                    <div className="flex items-baseline gap-1">
-                                        <span className="text-5xl font-black text-text-heading tracking-tight transition-all duration-300">
-                                            {getPrice(plan)}
-                                        </span>
-                                        <span className="text-text-muted text-sm font-medium italic">
+                                    <div className="flex items-baseline gap-1 h-14">
+                                        <div className="relative w-24 h-full">
+                                            <AnimatePresence mode="wait">
+                                                <motion.span
+                                                    key={billingCycle}
+                                                    initial={{ y: 20, opacity: 0 }}
+                                                    animate={{ y: 0, opacity: 1 }}
+                                                    exit={{ y: -20, opacity: 0 }}
+                                                    transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+                                                    className="absolute inset-x-0 bottom-0 text-5xl font-black text-text-heading tracking-tight"
+                                                >
+                                                    {getPrice(plan)}
+                                                </motion.span>
+                                            </AnimatePresence>
+                                        </div>
+                                        <span className="text-text-muted text-sm font-medium italic self-end pb-1 translate-y-[-4px]">
                                             {getLabel()}
                                         </span>
                                     </div>
@@ -84,29 +135,46 @@ export default function Pricing() {
                                         ))}
                                     </div>
 
-                                    <button className="w-full bg-primary text-white hover:bg-primary/90 rounded-full py-4 text-[11px] font-black uppercase tracking-[0.2em] mt-4 transition-all duration-300  hover:scale-[1.02]">
+                                    <button className="w-full bg-primary text-white hover:bg-primary/90 rounded-full py-4 text-[11px] font-black uppercase tracking-[0.2em] mt-4 transition-all duration-300">
                                         SELECT THIS PLAN
                                     </button>
 
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
 
                     {/* Right Side: Text Content */}
-                    <div className="lg:col-span-5 space-y-8">
+                    <motion.div
+                        className="lg:col-span-5 space-y-8"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={containerVariants}
+                    >
                         <div className="space-y-4">
-                            <SectionBadge>Pricing Plan</SectionBadge>
-                            <h2 className="text-5xl md:text-6xl font-heading font-black text-white leading-[0.9] tracking-tighter">
+                            <motion.div variants={fadeInUp}>
+                                <SectionBadge>Pricing Plan</SectionBadge>
+                            </motion.div>
+                            <motion.h2
+                                variants={fadeInUp}
+                                className="text-5xl md:text-6xl font-heading font-black text-white leading-[0.9] tracking-tighter"
+                            >
                                 Flexible Pricing for Every Business
-                            </h2>
-                            <p className="text-text-muted text-lg leading-relaxed max-w-lg">
+                            </motion.h2>
+                            <motion.p
+                                variants={fadeInUp}
+                                className="text-text-muted text-lg leading-relaxed max-w-lg"
+                            >
                                 &quot;Stackly Pay offers transparent, customizable pricing plans tailored to startups, SMEs, and enterprises—ensuring affordability, scalability.&quot;
-                            </p>
+                            </motion.p>
                         </div>
 
                         {/* Custom Toggle */}
-                        <div className="flex items-center gap-4  shadow-primary/5 shrink-0">
+                        <motion.div
+                            variants={fadeInUp}
+                            className="flex items-center gap-4  shadow-primary/5 shrink-0"
+                        >
                             <span className={cn(
                                 "text-sm font-black uppercase tracking-widest transition-colors",
                                 billingCycle === "subscription" ? "text-primary" : "text-text-muted"
@@ -125,8 +193,8 @@ export default function Pricing() {
                             )}>
                                 One-Time
                             </span>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
 
                 </div>
             </SectionContainer>

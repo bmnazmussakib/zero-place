@@ -18,6 +18,8 @@ import { cn } from '@/lib/utils';
 import SectionBadge from '../shared/SectionBadge';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import * as motion from "motion/react-client";
+import { AnimatePresence } from 'motion/react';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -71,24 +73,68 @@ export default function WorkStep() {
     const swiperRef = useRef<any>(null);
     const [activeIndex, setActiveIndex] = useState(0);
 
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                damping: 25,
+                stiffness: 120
+            } as const
+        }
+    };
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.1
+            }
+        }
+    };
+
     return (
         <section className="py-24 bg-gray-50/50">
             <SectionContainer className="mb-16">
-                <div className="text-center space-y-4">
-                    <SectionBadge>
-                        Our Process
-                    </SectionBadge>
-                    <h2 className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter">
+                <motion.div
+                    className="text-center space-y-4"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={containerVariants}
+                >
+                    <motion.div variants={fadeInUp}>
+                        <SectionBadge>
+                            Our Process
+                        </SectionBadge>
+                    </motion.div>
+                    <motion.h2
+                        variants={fadeInUp}
+                        className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter"
+                    >
                         One Goal, <span className="text-primary ">Seamless Steps</span>
-                    </h2>
-                    <p className="text-lg text-text-muted max-w-2xl mx-auto">
+                    </motion.h2>
+                    <motion.p
+                        variants={fadeInUp}
+                        className="text-lg text-text-muted max-w-2xl mx-auto"
+                    >
                         We've streamlined our design process to be as efficient and transparent as possible, moving from selection to delivery in record time.
-                    </p>
-                </div>
+                    </motion.p>
+                </motion.div>
             </SectionContainer>
 
             <SectionContainer className="py-0 relative">
-                <div className="relative group px-4">
+                <motion.div
+                    className="relative group px-4"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={fadeInUp}
+                >
                     <Swiper
                         modules={[Navigation, Pagination, Autoplay]}
                         spaceBetween={24}
@@ -113,20 +159,39 @@ export default function WorkStep() {
                             const isActive = activeIndex === index;
                             return (
                                 <SwiperSlide key={index}>
-                                    <div className={cn(
-                                        "h-full flex flex-col p-8 rounded-2xl transition-all duration-500 border border-transparent",
-                                        isActive
-                                            ? "bg-white shadow-2xl shadow-primary/5 border-primary/20 scale-100"
-                                            : "bg-transparent scale-95 opacity-60"
-                                    )}>
-                                        <div className={cn(
-                                            "w-16 h-16 rounded-xl flex items-center justify-center mb-10 transition-colors",
-                                            isActive ? "bg-primary text-white" : "bg-primary/10 text-primary"
-                                        )}>
+                                    <motion.div
+                                        layout
+                                        className={cn(
+                                            "h-full flex flex-col p-8 rounded-2xl transition-all duration-500 border border-transparent",
+                                            isActive
+                                                ? "bg-white shadow-2xl shadow-primary/5 border-primary/20"
+                                                : "bg-transparent opacity-60"
+                                        )}
+                                        animate={{
+                                            scale: isActive ? 1 : 0.95,
+                                            boxShadow: isActive ? "0 25px 50px -12px rgba(var(--primary-rgb), 0.05)" : "none"
+                                        }}
+                                        whileHover={{
+                                            y: -5,
+                                            borderColor: isActive ? "rgba(var(--primary-rgb), 0.3)" : "rgba(0,0,0,0.05)"
+                                        }}
+                                        whileTap={{ scale: 0.98 }}
+                                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                    >
+                                        <motion.div
+                                            className={cn(
+                                                "w-16 h-16 rounded-xl flex items-center justify-center mb-10 transition-colors",
+                                                isActive ? "bg-primary text-white" : "bg-primary/10 text-primary"
+                                            )}
+                                            animate={{
+                                                rotate: isActive ? 0 : -5,
+                                                scale: isActive ? 1 : 0.9
+                                            }}
+                                        >
                                             <step.icon size={32} strokeWidth={1.5} />
-                                        </div>
+                                        </motion.div>
 
-                                        <div className="grow space-y-4">
+                                        <div className="grow space-y-4 text-left">
                                             <h3 className="text-2xl md:text-3xl font-heading font-black text-text-heading leading-tight">
                                                 {step.title}
                                             </h3>
@@ -140,7 +205,7 @@ export default function WorkStep() {
                                                 Step _ 0{index + 1}
                                             </span>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 </SwiperSlide>
                             );
                         })}
@@ -160,9 +225,11 @@ export default function WorkStep() {
                             {/* Progress Line */}
                             <div className="flex items-center gap-2">
                                 <div className="h-[2px] w-32 md:w-64 bg-border-subtle relative overflow-hidden">
-                                    <div
-                                        className="absolute inset-y-0 left-0 bg-primary transition-all duration-500"
-                                        style={{ width: `${((activeIndex + 1) / STEPS.length) * 100}%` }}
+                                    <motion.div
+                                        className="absolute inset-y-0 left-0 bg-primary"
+                                        initial={false}
+                                        animate={{ width: `${((activeIndex + 1) / STEPS.length) * 100}%` }}
+                                        transition={{ type: "spring", stiffness: 100, damping: 20 }}
                                     />
                                 </div>
                                 <div className="flex gap-1.5 ml-4">
@@ -187,7 +254,7 @@ export default function WorkStep() {
                             </button>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </SectionContainer>
         </section>
     );

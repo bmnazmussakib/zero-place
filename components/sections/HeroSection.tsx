@@ -130,7 +130,7 @@ export default function HeroSection() {
                     </motion.p>
 
                     <motion.div className="flex flex-col sm:flex-row items-center justify-start gap-4 pt-4" variants={fadeInUp}>
-                        <PremiumButton size="large" href="/pricing" className="w-full sm:w-auto">
+                        <PremiumButton size="large" href="/pricing" className="sm:w-auto">
                             View Pricing
                         </PremiumButton>
                         {/* <Link href="/portfolio">

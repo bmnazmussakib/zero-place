@@ -7,6 +7,7 @@ import { EffectCards, Navigation } from 'swiper/modules';
 import { ChevronUp, ChevronDown, Quote } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import SectionBadge from '../shared/SectionBadge';
+import * as motion from "motion/react-client";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -40,6 +41,30 @@ const TESTIMONIALS = [
 export default function Testimonial() {
     const swiperRef = useRef<any>(null);
 
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                damping: 25,
+                stiffness: 120
+            } as const
+        }
+    };
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2
+            }
+        }
+    };
+
     return (
         <section className="bg-white py-24 md:py-32 overflow-hidden relative">
             {/* Background Decorative Rings */}
@@ -49,31 +74,31 @@ export default function Testimonial() {
             <SectionContainer>
                 <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
                     {/* Left Column: Info */}
-                    <div className="w-full lg:w-1/2 space-y-10 text-center lg:text-left">
+                    <motion.div
+                        className="w-full lg:w-1/2 space-y-10 text-center lg:text-left"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={containerVariants}
+                    >
                         <div className="space-y-6">
-                            <SectionBadge className="mb-6">
-                                Testimonials
-                            </SectionBadge>
-                            <h2 className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[1] tracking-normal">
+                            <motion.div variants={fadeInUp}>
+                                <SectionBadge className="mb-6">
+                                    Testimonials
+                                </SectionBadge>
+                            </motion.div>
+                            <motion.h2
+                                variants={fadeInUp}
+                                className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[1] tracking-normal"
+                            >
                                 Why Businesses <br /> Love Zero Place
-                            </h2>
+                            </motion.h2>
                         </div>
 
-                        <div className="flex flex-col md:flex-row items-center gap-6 justify-center lg:justify-start">
-                            {/* <div className="flex -space-x-3">
-                                {[1, 2, 3, 4].map((i) => (
-                                    <div key={i} className="w-12 h-12 rounded-full border-4 border-background bg-zinc-200 overflow-hidden ring-1 ring-primary/10">
-                                        <img
-                                            src={`https://images.unsplash.com/photo-${1500000000000 + i * 100000}?auto=format&fit=crop&q=80&w=100&h=100`}
-                                            alt="User"
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </div>
-                                ))}
-                                <div className="w-12 h-12 rounded-full border-4 border-background bg-primary flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-primary/20 ring-1 ring-primary/10">
-                                    +
-                                </div>
-                            </div> */}
+                        <motion.div
+                            variants={fadeInUp}
+                            className="flex flex-col md:flex-row items-center gap-6 justify-center lg:justify-start"
+                        >
                             <div className="avatar-group -space-x-3">
                                 <div className="avatar border-2 border-white">
                                     <div className="w-12">
@@ -100,11 +125,17 @@ export default function Testimonial() {
                                 <p className="text-foreground font-black">669k+ Active</p>
                                 <p className="text-muted-foreground">Users world-wide</p>
                             </div>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
 
                     {/* Right Column: Swiper Slide */}
-                    <div className="w-full lg:w-1/2 relative px-4 md:px-0">
+                    <motion.div
+                        className="w-full lg:w-1/2 relative px-4 md:px-0"
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
                         <div className="flex items-center gap-8">
                             <Swiper
                                 effect={'cards'}
@@ -154,37 +185,43 @@ export default function Testimonial() {
 
                             {/* Vertical Navigation Controls */}
                             <div className="hidden sm:flex flex-col gap-4 ms-5">
-                                <button
+                                <motion.button
+                                    whileHover={{ scale: 1.1, backgroundColor: "var(--primary)", border: "none" }}
+                                    whileTap={{ scale: 0.9 }}
                                     onClick={() => swiperRef.current?.slidePrev()}
-                                    className="w-12 h-12 rounded-full bg-white border border-border shadow-md flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all duration-500 hover:scale-110 active:scale-90"
+                                    className="w-12 h-12 rounded-full bg-white border border-border shadow-md flex items-center justify-center text-foreground hover:text-white transition-colors duration-300"
                                 >
                                     <ChevronUp className="w-6 h-6" />
-                                </button>
-                                <button
+                                </motion.button>
+                                <motion.button
+                                    whileHover={{ scale: 1.1, backgroundColor: "var(--primary)", border: "none" }}
+                                    whileTap={{ scale: 0.9 }}
                                     onClick={() => swiperRef.current?.slideNext()}
-                                    className="w-12 h-12 rounded-full bg-white border border-border shadow-md flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all duration-500 hover:scale-110 active:scale-90"
+                                    className="w-12 h-12 rounded-full bg-white border border-border shadow-md flex items-center justify-center text-foreground hover:text-white transition-colors duration-300"
                                 >
                                     <ChevronDown className="w-6 h-6" />
-                                </button>
+                                </motion.button>
                             </div>
                         </div>
 
                         {/* Mobile Nav Indicators */}
                         <div className="flex sm:hidden justify-center gap-4 mt-12">
-                            <button
+                            <motion.button
+                                whileTap={{ scale: 0.9 }}
                                 onClick={() => swiperRef.current?.slidePrev()}
                                 className="w-14 h-14 rounded-full bg-white border border-border shadow-md flex items-center justify-center text-foreground active:scale-90 transition-transform"
                             >
                                 <ChevronUp className="w-8 h-8 -rotate-90" />
-                            </button>
-                            <button
+                            </motion.button>
+                            <motion.button
+                                whileTap={{ scale: 0.9 }}
                                 onClick={() => swiperRef.current?.slideNext()}
                                 className="w-14 h-14 rounded-full bg-white border border-border shadow-md flex items-center justify-center text-foreground active:scale-90 transition-transform"
                             >
                                 <ChevronDown className="w-8 h-8 -rotate-90" />
-                            </button>
+                            </motion.button>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </SectionContainer>
 

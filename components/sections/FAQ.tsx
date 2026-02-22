@@ -6,6 +6,8 @@ import { Plus, Minus, ArrowUpRight, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import PremiumButton from '../shared/PremiumButton';
 import SectionBadge from '../shared/SectionBadge';
+import * as motion from "motion/react-client";
+import { AnimatePresence } from "motion/react";
 
 const FAQ_DATA = [
     {
@@ -33,28 +35,66 @@ const FAQ_DATA = [
 export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                damping: 25,
+                stiffness: 120
+            } as const
+        }
+    };
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.1
+            }
+        }
+    };
+
     return (
         <section className="bg-footer-bg py-24 overflow-hidden">
             <SectionContainer>
                 <div className="flex flex-col lg:flex-row gap-16">
                     {/* Left Column: Info & Contact */}
-                    <div className="w-full lg:w-5/12 space-y-12">
+                    <motion.div
+                        className="w-full lg:w-5/12 space-y-12"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={containerVariants}
+                    >
                         <div className="space-y-6">
-                            <SectionBadge className="mb-6">
-                                Read FAQs
-                            </SectionBadge>
-                            <h2 className="text-5xl md:text-6xl font-heading font-black text-white leading-[1] tracking-normal">
+                            <motion.div variants={fadeInUp}>
+                                <SectionBadge className="mb-6">
+                                    Read FAQs
+                                </SectionBadge>
+                            </motion.div>
+                            <motion.h2
+                                variants={fadeInUp}
+                                className="text-5xl md:text-6xl font-heading font-black text-white leading-none tracking-normal"
+                            >
                                 Quick Answers For Your Important Questions
-                            </h2>
-                            <div>
+                            </motion.h2>
+                            <motion.div variants={fadeInUp}>
                                 <PremiumButton>
                                     Contact Us
                                 </PremiumButton>
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* Contact Card */}
-                        <div className="p-8 rounded-3xl bg-white border border-border/50 shadow-xs space-y-8 max-w-sm">
+                        <motion.div
+                            variants={fadeInUp}
+                            className="p-8 rounded-3xl bg-white border border-border/50 shadow-xs space-y-8 max-w-sm"
+                        >
                             <p className="text-muted-foreground leading-relaxed text-sm">
                                 Getting started is easy! Simply reach out us through our contact form or give us a call & we'll schedule.
                             </p>
@@ -77,19 +117,26 @@ export default function FAQ() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
 
                     {/* Right Column: Accordion */}
-                    <div className="w-full lg:w-7/12 space-y-4">
+                    <motion.div
+                        className="w-full lg:w-7/12 space-y-4"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={containerVariants}
+                    >
                         {FAQ_DATA.map((faq, index) => {
                             const isOpen = openIndex === index;
                             return (
-                                <div
+                                <motion.div
                                     key={index}
+                                    variants={fadeInUp}
                                     className={cn(
-                                        "rounded-2xl border transition-all duration-500",
-                                        isOpen ? "bg-transparent border-primary/20 shadow-md" : "bg-footer-bg border-primary/20 hover:border-primary/20"
+                                        "rounded-2xl border border-primary/20 transition-colors duration-300 overflow-hidden",
+                                        isOpen ? "bg-white/5 shadow-md" : "bg-transparent hover:bg-white/5"
                                     )}
                                 >
                                     <button
@@ -102,34 +149,43 @@ export default function FAQ() {
                                         )}>
                                             {faq.question}
                                         </span>
-                                        <div className={cn(
-                                            "flex-none w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500",
-                                            isOpen ? "bg-primary" : "bg-white/5"
-                                        )}>
+                                        <motion.div
+                                            animate={{
+                                                backgroundColor: isOpen ? "var(--primary)" : "rgba(255, 255, 255, 0.05)",
+                                                rotate: isOpen ? 180 : 0,
+                                                scale: isOpen ? 1.1 : 1
+                                            }}
+                                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                            className="flex-none w-8 h-8 rounded-full flex items-center justify-center"
+                                        >
                                             {isOpen ? (
                                                 <Minus className="w-4 h-4 text-white" strokeWidth={3} />
                                             ) : (
                                                 <Plus className="w-4 h-4 text-white" strokeWidth={3} />
                                             )}
-                                        </div>
+                                        </motion.div>
                                     </button>
 
-                                    <div className={cn(
-                                        "grid transition-all duration-500 ease-in-out",
-                                        isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                                    )}>
-                                        <div className="overflow-hidden">
-                                            <div className="px-6 md:px-8 pb-8 pt-0 text-white/50 leading-relaxed text-sm md:text-base border-t border-primary/20 mt-2">
-                                                <div className="pt-4">
-                                                    {faq.answer}
+                                    <AnimatePresence>
+                                        {isOpen && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: "auto", opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                                            >
+                                                <div className="px-6 md:px-8 pb-8 pt-0 text-white/50 leading-relaxed text-sm md:text-base border-t border-primary/20 mt-2">
+                                                    <div className="pt-4">
+                                                        {faq.answer}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </motion.div>
                             );
                         })}
-                    </div>
+                    </motion.div>
                 </div>
             </SectionContainer>
         </section>

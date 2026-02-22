@@ -15,7 +15,7 @@ export default function SectionContainer({
     ...props
 }: SectionContainerProps) {
     return (
-        <Component className={cn("max-w-[1480px] mx-auto", className)} {...props}>
+        <Component className={cn("max-w-[1480px] mx-auto px-5 lg:px-0", className)} {...props}>
             {children}
         </Component>
     );
