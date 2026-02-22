@@ -22,6 +22,8 @@ export const metadata: Metadata = {
   description: "Subscription-based design agency for modern brands. Unlimited requests, flat monthly fee.",
 };
 
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,7 +34,9 @@ export default function RootLayout({
       <body
         className="antialiased"
       >
-        {children}
+        <SmoothScrollProvider>
+          {children}
+        </SmoothScrollProvider>
       </body>
     </html>
 
