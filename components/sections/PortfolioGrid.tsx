@@ -31,7 +31,7 @@ export default function PortfolioGrid({ categories, items }: PortfolioGridProps)
                 delayChildren: 0.2
             }
         }
-    };
+    } as const;
 
     const itemVariants = {
         hidden: { opacity: 0, scale: 0.9, y: 20 },
@@ -51,7 +51,7 @@ export default function PortfolioGrid({ categories, items }: PortfolioGridProps)
             y: 20,
             transition: { duration: 0.2 }
         }
-    };
+    } as const;
 
     return (
         <>
