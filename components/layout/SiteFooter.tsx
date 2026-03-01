@@ -154,18 +154,20 @@ export default function SiteFooter() {
                         <div className="flex flex-wrap gap-5">
                             <motion.div whileHover={{ y: -4 }}>
                                 <Link href="#" className="flex items-center gap-4 px-6 py-3 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors duration-300">
-                                    <Play className="w-6 h-6 text-white fill-current" />
+                                    {/* <Play className="w-6 h-6 text-white fill-current" /> */}
+                                    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#ffffff" d="M5.4 21c-.17.003-.34-.026-.5-.086l8.054-8.057l2.666 2.669l-9.255 5.2A1.998 1.998 0 0 1 5.4 21Zm-1.164-.665a1.9 1.9 0 0 1-.236-.97V4.66a2.13 2.13 0 0 1 .1-.658l8.233 8.235l-8.1 8.1l.003-.002Zm12.179-5.258l-2.841-2.839l3.133-3.132l2.783 1.563c.534.24.892.755.928 1.339a1.574 1.574 0 0 1-.929 1.34l-3.074 1.729Zm-3.461-3.463l-8.34-8.339c.229-.17.506-.26.791-.261c.336.012.664.107.955.277l9.551 5.368l-2.956 2.955h-.001Z"/></svg>
                                     <div className="text-left">
-                                        <p className="text-[10px] uppercase font-black tracking-[0.15em] text-zinc-500 leading-none mb-1">Get it on</p>
+                                        <p className="text-[10px] uppercase font-black tracking-[0.15em] text-zinc-500 leading-none mb-1">Comming Soon</p>
                                         <p className="text-base font-bold text-white leading-tight">Google Play</p>
                                     </div>
                                 </Link>
                             </motion.div>
                             <motion.div whileHover={{ y: -4 }}>
                                 <Link href="#" className="flex items-center gap-4 px-6 py-3 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors duration-300">
-                                    <Apple className="w-6 h-6 text-white fill-current" />
+                                    {/* <Apple className="w-6 h-6 text-white fill-current" /> */}
+                                    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#ffffff" d="M3 17a1 1 0 0 1 0-2h10.5c1 0 2 2 1.5 2H3Zm14 0a1 1 0 0 1 0-2h4a1 1 0 0 1 0 2h-4ZM12.633 3.501a1 1 0 0 1 1.734.998L7.46 16.495a1 1 0 0 1-1.734-.997L12.633 3.5ZM4 18.5c.5-1 3.5-2 2.5-.28A852.88 852.88 0 0 1 4.867 21a1 1 0 0 1-1.734-.998L4 18.5ZM9.133 4.499a1 1 0 1 1 1.734-.998L12.61 6.53a1 1 0 1 1-1.733.998L9.133 4.499ZM13 11.5c-.898-1.5 0-4.5.716-3.004L20.366 20a1 1 0 0 1-1.733.998L13 11.5Z"/></svg>
                                     <div className="text-left">
-                                        <p className="text-[10px] uppercase font-black tracking-[0.15em] text-zinc-500 leading-none mb-1">Download on</p>
+                                        <p className="text-[10px] uppercase font-black tracking-[0.15em] text-zinc-500 leading-none mb-1">Comming Soon</p>
                                         <p className="text-base font-bold text-white leading-tight">App Store</p>
                                     </div>
                                 </Link>

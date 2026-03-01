@@ -160,7 +160,7 @@ export default function Pricing() {
                                 variants={fadeInUp}
                                 className="text-5xl md:text-6xl font-heading font-black text-white leading-[0.9] tracking-tighter"
                             >
-                                Flexible Pricing for Every Business
+                                Flexible <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Pricing</span> for Every Business
                             </motion.h2>
                             <motion.p
                                 variants={fadeInUp}

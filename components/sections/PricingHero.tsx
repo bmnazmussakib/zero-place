@@ -90,7 +90,7 @@ export default function PricingHero({
                         </motion.div>
                         <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[1] tracking-normal">
                             {titlePrefix} <br />
-                            <span className="text-primary">
+                            <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                                 {activePlan.name}
                             </span>
                         </motion.h1>

@@ -66,7 +66,7 @@ function OurBrands() {
                         >
                             <motion.div className="space-y-4" variants={fadeInUp}>
                                 <h2 className="text-5xl md:text-6xl font-heading font-black text-white leading- tracking-normal">
-                                    Trusted by <span className="text-primary ">Global</span> Brands
+                                    Trusted by <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Global</span> Brands
                                 </h2>
                                 <p className="text-xl text-muted-foreground leading-relaxed">
                                     Your brand designs are too important to be left in the hands of unreliable freelancers. Why not hire an experienced designer who knows your brand by heart?

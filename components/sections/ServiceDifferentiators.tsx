@@ -109,9 +109,9 @@ export default function ServiceDifferentiators() {
                     </motion.div>
                     <motion.h2
                         variants={fadeInUp}
-                        className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-[#0f0e21] mb-6 leading-tight"
+                        className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-text-heading mb-6 leading-tight"
                     >
-                        What Makes Us Different?
+                        What Makes Us <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Different?</span>
                     </motion.h2>
                     <motion.p
                         variants={fadeInUp}

@@ -81,7 +81,7 @@ export default function FAQ() {
                                 variants={fadeInUp}
                                 className="text-5xl md:text-6xl font-heading font-black text-white leading-none tracking-normal"
                             >
-                                Quick Answers For Your Important Questions
+                                Quick Answers For Your <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Important</span> Questions
                             </motion.h2>
                             <motion.div variants={fadeInUp}>
                                 <PremiumButton>

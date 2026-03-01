@@ -91,7 +91,7 @@ export default function RealtimeDashboard() {
                         variants={fadeInUp}
                         className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter max-w-3xl mx-auto"
                     >
-                        Real-Time Dashboard
+                        Real-Time <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Dashboard</span>
                     </motion.h2>
                 </motion.div>
 

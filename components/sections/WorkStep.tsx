@@ -116,7 +116,7 @@ export default function WorkStep() {
                         variants={fadeInUp}
                         className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter"
                     >
-                        One Goal, <span className="text-primary ">Seamless Steps</span>
+                        One Goal, <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Seamless Steps</span>
                     </motion.h2>
                     <motion.p
                         variants={fadeInUp}

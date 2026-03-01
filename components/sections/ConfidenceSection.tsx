@@ -71,7 +71,7 @@ export default function ConfidenceSection() {
                                 </SectionBadge>
                             </motion.div>
                             <motion.h2 variants={fadeInUp} className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[1] tracking-normal">
-                                Powering Payments <br /> with Confidence
+                                Powering <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Payments</span> <br /> with Confidence
                             </motion.h2>
                             <motion.p variants={fadeInUp} className="text-text-body text-lg leading-relaxed max-w-lg font-medium">
                                 Zeroplace delivers secure, seamless, and reliable transactions with advanced protection and global reach, empowering businesses to build trust.
