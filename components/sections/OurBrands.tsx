@@ -19,7 +19,7 @@ const BRANDS = [
 
 function BrandCard({ logo, name }: { logo: string; name: string }) {
     return (
-        <div className='group relative py-4 px-10 bg-transparent hover:bg-white rounded-sm mx-4 w-56 h-20 flex items-center justify-center transition-all duration-300  overflow-hidden'>
+        <div className='group relative py-4 px-10 bg-transparent hover:bg-slate-100 rounded-sm mx-4 w-56 h-20 flex items-center justify-center transition-all duration-300  overflow-hidden'>
             <img
                 src={logo}
                 alt={name}

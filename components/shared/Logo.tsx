@@ -13,17 +13,17 @@ export default function Logo({
     return (
         <Link href="/" className={cn("flex items-center gap-2 group", className)}>
             <img
-                src={isWhite ? "/images/logo-white.png" : "/images/logo.png"}
+                src={isWhite ? "/images/ZeroPlace White Color Logo.svg" : "/images/zero-place-color-logo.svg"}
                 alt="ZeroPlace"
-                className="w-10"
+                className="w-50"
             />
-            <span className={cn(
+            {/* <span className={cn(
                 "text-3xl font-black tracking-tight font-heading",
                 isWhite ? "text-white" : "text-text-heading"
             )}>
                 Zero
                 <span className="font-normal" >place</span>
-            </span>
+            </span> */}
             {/* <img src="/images/zero-place-color-logo.svg" alt="" /> */}
         </Link>
     );
