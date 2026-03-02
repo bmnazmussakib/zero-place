@@ -1,66 +1,10 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SectionContainer from '../shared/SectionContainer';
 import Image from 'next/image';
 import * as motion from "motion/react-client";
-
-const serviceImages = [
-    {
-        id: 1,
-        title: "UI/UX Design",
-        description:
-            "We make user interfaces that actually make sense. Real people, real needs, no frustrating experiences.",
-        image: "/images/services/service-card-2.jpg",
-        icon: "LayoutDashboard",
-        imageIcon: "https://framerusercontent.com/images/8z76sKxLPVjqsmAodbiYaTNqT6k.png"
-    },
-    {
-        id: 2,
-        title: "Website Design",
-        description:
-            "Websites that don't just look good but actually do something for your business. More clicks, more stays, more customers.",
-        image: "/images/services/service-card-5.jpg",
-        icon: "Globe",
-        imageIcon: "https://framerusercontent.com/images/ikSvZd1RCc2BDrqL4bILjC20NA8.png"
-    },
-    {
-        id: 3,
-        title: "Product Design",
-        description:
-            "Software shouldn't give people headaches. We simplify the complex stuff so your customers stick around instead of giving up.",
-        image: "/images/services/service-card-6.jpg",
-        icon: "Package",
-        imageIcon: "https://framerusercontent.com/images/8wDkVxlj0xqU5rEKdSqJz9S77I.png"
-    },
-    {
-        id: 4,
-        title: "Mobile App Design",
-        description:
-            "Apps people actually want to use. Clean, smart designs that work how people expect them to work.",
-        image: "/images/services/service-card-7.jpg",
-        icon: "Smartphone",
-        imageIcon: "https://framerusercontent.com/images/9BkEf4xmhxJJ8CGgZTFFQXKfFbc.png"
-    },
-    {
-        id: 5,
-        title: "Branding",
-        description:
-            "Your brand should say something worth hearing. We help you find your voice and make it stick.",
-        image: "/images/services/service-card-12.jpg",
-        icon: "Brush",
-        imageIcon: "https://framerusercontent.com/images/V9fJFzeUHoyUXAGCmORzDx90sM.png"
-    },
-    {
-        id: 6,
-        title: "Website Development",
-        description:
-            "Websites that won't break when you need them most. Fast, reliable, and ready to grow when you do.",
-        image: "/images/services/service-card-2.jpg",
-        icon: "Code",
-        imageIcon: "https://framerusercontent.com/images/1zxlDQLwA25TphCR2a6V7cSYXI.png"
-    }
-];
+import { ServiceItem } from '@/types';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -92,6 +36,27 @@ const cardVariant = {
 };
 
 export function ServicesPreview() {
+    const [services, setServices] = useState<ServiceItem[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchServices = async () => {
+            try {
+                const response = await fetch('/api/services');
+                if (response.ok) {
+                    const data = await response.json();
+                    setServices(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch services:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchServices();
+    }, []);
+
     return (
         <section className="overflow-hidden bg-gray-50 py-16">
             <SectionContainer className="mb-16">
@@ -109,40 +74,43 @@ export function ServicesPreview() {
                 </motion.div>
             </SectionContainer>
 
-
-
             <SectionContainer className="py-0 ">
-                <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={staggerContainer}
-                >
-                    {serviceImages.map((item, index) => {
-                        return (
-                            <motion.div
-                                key={index}
-                                className="group relative space-y-4 bg-white p-6 rounded-md cursor-pointer border border-transparent shadow-sm"
-                                variants={cardVariant}
-                                whileHover={{
-                                    y: -8,
-                                    borderColor: "rgba(0,0,0,0.05)",
-                                    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-                                }}
-                                whileTap={{ scale: 0.98 }}
-                            >
-                                <div className="p-3 rounded-xl bg-primary/10 w-fit transition-colors group-hover:bg-primary/20">
-                                    <Image src={item.imageIcon} alt={item.title} width={32} height={32} className="object-contain" />
-                                </div>
-                                <h4 className='text-2xl font-light group-hover:text-primary transition-colors'>{item.title}</h4>
-                                <p className="text-text-muted leading-relaxed">{item.description}</p>
-                            </motion.div>
-                        );
-                    })}
-                </motion.div>
+                {loading ? (
+                    <div className="flex justify-center items-center py-20">
+                        <div className="loading loading-spinner loading-lg text-primary"></div>
+                    </div>
+                ) : (
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                    >
+                        {services.map((item, index) => {
+                            return (
+                                <motion.div
+                                    key={index}
+                                    className="group relative space-y-4 bg-white p-6 rounded-md cursor-pointer border border-transparent shadow-sm"
+                                    variants={cardVariant}
+                                    whileHover={{
+                                        y: -8,
+                                        borderColor: "rgba(0,0,0,0.05)",
+                                        boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                                    }}
+                                    whileTap={{ scale: 0.98 }}
+                                >
+                                    <div className="p-3 rounded-xl bg-primary/10 w-fit transition-colors group-hover:bg-primary/20">
+                                        <Image src={item.imageIcon} alt={item.title} width={32} height={32} className="object-contain" />
+                                    </div>
+                                    <h4 className='text-2xl font-light group-hover:text-primary transition-colors'>{item.title}</h4>
+                                    <p className="text-text-muted leading-relaxed">{item.description}</p>
+                                </motion.div>
+                            );
+                        })}
+                    </motion.div>
+                )}
             </SectionContainer>
         </section>
     );
 }
-
