@@ -76,10 +76,10 @@ export default function SiteHeader() {
                     ? "bg-background/80 backdrop-blur-md border-b border-border py-3 shadow-sm"
                     : "bg-transparent py-5"
             )}
-        // onMouseLeave={() => {
-        //     setIsMenuBox(false);
-        //     setHoveredItem(null);
-        // }}
+        onMouseLeave={() => {
+            setIsMenuBox(false);
+            setHoveredItem(null);
+        }}
         >
             <SectionContainer>
                 <div className="flex items-center justify-between relative">
