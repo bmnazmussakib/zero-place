@@ -18,17 +18,77 @@ export const navItems: NavItem[] = [
                 title: "Design",
                 href: "#",
                 children: [
-                    { title: "Graphic Design", href: "/services/graphic-design", icon: React.createElement(Palette, { size: 18 }) },
-                    { title: "Website Design", href: "/services/website-design", icon: React.createElement(Globe, { size: 18 }) },
-                    { title: "Motion Graphics", href: "/services/motion-graphics", icon: React.createElement(Video, { size: 18 }) },
+                    {
+                        title: "Graphic Design",
+                        href: "/services/graphic-design",
+                        icon: React.createElement(Palette, { size: 18 }),
+                        details: [
+                            "Banner Ads",
+                            "Social Media ",
+                            "Blog Graphics",
+                            "Clothing & Merchandise",
+                            "Package and Label",
+                            "Any Other Graphics",
+                        ]
+                    },
+                    {
+                        title: "Website Design",
+                        href: "/services/website-design",
+                        icon: React.createElement(Globe, { size: 18 }),
+                        details: [
+                            "Landing Page ",
+                            "Full Website UI/U",
+                            "Responsive Layouts",
+                            "Wireframing & Prototyping",
+                            "Design System Creation",
+                            "Figma Source Files",
+                        ]
+                    },
+                    {
+                        title: "Motion Graphics",
+                        href: "/services/motion-graphics",
+                        icon: React.createElement(Video, { size: 18 }),
+                        details: [
+                            "Animated Logos",
+                            "Explainer Videos",
+                            "Short-Form Content",
+                            "Social Media Animations",
+                            "Looping Animations",
+                            "Sound Design",
+                        ]
+                    },
                 ]
             },
             {
                 title: "Development",
                 href: "#",
                 children: [
-                    { title: "Web Development", href: "/services/web-dev", icon: React.createElement(Code2, { size: 18 }) },
-                    { title: "App Development", href: "/services/app-dev", icon: React.createElement(Smartphone, { size: 18 }) },
+                    {
+                        title: "Web Development",
+                        href: "/services/web-dev",
+                        icon: React.createElement(Code2, { size: 18 }),
+                        details: [
+                            "Custom Website",
+                            "Next.js / React",
+                            "E-Commerce ",
+                            "CMS Integratio",
+                            "API Development",
+                            "Performance Optimization",
+                        ]
+                    },
+                    {
+                        title: "App Development",
+                        href: "/services/app-dev",
+                        icon: React.createElement(Smartphone, { size: 18 }),
+                        details: [
+                            "iOS & Android Apps",
+                            "React Native / Expo",
+                            "Cross-Platform Solutions",
+                            "App Store Submission",
+                            "Push Notifications",
+                            "Offline Mode Support",
+                        ]
+                    },
                 ]
             }
         ]

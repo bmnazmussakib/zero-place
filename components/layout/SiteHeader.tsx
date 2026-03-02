@@ -16,6 +16,8 @@ export default function SiteHeader() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
     const [isMenuBox, setIsMenuBox] = useState<boolean>(false);
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+    const [hoveredService, setHoveredService] = useState<any>(null);
+    console.log({ hoveredService })
 
     // Close menu on route change
     useEffect(() => {
@@ -74,10 +76,10 @@ export default function SiteHeader() {
                     ? "bg-background/80 backdrop-blur-md border-b border-border py-3 shadow-sm"
                     : "bg-transparent py-5"
             )}
-            onMouseLeave={() => {
-                setIsMenuBox(false);
-                setHoveredItem(null);
-            }}
+        // onMouseLeave={() => {
+        //     setIsMenuBox(false);
+        //     setHoveredItem(null);
+        // }}
         >
             <SectionContainer>
                 <div className="flex items-center justify-between relative">
@@ -98,6 +100,9 @@ export default function SiteHeader() {
                                     onMouseEnter={() => {
                                         setIsMenuBox(true);
                                         setHoveredItem(item.title);
+                                        if (item.type === "megamenu" && item.children?.[0]?.children?.[0]) {
+                                            setHoveredService(item.children[0].children[0]);
+                                        }
                                     }}
                                 >
                                     {item.children && item.children.length > 0 ? (
@@ -129,7 +134,7 @@ export default function SiteHeader() {
                                                 )}
                                             >
                                                 {item.type === "megamenu" ? (
-                                                    <div className="grid grid-cols-4 gap-8">
+                                                    <div className="grid grid-cols-[250px_minmax(300px,_1fr)_100px] gap-8">
                                                         {item.children.map((child: any) => (
                                                             <div key={child.title} className="space-y-4">
                                                                 {/* <div className="px-4 py-2 bg-primary/5 rounded-xl">
@@ -137,21 +142,39 @@ export default function SiteHeader() {
                                                                     {child.title}
                                                                 </h4>
                                                             </div> */}
-                                                                <ul className="space-y-1">
+                                                                <ul className="space-y-1 pl-0 before:hidden">
                                                                     {child.children?.map((sub: any) => (
                                                                         <li key={sub.title}>
                                                                             <Link
                                                                                 href={sub.href}
-                                                                                className="flex items-center gap-3 p-3 rounded-md hover:bg-primary/5 transition-all group"
+                                                                                onMouseEnter={() => setHoveredService(sub)}
+                                                                                className={cn(
+                                                                                    "flex items-center gap-3 p-3 rounded-xl transition-all group",
+                                                                                    hoveredService?.title === sub.title ? "bg-primary/10" : "hover:bg-primary/5"
+                                                                                )}
                                                                             >
                                                                                 {sub.icon && (
-                                                                                    <span className="shrink-0 text-text-muted group-hover:text-primary transition-colors">
+                                                                                    <span className={cn(
+                                                                                        "shrink-0 transition-colors",
+                                                                                        hoveredService?.title === sub.title ? "text-primary" : "text-text-muted group-hover:text-primary"
+                                                                                    )}>
                                                                                         {sub.icon}
                                                                                     </span>
                                                                                 )}
+                                                                                {/* <span className="relative overflow-hidden h-[26px] flex items-center">
+                                                                                    <span
+                                                                                        className={cn(
+                                                                                            "text-base font-bold flex flex-col transition-all duration-500 ease-in-out",
+                                                                                            hoveredService?.title === sub.title ? "text-primary translate-y-0" : "text-text-heading group-hover:text-primary group-hover:-translate-y-[26px]"
+                                                                                        )}
+                                                                                        style={hoveredService?.title === sub.title ? {} : { textShadow: '0 26px 0 currentColor' }}
+                                                                                    >
+                                                                                        {sub.title}
+                                                                                    </span>
+                                                                                </span> */}
                                                                                 <span className="relative overflow-hidden h-[26px] flex items-center">
                                                                                     <span
-                                                                                        className="text-base font-bold text-text-heading group-hover:text-primary flex flex-col transition-all duration-500 ease-in-out group-hover:-translate-y-[26px]"
+                                                                                        className="text-base font-bold flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-[26px]"
                                                                                         style={{ textShadow: '0 26px 0 currentColor' }}
                                                                                     >
                                                                                         {sub.title}
@@ -185,6 +208,40 @@ export default function SiteHeader() {
                                                         ))}
                                                     </ul>
                                                 )}
+                                                <div className="flex flex-col gap-4">
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="w-1 h-6 bg-primary rounded-full" />
+                                                        <h4 className="text-sm font-black text-text-heading uppercase tracking-[0.2em]">
+                                                            {hoveredService?.title || "Service"} Details List
+                                                        </h4>
+                                                    </div>
+                                                    <ul className="grid grid-cols-2 gap-y-3 gap-x-8 before:hidden pl-0 ml-0">
+                                                        {hoveredService?.details?.map((detail: string, idx: number) => (
+                                                            <>
+                                                                {/* <li key={idx} className="flex items-start gap-2 text-sm text-text-body font-medium group/detail">
+                                                                    <div className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover/detail:bg-primary transition-colors" />
+                                                                    {detail}
+                                                                </li> */}
+                                                                <div
+                                                                    tabIndex={0}
+                                                                    role="button"
+                                                                    className="group text-base font-semibold text-text-body hover:text-primary transition-colors flex items-center gap-1 px-4 h-full"
+                                                                >
+                                                                    <span className="relative overflow-hidden h-[26px] flex items-center">
+                                                                        <span
+                                                                            className="flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-[26px]"
+                                                                            style={{ textShadow: '0 26px 0 currentColor' }}
+                                                                        >
+                                                                            {detail}
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </>
+                                                        )) || (
+                                                                <li className="text-text-muted italic">Hover over a service to see details</li>
+                                                            )}
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </>
                                     ) : (

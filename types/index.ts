@@ -4,6 +4,7 @@ export interface NavItem {
     icon?: React.ReactNode;
     children?: NavItem[];
     type?: 'dropdown' | 'megamenu' | 'link';
+    details?: string[];
 }
 
 export interface PricingFeature {

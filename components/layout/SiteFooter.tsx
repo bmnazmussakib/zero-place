@@ -179,7 +179,7 @@ export default function SiteFooter() {
                     <motion.div variants={fadeInUp} className="lg:col-span-2 space-y-8 lg:ml-8">
                         <h4 className="text-white font-heading font-black text-xl tracking-tight">Services</h4>
                         <ul className="space-y-5">
-                            {['Manage IT Service', 'Cloud Computing', 'Cyber Security', 'Software Develop', 'Change Manage', 'IT Consulting'].map((item) => (
+                            {['Graphics Design', 'Web Design', 'Motion Graphics', 'Web Development', 'App Development'].map((item) => (
                                 <li key={item}>
                                     <Link href="#" className="text-sm font-medium hover:text-primary transition-all duration-300 flex items-center gap-3 group">
                                         <motion.span whileHover={{ x: 5 }}>
