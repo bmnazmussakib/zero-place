@@ -65,6 +65,7 @@ export function OurWorks() {
         freeMode: true,
         allowTouchMove: true,
         breakpoints: {
+            0: { slidesPerView: 2.2, spaceBetween: 10 },
             480: { slidesPerView: 2.2, spaceBetween: 10 },
             768: { slidesPerView: 3.2, spaceBetween: 10 },
             1024: { slidesPerView: 4.2, spaceBetween: 20 },
@@ -98,9 +99,9 @@ export function OurWorks() {
     };
 
     return (
-        <section className="py-20 overflow-hidden">
+        <section className="py-8 lg:py-20 overflow-hidden">
             {/* Header - centered */}
-            <SectionContainer className="mb-12 md:mb-16">
+            <SectionContainer className="mb-8 md:mb-12 lg:mb-16">
                 <motion.div
                     className="flex flex-col items-center text-center max-w-4xl mx-auto"
                     initial="hidden"

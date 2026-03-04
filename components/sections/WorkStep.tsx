@@ -98,8 +98,8 @@ export default function WorkStep() {
     };
 
     return (
-        <section className="py-24 bg-gray-50/50">
-            <SectionContainer className="mb-16">
+        <section className="py-8 lg:py-20 bg-gray-50/50">
+            <SectionContainer className="mb-8 md:mb-12 lg:mb-16">
                 <motion.div
                     className="text-center space-y-4"
                     initial="hidden"
@@ -213,7 +213,7 @@ export default function WorkStep() {
 
                     {/* Custom Navigation & Progress Area */}
                     <div className="flex flex-col items-center gap-10 mt-8">
-                        <div className="flex items-center gap-8">
+                        <div className="flex items-center gap-8 ">
                             <button
                                 onClick={() => swiperRef.current?.slidePrev()}
                                 className="w-12 h-12 rounded-full border border-border-subtle flex items-center justify-center hover:bg-white hover:shadow-lg transition-all text-text-heading disabled:opacity-30"

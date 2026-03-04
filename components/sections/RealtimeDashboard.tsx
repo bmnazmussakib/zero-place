@@ -73,12 +73,12 @@ export default function RealtimeDashboard() {
         }
     };
     return (
-        <section className="py-24 overflow-hidden bg-background relative">
+        <section className="py-8 lg:py-24 overflow-hidden bg-background relative">
             {/* Background patterns could go here */}
 
             <SectionContainer className="relative z-10">
                 <motion.div
-                    className="text-center space-y-4 mb-16"
+                    className="text-center space-y-4 mb-8 md:mb-12 lg:mb-16"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
@@ -98,7 +98,7 @@ export default function RealtimeDashboard() {
                 <div className="max-w-5xl mx-auto relative">
                     {/* Top Stats Cards */}
                     <motion.div
-                        className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-2xl mx-auto relative z-20"
+                        className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto relative z-20"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
@@ -107,17 +107,17 @@ export default function RealtimeDashboard() {
                         <motion.div
                             variants={fadeInUp}
                             whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(108, 70, 253, 0.15)" }}
-                            className="bg-white p-8 rounded-3xl border-2 border-primary shadow-[0_0_30px_rgba(190,242,100,0.2)] text-center space-y-2 transition-shadow duration-300"
+                            className="bg-white lg:p-8 p-4 rounded-3xl border-2 border-primary shadow-[0_0_30px_rgba(190,242,100,0.2)] text-center space-y-2 transition-shadow duration-300"
                         >
-                            <span className="text-6xl font-black text-text-heading">50%</span>
+                            <span className="text-4xl md:text-6xl font-black text-text-heading">50%</span>
                             <p className="text-text-muted font-medium italic">Transaction cost savings</p>
                         </motion.div>
                         <motion.div
                             variants={fadeInUp}
                             whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(108, 70, 253, 0.15)" }}
-                            className="bg-white p-8 rounded-3xl border-2 border-primary shadow-[0_0_30px_rgba(190,242,100,0.2)] text-center space-y-2 transition-shadow duration-300"
+                            className="bg-white lg:p-8 p-4 rounded-3xl border-2 border-primary shadow-[0_0_30px_rgba(190,242,100,0.2)] text-center space-y-2 transition-shadow duration-300"
                         >
-                            <span className="text-6xl font-black text-text-heading">25%</span>
+                            <span className="text-4xl md:text-6xl font-black text-text-heading">25%</span>
                             <p className="text-text-muted font-medium italic">Higher conversion rate</p>
                         </motion.div>
                     </motion.div>

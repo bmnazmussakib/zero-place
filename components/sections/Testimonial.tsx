@@ -66,16 +66,16 @@ export default function Testimonial() {
     };
 
     return (
-        <section className="bg-white py-24 md:py-32 overflow-hidden relative">
+        <section className="bg-white py-8 md:py-16 lg:py-24 overflow-hidden relative">
             {/* Background Decorative Rings */}
             <div className="absolute top-1/2 -right-64 -translate-y-1/2 w-[600px] h-[600px] border-40 border-primary/5 rounded-full pointer-events-none" />
             <div className="absolute top-1/2 -right-32 -translate-y-1/2 w-[400px] h-[400px] border-20 border-primary/5 rounded-full pointer-events-none" />
 
             <SectionContainer>
-                <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+                <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
                     {/* Left Column: Info */}
                     <motion.div
-                        className="w-full lg:w-1/2 space-y-10 text-center lg:text-left"
+                        className="w-full lg:w-1/2 lg:space-y-10 space-y-6 text-center lg:text-left"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
@@ -83,7 +83,7 @@ export default function Testimonial() {
                     >
                         <div className="space-y-6">
                             <motion.div variants={fadeInUp}>
-                                <SectionBadge className="mb-6">
+                                <SectionBadge className="lg:mb-6">
                                     Testimonials
                                 </SectionBadge>
                             </motion.div>
@@ -147,10 +147,10 @@ export default function Testimonial() {
                                 }}
                             >
                                 {TESTIMONIALS.map((testimonial, index) => (
-                                    <SwiperSlide key={index} className="rounded-[3rem] shadow-2xl overflow-visible">
-                                        <div className="h-full w-full bg-white p-10 md:p-14 flex flex-col justify-between border border-primary/5 relative group rounded-[3rem]">
+                                    <SwiperSlide key={index} className="rounded-[3rem] shadow-2xl overflow-visible min-h-[300px]">
+                                        <div className="h-full w-full  bg-white p-10 md:p-14 flex flex-col justify-between border border-primary/5 relative group rounded-[3rem]">
                                             {/* Top: Logo */}
-                                            <div className="w-full flex justify-start mb-4">
+                                            <div className="w-full flex justify-start lg:mb-4">
                                                 <div className="h-10 opacity-90 group-hover:opacity-100 transition-all duration-500">
                                                     <img src={testimonial.logo} alt="brand" className="h-full object-contain filter-primary" />
                                                 </div>
@@ -158,19 +158,19 @@ export default function Testimonial() {
 
                                             {/* Middle: Testimonial Content */}
                                             <div className="flex-1 flex flex-col justify-center py-6">
-                                                <p className="text-xl md:text-2xl font-medium leading-[1.4] text-zinc-700 tracking-tight font-heading italic">
+                                                <p className="text-sm md:text-lg lg:text-xl font-medium leading-[1.4] text-zinc-700 tracking-tight font-heading italic">
                                                     "{testimonial.content}"
                                                 </p>
                                             </div>
 
                                             {/* Bottom: Author & Quote Icon */}
-                                            <div className="flex items-end justify-between pt-10 mt-auto">
+                                            <div className="flex items-end justify-between lg:pt-10 mt-auto">
                                                 <div className="flex items-center gap-5">
-                                                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-primary/10 shadow-md">
+                                                    <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full overflow-hidden border-2 border-primary/10 shadow-md">
                                                         <img src={testimonial.avatar} alt={testimonial.name} className="w-full h-full object-cover" />
                                                     </div>
                                                     <div className="space-y-1">
-                                                        <h4 className="font-bold text-foreground text-xl md:text-2xl leading-none tracking-tight">{testimonial.name}</h4>
+                                                        <h4 className="font-bold text-foreground text-lg md:text-xl lg:text-2xl leading-none tracking-tight">{testimonial.name}</h4>
                                                         <p className="text-sm md:text-base text-muted-foreground font-medium">{testimonial.role}</p>
                                                     </div>
                                                 </div>

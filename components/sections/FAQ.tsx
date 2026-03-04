@@ -60,12 +60,12 @@ export default function FAQ() {
     };
 
     return (
-        <section className="bg-footer-bg py-24 overflow-hidden">
+        <section className="bg-footer-bg py-8 md:py-16 lg:py-24 overflow-hidden">
             <SectionContainer>
-                <div className="flex flex-col lg:flex-row gap-16">
+                <div className="flex flex-col md:flex-row gap-16">
                     {/* Left Column: Info & Contact */}
                     <motion.div
-                        className="w-full lg:w-5/12 space-y-12"
+                        className="w-full md:w-5/12 space-y-6 lg:space-y-12"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
@@ -73,7 +73,7 @@ export default function FAQ() {
                     >
                         <div className="space-y-6">
                             <motion.div variants={fadeInUp}>
-                                <SectionBadge className="mb-6">
+                                <SectionBadge className="lg:mb-6">
                                     Read FAQs
                                 </SectionBadge>
                             </motion.div>

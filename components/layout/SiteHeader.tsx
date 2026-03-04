@@ -76,10 +76,10 @@ export default function SiteHeader() {
                     ? "bg-background/80 backdrop-blur-md border-b border-border py-3 shadow-sm"
                     : "bg-transparent py-5"
             )}
-        onMouseLeave={() => {
-            setIsMenuBox(false);
-            setHoveredItem(null);
-        }}
+            onMouseLeave={() => {
+                setIsMenuBox(false);
+                setHoveredItem(null);
+            }}
         >
             <SectionContainer>
                 <div className="flex items-center justify-between relative">
@@ -107,11 +107,11 @@ export default function SiteHeader() {
                                 >
                                     {item.children && item.children.length > 0 ? (
                                         <>
-                                            <Link href={item?.href}>
+                                            <Link href={item?.href} className="hover:bg-transparent active:bg-transparent">
                                                 <div
                                                     tabIndex={0}
                                                     role="button"
-                                                    className="group text-base font-bold text-text-body hover:text-primary transition-colors flex items-center gap-1 px-4 h-full"
+                                                    className="group text-base font-bold text-text-body hover:text-primary  transition-colors flex items-center gap-1 px-4 h-full"
                                                 >
                                                     <span className="relative overflow-hidden h-[26px] flex items-center">
                                                         <span
@@ -248,7 +248,7 @@ export default function SiteHeader() {
                                         <Link
                                             href={item.href}
                                             onMouseEnter={() => setHoveredItem(item.title)}
-                                            className="group text-base font-bold text-text-body hover:text-primary transition-colors px-4 flex items-center"
+                                            className="group text-base font-bold text-text-body hover:text-primary transition-colors px-4 flex items-center hover:bg-transparent active:bg-transparen"
                                         >
                                             <span className="relative overflow-hidden h-[26px] flex items-center">
                                                 <span
@@ -266,9 +266,11 @@ export default function SiteHeader() {
                     </nav>
 
                     <div className="flex items-center gap-4 self-center">
-                        <PremiumButton href="/book-a-call" className="hidden sm:inline-flex">
-                            Book a Call
-                        </PremiumButton>
+                        <div className="hidden md:inline-flex">
+                            <PremiumButton href="/book-a-call" >
+                                Book a Call
+                            </PremiumButton>
+                        </div>
 
                         {/* Mobile Menu Toggle */}
                         <button
@@ -291,7 +293,7 @@ export default function SiteHeader() {
                         <MobileNavItem key={item.title} item={item} />
                     ))}
                     <div className="pt-8 px-4 pb-20">
-                        <PremiumButton href="/book-a-call" className="w-full justify-center text-lg py-6">
+                        <PremiumButton href="/book-a-call" className="w-full ">
                             Book a Call
                         </PremiumButton>
                     </div>

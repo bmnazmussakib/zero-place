@@ -60,7 +60,7 @@ export default function HeroSection() {
         <div className="relative overflow-hidden bg-white before:absolute before:bg-primary before:size-120 before:rounded-full before:opacity-[0.25] before:end-[calc(50%-740px)] before:translate-x-1/2 before:top-0 before:blur-[100px]" >
             <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--primary-soft),var(--color-background))] opacity-40" />
 
-            <SectionContainer className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center py-20">
+            <SectionContainer className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center py-8 lg:py-20">
                 <motion.div
                     className="text-left space-y-8"
                     initial="hidden"
@@ -125,7 +125,7 @@ export default function HeroSection() {
                         </span>
                     </motion.h1>
 
-                    <motion.p className="text-xl text-text-muted max-w-xl" variants={fadeInUp}>
+                    <motion.p className="text-lg lg:text-xl text-text-muted max-w-xl" variants={fadeInUp}>
                         Premium quality, fast delivery, and scalable solutions tailored to your business goals.
                     </motion.p>
 

@@ -26,8 +26,8 @@ export default function HomePage() {
 
             <WorkStep />
 
-
             <Pricing />
+
             <RealtimeDashboard />
 
             <FAQ />

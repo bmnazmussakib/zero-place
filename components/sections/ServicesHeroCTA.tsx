@@ -63,7 +63,6 @@ export default function ServicesHeroCTA() {
             <motion.div variants={fadeInUp} className="relative z-20">
                 <PremiumButton
                     href="/book-a-call"
-                    size="large"
                     className="font-bold tracking-wide"
                 >
                     BOOK A CALL
