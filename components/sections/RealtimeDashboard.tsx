@@ -93,6 +93,12 @@ export default function RealtimeDashboard() {
                     >
                         Real-Time <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Dashboard</span>
                     </motion.h2>
+                    <motion.p
+                        variants={fadeInUp}
+                        className="text-lg text-text-muted max-w-2xl mx-auto"
+                    >
+                        Gain complete control and insights into your projects. Monitor performance, track key metrics to maximize productivity and efficiency.
+                    </motion.p>
                 </motion.div>
 
                 <div className="max-w-5xl mx-auto relative">

@@ -29,7 +29,7 @@ export const serviceItems: ServiceItem[] = [
     },
     {
         id: 3,
-        title: "Software Design",
+        title: "Saas Product & Software design",
         description:
             "We design software that actually makes sense. Real people, real needs, no frustrating experiences.",
         image: "/images/services/service-card-6.jpg",

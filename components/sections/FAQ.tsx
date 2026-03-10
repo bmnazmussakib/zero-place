@@ -11,25 +11,33 @@ import { AnimatePresence } from "motion/react";
 
 const FAQ_DATA = [
     {
-        question: "What services does your company offer?",
-        answer: "Our solutions are tailored to meet your unique business needs, improving efficiency, reducing costs, and enabling seamless digital transformation to boost growth and productivity and stay up-to-date with the latest technologies. The consultation phase and keep you informed."
+        question: "Connect with Us Live!",
+        answer: "Get instant answers to your questions and personalized support with our live chat feature."
     },
     {
-        question: "How can your IT solutions help my business?",
-        answer: "We provide strategic IT consulting and implementation services that streamline your workflows, automate repetitive tasks, and scale your digital infrastructure, allowing your team to focus on core business objectives while reducing operational overhead."
+        question: "How do your branding, design, and development services work together?",
+        answer: "We integrate these services to provide a holistic approach, ensuring a cohesive brand identity, engaging design, and flawless development for consistent success."
     },
     {
-        question: "Do you provide support after project completion?",
-        answer: "Yes, we offer comprehensive post-launch support and maintenance packages. Whether it's troubleshooting, updates, or scaling features, our team remains available to ensure your digital solutions continue to perform optimally."
+        question: "Can you help with branding for a new business?",
+        answer: "Yes, our branding services include comprehensive strategy development to establish a strong, memorable and distinctive brand identity for your new venture."
     },
     {
-        question: "How long does it take to implement an IT solution?",
-        answer: "Timeline varies based on complexity. A typical project can take anywhere from 2 to 12 weeks. We follow a strict agile methodology with weekly updates to ensure transparent progress and timely delivery."
+        question: "What is your typical design and development process?",
+        answer: "Our process involves close collaboration, starting with requirements gathering, followed by creative design and agile development to deliver high-quality, customized solutions."
     },
     {
-        question: "Is my data secure with your solutions?",
-        answer: "Security is built into our core. We implement industry-standard encryption, secure cloud architectures, and regular security audits to protect your sensitive data and ensure compliance with global privacy regulations."
-    }
+        question: "Do you provide post-project support?",
+        answer: "Yes, we offer comprehensive support and maintenance services post-completion to ensure your solutions remain functional, secure, and scalable."
+    },
+    {
+        question: "How do you ensure data security throughout the development process?",
+        answer: "We implement strict security measures and adhere to industry standards to protect your data during all stages of branding, design, and development."
+    },
+    {
+        question: "What makes your company's design and branding unique?",
+        answer: "Our focus is on combining creativity with strategic branding to create visually appealing and memorable designs that truly represent your brand's values and drive results."
+    },
 ];
 
 export default function FAQ() {

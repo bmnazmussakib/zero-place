@@ -29,42 +29,42 @@ import 'swiper/css/pagination';
 const STEPS = [
     {
         title: "Choose a Plan",
-        description: "Clients select from various plans based on their needs and budget. Our flexible options allow you to scale your design needs up or down anytime.",
+        description: "Clients select from various plans based on their needs and budget.",
         icon: CreditCard,
     },
     {
         title: "Payment",
-        description: "After selecting a plan, clients proceed to payment. Secure and fast processing so we can get started on your creative journey immediately.",
+        description: "After selecting a plan, clients proceed to payment.",
         icon: Zap,
     },
     {
         title: "Onboarding and Brief",
-        description: "A project manager is assigned to the client for onboarding and task clarification. Fill out a brief detailing your business and design needs.",
+        description: "A project manager is assigned to the client for onboarding and task clarification.",
         icon: FileText,
     },
     {
         title: "Designer Assignment",
-        description: "A personal designer is assigned to the client after the brief is completed. You'll work directly with a pro who understands your brand.",
+        description: "A personal designer is assigned to the client after the brief is completed.",
         icon: UserCheck,
     },
     {
         title: "Task Creation",
-        description: "Clients create and submit tasks, providing necessary materials (logos, texts, images, etc.). Manage everything from your dedicated dashboard.",
+        description: "Clients create and submit tasks, providing necessary materials.",
         icon: PlusSquare,
     },
     {
         title: "Feedback and Revisions",
-        description: "The designer submits completed tasks for review. Clients review the work and request unlimited revisions until it's absolutely perfect.",
+        description: "The designer submits completed tasks for review.",
         icon: MessageSquare,
     },
     {
         title: "Task Completion",
-        description: "Once the client is satisfied, the task is marked as complete. You receive the high-resolution source files ready for production.",
+        description: "Once the client is satisfied, the task is marked as complete.",
         icon: CheckCircle2,
     },
     {
         title: "New Project",
-        description: "After completing one task, clients can create new tasks and continue the process. Keep the momentum going with your next creative request.",
+        description: "After completing one task, clients can create new tasks and continue the process.",
         icon: LayoutGrid,
     }
 ];
@@ -164,7 +164,7 @@ export default function WorkStep() {
                                         className={cn(
                                             "h-full flex flex-col p-8 rounded-2xl transition-all duration-500 border border-transparent",
                                             isActive
-                                                ? "bg-white shadow-2xl shadow-primary/5 border-primary/20"
+                                                ? "bg-white shadow-2xl shadow-primary/5 border-primary"
                                                 : "bg-transparent opacity-60"
                                         )}
                                         animate={{

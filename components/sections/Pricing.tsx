@@ -166,7 +166,7 @@ export default function Pricing() {
                                 variants={fadeInUp}
                                 className="text-text-muted text-lg leading-relaxed max-w-lg"
                             >
-                                &quot;Stackly Pay offers transparent, customizable pricing plans tailored to startups, SMEs, and enterprises—ensuring affordability, scalability.&quot;
+                                &quot;Our pricing structure is designed to meet your diverse business needs, offering both subscription and one-time payment options.&quot;
                             </motion.p>
                         </div>
 

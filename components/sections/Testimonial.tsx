@@ -3,8 +3,8 @@
 import React, { useRef } from 'react';
 import SectionContainer from '../shared/SectionContainer';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCards, Navigation } from 'swiper/modules';
-import { ChevronUp, ChevronDown, Quote } from 'lucide-react';
+import { Autoplay, EffectCards, Navigation } from 'swiper/modules';
+import { ChevronUp, ChevronDown, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import SectionBadge from '../shared/SectionBadge';
 import * as motion from "motion/react-client";
@@ -16,26 +16,75 @@ import 'swiper/css/navigation';
 
 const TESTIMONIALS = [
     {
-        name: "Kevin Martin",
-        role: "Web Designer",
+        name: "James Miller",
+        role: "Company Director",
         logo: "https://logoipsum.com/img/logo/logo-1.svg",
-        content: "On the Windows talking painted pasture yet its express parties use. Sure last upon he same as knew next. Of believed or diverted no.",
+        content: "Zero Place has completely transformed our business operations. The results are outstanding!",
         avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100&h=100"
     },
     {
-        name: "Sarah Jenkins",
-        role: "Product Manager",
+        name: "Emily Roberts",
+        role: "Project Manager",
         logo: "https://logoipsum.com/img/logo/logo-2.svg",
-        content: "The design implementation surpassed our expectations. The attention to detail and user experience polish is something we've been looking for for years.",
+        content: "The team at Zero Place is incredibly professional and dedicated. A pleasure to work with.",
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100&h=100"
     },
     {
-        name: "Michael Chen",
-        role: "CTO @ TechFlow",
+        name: "Michael Johnson",
+        role: "Marketing Director",
         logo: "https://logoipsum.com/img/logo/logo-3.svg",
-        content: "Switching to this agency was the best decision for our growth. Their technical expertise coupled with creative vision is truly rare in the industry.",
+        content: "Zero Place has significantly boosted our brand visibility. Highly recommended!",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
-    }
+    },
+    {
+        name: "Sarah Brown",
+        role: "Operations Manager",
+        logo: "https://logoipsum.com/img/logo/logo-3.svg",
+        content: "Efficient, reliable, and delivering top-notch service. That's Zero Place.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
+    },
+    {
+        name: "David Chen",
+        role: "Technical Director",
+        logo: "https://logoipsum.com/img/logo/logo-3.svg",
+        content: "The solutions provided by Zero Place are exactly what we needed for our growth.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
+    },
+    {
+        name: "Olivia White",
+        role: "Product Manager",
+        logo: "https://logoipsum.com/img/logo/logo-3.svg",
+        content: "Zero Place has been a game-changer for our team. Fantastic work!",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
+    },
+    {
+        name: "Noah Brown",
+        role: "Lead Developer",
+        logo: "https://logoipsum.com/img/logo/logo-3.svg",
+        content: "As a developer, I am impressed by the quality and functionality they provide.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
+    },
+    {
+        name: "Isabella Taylor",
+        role: "Design Manager",
+        logo: "https://logoipsum.com/img/logo/logo-3.svg",
+        content: "Zero Place has provided us with the creative solutions we needed to stand out.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
+    },
+    {
+        name: "Liam Walker",
+        role: "CEO",
+        logo: "https://logoipsum.com/img/logo/logo-3.svg",
+        content: "A pivotal partner in our journey. Zero Place delivers excellence.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
+    },
+    {
+        name: "Natasha Green",
+        role: "Executive Manager",
+        logo: "https://logoipsum.com/img/logo/logo-3.svg",
+        content: "Our experience with Zero Place has been exceptional from start to finish.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
+    },
 ];
 
 export default function Testimonial() {
@@ -93,6 +142,12 @@ export default function Testimonial() {
                             >
                                 Why Businesses <br />Love <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Zero Place</span>
                             </motion.h2>
+                            <motion.p
+                                variants={fadeInUp}
+                                className="text-lg text-text-muted max-w-2xl mx-auto"
+                            >
+                                We've streamlined our design process to be as efficient and transparent as possible, moving from selection to delivery in record time.
+                            </motion.p>
                         </div>
 
                         <motion.div
@@ -136,11 +191,16 @@ export default function Testimonial() {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <div className="flex items-center gap-8">
+                        <div className="flex flex-col items-center gap-8">
                             <Swiper
                                 effect={'cards'}
                                 grabCursor={true}
-                                modules={[EffectCards, Navigation]}
+                                modules={[EffectCards, Navigation, Autoplay]}
+                                autoplay={{
+                                    delay: 3000,
+                                    disableOnInteraction: false,
+                                }}
+                                loop={true}
                                 className="testimonial-swiper w-full aspect-video sm:aspect-4/3"
                                 onBeforeInit={(swiper) => {
                                     swiperRef.current = swiper;
@@ -150,7 +210,7 @@ export default function Testimonial() {
                                     <SwiperSlide key={index} className="rounded-[3rem] shadow-2xl overflow-visible min-h-[300px]">
                                         <div className="h-full w-full  bg-white p-10 md:p-14 flex flex-col justify-between border border-primary/5 relative group rounded-[3rem]">
                                             {/* Top: Logo */}
-                                            <div className="w-full flex justify-start lg:mb-4">
+                                            <div className="w-full flex justify-start lg:mb-4 hidden">
                                                 <div className="h-10 opacity-90 group-hover:opacity-100 transition-all duration-500">
                                                     <img src={testimonial.logo} alt="brand" className="h-full object-contain filter-primary" />
                                                 </div>
@@ -183,15 +243,15 @@ export default function Testimonial() {
                                 ))}
                             </Swiper>
 
-                            {/* Vertical Navigation Controls */}
-                            <div className="hidden sm:flex flex-col gap-4 ms-5">
+                            {/* Horizontal Navigation Controls */}
+                            <div className="hidden sm:flex  gap-4 ms-5">
                                 <motion.button
                                     whileHover={{ scale: 1.1, backgroundColor: "var(--primary)", border: "none" }}
                                     whileTap={{ scale: 0.9 }}
                                     onClick={() => swiperRef.current?.slidePrev()}
                                     className="w-12 h-12 rounded-full bg-white border border-border shadow-md flex items-center justify-center text-foreground hover:text-white transition-colors duration-300"
                                 >
-                                    <ChevronUp className="w-6 h-6" />
+                                    <ChevronLeft className="w-6 h-6" />
                                 </motion.button>
                                 <motion.button
                                     whileHover={{ scale: 1.1, backgroundColor: "var(--primary)", border: "none" }}
@@ -199,7 +259,7 @@ export default function Testimonial() {
                                     onClick={() => swiperRef.current?.slideNext()}
                                     className="w-12 h-12 rounded-full bg-white border border-border shadow-md flex items-center justify-center text-foreground hover:text-white transition-colors duration-300"
                                 >
-                                    <ChevronDown className="w-6 h-6" />
+                                    <ChevronRight className="w-6 h-6" />
                                 </motion.button>
                             </div>
                         </div>
