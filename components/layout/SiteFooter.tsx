@@ -96,16 +96,16 @@ export default function SiteFooter() {
                         </div>
 
                         <div className="w-full lg:w-5/12 space-y-8 relative z-10">
-                            <form className="relative flex flex-col sm:flex-row items-center gap-2 p-1.5 sm:bg-slate-50 sm:rounded-full border border-white/10 focus-within:border-white/40 transition-all duration-300">
+                            <form className="relative flex flex-row items-center gap-2 p-1.5 bg-slate-50 rounded-full border border-white/10 focus-within:border-white/40 transition-all duration-300">
                                 <input
                                     type="email"
                                     placeholder="Enter email here..."
-                                    className="w-full sm:flex-1 bg-slate-50 sm:bg-transparent px-8 py-4 sm:py-3 rounded-full sm:rounded-none text-white placeholder:text-zinc-500 outline-none border border-white/10 sm:border-none"
+                                    className="w-full flex-1 bg-transparent px-4 sm:px-8 py-3 rounded-none text-zinc-900 placeholder:text-zinc-500 outline-none border-none"
                                     required
                                 />
                                 <PremiumButton
                                     type="submit"
-                                    className=""
+                                    className="whitespace-nowrap sm:w-auto"
                                 >
                                     Subscribe Now
                                 </PremiumButton>
