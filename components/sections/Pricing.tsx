@@ -74,8 +74,8 @@ export default function Pricing() {
     };
 
     return (
-        <section id="pricing" className="py-24 bg-footer-bg overflow-hidden">
-            <SectionContainer>
+        <section id="pricing" className="py-10 md:py-16 lg:py-24 bg-footer-bg overflow-hidden">
+            <SectionContainer >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
                     {/* Left Side: Pricing Cards */}
                     <motion.div
@@ -96,12 +96,12 @@ export default function Pricing() {
                                 }}
                                 whileTap={{ scale: 0.98 }}
                                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                                className="flex-1 bg-white rounded-4xl p-8 shadow-2xl shadow-black/5 border border-transparent group cursor-default"
+                                className="flex-1 bg-white lg:rounded-4xl rounded-2xl lg:p-8 p-6 shadow-2xl shadow-black/5 border border-transparent group cursor-default"
                             >
-                                <div className="space-y-6">
+                                <div className="lg:space-y-6 space-y-3">
                                     <h3 className="text-2xl md:text-3xl font-heading font-black text-text-heading leading-tight">{plan.name}</h3>
-                                    <div className="flex items-baseline gap-1 h-14">
-                                        <div className="relative w-24 h-full">
+                                    <div className="flex items-baseline gap-1 lg:h-14 h-10">
+                                        <div className="relative lg:w-24 w-18 h-full">
                                             <AnimatePresence mode="wait">
                                                 <motion.span
                                                     key={billingCycle}
@@ -109,7 +109,7 @@ export default function Pricing() {
                                                     animate={{ y: 0, opacity: 1 }}
                                                     exit={{ y: -20, opacity: 0 }}
                                                     transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-                                                    className="absolute inset-x-0 bottom-0 text-5xl font-black text-text-heading tracking-tight"
+                                                    className="absolute inset-x-0 bottom-0 lg:text-5xl md:text-4xl text-3xl font-black text-text-heading tracking-tight"
                                                 >
                                                     {getPrice(plan)}
                                                 </motion.span>
@@ -121,7 +121,7 @@ export default function Pricing() {
                                     </div>
 
                                     {/* Features List */}
-                                    <div className="bg-[#F1F4FA] rounded-[1.5rem] p-6 space-y-4">
+                                    <div className="bg-[#F1F4FA] lg:rounded-[1.5rem] rounded-2xl p-5 lg:p-6 space-y-4">
                                         {plan.features.map((feature, i) => (
                                             <div key={i} className="flex items-start gap-3">
                                                 <div className="mt-1 w-4 h-4 bg-primary rounded-full flex items-center justify-center shrink-0">
@@ -157,13 +157,13 @@ export default function Pricing() {
                             </motion.div>
                             <motion.h2
                                 variants={fadeInUp}
-                                className="text-5xl md:text-6xl font-heading font-black text-white leading-[0.9] tracking-tighter"
+                                className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white leading-[0.9] tracking-tighter"
                             >
                                 Flexible <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Pricing</span> for Every Business
                             </motion.h2>
                             <motion.p
                                 variants={fadeInUp}
-                                className="text-text-muted text-lg leading-relaxed max-w-lg"
+                                className="text-text-muted text-sm md:text-base lg:text-lg leading-relaxed max-w-lg"
                             >
                                 &quot;Our pricing structure is designed to meet your diverse business needs, offering both subscription and one-time payment options.&quot;
                             </motion.p>
@@ -175,7 +175,7 @@ export default function Pricing() {
                             className="flex items-center gap-4 justify-center md:justify-start shadow-primary/5 shrink-0"
                         >
                             <span className={cn(
-                                "text-sm font-black uppercase tracking-widest transition-colors",
+                                "text-xs md:text-sm font-black uppercase tracking-widest transition-colors",
                                 billingCycle === "subscription" ? "text-primary" : "text-text-muted"
                             )}>
                                 Subscription
@@ -187,7 +187,7 @@ export default function Pricing() {
                                 onChange={(e) => setBillingCycle(e.target.checked ? "onetime" : "subscription")}
                             />
                             <span className={cn(
-                                "text-sm font-black uppercase tracking-widest transition-colors",
+                                "text-xs md:text-sm font-black uppercase tracking-widest transition-colors",
                                 billingCycle === "onetime" ? "text-primary" : "text-text-muted"
                             )}>
                                 One-Time

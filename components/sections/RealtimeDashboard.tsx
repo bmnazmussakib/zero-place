@@ -89,13 +89,13 @@ export default function RealtimeDashboard() {
                     </motion.div>
                     <motion.h2
                         variants={fadeInUp}
-                        className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter max-w-3xl mx-auto"
+                        className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter max-w-3xl mx-auto"
                     >
                         Real-Time <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Dashboard</span>
                     </motion.h2>
                     <motion.p
                         variants={fadeInUp}
-                        className="text-lg text-text-muted max-w-2xl mx-auto"
+                        className="text-sm md:text-base lg:text-lg text-text-muted max-w-2xl mx-auto"
                     >
                         Gain complete control and insights into your projects. Monitor performance, track key metrics to maximize productivity and efficiency.
                     </motion.p>
@@ -113,18 +113,18 @@ export default function RealtimeDashboard() {
                         <motion.div
                             variants={fadeInUp}
                             whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(108, 70, 253, 0.15)" }}
-                            className="bg-white lg:p-8 p-4 rounded-3xl border-2 border-primary shadow-[0_0_30px_rgba(190,242,100,0.2)] text-center space-y-2 transition-shadow duration-300"
+                            className="bg-white lg:p-8 p-4 lg:rounded-3xl rounded-lg border-2 border-primary shadow-[0_0_30px_rgba(190,242,100,0.2)] text-center space-y-2 transition-shadow duration-300"
                         >
-                            <span className="text-4xl md:text-6xl font-black text-text-heading">50%</span>
-                            <p className="text-text-muted font-medium italic">Transaction cost savings</p>
+                            <span className="text-3xl md:text-4xl lg:text-6xl font-black text-text-heading">50%</span>
+                            <p className="text-text-muted text-sm md:text-base font-medium italic">Transaction cost savings</p>
                         </motion.div>
                         <motion.div
                             variants={fadeInUp}
                             whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(108, 70, 253, 0.15)" }}
-                            className="bg-white lg:p-8 p-4 rounded-3xl border-2 border-primary shadow-[0_0_30px_rgba(190,242,100,0.2)] text-center space-y-2 transition-shadow duration-300"
+                            className="bg-white lg:p-8 p-4 lg:rounded-3xl rounded-lg border-2 border-primary shadow-[0_0_30px_rgba(190,242,100,0.2)] text-center space-y-2 transition-shadow duration-300"
                         >
-                            <span className="text-4xl md:text-6xl font-black text-text-heading">25%</span>
-                            <p className="text-text-muted font-medium italic">Higher conversion rate</p>
+                            <span className="text-3xl md:text-4xl lg:text-6xl font-black text-text-heading">25%</span>
+                            <p className="text-text-muted text-sm md:text-base font-medium italic">Higher conversion rate</p>
                         </motion.div>
                     </motion.div>
 

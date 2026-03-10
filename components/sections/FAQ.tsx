@@ -70,16 +70,16 @@ export default function FAQ() {
     return (
         <section className="bg-footer-bg py-8 md:py-16 lg:py-24 overflow-hidden">
             <SectionContainer>
-                <div className="flex flex-col md:flex-row gap-16">
+                <div className="flex flex-col lg:flex-row lg:gap-16 md:gap-12 gap-8">
                     {/* Left Column: Info & Contact */}
                     <motion.div
-                        className="w-full md:w-5/12 space-y-6 lg:space-y-12"
+                        className="w-full lg:w-5/12 space-y-6 lg:space-y-12"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
                         variants={containerVariants}
                     >
-                        <div className="space-y-6 text-center md:text-left">
+                        <div className="space-y-6 text-center lg:text-left">
                             <motion.div variants={fadeInUp}>
                                 <SectionBadge className="lg:mb-6 ">
                                     Read FAQs
@@ -87,7 +87,7 @@ export default function FAQ() {
                             </motion.div>
                             <motion.h2
                                 variants={fadeInUp}
-                                className="text-5xl md:text-6xl font-heading font-black text-white leading-none tracking-normal"
+                                className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white leading-none tracking-normal"
                             >
                                 Quick Answers For Your <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Important</span> Questions
                             </motion.h2>
@@ -101,7 +101,7 @@ export default function FAQ() {
                         {/* Contact Card */}
                         <motion.div
                             variants={fadeInUp}
-                            className="p-8 rounded-3xl bg-white border border-border/50 shadow-xs space-y-8 max-w-sm"
+                            className="lg:p-8 p-6 rounded-3xl bg-white border border-border/50 shadow-xs space-y-8 max-w-sm mx-auto lg:mx-0"
                         >
                             <p className="text-muted-foreground leading-relaxed text-sm">
                                 Getting started is easy! Simply reach out us through our contact form or give us a call & we'll schedule.
@@ -149,10 +149,10 @@ export default function FAQ() {
                                 >
                                     <button
                                         onClick={() => setOpenIndex(isOpen ? null : index)}
-                                        className="w-full text-left p-6 md:p-8 flex items-center justify-between gap-4"
+                                        className="w-full text-left p-4 md:p-6 lg:p-8 flex items-center justify-between gap-4"
                                     >
                                         <span className={cn(
-                                            "text-lg md:text-xl font-heading font-medium transition-colors duration-300",
+                                            "text-sm md:text-lg lg:text-xl font-heading font-medium transition-colors duration-300",
                                             isOpen ? "text-primary" : "text-white"
                                         )}>
                                             {faq.question}
@@ -164,12 +164,12 @@ export default function FAQ() {
                                                 scale: isOpen ? 1.1 : 1
                                             }}
                                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                            className="flex-none w-8 h-8 rounded-full flex items-center justify-center"
+                                            className="flex-none lg:w-8 lg:h-8 w-6 h-6   rounded-full flex items-center justify-center"
                                         >
                                             {isOpen ? (
-                                                <Minus className="w-4 h-4 text-white" strokeWidth={3} />
+                                                <Minus className="lg:w-4 lg:h-4 w-3 h-3 text-white" strokeWidth={3} />
                                             ) : (
-                                                <Plus className="w-4 h-4 text-white" strokeWidth={3} />
+                                                <Plus className="lg:w-4 lg:h-4 w-3 h-3 text-white" strokeWidth={3} />
                                             )}
                                         </motion.div>
                                     </button>

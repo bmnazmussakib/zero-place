@@ -114,13 +114,13 @@ export default function WorkStep() {
                     </motion.div>
                     <motion.h2
                         variants={fadeInUp}
-                        className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter"
+                        className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter"
                     >
                         One Goal, <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Seamless Steps</span>
                     </motion.h2>
                     <motion.p
                         variants={fadeInUp}
-                        className="text-lg text-text-muted max-w-2xl mx-auto"
+                        className="text-sm md:text-base lg:text-lg text-text-muted max-w-2xl mx-auto"
                     >
                         We've streamlined our design process to be as efficient and transparent as possible, moving from selection to delivery in record time.
                     </motion.p>
@@ -153,7 +153,7 @@ export default function WorkStep() {
                             delay: 3000,
                             disableOnInteraction: false,
                         }}
-                        className="pb-16"
+                        className="!pb-8 !pt-4"
                     >
                         {STEPS.map((step, index) => {
                             const isActive = activeIndex === index;
@@ -164,7 +164,7 @@ export default function WorkStep() {
                                         className={cn(
                                             "h-full flex flex-col p-8 rounded-2xl transition-all duration-500 border border-transparent",
                                             isActive
-                                                ? "bg-white shadow-2xl shadow-primary/5 border-primary"
+                                                ? "bg-white shadow-2xl shadow-primary/5 !border-primary"
                                                 : "bg-transparent opacity-60"
                                         )}
                                         animate={{
@@ -180,7 +180,7 @@ export default function WorkStep() {
                                     >
                                         <motion.div
                                             className={cn(
-                                                "w-16 h-16 rounded-xl flex items-center justify-center mb-10 transition-colors",
+                                                "lg:w-16 lg:h-16 w-12 h-12 lg:rounded-xl rounded-md flex items-center justify-center mb-10 transition-colors",
                                                 isActive ? "bg-primary text-white" : "bg-primary/10 text-primary"
                                             )}
                                             animate={{
@@ -188,14 +188,14 @@ export default function WorkStep() {
                                                 scale: isActive ? 1 : 0.9
                                             }}
                                         >
-                                            <step.icon size={32} strokeWidth={1.5} />
+                                            <step.icon size={28} strokeWidth={1.5} />
                                         </motion.div>
 
                                         <div className="grow space-y-4 text-left">
-                                            <h3 className="text-2xl md:text-3xl font-heading font-black text-text-heading leading-tight">
+                                            <h3 className="lg:text-2xl text-xl font-heading font-black text-text-heading leading-tight">
                                                 {step.title}
                                             </h3>
-                                            <p className="text-text-muted text-base leading-relaxed">
+                                            <p className="text-text-muted text-sm md:text-base leading-relaxed">
                                                 {step.description}
                                             </p>
                                         </div>

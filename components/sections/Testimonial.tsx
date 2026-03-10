@@ -115,16 +115,16 @@ export default function Testimonial() {
     };
 
     return (
-        <section className="bg-white py-8 md:py-16 lg:py-24 overflow-hidden relative">
+        <section className="bg-white pb-16 py-8 md:py-16 lg:py-24 overflow-hidden relative">
             {/* Background Decorative Rings */}
             <div className="absolute top-1/2 -right-64 -translate-y-1/2 w-[600px] h-[600px] border-40 border-primary/5 rounded-full pointer-events-none" />
             <div className="absolute top-1/2 -right-32 -translate-y-1/2 w-[400px] h-[400px] border-20 border-primary/5 rounded-full pointer-events-none" />
 
             <SectionContainer>
-                <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+                <div className="flex flex-col lg:flex-row items-center lg:gap-16 md:gap-12 gap-8">
                     {/* Left Column: Info */}
                     <motion.div
-                        className="w-full lg:w-1/2 lg:space-y-10 space-y-6 text-center lg:text-left"
+                        className="w-full lg:w-1/2 lg:space-y-10 md:space-y-8 space-y-6 text-center lg:text-left"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
@@ -138,13 +138,13 @@ export default function Testimonial() {
                             </motion.div>
                             <motion.h2
                                 variants={fadeInUp}
-                                className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[1] tracking-normal"
+                                className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-text-heading leading-[1] tracking-normal"
                             >
                                 Why Businesses <br />Love <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Zero Place</span>
                             </motion.h2>
                             <motion.p
                                 variants={fadeInUp}
-                                className="text-lg text-text-muted max-w-2xl mx-auto"
+                                className="text-sm md:text-base lg:text-lg text-text-muted max-w-2xl mx-auto"
                             >
                                 We've streamlined our design process to be as efficient and transparent as possible, moving from selection to delivery in record time.
                             </motion.p>
@@ -156,22 +156,22 @@ export default function Testimonial() {
                         >
                             <div className="avatar-group -space-x-3">
                                 <div className="avatar border-2 border-white">
-                                    <div className="w-12">
+                                    <div className="w-8 md:w-10 lg:w-12">
                                         <img src="https://img.daisyui.com/images/profile/demo/batperson@192.webp" />
                                     </div>
                                 </div>
                                 <div className="avatar border-2 border-white">
-                                    <div className="w-12">
+                                    <div className="w-8 md:w-10 lg:w-12">
                                         <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
                                     </div>
                                 </div>
                                 <div className="avatar border-3 border-white">
-                                    <div className="w-12">
+                                    <div className="w-8 md:w-10 lg:w-12">
                                         <img src="https://img.daisyui.com/images/profile/demo/averagebulk@192.webp" />
                                     </div>
                                 </div>
                                 <div className="avatar border-3 border-white">
-                                    <div className="w-12">
+                                    <div className="w-8 md:w-10 lg:w-12">
                                         <img src="https://i.pravatar.cc/300" />
                                     </div>
                                 </div>
@@ -185,7 +185,7 @@ export default function Testimonial() {
 
                     {/* Right Column: Swiper Slide */}
                     <motion.div
-                        className="w-5/6 lg:w-1/2 relative px-4 md:px-0"
+                        className="w-full sm:w-5/6 lg:w-1/2 relative px-4 md:px-0"
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -207,8 +207,8 @@ export default function Testimonial() {
                                 }}
                             >
                                 {TESTIMONIALS.map((testimonial, index) => (
-                                    <SwiperSlide key={index} className="rounded-[3rem] shadow-2xl overflow-visible min-h-[300px]">
-                                        <div className="h-full w-full  bg-white p-10 md:p-14 flex flex-col justify-between border border-primary/5 relative group rounded-[3rem]">
+                                    <SwiperSlide key={index} className="rounded-[3rem] shadow-2xl overflow-visible min-h-[280px] md:h-[300px]">
+                                        <div className="h-full w-full  bg-white p-8 md:p-10 lg:p-14 flex flex-col justify-between border border-primary/5 relative group rounded-[3rem]">
                                             {/* Top: Logo */}
                                             <div className="w-full flex justify-start lg:mb-4 hidden">
                                                 <div className="h-10 opacity-90 group-hover:opacity-100 transition-all duration-500">
@@ -217,7 +217,7 @@ export default function Testimonial() {
                                             </div>
 
                                             {/* Middle: Testimonial Content */}
-                                            <div className="flex-1 flex flex-col justify-center py-6">
+                                            <div className="flex-1 flex flex-col justify-center lg:py-6">
                                                 <p className="text-sm md:text-lg lg:text-xl font-medium leading-[1.4] text-zinc-700 tracking-tight font-heading italic">
                                                     "{testimonial.content}"
                                                 </p>
@@ -235,7 +235,7 @@ export default function Testimonial() {
                                                     </div>
                                                 </div>
                                                 <div className="text-primary opacity-20 group-hover:opacity-100 transition-all duration-700 mb-[-15px] transform group-hover:scale-110">
-                                                    <Quote className="w-20 h-20 fill-current rotate-180" strokeWidth={0.5} />
+                                                    <Quote className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 fill-current rotate-180" strokeWidth={0.5} />
                                                 </div>
                                             </div>
                                         </div>
@@ -244,7 +244,7 @@ export default function Testimonial() {
                             </Swiper>
 
                             {/* Horizontal Navigation Controls */}
-                            <div className="hidden sm:flex  gap-4 ms-5">
+                            <div className="hidden sm:flex gap-4">
                                 <motion.button
                                     whileHover={{ scale: 1.1, backgroundColor: "var(--primary)", border: "none" }}
                                     whileTap={{ scale: 0.9 }}
@@ -265,20 +265,20 @@ export default function Testimonial() {
                         </div>
 
                         {/* Mobile Nav Indicators */}
-                        <div className="flex sm:hidden justify-center gap-4 mt-12">
+                        <div className="flex sm:hidden justify-center gap-4 mt-36 ">
                             <motion.button
                                 whileTap={{ scale: 0.9 }}
                                 onClick={() => swiperRef.current?.slidePrev()}
-                                className="w-14 h-14 rounded-full bg-white border border-border shadow-md flex items-center justify-center text-foreground active:scale-90 transition-transform"
+                                className="w-10 h-10 rounded-full bg-white border border-border shadow-md flex items-center justify-center text-foreground active:scale-90 transition-transform"
                             >
-                                <ChevronUp className="w-8 h-8 -rotate-90" />
+                                <ChevronUp className="w-6 h-6 -rotate-90" />
                             </motion.button>
                             <motion.button
                                 whileTap={{ scale: 0.9 }}
                                 onClick={() => swiperRef.current?.slideNext()}
-                                className="w-14 h-14 rounded-full bg-white border border-border shadow-md flex items-center justify-center text-foreground active:scale-90 transition-transform"
+                                className="w-10 h-10 rounded-full bg-white border border-border shadow-md flex items-center justify-center text-foreground active:scale-90 transition-transform"
                             >
-                                <ChevronDown className="w-8 h-8 -rotate-90" />
+                                <ChevronDown className="w-6 h-6 -rotate-90" />
                             </motion.button>
                         </div>
                     </motion.div>

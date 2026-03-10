@@ -58,8 +58,8 @@ export function ServicesPreview() {
     }, []);
 
     return (
-        <section className="overflow-hidden bg-gray-50 py-16">
-            <SectionContainer className="mb-16">
+        <section className="overflow-hidden bg-gray-50 py-10 md:py-16 lg:py-24">
+            <SectionContainer className="mb-8 lg:mb-16">
                 <motion.div
                     className="text-center"
                     initial="hidden"
@@ -67,8 +67,8 @@ export function ServicesPreview() {
                     viewport={{ once: true }}
                     variants={fadeInUp}
                 >
-                    <h2 className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter mb-4">Our Services</h2>
-                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter mb-4">Our Services</h2>
+                    <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
                         Premium quality, fast delivery, and scalable solutions tailored to your business goals
                     </p>
                 </motion.div>
@@ -101,10 +101,10 @@ export function ServicesPreview() {
                                     whileTap={{ scale: 0.98 }}
                                 >
                                     <div className="p-3 rounded-xl bg-primary/10 w-fit transition-colors group-hover:bg-primary/20">
-                                        <Image src={item.imageIcon} alt={item.title} width={32} height={32} className="object-contain" />
+                                        <Image src={item.imageIcon} alt={item.title} width={30} height={30} className="object-contain" />
                                     </div>
-                                    <h4 className='text-2xl font-light group-hover:text-primary transition-colors'>{item.title}</h4>
-                                    <p className="text-text-muted leading-relaxed">{item.description}</p>
+                                    <h4 className='text-xl md:text-2xl font-light group-hover:text-primary transition-colors'>{item.title}</h4>
+                                    <p className="text-sm md:text-base text-text-muted leading-relaxed">{item.description}</p>
                                 </motion.div>
                             );
                         })}

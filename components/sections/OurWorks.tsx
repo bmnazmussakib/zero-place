@@ -65,12 +65,13 @@ export function OurWorks() {
         freeMode: true,
         allowTouchMove: true,
         breakpoints: {
-            0: { slidesPerView: 2.2, spaceBetween: 10 },
+            0: { slidesPerView: 1.5, spaceBetween: 10 },
+            360: { slidesPerView: 1.8, spaceBetween: 10 },
             480: { slidesPerView: 2.2, spaceBetween: 10 },
-            768: { slidesPerView: 3.2, spaceBetween: 10 },
-            1024: { slidesPerView: 4.2, spaceBetween: 20 },
-            1440: { slidesPerView: 5.2, spaceBetween: 20 },
-            1920: { slidesPerView: 3.2, spaceBetween: 20 },
+            768: { slidesPerView: 2.5, spaceBetween: 10 },
+            1024: { slidesPerView: 2.8, spaceBetween: 20 },
+            1440: { slidesPerView: 3.2, spaceBetween: 20 },
+            1920: { slidesPerView: 4.2, spaceBetween: 20 },
         },
     };
 
@@ -116,7 +117,7 @@ export function OurWorks() {
                     </motion.div>
                     <motion.h2
                         variants={fadeInUp}
-                        className="text-5xl md:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter"
+                        className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-text-heading leading-[0.9] tracking-tighter"
                     >
                         Our <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Creative</span> Masterpieces
                     </motion.h2>

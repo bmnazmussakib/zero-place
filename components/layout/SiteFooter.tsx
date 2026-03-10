@@ -17,11 +17,13 @@ import {
     Clock,
     ArrowUp,
     Apple,
-    Play
+    Play,
+    ArrowUpRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ScrollToTop } from '../shared/ScrollToTop';
 import * as motion from "motion/react-client";
+import SectionContainer from '../shared/SectionContainer';
 
 export default function SiteFooter() {
     const [scrolled, setScrolled] = useState(false);
@@ -74,44 +76,50 @@ export default function SiteFooter() {
     };
 
     return (
-        <footer className="relative bg-[#0F0E21] text-zinc-400 pt-48 md:pt-64 pb-12 mt-32 md:mt-40">
+        <footer className="relative bg-[#0F0E21] text-zinc-400 pt-44 md:pt-64 pb-12 mt-32 md:mt-40">
             {/* Overlapping Subscription CTA */}
             <div className="absolute top-0 left-0 right-0 -translate-y-1/2 z-20">
-                <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
+                <SectionContainer className="">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={zoomIn}
-                        className="bg-primary rounded-[3rem] p-10 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-10 shadow-2xl shadow-primary/30 relative overflow-hidden group/cta"
+                        className="bg-primary rounded-[3rem] p-8 md:p-10 lg:p-16 flex flex-col lg:flex-row items-center justify-between lg:gap-10 gap-6 shadow-2xl shadow-primary/30 relative overflow-hidden group/cta"
                     >
                         {/* Decorative Background Elements */}
                         <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-bl from-white/10 to-transparent pointer-events-none" />
                         <div className="absolute -bottom-1/2 -left-1/4 w-[60%] h-full bg-black/10 rounded-full blur-3xl pointer-events-none group-hover/cta:bg-black/20 transition-all duration-700" />
 
                         <div className="w-full lg:w-1/2 relative z-10 text-center lg:text-left space-y-4">
-                            <h2 className="text-5xl md:text-6xl lg:text-6xl font-heading font-bold text-white leading-[1.1] tracking-tight">
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-[1.1] tracking-tight">
                                 Don't Miss Out <br className="hidden md:block" /> the Future!
                             </h2>
                         </div>
 
-                        <div className="w-full lg:w-5/12 space-y-8 relative z-10">
+                        <div className="w-full lg:w-5/12 lg:space-y-8 space-y-4 relative z-10">
                             <form className="relative flex flex-row items-center gap-2 p-1.5 bg-slate-50 rounded-full border border-white/10 focus-within:border-white/40 transition-all duration-300">
                                 <input
                                     type="email"
                                     placeholder="Enter email here..."
-                                    className="w-full flex-1 bg-transparent px-4 sm:px-8 py-3 rounded-none text-zinc-900 placeholder:text-zinc-500 outline-none border-none"
+                                    className="w-full flex-1 bg-transparent px-4 sm:px-8 md:py-3 rounded-none text-zinc-900 placeholder:text-zinc-500 outline-none border-none"
                                     required
                                 />
-                                <PremiumButton
-                                    type="submit"
-                                    className="whitespace-nowrap sm:w-auto"
-                                >
-                                    Subscribe Now
-                                </PremiumButton>
+                                <div className="hidden md:block">
+                                    <PremiumButton
+                                        type="submit"
+                                        className="whitespace-nowrap sm:w-auto"
+                                    >
+                                        Subscribe Now
+                                    </PremiumButton>
+                                </div>
+
+                                <button type="submit" className='md:hidden cursor-pointer lg:w-12 lg:h-12 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center'>
+                                    <ArrowUpRight className="w-5 h-5" />
+                                </button>
                             </form>
 
-                            <div className="flex flex-col md:flex-row items-center gap-6 justify-center lg:justify-start">
+                            <div className="flex flex-col md:flex-row items-center lg:gap-6 gap-2 justify-center lg:justify-start">
                                 <p className="text-white font-bold text-sm tracking-widest uppercase opacity-80">Follow us:</p>
                                 <div className="flex items-center gap-4">
                                     {[Facebook, Instagram, Twitter, Linkedin].map((Icon, i) => (
@@ -122,9 +130,9 @@ export default function SiteFooter() {
                                         >
                                             <Link
                                                 href="#"
-                                                className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-white border border-white/10 hover:bg-white hover:text-primary transition-all duration-500"
+                                                className="lg:w-11 lg:h-11 w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-white border border-white/10 hover:bg-white hover:text-primary transition-all duration-500"
                                             >
-                                                <Icon className="w-5 h-5" />
+                                                <Icon className="lg:w-5 lg:h-5 w-4 h-5  " />
                                             </Link>
                                         </motion.div>
                                     ))}
@@ -132,12 +140,12 @@ export default function SiteFooter() {
                             </div>
                         </div>
                     </motion.div>
-                </div>
+                </SectionContainer>
             </div>
 
 
 
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
+            <SectionContainer className="py-10 md:py-16 lg:py-24">
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
@@ -251,9 +259,11 @@ export default function SiteFooter() {
                         </div>
                     </motion.div>
                 </motion.div>
+            </SectionContainer>
 
-                {/* Bottom Bar */}
-                <div className="mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 relative">
+            {/* Bottom Bar */}
+            <SectionContainer className='border-t border-white/5 '>
+                <div className=" lg:pt-10 pt-4 flex flex-col md:flex-row justify-between items-center gap-8 relative">
                     <p className="text-sm font-medium tracking-wide text-zinc-500">
                         Tekmino © {new Date().getFullYear()}. All right reserved.
                     </p>
@@ -283,7 +293,8 @@ export default function SiteFooter() {
                     </div> */}
                     <ScrollToTop />
                 </div>
-            </div>
+            </SectionContainer>
+
 
             {/* Background Grain Effect */}
             <div className="absolute inset-0 pointer-events-none opacity-[0.05] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />

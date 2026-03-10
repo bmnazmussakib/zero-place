@@ -62,7 +62,7 @@ export default function HeroSection() {
 
             <SectionContainer className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center py-8 lg:py-20">
                 <motion.div
-                    className="text-left space-y-8"
+                    className="text-left lg:space-y-8 space-y-4"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
@@ -100,7 +100,7 @@ export default function HeroSection() {
                         <p className="text-sm font-medium text-text-muted">150+ Happy Clients</p>
                     </motion.div>
 
-                    <motion.h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-black text-text-heading leading-[0.95] tracking-tighter min-h-[3.3em] sm:min-h-[2.2em]" variants={fadeInUp}>
+                    <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-text-heading leading-[0.95] tracking-tighter min-h-[3.3em] sm:min-h-[2.2em]" variants={fadeInUp}>
                         Boost Your Brand with Expert <br />
                         <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                             <TypeAnimation
@@ -125,12 +125,12 @@ export default function HeroSection() {
                         </span>
                     </motion.h1>
 
-                    <motion.p className="text-lg lg:text-xl text-text-muted max-w-xl" variants={fadeInUp}>
+                    <motion.p className="text-sm md:text-base lg:text-lg text-text-muted max-w-xl" variants={fadeInUp}>
                         Premium quality, fast delivery, and scalable solutions tailored to your business goals.
                     </motion.p>
 
                     <motion.div className="flex flex-col sm:flex-row items-center justify-start gap-4 pt-4" variants={fadeInUp}>
-                        <PremiumButton href="/pricing" className="sm:w-auto">
+                        <PremiumButton href="/pricing" className="sm:w-auto" >
                             View Pricing
                         </PremiumButton>
                         {/* <Link href="/portfolio">
@@ -149,7 +149,7 @@ export default function HeroSection() {
                 >
                     {/* Badge Overlay - Animate independently if needed, but kept within group for now */}
                     <motion.div
-                        className="absolute -top-6 -left-6 lg:-left-12 z-20 px-6 py-4 bg-white/90 backdrop-blur-md border border-primary/20 rounded-2xl shadow-2xl animate-float flex items-center gap-3"
+                        className="absolute -top-6 -left-6 lg:-left-12 z-20 lg:px-6 px-4 py-2 bg-white/90 backdrop-blur-md border border-primary/20 rounded-2xl shadow-2xl animate-float flex items-center gap-3"
                         initial={{ opacity: 0, y: 20, rotate: -5 }}
                         whileInView={{ opacity: 1, y: 0, rotate: 0 }}
                         transition={{ delay: 0.8, duration: 0.5 }}
@@ -157,14 +157,14 @@ export default function HeroSection() {
                     >
                         <div className="flex -space-x-2">
                             {[1, 2, 3].map((i) => (
-                                <div key={i} className="size-8 rounded-full border-2 border-white overflow-hidden bg-section">
+                                <div key={i} className="lg:size-8 size-6 rounded-full border-2 border-white overflow-hidden bg-section">
                                     <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="" />
                                 </div>
                             ))}
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-xs font-bold text-text-heading leading-tight italic">Trusted by</span>
-                            <span className="text-sm font-black text-primary leading-tight">800+ Tech Giants</span>
+                            <span className="lg:text-xs text-[10px] font-bold text-text-heading leading-tight italic">Trusted by</span>
+                            <span className="lg:text-sm text-xs font-black text-primary leading-tight">800+ Tech Giants</span>
                         </div>
                     </motion.div>
 

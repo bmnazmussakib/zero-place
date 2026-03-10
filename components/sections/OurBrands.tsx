@@ -78,10 +78,10 @@ function OurBrands() {
                             variants={staggerContainer}
                         >
                             <motion.div className="space-y-4" variants={fadeInUp}>
-                                <h2 className="text-5xl lg:text-6xl font-heading font-black text-white leading- tracking-normal">
+                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white leading- tracking-normal">
                                     Trusted by <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">Global</span> Brands
                                 </h2>
-                                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                                <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed">
                                     Your brand designs are too important to be left in the hands of unreliable freelancers. Why not hire an experienced designer who knows your brand by heart? Live chat assistance available.
                                 </p>
                             </motion.div>
