@@ -18,8 +18,8 @@ const funnelDisplay = Funnel_Display({
 
 
 export const metadata: Metadata = {
-  title: "Purple Design Agency | Unlimited Graphic Design",
-  description: "Subscription-based design agency for modern brands. Unlimited requests, flat monthly fee.",
+  title: "Zero Place | Design Studio",
+  description: "Subscription-based design studio for modern brands. Unlimited requests, flat monthly fee.",
 };
 
 import { ViewTransitions } from 'next-view-transitions'

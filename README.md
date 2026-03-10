@@ -1,4 +1,4 @@
-# Zero Place | Purple Design Agency
+# Zero Place | Design Studio
 
 ![Zero Place Logo](/public/next.svg)
 
@@ -68,4 +68,4 @@ This project is private and proprietary. All rights reserved.
 
 ---
 
-Built by [Purple Design Agency](https://purple-agency.com)
+Built by [Zero Place](https://zero-place.com)

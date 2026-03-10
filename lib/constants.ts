@@ -29,9 +29,9 @@ export const serviceItems: ServiceItem[] = [
     },
     {
         id: 3,
-        title: "Product Design",
+        title: "Software Design",
         description:
-            "Software shouldn't give people headaches. We simplify the complex stuff so your customers stick around instead of giving up.",
+            "We design software that actually makes sense. Real people, real needs, no frustrating experiences.",
         image: "/images/services/service-card-6.jpg",
         icon: "Package",
         imageIcon: "https://framerusercontent.com/images/8wDkVxlj0xqU5rEKdSqJz9S77I.png"
@@ -47,7 +47,7 @@ export const serviceItems: ServiceItem[] = [
     },
     {
         id: 5,
-        title: "Branding",
+        title: "Brand identity design",
         description:
             "Your brand should say something worth hearing. We help you find your voice and make it stick.",
         image: "/images/services/service-card-12.jpg",
