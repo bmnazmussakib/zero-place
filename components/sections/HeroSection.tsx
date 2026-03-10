@@ -100,7 +100,7 @@ export default function HeroSection() {
                         <p className="text-sm font-medium text-text-muted">150+ Happy Clients</p>
                     </motion.div>
 
-                    <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-text-heading leading-[0.95] tracking-tighter min-h-[3.3em] sm:min-h-[2.2em]" variants={fadeInUp}>
+                    <motion.h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-text-heading leading-[0.95] tracking-tighter min-h-[3.3em] sm:min-h-[2.2em]" variants={fadeInUp}>
                         Boost Your Brand with Expert <br />
                         <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                             <TypeAnimation
