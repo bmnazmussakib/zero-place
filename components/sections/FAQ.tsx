@@ -79,9 +79,9 @@ export default function FAQ() {
                         viewport={{ once: true, margin: "-100px" }}
                         variants={containerVariants}
                     >
-                        <div className="space-y-6">
+                        <div className="space-y-6 text-center md:text-left">
                             <motion.div variants={fadeInUp}>
-                                <SectionBadge className="lg:mb-6">
+                                <SectionBadge className="lg:mb-6 ">
                                     Read FAQs
                                 </SectionBadge>
                             </motion.div>

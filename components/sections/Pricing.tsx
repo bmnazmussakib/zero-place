@@ -77,10 +77,9 @@ export default function Pricing() {
         <section id="pricing" className="py-24 bg-footer-bg overflow-hidden">
             <SectionContainer>
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-
                     {/* Left Side: Pricing Cards */}
                     <motion.div
-                        className="lg:col-span-7 flex flex-col md:flex-row gap-6"
+                        className="lg:col-span-7 flex flex-col md:flex-row gap-6 order-2 lg:order-1"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
@@ -146,7 +145,7 @@ export default function Pricing() {
 
                     {/* Right Side: Text Content */}
                     <motion.div
-                        className="lg:col-span-5 space-y-8"
+                        className="lg:col-span-5 space-y-8 order-1 lg:order-2 text-center md:text-left"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
@@ -173,7 +172,7 @@ export default function Pricing() {
                         {/* Custom Toggle */}
                         <motion.div
                             variants={fadeInUp}
-                            className="flex items-center gap-4  shadow-primary/5 shrink-0"
+                            className="flex items-center gap-4 justify-center md:justify-start shadow-primary/5 shrink-0"
                         >
                             <span className={cn(
                                 "text-sm font-black uppercase tracking-widest transition-colors",

@@ -185,7 +185,7 @@ export default function Testimonial() {
 
                     {/* Right Column: Swiper Slide */}
                     <motion.div
-                        className="w-full lg:w-1/2 relative px-4 md:px-0"
+                        className="w-5/6 lg:w-1/2 relative px-4 md:px-0"
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
