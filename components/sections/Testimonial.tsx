@@ -207,8 +207,8 @@ export default function Testimonial() {
                                 }}
                             >
                                 {TESTIMONIALS.map((testimonial, index) => (
-                                    <SwiperSlide key={index} className="rounded-[3rem] shadow-2xl overflow-visible min-h-[280px] md:h-[300px]">
-                                        <div className="h-full w-full  bg-white p-8 md:p-10 lg:p-14 flex flex-col justify-between border border-primary/5 relative group rounded-[3rem]">
+                                    <SwiperSlide key={index} className="md:rounded-[3rem] rounded-4xl shadow-2xl overflow-visible min-h-[280px] md:h-[300px]">
+                                        <div className="h-full w-full  bg-white p-8 md:p-10 lg:p-14 flex flex-col justify-between border border-primary/5 relative group md:rounded-[3rem] rounded-4xl">
                                             {/* Top: Logo */}
                                             <div className="w-full flex justify-start lg:mb-4 hidden">
                                                 <div className="h-10 opacity-90 group-hover:opacity-100 transition-all duration-500">

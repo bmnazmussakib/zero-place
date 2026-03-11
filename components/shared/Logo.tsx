@@ -15,7 +15,7 @@ export default function Logo({
             <img
                 src={isWhite ? "/images/ZeroPlace White Color Logo.svg" : "/images/zero-place-color-logo.svg"}
                 alt="ZeroPlace"
-                className="w-50"
+                className="w-44 md:w-50"
             />
             {/* <span className={cn(
                 "text-3xl font-black tracking-tight font-heading",
