@@ -56,7 +56,7 @@ export default function PortfolioGrid({ categories, items }: PortfolioGridProps)
     return (
         <>
             {/* Categories Tabs */}
-            <div className="flex flex-col items-center mb-20">
+            <div className="flex flex-col items-center mb-6 md:mb-10 lg:mb-20">
                 <div className="flex flex-wrap justify-center gap-3">
                     {categories.map((cat) => {
                         const isActive = activeCategory === cat;
@@ -65,7 +65,7 @@ export default function PortfolioGrid({ categories, items }: PortfolioGridProps)
                                 key={cat}
                                 onClick={() => setActiveCategory(cat)}
                                 className={cn(
-                                    "relative px-6 py-3 rounded-full font-bold text-sm uppercase tracking-tighter transition-colors duration-300",
+                                    "relative px-3 py-2 lg:px-6 lg:py-3 rounded-full font-bold text-xs lg:text-sm uppercase tracking-tighter transition-colors duration-300",
                                     isActive
                                         ? "text-white"
                                         : "text-primary hover:bg-gray-100 border border-primary/20"

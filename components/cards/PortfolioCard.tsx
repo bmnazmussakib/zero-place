@@ -36,7 +36,7 @@ export default function PortfolioCard({ title, category, image, index }: Portfol
 
             {/* Hover Overlay with info - optional but premium */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-10 flex flex-col justify-end">
-                <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-50">
                     <span className="bg-white/90 backdrop-blur-sm text-black text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest mb-2 inline-block">
                         {category}
                     </span>
