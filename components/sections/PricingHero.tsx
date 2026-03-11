@@ -99,8 +99,8 @@ export default function PricingHero({
                         </motion.p>
                     </div>
 
-                    {/* Interactive Plan List */}
-                    <motion.div variants={containerVariants} className="divide-y divide-black/5 border-t border-b border-black/5 relative">
+                    {/* Interactive Plan List (Desktop) */}
+                    <motion.div variants={containerVariants} className="hidden lg:block divide-y divide-black/5 border-t border-b border-black/5 relative">
                         {plans.map((tier, index) => {
                             const isActive = activeIndex === index;
                             return (
@@ -144,6 +144,32 @@ export default function PricingHero({
                                 </motion.div>
                             );
                         })}
+                    </motion.div>
+
+                    {/* Mobile Plan Select */}
+                    <motion.div variants={fadeInUp} className="lg:hidden">
+                        <label htmlFor="plan-select" className="block text-xs font-black uppercase tracking-widest text-text-muted mb-3">
+                            Select a Service
+                        </label>
+                        <div className="relative">
+                            <select
+                                id="plan-select"
+                                value={activeIndex}
+                                onChange={(e) => setActiveIndex(Number(e.target.value))}
+                                className="w-full bg-white border-2 border-black/10 rounded-2xl px-6 py-4 text-lg font-heading font-black text-text-heading appearance-none focus:outline-none focus:border-primary transition-colors cursor-pointer"
+                            >
+                                {plans.map((tier, index) => (
+                                    <option key={index} value={index}>
+                                        {tier.name}
+                                    </option>
+                                ))}
+                            </select>
+                            <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none">
+                                <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
                     </motion.div>
                 </motion.div>
 
