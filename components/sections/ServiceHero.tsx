@@ -31,8 +31,8 @@ export default function ServiceHero() {
 
     return (
         <>
-            <section className="relative overflow-hidden bg-white pt-16 pb-24 md:pt-24 md:pb-40">
-                <SectionContainer>
+            <section className="relative overflow-hidden bg-white">
+                <SectionContainer className='px-5 md:px-10 4xl:px-0 py-10 md:py-16 '>
                     {/* Subtle background blobs using brand purple */}
                     <div className="pointer-events-none absolute inset-0 z-0 opacity-30 mix-blend-multiply">
                         <motion.div
@@ -84,7 +84,7 @@ export default function ServiceHero() {
                                 className="w-full flex flex-col items-center text-center lg:items-start lg:text-left"
                             >
                                 {/* Breadcrumb */}
-                                <motion.nav variants={fadeInUp} className="mb-6 text-sm font-medium text-gray-500">
+                                <motion.nav variants={fadeInUp} className=" hidden mb-6 text-sm font-medium text-gray-500">
                                     <ol className="flex items-center justify-center gap-2 lg:justify-start">
                                         <li>
                                             <a href="/" className="text-[#0f0e21] hover:text-[#6c46fd] transition-colors">
@@ -99,16 +99,16 @@ export default function ServiceHero() {
                                 </motion.nav>
 
                                 {/* Main heading - split line with gradient on "Services" */}
-                                <motion.h1 variants={fadeInUp} className="mb-6 max-w-5xl font-extrabold tracking-tight text-[#0f0e21] text-5xl md:text-6xl lg:text-7xl">
-                                    Graphic Design
-                                    <br className="hidden sm:block" />
+                                <motion.h1 variants={fadeInUp} className="mb-6 max-w-5xl font-extrabold tracking-tight text-[#0f0e21] text-4xl md:text-6xl lg:text-7xl">
+                                    Graphic Design 
+                                    {/* <br className="hidden lg:block" /> */}
                                     <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                                         Services
                                     </span>
                                 </motion.h1>
 
                                 {/* Description */}
-                                <motion.p variants={fadeInUp} className="mx-auto mb-12 max-w-3xl text-lg leading-relaxed text-gray-700 md:text-xl lg:mx-0 lg:text-left">
+                                <motion.p variants={fadeInUp} className="mx-auto mb-6 md:mb-12 max-w-3xl text-sm md:text-base lg:text-lg leading-relaxed text-gray-700 md:text-xl lg:mx-0 lg:text-left">
                                     Get all your graphic design needs met—from ad creative to website illustrations—with a tech-enabled solution
                                     that empowers your team to get the design they need, when they need it.
                                 </motion.p>

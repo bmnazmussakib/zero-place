@@ -30,27 +30,27 @@ export default function ServiceWhy() {
 
     return (
         <>
-            <section className="relative bg-white py-20 md:py-28 overflow-hidden">
+            <section className="relative bg-white overflow-hidden">
                 {/* Optional subtle background gradient / pattern */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 0.07 }}
-                    transition={{ duration: 1.5 }}
-                    className="absolute inset-0 pointer-events-none"
-                >
-                    <div className="absolute inset-0 bg-linear-to-br from-[#6c46fd]/5 via-transparent to-indigo-500/5"></div>
-                </motion.div>
 
-                <SectionContainer>
+                <SectionContainer className="px-5 md:px-10 4xl:px-0 py-10 md:py-16 ">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 0.07 }}
+                        transition={{ duration: 1.5 }}
+                        className="absolute inset-0 pointer-events-none"
+                    >
+                        <div className="absolute inset-0 bg-linear-to-br from-[#6c46fd]/5 via-transparent to-indigo-500/5"></div>
+                    </motion.div>
                     <div className="relative">
-                        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+                        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
                             {/* Left side - two stat cards */}
                             <motion.div
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true, margin: "-100px" }}
                                 variants={containerVariants}
-                                className="flex flex-col sm:flex-row gap-6 sm:gap-8 w-full lg:w-auto"
+                                className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8 w-full lg:w-auto"
                             >
                                 {/* Card 1 - 7+ years */}
                                 <motion.div
@@ -59,7 +59,7 @@ export default function ServiceWhy() {
                                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
                                     className="
                                         flex-1 min-w-[240px] aspect-[4/3.5] max-w-xs
-                                        rounded-3xl p-8 md:p-10
+                                        rounded-3xl p-6 md:p-10
                                         bg-linear-to-br from-[#6c46fd]/10 to-indigo-600/5
                                         border border-[#6c46fd]/15
                                         shadow-xl shadow-[#6c46fd]/10
@@ -67,14 +67,14 @@ export default function ServiceWhy() {
                                         transition-colors hover:shadow-[#6c46fd]/20 cursor-default
                                     "
                                 >
-                                    <div className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#6c46fd] tracking-tight mb-3">
+                                    <div className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#6c46fd] tracking-tight mb-3">
                                         7+
                                     </div>
                                     <div className="text-xl md:text-2xl font-bold text-[#0f0e21] mb-2">
                                         years
                                     </div>
                                     <p className="text-base text-gray-600 mt-2">
-                                        Duck.design
+                                        Zeroplace
                                         <br />
                                         on the market
                                     </p>
@@ -87,7 +87,7 @@ export default function ServiceWhy() {
                                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
                                     className="
                                         flex-1 min-w-[240px] aspect-[4/3.5] max-w-xs
-                                        rounded-3xl p-8 md:p-10
+                                        rounded-3xl p-6 md:p-10
                                         bg-linear-to-br from-[#6c46fd] to-indigo-700
                                         text-white
                                         shadow-2xl shadow-[#6c46fd]/30
@@ -95,13 +95,13 @@ export default function ServiceWhy() {
                                         transition-colors hover:shadow-[#6c46fd]/40 cursor-default
                                     "
                                 >
-                                    <div className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-3">
+                                    <div className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-3">
                                         3%
                                     </div>
                                     <div className="text-xl md:text-2xl font-bold mb-2">
                                         Get hired at
                                         <br />
-                                        duck.design
+                                        Zeroplace
                                     </div>
                                 </motion.div>
                             </motion.div>
@@ -114,7 +114,7 @@ export default function ServiceWhy() {
                                 variants={containerVariants}
                                 className="max-w-2xl text-center lg:text-left"
                             >
-                                <motion.h2 variants={fadeInUp} className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#0f0e21] leading-tight mb-6 md:mb-8">
+                                <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0f0e21] leading-tight mb-6 md:mb-8">
                                     A dedicated{' '}
                                     <span className="bg-linear-to-r from-[#6c46fd] to-indigo-600 bg-clip-text text-transparent">
                                         super
@@ -124,7 +124,7 @@ export default function ServiceWhy() {
                                     design from A to Z
                                 </motion.h2>
 
-                                <motion.p variants={fadeInUp} className="text-lg md:text-xl leading-relaxed text-gray-700 mb-8 md:mb-10">
+                                <motion.p variants={fadeInUp} className="text-sm md:text-base lg:text-xl leading-relaxed text-gray-700 ">
                                     There's no limit to what you can get designed at Duck.Design. Whether you need an out-of-this-world
                                     illustration, beautiful print designs, or engaging digital marketing assets, Duck.Design's global community of
                                     world-class graphic designers can make it happen.

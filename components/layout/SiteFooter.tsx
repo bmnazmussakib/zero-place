@@ -288,7 +288,7 @@ export default function SiteFooter() {
             <SectionContainer className='border-t border-white/5 '>
                 <div className="lg:pt-10 pt-4 flex flex-col md:flex-row justify-between items-center md:gap-8 gap-4 relative">
                     <p className="md:text-sm text-xs font-medium tracking-wide text-zinc-500">
-                        Tekmino © {new Date().getFullYear()}. All right reserved.
+                        Xeroplace © {new Date().getFullYear()}. All right reserved.
                     </p>
 
                     <div className="flex items-center md:gap-10 gap-4 text-sm font-medium">

@@ -84,7 +84,7 @@ export default function ServicePricing() {
     };
 
     return (
-        <div className="relative py-20 md:py-28 bg-linear-to-br from-[#6c46fd]/5 via-white to-indigo-50/40 overflow-hidden">
+        <div className="relative  bg-linear-to-br from-[#6c46fd]/5 via-white to-indigo-50/40 overflow-hidden">
             {/* Fixed background blobs — breathing animation */}
             <div className="absolute inset-0 pointer-events-none">
                 <motion.div
@@ -116,7 +116,7 @@ export default function ServicePricing() {
                 />
             </div>
 
-            <SectionContainer>
+            <SectionContainer className='px-5 md:px-10 4xl:px-0 py-10 md:py-16 '>
                 <div className="relative">
                     {/* Tabs Entrance */}
                     <motion.div
@@ -165,7 +165,7 @@ export default function ServicePricing() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.3 }}
-                            className="lg:absolute top-10 left-8 md:left-12 mb-8 lg:mb-0"
+                            className="lg:absolute top-10 left-8 md:left-12 mb-4 md:mb-8 lg:mb-0"
                         >
                             <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 backdrop-blur-sm px-5 py-2 text-sm font-medium text-white border border-white/30 shadow-sm">
                                 <span className="text-lg">✎</span> Visual
@@ -178,7 +178,7 @@ export default function ServicePricing() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.4 }}
-                                className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-white"
+                                className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight  mb-4 md:mb-6 text-white"
                             >
                                 Graphic Design
                             </motion.h2>
@@ -188,7 +188,7 @@ export default function ServicePricing() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.5 }}
-                                className="text-lg md:text-xl opacity-90 mb-10 leading-relaxed"
+                                className="text-sm md:text-lg lg:text-xl opacity-90 mb-6 md:mb-10 leading-relaxed"
                             >
                                 Graphic designs for day-to-day marketing needs. Within this plan you get a dedicated designer for:
                             </motion.p>
@@ -206,9 +206,9 @@ export default function ServicePricing() {
                                         <motion.li
                                             key={`${activePlan}-${idx}`}
                                             variants={fadeInUp}
-                                            className="flex items-start gap-3"
+                                            className="flex items-start gap-3 text-sm md:text-lg lg:text-xl"
                                         >
-                                            <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/25 text-white text-sm font-bold">
+                                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/25 text-white text-sm font-bold">
                                                 ✓
                                             </span>
                                             <span>{feature}</span>
@@ -230,16 +230,16 @@ export default function ServicePricing() {
                                 >
                                     {current.discountLabel && (
                                         <motion.div
-                                            animate={{ scale: [1, 1.05, 1] }}
-                                            transition={{ duration: 2, repeat: Infinity }}
+                                            // animate={{ scale: [1, 1.05, 1] }}
+                                            // transition={{ duration: 2, repeat: Infinity }}
                                             className="text-xl font-semibold opacity-90 mb-2"
                                         >
                                             {current.discountLabel}
                                         </motion.div>
                                     )}
-                                    <div className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-3">
+                                    <div className="text-4xl md:text-5xl font-bold tracking-tight mb-3">
                                         {current.price}
-                                        <span className="text-xl md:text-2xl font-bold opacity-80"> /PER MONTH</span>
+                                        <span className="text-base md:text-lg font-bold opacity-80"> /PER MONTH</span>
                                     </div>
                                 </motion.div>
                             </AnimatePresence>
@@ -247,7 +247,7 @@ export default function ServicePricing() {
                             <motion.button
                                 whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
                                 whileTap={{ scale: 0.98 }}
-                                className="mt-4 inline-block rounded-full bg-white px-8 py-4 text-lg md:text-lg font-bold text-[#0f0e21] shadow-xl transition-colors hover:bg-gray-50"
+                                className="mt-4 inline-block rounded-full bg-white md:px-8 md:py-4 px-6 py-3 text-base md:text-lg font-bold text-[#0f0e21] shadow-xl transition-colors hover:bg-gray-50"
                             >
                                 GET STARTED
                             </motion.button>
