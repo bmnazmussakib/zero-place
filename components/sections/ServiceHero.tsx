@@ -32,7 +32,7 @@ export default function ServiceHero() {
     return (
         <>
             <section className="relative overflow-hidden bg-white">
-                <SectionContainer className='px-5 md:px-10 4xl:px-0 py-10 md:py-16 '>
+                <SectionContainer className='px-5 md:px-10 4xl:px-0 py-10 md:py-16 lg:py-20 '>
                     {/* Subtle background blobs using brand purple */}
                     <div className="pointer-events-none absolute inset-0 z-0 opacity-30 mix-blend-multiply">
                         <motion.div
@@ -101,7 +101,7 @@ export default function ServiceHero() {
                                 {/* Main heading - split line with gradient on "Services" */}
                                 <motion.h1 variants={fadeInUp} className="mb-6 max-w-5xl font-extrabold tracking-tight text-[#0f0e21] text-4xl md:text-6xl lg:text-7xl">
                                     Graphic Design 
-                                    {/* <br className="hidden lg:block" /> */}
+                                    <br className="hidden lg:block" />{" "}
                                     <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                                         Services
                                     </span>
