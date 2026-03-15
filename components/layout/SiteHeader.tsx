@@ -71,10 +71,10 @@ export default function SiteHeader() {
     return (
         <header
             className={cn(
-                "sticky top-0 z-50 w-full transition-all duration-300",
+                "sticky top-0 z-50 w-full transition-all duration-300 border-b border-border",
                 isScrolled || isMobileMenuOpen
-                    ? "bg-background/80 backdrop-blur-md border-b border-border py-3 shadow-sm"
-                    : "bg-transparent py-5"
+                    ? "bg-background/80 backdrop-blur-md py-2 shadow-sm"
+                    : "bg-transparent py-2"
             )}
             onMouseLeave={() => {
                 setIsMenuBox(false);
@@ -82,8 +82,8 @@ export default function SiteHeader() {
             }}
         >
             <SectionContainer>
-                <div className="flex items-center justify-between relative">
-                    <div className="flex items-center">
+                <div className="flex items-center md:justify-between justify-center relative">
+                    <div className="flex items-center ">
                         <Logo />
                     </div>
 
@@ -274,7 +274,7 @@ export default function SiteHeader() {
 
                         {/* Mobile Menu Toggle */}
                         <button
-                            className="p-2 md:hidden text-text-heading hover:bg-primary/5 rounded-xl transition-all"
+                            className="p-2 hidden text-text-heading hover:bg-primary/5 rounded-xl transition-all"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         >
                             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}

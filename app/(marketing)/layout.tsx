@@ -13,7 +13,7 @@ export default function MarketingLayout({
             <main className="flex-1">
                 {children}
             </main>
-            {/* <MobileNavbar /> */}
+            <MobileNavbar />
             <SiteFooter />
         </div>
     );
