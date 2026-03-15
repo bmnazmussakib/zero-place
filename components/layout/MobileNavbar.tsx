@@ -9,7 +9,7 @@ function MobileNavbar({ }: Props) {
         <>
             <div className="fixed bottom-5 left-0 right-0 z-50 w-[90%] mx-auto rounded-full  bg-footer-bg md:hidden">
                 <div className="flex h-16 items-center justify-around px-4">
-                    
+
                     <Link
                         href="/services"
                         className="flex items-center gap-2 text-sm font-medium transition-colors text-slate-400 hover:text-primary"
@@ -28,7 +28,9 @@ function MobileNavbar({ }: Props) {
                         href="/"
                         className="flex items-center gap-2 text-sm font-medium transition-colors text-slate-400 hover:text-primary"
                     >
-                        <img src="/images/logo-rouned.png" className='w-14' alt="logo" />
+                        <div className='logo'>
+                            <img src="/images/logo-rouned.png" className='w-14' alt="logo" />
+                        </div>
                         <span className="sr-only">Home</span>
                     </Link>
                     <Link

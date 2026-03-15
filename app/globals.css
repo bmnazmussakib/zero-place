@@ -134,6 +134,47 @@ html.lenis body {
   pointer-events: none;
 }
 
+/* --- Mobile Navbar Logo Gradient Border --- */
+@keyframes spin-gradient {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.logo {
+  position: relative;
+  padding: 2px;
+  border-radius: 14px;
+  background: conic-gradient(from var(--gradient-angle), #6C46FD, #a78bfa, #f472b6, #38bdf8, #6C46FD);
+  animation: spin-gradient 3s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 9999px;
+  background: #121125;
+  z-index: 0;
+}
+
+.logo img {
+  position: relative;
+  z-index: 1;
+}
+
 .dark {
   --background: #121125;
   --section: #1C1B29;
