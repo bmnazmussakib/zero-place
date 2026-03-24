@@ -1,5 +1,4 @@
 
-import { servicesCategories } from "@/lib/constants";
 import ServicesGrid from "@/components/sections/ServicesGrid";
 import OurBrands from "@/components/sections/OurBrands";
 import ServicesHeroCTA from "@/components/sections/ServicesHeroCTA";
@@ -14,7 +13,7 @@ export default function ServicesPage() {
   return (
     <>
       <ServicesHeroCTA />
-      <ServicesGrid services={servicesCategories} />
+      <ServicesGrid />
       <OurBrands />
       <ServiceDifferentiators />
       <ServiceBenefits />

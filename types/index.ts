@@ -94,3 +94,11 @@ export interface TestimonialItem {
     content: string;
     avatar: string;
 }
+
+export interface ServiceCategory {
+    title: string;
+    slug: string;
+    image: string;
+    colSpan: number;
+    description?: string;
+}
