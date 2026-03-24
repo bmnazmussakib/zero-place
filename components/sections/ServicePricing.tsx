@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import SectionContainer from '../shared/SectionContainer';
 import * as motion from "motion/react-client";
 import { AnimatePresence } from "motion/react";
+import { ServiceDetail } from '@/types';
 
 type Plan = '1month' | '3months' | '6months';
 
@@ -16,48 +17,10 @@ interface PlanInfo {
     features: string[];
 }
 
-const planData: Record<Plan, PlanInfo> = {
-    '1month': {
-        price: '$1199',
-        discountLabel: undefined,
-        features: [
-            'Banner Ads',
-            'Social media creatives',
-            'Blog Graphics',
-            'Clothing & Merchandise Design',
-            'Packaging and Label',
-            'Any other graphics needed',
-        ],
-    },
-    '3months': {
-        price: '$1079', // 1199 × 0.9 ≈ 10% off
-        discountLabel: '10% off',
-        features: [
-            'Banner Ads',
-            'Social media creatives',
-            'Blog Graphics',
-            'Clothing & Merchandise Design',
-            'Packaging and Label',
-            'Any other graphics needed',
-        ],
-    },
-    '6months': {
-        price: '$959', // 1199 × 0.8 ≈ 20% off
-        discountLabel: '20% off',
-        features: [
-            'Banner Ads',
-            'Social media creatives',
-            'Blog Graphics',
-            'Clothing & Merchandise Design',
-            'Packaging and Label',
-            'Any other graphics needed',
-        ],
-    },
-};
 
-export default function ServicePricing() {
+export default function ServicePricing({ data }: { data: ServiceDetail['pricing'] }) {
     const [activePlan, setActivePlan] = useState<Plan>('1month');
-    const current = planData[activePlan];
+    const current = data.planData[activePlan] || data.planData['1month'];
 
     const fadeInUp = {
         hidden: { opacity: 0, y: 30 },
@@ -180,7 +143,7 @@ export default function ServicePricing() {
                                 transition={{ delay: 0.4 }}
                                 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight  mb-4 md:mb-6 text-white"
                             >
-                                Graphic Design
+                                {data.title}
                             </motion.h2>
 
                             <motion.p
@@ -190,7 +153,7 @@ export default function ServicePricing() {
                                 transition={{ delay: 0.5 }}
                                 className="text-sm md:text-lg lg:text-xl opacity-90 mb-6 md:mb-10 leading-relaxed"
                             >
-                                Graphic designs for day-to-day marketing needs. Within this plan you get a dedicated designer for:
+                                {data.description}
                             </motion.p>
 
                             <AnimatePresence mode="wait">

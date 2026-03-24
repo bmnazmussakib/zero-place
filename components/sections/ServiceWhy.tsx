@@ -2,8 +2,12 @@
 
 import * as motion from "motion/react-client";
 import SectionContainer from '../shared/SectionContainer';
+import { cn } from "@/lib/utils";
+import React from "react";
 
-export default function ServiceWhy() {
+import { ServiceDetail } from "@/types";
+
+export default function ServiceWhy({ data }: { data: ServiceDetail['why'] }) {
     const fadeInUp = {
         hidden: { opacity: 0, y: 30 },
         visible: {
@@ -45,66 +49,44 @@ export default function ServiceWhy() {
                     <div className="relative">
                         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
                             {/* Left side - two stat cards */}
-                            <motion.div
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true, margin: "-100px" }}
-                                variants={containerVariants}
-                                className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8 w-full lg:w-auto"
-                            >
-                                {/* Card 1 - 7+ years */}
-                                <motion.div
-                                    variants={fadeInUp}
-                                    whileHover={{ y: -10, scale: 1.02 }}
-                                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                                    className="
-                                        flex-1 min-w-[240px] aspect-[4/3.5] max-w-xs
-                                        rounded-3xl p-6 md:p-10
-                                        bg-linear-to-br from-[#6c46fd]/10 to-indigo-600/5
-                                        border border-[#6c46fd]/15
-                                        shadow-xl shadow-[#6c46fd]/10
-                                        flex flex-col items-center justify-center text-center
-                                        transition-colors hover:shadow-[#6c46fd]/20 cursor-default
-                                    "
-                                >
-                                    <div className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#6c46fd] tracking-tight mb-3">
-                                        7+
-                                    </div>
-                                    <div className="text-xl md:text-2xl font-bold text-[#0f0e21] mb-2">
-                                        years
-                                    </div>
-                                    <p className="text-base text-gray-600 mt-2">
-                                        Zeroplace
-                                        <br />
-                                        on the market
-                                    </p>
-                                </motion.div>
-
-                                {/* Card 2 - 3% */}
-                                <motion.div
-                                    variants={fadeInUp}
-                                    whileHover={{ y: -10, scale: 1.02 }}
-                                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                                    className="
-                                        flex-1 min-w-[240px] aspect-[4/3.5] max-w-xs
-                                        rounded-3xl p-6 md:p-10
-                                        bg-linear-to-br from-[#6c46fd] to-indigo-700
-                                        text-white
-                                        shadow-2xl shadow-[#6c46fd]/30
-                                        flex flex-col items-center justify-center text-center
-                                        transition-colors hover:shadow-[#6c46fd]/40 cursor-default
-                                    "
-                                >
-                                    <div className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-3">
-                                        3%
-                                    </div>
-                                    <div className="text-xl md:text-2xl font-bold mb-2">
-                                        Get hired at
-                                        <br />
-                                        Zeroplace
-                                    </div>
-                                </motion.div>
-                            </motion.div>
+                                {data.stats.map((stat, idx) => (
+                                    <motion.div
+                                        key={idx}
+                                        variants={fadeInUp}
+                                        whileHover={{ y: -10, scale: 1.02 }}
+                                        transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                                        className={cn(
+                                            "flex-1 min-w-[240px] aspect-[4/3.5] max-w-xs rounded-3xl p-6 md:p-10 flex flex-col items-center justify-center text-center transition-colors cursor-default",
+                                            stat.isHighlighted 
+                                                ? "bg-linear-to-br from-[#6c46fd] to-indigo-700 text-white shadow-2xl shadow-[#6c46fd]/30 hover:shadow-[#6c46fd]/40" 
+                                                : "bg-linear-to-br from-[#6c46fd]/10 to-indigo-600/5 border border-[#6c46fd]/15 shadow-xl shadow-[#6c46fd]/10 hover:shadow-[#6c46fd]/20"
+                                        )}
+                                    >
+                                        <div className={cn(
+                                            "text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-3",
+                                            stat.isHighlighted ? "text-white" : "text-[#6c46fd]"
+                                        )}>
+                                            {stat.value}
+                                        </div>
+                                        <div className={cn(
+                                            "text-xl md:text-2xl font-bold mb-2",
+                                            stat.isHighlighted ? "text-white" : "text-[#0f0e21]"
+                                        )}>
+                                            {stat.label}
+                                        </div>
+                                        <p className={cn(
+                                            "text-base mt-2",
+                                            stat.isHighlighted ? "text-white/90" : "text-gray-600"
+                                        )}>
+                                            {stat.description.split('\n').map((line, i) => (
+                                                <React.Fragment key={i}>
+                                                    {line}
+                                                    <br />
+                                                </React.Fragment>
+                                            ))}
+                                        </p>
+                                    </motion.div>
+                                ))}
 
                             {/* Right side - main text block */}
                             <motion.div
@@ -115,19 +97,11 @@ export default function ServiceWhy() {
                                 className="max-w-2xl text-center lg:text-left"
                             >
                                 <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0f0e21] leading-tight mb-6 md:mb-8">
-                                    A dedicated{' '}
-                                    <span className="bg-linear-to-r from-[#6c46fd] to-indigo-600 bg-clip-text text-transparent">
-                                        super
-                                    </span>{' '}
-                                    team for all types of graphic
-                                    <br className="hidden sm:block" />
-                                    design from A to Z
+                                    {data.title}
                                 </motion.h2>
 
                                 <motion.p variants={fadeInUp} className="text-sm md:text-base lg:text-xl leading-relaxed text-gray-700 ">
-                                    There's no limit to what you can get designed at Duck.Design. Whether you need an out-of-this-world
-                                    illustration, beautiful print designs, or engaging digital marketing assets, Duck.Design's global community of
-                                    world-class graphic designers can make it happen.
+                                    {data.description}
                                 </motion.p>
                             </motion.div>
                         </div>

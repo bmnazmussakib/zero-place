@@ -1,4 +1,4 @@
-import { NavItem, PricingTier, Service, ServiceItem } from "@/types";
+import { NavItem, PricingTier, Service, ServiceItem, ServiceDetail } from "@/types";
 import {
     Palette,
     Globe,
@@ -76,16 +76,16 @@ export const navItems: NavItem[] = [
                 href: "#",
                 children: [
                     {
-                        title: "Graphic Design",
-                        href: "/services/graphic-design",
+                        title: "UI/UX Design",
+                        href: "/services/ui-ux-design",
                         icon: React.createElement(Palette, { size: 18 }),
                         details: [
-                            "Banner Ads",
-                            "Social Media ",
-                            "Blog Graphics",
-                            "Clothing & Merchandise",
-                            "Package and Label",
-                            "Any Other Graphics",
+                            "User Research",
+                            "Persona Mapping",
+                            "Wireframing",
+                            "Interactive Prototyping",
+                            "Visual Design",
+                            "Usability Testing",
                         ]
                     },
                     {
@@ -93,25 +93,38 @@ export const navItems: NavItem[] = [
                         href: "/services/website-design",
                         icon: React.createElement(Globe, { size: 18 }),
                         details: [
-                            "Landing Page ",
-                            "Full Website UI/U",
+                            "Landing Page Design",
                             "Responsive Layouts",
-                            "Wireframing & Prototyping",
-                            "Design System Creation",
-                            "Figma Source Files",
+                            "E-Commerce UI",
+                            "Blog & Content Design",
+                            "Design Systems",
+                            "Conversion Optimization",
                         ]
                     },
                     {
-                        title: "Motion Graphics",
-                        href: "/services/motion-graphics",
-                        icon: React.createElement(Video, { size: 18 }),
+                        title: "SaaS Design",
+                        href: "/services/saas-design",
+                        icon: React.createElement(Code2, { size: 18 }),
                         details: [
-                            "Animated Logos",
-                            "Explainer Videos",
-                            "Short-Form Content",
-                            "Social Media Animations",
-                            "Looping Animations",
-                            "Sound Design",
+                            "Dashboard Design",
+                            "Complex Workflows",
+                            "Data Visualization",
+                            "Product Strategy",
+                            "UX Audit",
+                            "Design Handoffs",
+                        ]
+                    },
+                    {
+                        title: "Brand Identity Design",
+                        href: "/services/branding",
+                        icon: React.createElement(Palette, { size: 18 }),
+                        details: [
+                            "Logo Design",
+                            "Typography & Color",
+                            "Brand Guidelines",
+                            "Marketing Assets",
+                            "Stationery Design",
+                            "Brand Messaging",
                         ]
                     },
                 ]
@@ -121,29 +134,29 @@ export const navItems: NavItem[] = [
                 href: "#",
                 children: [
                     {
-                        title: "Web Development",
+                        title: "Website Development",
                         href: "/services/web-dev",
                         icon: React.createElement(Code2, { size: 18 }),
                         details: [
-                            "Custom Website",
-                            "Next.js / React",
-                            "E-Commerce ",
-                            "CMS Integratio",
-                            "API Development",
+                            "Next.js / React Development",
+                            "E-Commerce Solutions",
+                            "CMS Integrations",
                             "Performance Optimization",
+                            "SEO Foundations",
+                            "Secure Deployments",
                         ]
                     },
                     {
-                        title: "App Development",
+                        title: "Mobile App Design",
                         href: "/services/app-dev",
                         icon: React.createElement(Smartphone, { size: 18 }),
                         details: [
                             "iOS & Android Apps",
-                            "React Native / Expo",
-                            "Cross-Platform Solutions",
-                            "App Store Submission",
+                            "Cross-Platform Dev",
+                            "App Store Optimization",
                             "Push Notifications",
-                            "Offline Mode Support",
+                            "Offline Support",
+                            "Mobile Strategy",
                         ]
                     },
                 ]
@@ -372,13 +385,13 @@ export const categories = [
 
 export const servicesCategories = [
     {
-        title: "Graphic Design",
-        slug: "graphic-design",
+        title: "UI/UX Design",
+        slug: "ui-ux-design",
         image: "/images/services/service-card-2.jpg",
         color: "bg-[#1C1C1E]",
         textColor: "text-white",
         colSpan: 1,
-        description: "Social media, ads, and branding assets."
+        description: "We make user interfaces that actually make sense."
     },
     {
         title: "Website Design",
@@ -387,42 +400,321 @@ export const servicesCategories = [
         color: "bg-[#FFD600]",
         textColor: "text-black",
         colSpan: 1,
-        description: "Beautiful and functional interfaces."
+        description: "Websites that don't just look good but actually do something."
     },
     {
-        title: "Motion Graphics",
-        slug: "motion-graphics",
+        title: "SaaS & Software Design",
+        slug: "saas-design",
         image: "/images/services/service-card-12.jpg",
         color: "bg-[#1C1C1E]",
         textColor: "text-white",
         colSpan: 1,
-        description: "Animated logos and videos."
+        description: "We design software that actually makes sense."
     },
     {
-        title: "Web Development",
+        title: "Website Development",
         slug: "web-dev",
         image: "/images/services/service-card-6.jpg",
         color: "bg-[#F3F4F6]",
         textColor: "text-black",
         colSpan: 1,
-        description: "Robust and scalable web solutions."
+        description: "Websites that won't break when you need them most."
     },
     {
-        title: "App Development",
+        title: "Mobile App Design",
         slug: "app-dev",
         image: "/images/services/service-card-7.jpg",
         color: "bg-[#1C1C1E]",
         textColor: "text-white",
         colSpan: 1,
-        description: "Native and cross-platform mobile apps."
+        description: "Apps people actually want to use."
     },
     {
-        title: "Branding",
-        slug: "branding-services",
+        title: "Brand Identity Design",
+        slug: "branding",
         image: "/images/work/examples-10.png",
         color: "bg-[#FFD600]",
         textColor: "text-black",
         colSpan: 1,
-        description: "Logo, typography, and brand identity."
+        description: "Your brand should say something worth hearing."
     },
 ];
+
+export const servicesDetails: Record<string, ServiceDetail> = {
+    "ui-ux-design": {
+        slug: "ui-ux-design",
+        hero: {
+            title: "Exploring UI/UX Design",
+            description: "We make user interfaces that actually make sense. Real people, real needs, no frustrating experiences.",
+            breadcrumb: "UI/UX Design Services"
+        },
+        why: {
+            title: "User-centric design that drives engagement",
+            description: "Our UI/UX design process is rooted in empathy and data. We build products that people love to use, ensuring your business stays ahead of the competition.",
+            stats: [
+                { value: "98%", label: "Satisfaction", description: "From our clients' users" },
+                { value: "40%", label: "Better", description: "Retention rates", isHighlighted: true }
+            ]
+        },
+        pricing: {
+            title: "UI/UX Design",
+            description: "Get world-class product design for your startup or enterprise. Our plan includes:",
+            planData: {
+                "1month": {
+                    price: "$1999",
+                    features: ["User Research", "Wireframing", "Interactive Prototypes", "Design System", "Visual Testing", "Source Files Access"]
+                },
+                "3months": {
+                    price: "$1799",
+                    discountLabel: "10% off",
+                    features: ["User Research", "Wireframing", "Interactive Prototypes", "Design System", "Visual Testing", "Source Files Access"]
+                },
+                "6months": {
+                    price: "$1599",
+                    discountLabel: "20% off",
+                    features: ["User Research", "Wireframing", "Interactive Prototypes", "Design System", "Visual Testing", "Source Files Access"]
+                }
+            }
+        },
+        benefits: {
+            items: [
+                { icon: "LayoutDashboard", title: "Smart Dashboards", description: "Interfaces optimized for complex data management." },
+                { icon: "Zap", title: "Rapid Iterations", description: "We move fast from idea to high-fidelity prototype." },
+                { icon: "CheckCircle", title: "Quality Focus", description: "Every pixel is scrutinized for perfection." },
+                { icon: "Users", title: "Collaboration", description: "Direct access to our design team via Slack." },
+                { icon: "Smartphone", title: "Multi-device", description: "Seamless experience across web and mobile." },
+                { icon: "Clock", title: "Reliability", description: "Consistent delivery of high-quality assets." }
+            ]
+        }
+    },
+    "website-design": {
+        slug: "website-design",
+        hero: {
+            title: "Website Design",
+            description: "Websites that don't just look good but actually do something for your business. More clicks, more stays, more customers.",
+            breadcrumb: "Website Design Services"
+        },
+        why: {
+            title: "Websites that convert and grow",
+            description: "We blend aesthetics with performance to create websites that are easy to manage and built to convert visitors into loyal customers.",
+            stats: [
+                { value: "500+", label: "Websites", description: "Launched successfully" },
+                { value: "45%", label: "Avg. Growth", description: "In user conversion", isHighlighted: true }
+            ]
+        },
+        pricing: {
+            title: "Website Design",
+            description: "Modern website design for high-growth companies. Our plan includes:",
+            planData: {
+                "1month": {
+                    price: "$1499",
+                    features: ["UI/UX Design", "Responsive Layouts", "SEO Foundation", "Figma Design Files", "Design System", "A/B Testing Support"]
+                },
+                "3months": {
+                    price: "$1349",
+                    discountLabel: "10% off",
+                    features: ["UI/UX Design", "Responsive Layouts", "SEO Foundation", "Figma Design Files", "Design System", "A/B Testing Support"]
+                },
+                "6months": {
+                    price: "$1199",
+                    discountLabel: "20% off",
+                    features: ["UI/UX Design", "Responsive Layouts", "SEO Foundation", "Figma Design Files", "Design System", "A/B Testing Support"]
+                }
+            }
+        },
+        benefits: {
+            items: [
+                { icon: "Globe", title: "Global standards", description: "We follow industry best practices for global reach." },
+                { icon: "Smartphone", title: "Mobile first", description: "Designs that look great on any device." },
+                { icon: "Zap", title: "Fast delivery", description: "Quick iterations and rapid prototyping." },
+                { icon: "Search", title: "SEO optimized", description: "Foundational SEO built into every design." },
+                { icon: "ShieldCheck", title: "High security", description: "Clean architectures that prioritize safety." },
+                { icon: "LifeBuoy", title: "24/7 Support", description: "We are always here to help you." }
+            ]
+        }
+    },
+    "saas-design": {
+        slug: "saas-design",
+        hero: {
+            title: "SaaS & Software Design",
+            description: "We design software that actually makes sense. Real people, real needs, no frustrating experiences.",
+            breadcrumb: "SaaS Design Services"
+        },
+        why: {
+            title: "Expertise in complex product design",
+            description: "Our team specializes in designing complex B2B and B2C SaaS platforms, ensuring clarity and efficiency for your users.",
+            stats: [
+                { value: "100+", label: "Product Launches", description: "Across various industries" },
+                { value: "60%", label: "Reduction", description: "In user onboarding time", isHighlighted: true }
+            ]
+        },
+        pricing: {
+            title: "SaaS Design",
+            description: "End-to-end product design for software companies. Our plan includes:",
+            planData: {
+                "1month": {
+                    price: "$2499",
+                    features: ["Product Strategy", "User Journey Mapping", "Complex UI Design", "Prototyping", "UX Audit", "Design Handoff"]
+                },
+                "3months": {
+                    price: "$2249",
+                    discountLabel: "10% off",
+                    features: ["Product Strategy", "User Journey Mapping", "Complex UI Design", "Prototyping", "UX Audit", "Design Handoff"]
+                },
+                "6months": {
+                    price: "$1999",
+                    discountLabel: "20% off",
+                    features: ["Product Strategy", "User Journey Mapping", "Complex UI Design", "Prototyping", "UX Audit", "Design Handoff"]
+                }
+            }
+        },
+        benefits: {
+            items: [
+                { icon: "Package", title: "Modular units", description: "Flexible design systems that scale." },
+                { icon: "Zap", title: "Lean processing", description: "No bloat. Only what works for your product." },
+                { icon: "Code", title: "Dev synergy", description: "Close collaboration with your engineering team." },
+                { icon: "Layers", title: "Design systems", description: "Centralized assets for brand consistency." },
+                { icon: "Activity", title: "Metric driven", description: "Decisions backed by user behavior data." },
+                { icon: "Lock", title: "Secure flows", description: "Security-conscious user flow design." }
+            ]
+        }
+    },
+    "branding": {
+        slug: "branding",
+        hero: {
+            title: "Brand Identity Design",
+            description: "Your brand should say something worth hearing. We help you find your voice and make it stick.",
+            breadcrumb: "Branding Services"
+        },
+        why: {
+            title: "Identity that resonates",
+            description: "We don't just design logos; we create comprehensive brand identities that tell your story and connect with your audience on a deeper level.",
+            stats: [
+                { value: "200+", label: "Brand Identities", description: "Created from scratch" },
+                { value: "100%", label: "Original", description: "Hand-crafted designs only", isHighlighted: true }
+            ]
+        },
+        pricing: {
+            title: "Branding",
+            description: "Premium brand identity packages for modern businesses. Our plan includes:",
+            planData: {
+                "1month": {
+                    price: "$1799",
+                    features: ["Logo Design", "Style Guide", "Typography", "Color System", "Marketing Assets", "Brand Messaging"]
+                },
+                "3months": {
+                    price: "$1619",
+                    discountLabel: "10% off",
+                    features: ["Logo Design", "Style Guide", "Typography", "Color System", "Marketing Assets", "Brand Messaging"]
+                },
+                "6months": {
+                    price: "$1439",
+                    discountLabel: "20% off",
+                    features: ["Logo Design", "Style Guide", "Typography", "Color System", "Marketing Assets", "Brand Messaging"]
+                }
+            }
+        },
+        benefits: {
+            items: [
+                { icon: "Brush", title: "Creative artistry", description: "Unique visual concepts that stand out." },
+                { icon: "Target", title: "Strategic focus", description: "Designed with your market in mind." },
+                { icon: "BookOpen", title: "Style guidelines", description: "Consistency across all touchpoints." },
+                { icon: "Award", title: "Premium quality", description: "World-class design for elite brands." },
+                { icon: "Smile", title: "Emotional bond", description: "Designs that build trust with customers." },
+                { icon: "Repeat", title: "No limits", description: "Iteration until your voice is heard." }
+            ]
+        }
+    },
+    "web-dev": {
+        slug: "web-dev",
+        hero: {
+            title: "Website Development",
+            description: "Websites that won't break when you need them most. Fast, reliable, and ready to grow when you do.",
+            breadcrumb: "Web Development Services"
+        },
+        why: {
+            title: "Technical excellence for your business",
+            description: "Our development team uses modern stacks like Next.js and React to build websites that are fast, secure, and SEO-ready.",
+            stats: [
+                { value: "99.9%", label: "Uptime", description: "For our deployed projects" },
+                { value: "100+", label: "SaaS Apps", description: "Successfully delivered", isHighlighted: true }
+            ]
+        },
+        pricing: {
+            title: "Web Development",
+            description: "Full-stack web development for the modern web. Our plan includes:",
+            planData: {
+                "1month": {
+                    price: "$2999",
+                    features: ["Next.js/React Dev", "CMS Integration", "API Development", "Database Setup", "SEO Optimization", "Cloud Deployment"]
+                },
+                "3months": {
+                    price: "$2699",
+                    discountLabel: "10% off",
+                    features: ["Next.js/React Dev", "CMS Integration", "API Development", "Database Setup", "SEO Optimization", "Cloud Deployment"]
+                },
+                "6months": {
+                    price: "$2399",
+                    discountLabel: "20% off",
+                    features: ["Next.js/React Dev", "CMS Integration", "API Development", "Database Setup", "SEO Optimization", "Cloud Deployment"]
+                }
+            }
+        },
+        benefits: {
+            items: [
+                { icon: "Code2", title: "Clean code", description: "Maintainable and well-documented codebase." },
+                { icon: "Cpu", title: "Performance", description: "Optimized for speed and lighthouse scores." },
+                { icon: "Lock", title: "Security first", description: "Latest protocols and secure pipelines." },
+                { icon: "Layers", title: "Scalable tech", description: "Stacks that grow with your user base." },
+                { icon: "GitBranch", title: "Full transparency", description: "Real-time updates via Git workflows." },
+                { icon: "Terminal", title: "DevOps", description: "Automated CI/CD and monitoring." }
+            ]
+        }
+    },
+    "app-dev": {
+        slug: "app-dev",
+        hero: {
+            title: "Mobile App Design",
+            description: "Apps people actually want to use. Clean, smart designs that work how people expect them to work.",
+            breadcrumb: "App Design Services"
+        },
+        why: {
+            title: "Innovative mobile experiences",
+            description: "We build intuitive, high-performance mobile applications for iOS and Android, focusing on seamless user journeys and robust functionality.",
+            stats: [
+                { value: "50+", label: "Store Apps", description: "Successfully launched" },
+                { value: "4.9★", label: "Rating", description: "Average user review", isHighlighted: true }
+            ]
+        },
+        pricing: {
+            title: "Mobile App Design",
+            description: "End-to-end mobile design and development. Our plan includes:",
+            planData: {
+                "1month": {
+                    price: "$3499",
+                    features: ["iOS & Android Dev", "UI/UX App Design", "Backend API Sync", "Push Notifs Setup", "App Store Submission", "Maintenance"]
+                },
+                "3months": {
+                    price: "$3149",
+                    discountLabel: "10% off",
+                    features: ["iOS & Android Dev", "UI/UX App Design", "Backend API Sync", "Push Notifs Setup", "App Store Submission", "Maintenance"]
+                },
+                "6months": {
+                    price: "$2799",
+                    discountLabel: "20% off",
+                    features: ["iOS & Android Dev", "UI/UX App Design", "Backend API Sync", "Push Notifs Setup", "App Store Submission", "Maintenance"]
+                }
+            }
+        },
+        benefits: {
+            items: [
+                { icon: "Smartphone", title: "Smooth performance", description: "Native speed and fluid animations." },
+                { icon: "Cloud", title: "Cloud sync", description: "Reliable data persistence across devices." },
+                { icon: "Bell", title: "Engagement", description: "Strategic push alerts that bring users back." },
+                { icon: "Shield", title: "Privacy focus", description: "Encrypted storage and secure auth." },
+                { icon: "Layout", title: "Adapative design", description: "Perfect display on every screen size." },
+                { icon: "Activity", title: "Monitoring", description: "Real-time logs and error tracking." }
+            ]
+        }
+    }
+};

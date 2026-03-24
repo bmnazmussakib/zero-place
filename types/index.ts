@@ -34,3 +34,38 @@ export interface ServiceItem {
     icon: string;
     imageIcon: string;
 }
+
+export interface ServiceDetail {
+    slug: string;
+    hero: {
+        title: string;
+        description: string;
+        breadcrumb: string;
+    };
+    why: {
+        title: string;
+        description: string;
+        stats: {
+            value: string;
+            label: string;
+            description: string;
+            isHighlighted?: boolean;
+        }[];
+    };
+    pricing: {
+        title: string;
+        description: string;
+        planData: Record<string, {
+            price: string;
+            discountLabel?: string;
+            features: string[];
+        }>;
+    };
+    benefits: {
+        items: {
+            icon: string; // Lucide icon name
+            title: string;
+            description: string;
+        }[];
+    };
+}

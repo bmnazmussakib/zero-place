@@ -24,6 +24,7 @@ import { cn } from "@/lib/utils";
 import { ScrollToTop } from '../shared/ScrollToTop';
 import * as motion from "motion/react-client";
 import SectionContainer from '../shared/SectionContainer';
+import { servicesCategories } from '@/lib/constants';
 
 export default function SiteFooter() {
     const [scrolled, setScrolled] = useState(false);
@@ -185,11 +186,11 @@ export default function SiteFooter() {
                     <motion.div variants={fadeInUp} className="lg:col-span-2 lg:space-y-8 space-y-4 lg:ml-8">
                         <h4 className="text-white font-heading font-black text-xl tracking-tight">Services</h4>
                         <ul className="md:space-y-5 space-y-3">
-                            {['Graphics Design', 'Web Design', 'Motion Graphics', 'Web Development', 'App Development'].map((item) => (
-                                <li key={item}>
-                                    <Link href="#" className="text-sm font-medium hover:text-primary transition-all duration-300 flex items-center gap-3 group">
+                            {servicesCategories.map((item) => (
+                                <li key={item.slug}>
+                                    <Link href={`/services/${item.slug}`} className="text-sm font-medium hover:text-primary transition-all duration-300 flex items-center gap-3 group">
                                         <motion.span whileHover={{ x: 5 }}>
-                                            {item}
+                                            {item.title}
                                         </motion.span>
                                     </Link>
                                 </li>

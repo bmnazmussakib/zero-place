@@ -4,7 +4,9 @@ import SectionContainer from '../shared/SectionContainer';
 import PremiumButton from '../shared/PremiumButton';
 import * as motion from "motion/react-client";
 
-export default function ServiceHero() {
+import { ServiceDetail } from '@/types';
+
+export default function ServiceHero({ data }: { data: ServiceDetail['hero'] }) {
     const fadeInUp = {
         hidden: { opacity: 0, y: 30 },
         visible: {
@@ -94,23 +96,22 @@ export default function ServiceHero() {
                                         <li>
                                             <span className="text-gray-400 mx-1">›</span>
                                         </li>
-                                        <li className="text-[#0f0e21]">Graphic Design Services</li>
+                                        <li className="text-[#0f0e21]">{data.breadcrumb}</li>
                                     </ol>
                                 </motion.nav>
 
                                 {/* Main heading - split line with gradient on "Services" */}
                                 <motion.h1 variants={fadeInUp} className="mb-6 max-w-5xl font-extrabold tracking-tight text-[#0f0e21] text-4xl md:text-6xl lg:text-7xl">
-                                    Graphic Design 
+                                    {data.title}
                                     <br className="hidden lg:block" />{" "}
-                                    <span className="bg-gradient-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                                    <span className="bg-linear-to-r from-[#6c46fd] via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                                         Services
                                     </span>
                                 </motion.h1>
 
                                 {/* Description */}
-                                <motion.p variants={fadeInUp} className="mx-auto mb-6 md:mb-12 max-w-3xl text-sm md:text-base lg:text-lg leading-relaxed text-gray-700 md:text-xl lg:mx-0 lg:text-left">
-                                    Get all your graphic design needs met—from ad creative to website illustrations—with a tech-enabled solution
-                                    that empowers your team to get the design they need, when they need it.
+                                <motion.p variants={fadeInUp} className="mx-auto mb-6 md:mb-12 max-w-3xl text-sm leading-relaxed text-gray-700 md:text-xl lg:mx-0 lg:text-left">
+                                    {data.description}
                                 </motion.p>
 
                                 <motion.div variants={fadeInUp}>
@@ -143,7 +144,7 @@ export default function ServiceHero() {
                                 <div className="relative aspect-[4/3.2] overflow-hidden rounded-3xl border border-gray-100 bg-white/80 shadow-2xl shadow-[#6c46fd]/15 backdrop-blur-md">
                                     {/* Inner decorative elements */}
                                     <div className="absolute inset-0">
-                                        <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-gradient-to-br from-[#6c46fd] to-indigo-500 opacity-90 blur-xl"></div>
+                                        <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-linear-to-br from-[#6c46fd] to-indigo-500 opacity-90 blur-xl"></div>
                                         <div className="absolute -left-16 bottom-8 h-40 w-40 rounded-full bg-purple-400/70 blur-xl"></div>
                                         <div className="absolute right-10 top-20 h-24 w-24 rounded-xl bg-white/60 backdrop-blur-sm shadow-lg rotate-6"></div>
 
@@ -176,7 +177,7 @@ export default function ServiceHero() {
                                     </div>
                                 </div>
 
-                                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#6c46fd]/5 to-transparent opacity-60 blur-md -rotate-2 scale-[1.02] -z-10"></div>
+                                <div className="absolute inset-0 rounded-3xl bg-linear-to-br from-[#6c46fd]/5 to-transparent opacity-60 blur-md -rotate-2 scale-[1.02] -z-10"></div>
                             </motion.div>
                         </div>
                     </div>

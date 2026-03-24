@@ -6,46 +6,44 @@ import { CreditCard, Zap, CheckCircle, Clock, Users, UserCheck } from 'lucide-re
 
 import * as motion from "motion/react-client";
 
-const benefits = [
+import * as LucideIcons from 'lucide-react';
+import { ServiceDetail } from '@/types';
+
+const defaultBenefits = [
     {
-        icon: <CreditCard className="lg:w-8 lg:h-8 text-[#6c46fd]" />,
-        iconBg: "bg-[#6c46fd]/10",
+        icon: "CreditCard",
         title: "Fixed monthly rate",
         description: "No hidden costs. Pay the same price every month."
     },
     {
-        icon: <Zap className="lg:w-8 lg:h-8 text-[#6c46fd]" />,
-        iconBg: "bg-[#6c46fd]/10",
+        icon: "Zap",
         title: "Unlimited requests",
         description: "Don't limit your creativity. Request as many designs as you need."
     },
     {
-        icon: <CheckCircle className="lg:w-8 lg:h-8 text-[#6c46fd]" />,
-        iconBg: "bg-[#6c46fd]/10",
+        icon: "CheckCircle",
         title: "Unlimited revisions",
         description: "Request changes without limits. We iterate until you say it's perfect."
     },
     {
-        icon: <Clock className="lg:w-8 lg:h-8 text-[#6c46fd]" />,
-        iconBg: "bg-[#6c46fd]/10",
+        icon: "Clock",
         title: "Same-day delivery",
         description: "Receive your designs on the same day with our higher-tier package."
     },
     {
-        icon: <Users className="lg:w-8 lg:h-8 text-[#6c46fd]" />,
-        iconBg: "bg-[#6c46fd]/10",
+        icon: "Users",
         title: "Professional designers",
         description: "Work with experienced designers who bring creativity and precision to every project."
     },
     {
-        icon: <UserCheck className="lg:w-8 lg:h-8 text-[#6c46fd]" />,
-        iconBg: "bg-[#6c46fd]/10",
+        icon: "UserCheck",
         title: "Designer match",
         description: "Each request goes to the most qualified designer for the job."
     }
 ];
 
-export default function ServiceBenefits() {
+export default function ServiceBenefits({ data }: { data?: ServiceDetail['benefits'] }) {
+    const items = data?.items || defaultBenefits;
     const fadeInUp = {
         hidden: { opacity: 0, y: 30 },
         visible: {
@@ -80,30 +78,33 @@ export default function ServiceBenefits() {
                     variants={containerVariants}
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
                 >
-                    {benefits.map((benefit, index) => (
-                        <motion.div
-                            key={index}
-                            variants={fadeInUp}
-                            whileHover={{ y: -8 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                            className="bg-white lg:p-8 md:p-6 p-4 lg:rounded-3xl rounded-2xl border border-gray-100 shadow-lg shadow-[#6c46fd]/5 hover:shadow-[#6c46fd]/10 hover:border-[#6c46fd]/20 transition-colors duration-300 flex flex-col items-start gap-5 group cursor-default"
-                        >
+                    {items.map((benefit, index) => {
+                        const IconComponent = (LucideIcons as any)[benefit.icon] || LucideIcons.HelpCircle;
+                        return (
                             <motion.div
-                                whileHover={{ scale: 1.1, rotate: 5 }}
-                                className={`lg:w-16 lg:h-16 w-12 h-12 rounded-2xl flex items-center justify-center ${benefit.iconBg} lg:mb-2 transition-transform duration-300`}
+                                key={index}
+                                variants={fadeInUp}
+                                whileHover={{ y: -8 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                                className="bg-white lg:p-8 md:p-6 p-4 lg:rounded-3xl rounded-2xl border border-gray-100 shadow-lg shadow-[#6c46fd]/5 hover:shadow-[#6c46fd]/10 hover:border-[#6c46fd]/20 transition-colors duration-300 flex flex-col items-start gap-5 group cursor-default"
                             >
-                                {benefit.icon}
+                                <motion.div
+                                    whileHover={{ scale: 1.1, rotate: 5 }}
+                                    className={`lg:w-16 lg:h-16 w-12 h-12 rounded-2xl flex items-center justify-center bg-[#6c46fd]/10 lg:mb-2 transition-transform duration-300`}
+                                >
+                                    <IconComponent className="lg:w-8 lg:h-8 text-[#6c46fd]" />
+                                </motion.div>
+                                <div>
+                                    <h3 className="lg:text-xl text-lg font-bold text-[#0f0e21] mb-2 md:mb-3 group-hover:text-[#6c46fd] transition-colors">
+                                        {benefit.title}
+                                    </h3>
+                                    <p className="text-gray-600 leading-relaxed text-sm md:text-base lg:text-lg">
+                                        {benefit.description}
+                                    </p>
+                                </div>
                             </motion.div>
-                            <div>
-                                <h3 className="lg:text-xl text-lg font-bold text-[#0f0e21] mb-2 md:mb-3 group-hover:text-[#6c46fd] transition-colors">
-                                    {benefit.title}
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed text-sm md:text-base lg:text-lg">
-                                    {benefit.description}
-                                </p>
-                            </div>
-                        </motion.div>
-                    ))}
+                        );
+                    })}
                 </motion.div>
             </SectionContainer>
         </section>
