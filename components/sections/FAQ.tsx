@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SectionContainer from '../shared/SectionContainer';
+import { FAQItem } from '@/types';
 import { Plus, Minus, ArrowUpRight, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import PremiumButton from '../shared/PremiumButton';
@@ -9,39 +10,25 @@ import SectionBadge from '../shared/SectionBadge';
 import * as motion from "motion/react-client";
 import { AnimatePresence } from "motion/react";
 
-const FAQ_DATA = [
-    {
-        question: "Connect with Us Live!",
-        answer: "Get instant answers to your questions and personalized support with our live chat feature."
-    },
-    {
-        question: "How do your branding, design, and development services work together?",
-        answer: "We integrate these services to provide a holistic approach, ensuring a cohesive brand identity, engaging design, and flawless development for consistent success."
-    },
-    {
-        question: "Can you help with branding for a new business?",
-        answer: "Yes, our branding services include comprehensive strategy development to establish a strong, memorable and distinctive brand identity for your new venture."
-    },
-    {
-        question: "What is your typical design and development process?",
-        answer: "Our process involves close collaboration, starting with requirements gathering, followed by creative design and agile development to deliver high-quality, customized solutions."
-    },
-    {
-        question: "Do you provide post-project support?",
-        answer: "Yes, we offer comprehensive support and maintenance services post-completion to ensure your solutions remain functional, secure, and scalable."
-    },
-    {
-        question: "How do you ensure data security throughout the development process?",
-        answer: "We implement strict security measures and adhere to industry standards to protect your data during all stages of branding, design, and development."
-    },
-    {
-        question: "What makes your company's design and branding unique?",
-        answer: "Our focus is on combining creativity with strategic branding to create visually appealing and memorable designs that truly represent your brand's values and drive results."
-    },
-];
 
 export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
+    const [faqs, setFaqs] = useState<FAQItem[]>([]);
+
+    useEffect(() => {
+        const fetchFaqs = async () => {
+            try {
+                const res = await fetch('/api/faqs');
+                if (res.ok) {
+                    const data = await res.json();
+                    setFaqs(data);
+                }
+            } catch (err) {
+                console.error("Error fetching FAQs:", err);
+            }
+        };
+        fetchFaqs();
+    }, []);
 
     const fadeInUp = {
         hidden: { opacity: 0, y: 20 },
@@ -136,7 +123,7 @@ export default function FAQ() {
                         viewport={{ once: true, margin: "-100px" }}
                         variants={containerVariants}
                     >
-                        {FAQ_DATA.map((faq, index) => {
+                        {faqs.map((faq, index) => {
                             const isOpen = openIndex === index;
                             return (
                                 <motion.div

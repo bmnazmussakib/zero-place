@@ -1,4 +1,4 @@
-import { NavItem, PricingTier, Service, ServiceItem, ServiceDetail, Brand, WorkStepItem } from "@/types";
+import { NavItem, PricingTier, Service, ServiceItem, ServiceDetail, Brand, WorkStepItem, FAQItem } from "@/types";
 import {
     Palette,
     Globe,
@@ -778,4 +778,35 @@ export const workSteps: WorkStepItem[] = [
         description: "After completing one task, clients can create new tasks and continue the process.",
         icon: "LayoutGrid",
     }
+];
+
+export const faqs: FAQItem[] = [
+    {
+        question: "Connect with Us Live!",
+        answer: "Get instant answers to your questions and personalized support with our live chat feature."
+    },
+    {
+        question: "How do your branding, design, and development services work together?",
+        answer: "We integrate these services to provide a holistic approach, ensuring a cohesive brand identity, engaging design, and flawless development for consistent success."
+    },
+    {
+        question: "Can you help with branding for a new business?",
+        answer: "Yes, our branding services include comprehensive strategy development to establish a strong, memorable and distinctive brand identity for your new venture."
+    },
+    {
+        question: "What is your typical design and development process?",
+        answer: "Our process involves close collaboration, starting with requirements gathering, followed by creative design and agile development to deliver high-quality, customized solutions."
+    },
+    {
+        question: "Do you provide post-project support?",
+        answer: "Yes, we offer comprehensive support and maintenance services post-completion to ensure your solutions remain functional, secure, and scalable."
+    },
+    {
+        question: "How do you ensure data security throughout the development process?",
+        answer: "We implement strict security measures and adhere to industry standards to protect your data during all stages of branding, design, and development."
+    },
+    {
+        question: "What makes your company's design and branding unique?",
+        answer: "Our focus is on combining creativity with strategic branding to create visually appealing and memorable designs that truly represent your brand's values and drive results."
+    },
 ];

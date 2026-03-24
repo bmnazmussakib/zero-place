@@ -81,3 +81,8 @@ export interface WorkStepItem {
     description: string;
     icon: string; // Stored as a string to be serializable, mapped back to component in UI
 }
+
+export interface FAQItem {
+    question: string;
+    answer: string;
+}
