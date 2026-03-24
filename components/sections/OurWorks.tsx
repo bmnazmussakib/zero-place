@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import PremiumButton from "../shared/PremiumButton";
@@ -14,50 +14,30 @@ import * as motion from "motion/react-client";
 import 'swiper/css';
 import 'swiper/css/free-mode';
 
-const works = [
-    {
-        title: "Modern Brand Identity",
-        category: "Branding",
-        image: "/images/work/examples-10.png",
-    },
-    {
-        title: "E-commerce Interface",
-        category: "UI/UX",
-        image: "/images/work/examples-11.png",
-    },
-    {
-        title: "Corporate Platform",
-        category: "Web Design",
-        image: "/images/work/examples-12.png",
-    },
-    {
-        title: "Mobile App Concept",
-        category: "Development",
-        image: "/images/work/examples-17.png",
-    },
-    {
-        title: "Creative Illustration",
-        category: "Design",
-        image: "/images/work/examples-3-1.png",
-    },
-    {
-        title: "SaaS Dashboard",
-        category: "UI/UX",
-        image: "/images/work/examples-4-1.png",
-    },
-    {
-        title: "Marketing Deck",
-        category: "Marketing",
-        image: "/images/work/examples-5-1.png",
-    },
-    {
-        title: "Brand Style Guide",
-        category: "Branding",
-        image: "/images/work/examples-9-1.png",
-    }
-];
+export interface WorkItem {
+    title: string;
+    category: string;
+    image: string;
+}
 
 export function OurWorks() {
+    const [works, setWorks] = useState<WorkItem[]>([]);
+    
+    useEffect(() => {
+        const fetchWorks = async () => {
+            try {
+                const res = await fetch('/api/works');
+                if (res.ok) {
+                    const data = await res.json();
+                    setWorks(data);
+                }
+            } catch (err) {
+                console.error("Error fetching works:", err);
+            }
+        };
+        fetchWorks();
+    }, []);
+
     const swiperConfig = {
         modules: [Autoplay, FreeMode],
         loop: true,
@@ -143,7 +123,7 @@ export function OurWorks() {
                     className="services-swiper marquee-linear w-full px-4 md:px-6 mb-6 md:mb-8"
                 >
                     {works.map((work, index) => (
-                        <SwiperSlide key={index}>
+                        <SwiperSlide key={`top-${index}`}>
                             <WorkCard work={work} index={index} />
                         </SwiperSlide>
                     ))}
@@ -156,7 +136,7 @@ export function OurWorks() {
                     className="services-swiper marquee-linear w-full px-4 md:px-6"
                 >
                     {[...works].reverse().map((work, index) => (
-                        <SwiperSlide key={index}>
+                        <SwiperSlide key={`bottom-${index}`}>
                             <WorkCard work={work} index={index} />
                         </SwiperSlide>
                     ))}

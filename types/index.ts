@@ -33,6 +33,7 @@ export interface ServiceItem {
     image: string;
     icon: string;
     imageIcon: string;
+    slug?: string;
 }
 
 export interface ServiceDetail {
@@ -61,11 +62,22 @@ export interface ServiceDetail {
             features: string[];
         }>;
     };
-    benefits: {
+        benefits: {
         items: {
             icon: string; // Lucide icon name
             title: string;
             description: string;
         }[];
     };
+}
+
+export interface Brand {
+    name: string;
+    logo: string;
+}
+
+export interface WorkStepItem {
+    title: string;
+    description: string;
+    icon: string; // Stored as a string to be serializable, mapped back to component in UI
 }

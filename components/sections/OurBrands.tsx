@@ -1,21 +1,13 @@
-import React from 'react'
+"use client";
+
+import React, { useEffect, useState } from 'react';
 import SectionContainer from '../shared/SectionContainer'
 import Marquee from "react-fast-marquee";
 import Link from 'next/link';
 import PremiumButton from '../shared/PremiumButton';
 import * as motion from "motion/react-client";
 
-const BRANDS = [
-    { name: 'Ventoo', logo: '/images/brands/ventoo-logo.svg' },
-    { name: 'Partner 1', logo: '/images/brands/partnernln-1.svg' },
-    { name: 'Partner 2', logo: '/images/brands/partnernln-2.svg' },
-    { name: 'Partner 3', logo: '/images/brands/partnernln-3.svg' },
-    { name: 'Partner 9', logo: '/images/brands/partnernln-9.svg' },
-    { name: 'Partner 10', logo: '/images/brands/partnernln-10.svg' },
-    { name: 'Samsung', logo: '/images/brands/samsung_logo.svg' },
-    { name: 'Skycop', logo: '/images/brands/skycop-logo.svg' },
-    { name: 'BKFX', logo: '/images/brands/bkfx_logo.svg' },
-];
+import { Brand } from '@/types';
 
 function BrandCard({ logo, name }: { logo: string; name: string }) {
   return (
@@ -65,6 +57,27 @@ const fadeInRight = {
 };
 
 function OurBrands() {
+    const [brands, setBrands] = useState<Brand[]>([]);
+
+    useEffect(() => {
+        const fetchBrands = async () => {
+            try {
+                const res = await fetch('/api/brands');
+                if (!res.ok) throw new Error("Failed to fetch");
+                const data = await res.json();
+                setBrands(data);
+            } catch (err) {
+                console.error("Error fetching brands:", err);
+            }
+        };
+
+        fetchBrands();
+    }, []);
+
+    // Split brands for the two marquees, handle case when brands is empty
+    const firstRow = brands.length > 0 ? brands.slice(0, Math.ceil(brands.length / 2)) : [];
+    const secondRow = brands.length > 0 ? brands.slice(Math.ceil(brands.length / 2)) : [];
+
     return (
         <>
             <div className='bg-footer-bg overflow-hidden'>
@@ -112,7 +125,7 @@ function OurBrands() {
                                     gradientWidth={100}
                                     className="py-4 md:py-8 overflow-hidden"
                                 >
-                                    {BRANDS.slice(0, 5).map((brand, i) => (
+                                    {firstRow.map((brand, i) => (
                                         <BrandCard key={i} {...brand} />
                                     ))}
                                 </Marquee>
@@ -128,7 +141,7 @@ function OurBrands() {
                                     direction="right"
                                     className="py-4 md:py-8 overflow-hidden"
                                 >
-                                    {BRANDS.slice(5).map((brand, i) => (
+                                    {secondRow.map((brand, i) => (
                                         <BrandCard key={i} {...brand} />
                                     ))}
                                 </Marquee>

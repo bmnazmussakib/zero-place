@@ -1,19 +1,9 @@
 "use client";
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import SectionContainer from '../shared/SectionContainer';
-import {
-    CheckCircle2,
-    CreditCard,
-    FileText,
-    LayoutGrid,
-    MessageSquare,
-    PlusSquare,
-    UserCheck,
-    Zap,
-    ChevronLeft,
-    ChevronRight
-} from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import SectionBadge from '../shared/SectionBadge';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -26,52 +16,27 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const STEPS = [
-    {
-        title: "Choose a Plan",
-        description: "Clients select from various plans based on their needs and budget.",
-        icon: CreditCard,
-    },
-    {
-        title: "Payment",
-        description: "After selecting a plan, clients proceed to payment.",
-        icon: Zap,
-    },
-    {
-        title: "Onboarding and Brief",
-        description: "A project manager is assigned to the client for onboarding and task clarification.",
-        icon: FileText,
-    },
-    {
-        title: "Designer Assignment",
-        description: "A personal designer is assigned to the client after the brief is completed.",
-        icon: UserCheck,
-    },
-    {
-        title: "Task Creation",
-        description: "Clients create and submit tasks, providing necessary materials.",
-        icon: PlusSquare,
-    },
-    {
-        title: "Feedback and Revisions",
-        description: "The designer submits completed tasks for review.",
-        icon: MessageSquare,
-    },
-    {
-        title: "Task Completion",
-        description: "Once the client is satisfied, the task is marked as complete.",
-        icon: CheckCircle2,
-    },
-    {
-        title: "New Project",
-        description: "After completing one task, clients can create new tasks and continue the process.",
-        icon: LayoutGrid,
-    }
-];
+import { WorkStepItem } from '@/types';
 
 export default function WorkStep() {
     const swiperRef = useRef<any>(null);
     const [activeIndex, setActiveIndex] = useState(0);
+    const [steps, setSteps] = useState<WorkStepItem[]>([]);
+
+    useEffect(() => {
+        const fetchSteps = async () => {
+            try {
+                const res = await fetch('/api/work-steps');
+                if (res.ok) {
+                    const data = await res.json();
+                    setSteps(data);
+                }
+            } catch (err) {
+                console.error("Error fetching work steps:", err);
+            }
+        };
+        fetchSteps();
+    }, []);
 
     const fadeInUp = {
         hidden: { opacity: 0, y: 20 },
@@ -141,7 +106,7 @@ export default function WorkStep() {
                             spaceBetween={24}
                             slidesPerView={1}
                             centeredSlides={true}
-                            loop={true}
+                            loop={steps.length > 0}
                             initialSlide={2}
                             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                             onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -157,8 +122,10 @@ export default function WorkStep() {
                             }}
                             className="!pb-8 !pt-4"
                         >
-                            {STEPS.map((step, index) => {
+                            {steps.map((step, index) => {
                                 const isActive = activeIndex === index;
+                                const IconComponent = (LucideIcons as any)[step.icon] || LucideIcons.Circle;
+
                                 return (
                                     <SwiperSlide key={index}>
                                         <motion.div
@@ -190,7 +157,7 @@ export default function WorkStep() {
                                                     scale: isActive ? 1 : 0.9
                                                 }}
                                             >
-                                                <step.icon size={28} strokeWidth={1.5} />
+                                                <IconComponent size={28} strokeWidth={1.5} />
                                             </motion.div>
 
                                             <div className="grow space-y-4 text-left">
@@ -230,12 +197,12 @@ export default function WorkStep() {
                                         <motion.div
                                             className="absolute inset-y-0 left-0 bg-primary"
                                             initial={false}
-                                            animate={{ width: `${((activeIndex + 1) / STEPS.length) * 100}%` }}
+                                            animate={{ width: `${steps.length > 0 ? ((activeIndex + 1) / steps.length) * 100 : 0}%` }}
                                             transition={{ type: "spring", stiffness: 100, damping: 20 }}
                                         />
                                     </div>
                                     <div className="flex gap-1.5 ml-4">
-                                        {STEPS.map((_, i) => (
+                                        {steps.map((_, i) => (
                                             <div
                                                 key={i}
                                                 className={cn(
@@ -250,7 +217,7 @@ export default function WorkStep() {
                                 <button
                                     onClick={() => swiperRef.current?.slideNext()}
                                     className="w-8 h-8 lg:w-12 lg:h-12 rounded-full border border-border-subtle flex items-center justify-center hover:bg-white hover:shadow-lg transition-all text-text-heading disabled:opacity-30"
-                                    disabled={activeIndex === STEPS.length - 1}
+                                    disabled={steps.length === 0 || activeIndex === steps.length - 1}
                                 >
                                     <ChevronRight size={18} />
                                 </button>

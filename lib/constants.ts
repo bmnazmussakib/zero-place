@@ -1,4 +1,4 @@
-import { NavItem, PricingTier, Service, ServiceItem, ServiceDetail } from "@/types";
+import { NavItem, PricingTier, Service, ServiceItem, ServiceDetail, Brand, WorkStepItem } from "@/types";
 import {
     Palette,
     Globe,
@@ -16,7 +16,8 @@ export const serviceItems: ServiceItem[] = [
             "We make user interfaces that actually make sense. Real people, real needs, no frustrating experiences.",
         image: "/images/services/service-card-2.jpg",
         icon: "LayoutDashboard",
-        imageIcon: "https://framerusercontent.com/images/8z76sKxLPVjqsmAodbiYaTNqT6k.png"
+        imageIcon: "https://framerusercontent.com/images/8z76sKxLPVjqsmAodbiYaTNqT6k.png",
+        slug: "ui-ux-design"
     },
     {
         id: 2,
@@ -25,7 +26,8 @@ export const serviceItems: ServiceItem[] = [
             "Websites that don't just look good but actually do something for your business. More clicks, more stays, more customers.",
         image: "/images/services/service-card-5.jpg",
         icon: "Globe",
-        imageIcon: "https://framerusercontent.com/images/ikSvZd1RCc2BDrqL4bILjC20NA8.png"
+        imageIcon: "https://framerusercontent.com/images/ikSvZd1RCc2BDrqL4bILjC20NA8.png",
+        slug: "website-design"
     },
     {
         id: 3,
@@ -34,7 +36,8 @@ export const serviceItems: ServiceItem[] = [
             "We design software that actually makes sense. Real people, real needs, no frustrating experiences.",
         image: "/images/services/service-card-6.jpg",
         icon: "Package",
-        imageIcon: "https://framerusercontent.com/images/8wDkVxlj0xqU5rEKdSqJz9S77I.png"
+        imageIcon: "https://framerusercontent.com/images/8wDkVxlj0xqU5rEKdSqJz9S77I.png",
+        slug: "saas-design"
     },
     {
         id: 4,
@@ -43,7 +46,8 @@ export const serviceItems: ServiceItem[] = [
             "Apps people actually want to use. Clean, smart designs that work how people expect them to work.",
         image: "/images/services/service-card-7.jpg",
         icon: "Smartphone",
-        imageIcon: "https://framerusercontent.com/images/9BkEf4xmhxJJ8CGgZTFFQXKfFbc.png"
+        imageIcon: "https://framerusercontent.com/images/9BkEf4xmhxJJ8CGgZTFFQXKfFbc.png",
+        slug: "app-dev"
     },
     {
         id: 5,
@@ -52,7 +56,8 @@ export const serviceItems: ServiceItem[] = [
             "Your brand should say something worth hearing. We help you find your voice and make it stick.",
         image: "/images/services/service-card-12.jpg",
         icon: "Brush",
-        imageIcon: "https://framerusercontent.com/images/V9fJFzeUHoyUXAGCmORzDx90sM.png"
+        imageIcon: "https://framerusercontent.com/images/V9fJFzeUHoyUXAGCmORzDx90sM.png",
+        slug: "branding"
     },
     {
         id: 6,
@@ -61,7 +66,8 @@ export const serviceItems: ServiceItem[] = [
             "Websites that won't break when you need them most. Fast, reliable, and ready to grow when you do.",
         image: "/images/services/service-card-2.jpg",
         icon: "Code",
-        imageIcon: "https://framerusercontent.com/images/1zxlDQLwA25TphCR2a6V7cSYXI.png"
+        imageIcon: "https://framerusercontent.com/images/1zxlDQLwA25TphCR2a6V7cSYXI.png",
+        slug: "web-dev"
     }
 ];
 
@@ -718,3 +724,58 @@ export const servicesDetails: Record<string, ServiceDetail> = {
         }
     }
 };
+
+export const brands: Brand[] = [
+    { name: 'Ventoo', logo: '/images/brands/ventoo-logo.svg' },
+    { name: 'Partner 1', logo: '/images/brands/partnernln-1.svg' },
+    { name: 'Partner 2', logo: '/images/brands/partnernln-2.svg' },
+    { name: 'Partner 3', logo: '/images/brands/partnernln-3.svg' },
+    { name: 'Partner 9', logo: '/images/brands/partnernln-9.svg' },
+    { name: 'Partner 10', logo: '/images/brands/partnernln-10.svg' },
+    { name: 'Samsung', logo: '/images/brands/samsung_logo.svg' },
+    { name: 'Skycop', logo: '/images/brands/skycop-logo.svg' },
+    { name: 'BKFX', logo: '/images/brands/bkfx_logo.svg' },
+];
+
+export const workSteps: WorkStepItem[] = [
+    {
+        title: "Choose a Plan",
+        description: "Clients select from various plans based on their needs and budget.",
+        icon: "CreditCard",
+    },
+    {
+        title: "Payment",
+        description: "After selecting a plan, clients proceed to payment.",
+        icon: "Zap",
+    },
+    {
+        title: "Onboarding and Brief",
+        description: "A project manager is assigned to the client for onboarding and task clarification.",
+        icon: "FileText",
+    },
+    {
+        title: "Designer Assignment",
+        description: "A personal designer is assigned to the client after the brief is completed.",
+        icon: "UserCheck",
+    },
+    {
+        title: "Task Creation",
+        description: "Clients create and submit tasks, providing necessary materials.",
+        icon: "PlusSquare",
+    },
+    {
+        title: "Feedback and Revisions",
+        description: "The designer submits completed tasks for review.",
+        icon: "MessageSquare",
+    },
+    {
+        title: "Task Completion",
+        description: "Once the client is satisfied, the task is marked as complete.",
+        icon: "CheckCircle2",
+    },
+    {
+        title: "New Project",
+        description: "After completing one task, clients can create new tasks and continue the process.",
+        icon: "LayoutGrid",
+    }
+];
