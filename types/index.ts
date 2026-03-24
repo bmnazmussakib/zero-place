@@ -101,9 +101,16 @@ export interface ServiceCategory {
     image: string;
     colSpan: number;
     description?: string;
+    color?: string;
 }
 
 export interface DifferentiatorItem {
     icon: string; // Lucide icon name
     text: string;
+}
+
+export interface BenefitItem {
+    icon: string;
+    title: string;
+    description: string;
 }

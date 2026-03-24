@@ -1,49 +1,29 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SectionContainer from '../shared/SectionContainer';
-import { CreditCard, Zap, CheckCircle, Clock, Users, UserCheck } from 'lucide-react';
-
 import * as motion from "motion/react-client";
-
 import * as LucideIcons from 'lucide-react';
-import { ServiceDetail } from '@/types';
+import { ServiceDetail, BenefitItem } from '@/types';
 
-const defaultBenefits = [
-    {
-        icon: "CreditCard",
-        title: "Fixed monthly rate",
-        description: "No hidden costs. Pay the same price every month."
-    },
-    {
-        icon: "Zap",
-        title: "Unlimited requests",
-        description: "Don't limit your creativity. Request as many designs as you need."
-    },
-    {
-        icon: "CheckCircle",
-        title: "Unlimited revisions",
-        description: "Request changes without limits. We iterate until you say it's perfect."
-    },
-    {
-        icon: "Clock",
-        title: "Same-day delivery",
-        description: "Receive your designs on the same day with our higher-tier package."
-    },
-    {
-        icon: "Users",
-        title: "Professional designers",
-        description: "Work with experienced designers who bring creativity and precision to every project."
-    },
-    {
-        icon: "UserCheck",
-        title: "Designer match",
-        description: "Each request goes to the most qualified designer for the job."
-    }
-];
 
 export default function ServiceBenefits({ data }: { data?: ServiceDetail['benefits'] }) {
-    const items = data?.items || defaultBenefits;
+    const [items, setItems] = useState<BenefitItem[]>(data?.items || []);
+
+    useEffect(() => {
+        if (!data) {
+            const fetchBenefits = async () => {
+                try {
+                    const response = await fetch('/api/service-benefits');
+                    const fetchedData = await response.json();
+                    setItems(fetchedData);
+                } catch (error) {
+                    console.error('Error fetching service benefits:', error);
+                }
+            };
+            fetchBenefits();
+        }
+    }, [data]);
     const fadeInUp = {
         hidden: { opacity: 0, y: 30 },
         visible: {

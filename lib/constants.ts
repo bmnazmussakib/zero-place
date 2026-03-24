@@ -1,4 +1,4 @@
-import { NavItem, PricingTier, Service, ServiceItem, ServiceDetail, Brand, WorkStepItem, FAQItem, TestimonialItem, ServiceCategory, DifferentiatorItem } from "@/types";
+import { NavItem, PricingTier, Service, ServiceItem, ServiceDetail, Brand, WorkStepItem, FAQItem, TestimonialItem, ServiceCategory, DifferentiatorItem, BenefitItem } from "@/types";
 import {
     Palette,
     Globe,
@@ -928,5 +928,38 @@ export const serviceDifferentiators: DifferentiatorItem[] = [
     {
         icon: "Users",
         text: "Project Manager"
+    }
+];
+
+export const serviceBenefits: BenefitItem[] = [
+    {
+        icon: "CreditCard",
+        title: "Fixed monthly rate",
+        description: "No hidden costs. Pay the same price every month."
+    },
+    {
+        icon: "Zap",
+        title: "Unlimited requests",
+        description: "Don't limit your creativity. Request as many designs as you need."
+    },
+    {
+        icon: "CheckCircle",
+        title: "Unlimited revisions",
+        description: "Request changes without limits. We iterate until you say it's perfect."
+    },
+    {
+        icon: "Clock",
+        title: "Same-day delivery",
+        description: "Receive your designs on the same day with our higher-tier package."
+    },
+    {
+        icon: "Users",
+        title: "Professional designers",
+        description: "Work with experienced designers who bring creativity and precision to every project."
+    },
+    {
+        icon: "UserCheck",
+        title: "Designer match",
+        description: "Each request goes to the most qualified designer for the job."
     }
 ];
