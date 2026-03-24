@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import SectionContainer from '../shared/SectionContainer';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectCards, Navigation } from 'swiper/modules';
@@ -8,87 +8,30 @@ import { ChevronUp, ChevronDown, Quote, ChevronLeft, ChevronRight } from 'lucide
 import { cn } from '@/lib/utils';
 import SectionBadge from '../shared/SectionBadge';
 import * as motion from "motion/react-client";
+import { TestimonialItem } from '@/types';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import 'swiper/css/navigation';
 
-const TESTIMONIALS = [
-    {
-        name: "James Miller",
-        role: "Company Director",
-        logo: "https://logoipsum.com/img/logo/logo-1.svg",
-        content: "Zero Place has completely transformed our business operations. The results are outstanding!",
-        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100&h=100"
-    },
-    {
-        name: "Emily Roberts",
-        role: "Project Manager",
-        logo: "https://logoipsum.com/img/logo/logo-2.svg",
-        content: "The team at Zero Place is incredibly professional and dedicated. A pleasure to work with.",
-        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100&h=100"
-    },
-    {
-        name: "Michael Johnson",
-        role: "Marketing Director",
-        logo: "https://logoipsum.com/img/logo/logo-3.svg",
-        content: "Zero Place has significantly boosted our brand visibility. Highly recommended!",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
-    },
-    {
-        name: "Sarah Brown",
-        role: "Operations Manager",
-        logo: "https://logoipsum.com/img/logo/logo-3.svg",
-        content: "Efficient, reliable, and delivering top-notch service. That's Zero Place.",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
-    },
-    {
-        name: "David Chen",
-        role: "Technical Director",
-        logo: "https://logoipsum.com/img/logo/logo-3.svg",
-        content: "The solutions provided by Zero Place are exactly what we needed for our growth.",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
-    },
-    {
-        name: "Olivia White",
-        role: "Product Manager",
-        logo: "https://logoipsum.com/img/logo/logo-3.svg",
-        content: "Zero Place has been a game-changer for our team. Fantastic work!",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
-    },
-    {
-        name: "Noah Brown",
-        role: "Lead Developer",
-        logo: "https://logoipsum.com/img/logo/logo-3.svg",
-        content: "As a developer, I am impressed by the quality and functionality they provide.",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
-    },
-    {
-        name: "Isabella Taylor",
-        role: "Design Manager",
-        logo: "https://logoipsum.com/img/logo/logo-3.svg",
-        content: "Zero Place has provided us with the creative solutions we needed to stand out.",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
-    },
-    {
-        name: "Liam Walker",
-        role: "CEO",
-        logo: "https://logoipsum.com/img/logo/logo-3.svg",
-        content: "A pivotal partner in our journey. Zero Place delivers excellence.",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
-    },
-    {
-        name: "Natasha Green",
-        role: "Executive Manager",
-        logo: "https://logoipsum.com/img/logo/logo-3.svg",
-        content: "Our experience with Zero Place has been exceptional from start to finish.",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
-    },
-];
 
 export default function Testimonial() {
     const swiperRef = useRef<any>(null);
+    const [testimonials, setTestimonials] = useState<TestimonialItem[]>([]);
+
+    useEffect(() => {
+        const fetchTestimonials = async () => {
+            try {
+                const response = await fetch('/api/testimonials');
+                const data = await response.json();
+                setTestimonials(data);
+            } catch (error) {
+                console.error('Error fetching testimonials:', error);
+            }
+        };
+        fetchTestimonials();
+    }, []);
 
     const fadeInUp = {
         hidden: { opacity: 0, y: 20 },
@@ -206,7 +149,7 @@ export default function Testimonial() {
                                     swiperRef.current = swiper;
                                 }}
                             >
-                                {TESTIMONIALS.map((testimonial, index) => (
+                                {testimonials.map((testimonial, index) => (
                                     <SwiperSlide key={index} className="md:rounded-[3rem] rounded-4xl shadow-2xl overflow-visible min-h-[280px] md:h-[300px]">
                                         <div className="h-full w-full  bg-white p-8 md:p-10 lg:p-14 flex flex-col justify-between border border-primary/5 relative group md:rounded-[3rem] rounded-4xl">
                                             {/* Top: Logo */}

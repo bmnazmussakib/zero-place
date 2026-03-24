@@ -1,4 +1,4 @@
-import { NavItem, PricingTier, Service, ServiceItem, ServiceDetail, Brand, WorkStepItem, FAQItem } from "@/types";
+import { NavItem, PricingTier, Service, ServiceItem, ServiceDetail, Brand, WorkStepItem, FAQItem, TestimonialItem } from "@/types";
 import {
     Palette,
     Globe,
@@ -808,5 +808,78 @@ export const faqs: FAQItem[] = [
     {
         question: "What makes your company's design and branding unique?",
         answer: "Our focus is on combining creativity with strategic branding to create visually appealing and memorable designs that truly represent your brand's values and drive results."
+    },
+];
+
+export const testimonials: TestimonialItem[] = [
+    {
+        name: "James Miller",
+        role: "Company Director",
+        logo: "https://logoipsum.com/img/logo/logo-1.svg",
+        content: "Zero Place has completely transformed our business operations. The results are outstanding!",
+        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100&h=100"
+    },
+    {
+        name: "Emily Roberts",
+        role: "Project Manager",
+        logo: "https://logoipsum.com/img/logo/logo-2.svg",
+        content: "The team at Zero Place is incredibly professional and dedicated. A pleasure to work with.",
+        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100&h=100"
+    },
+    {
+        name: "Michael Johnson",
+        role: "Marketing Director",
+        logo: "https://logoipsum.com/img/logo/logo-3.svg",
+        content: "Zero Place has significantly boosted our brand visibility. Highly recommended!",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
+    },
+    {
+        name: "Sarah Brown",
+        role: "Operations Manager",
+        logo: "https://logoipsum.com/img/logo/logo-3.svg",
+        content: "Efficient, reliable, and delivering top-notch service. That's Zero Place.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
+    },
+    {
+        name: "David Chen",
+        role: "Technical Director",
+        logo: "https://logoipsum.com/img/logo/logo-3.svg",
+        content: "The solutions provided by Zero Place are exactly what we needed for our growth.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
+    },
+    {
+        name: "Olivia White",
+        role: "Product Manager",
+        logo: "https://logoipsum.com/img/logo/logo-3.svg",
+        content: "Zero Place has been a game-changer for our team. Fantastic work!",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
+    },
+    {
+        name: "Noah Brown",
+        role: "Lead Developer",
+        logo: "https://logoipsum.com/img/logo/logo-3.svg",
+        content: "As a developer, I am impressed by the quality and functionality they provide.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
+    },
+    {
+        name: "Isabella Taylor",
+        role: "Design Manager",
+        logo: "https://logoipsum.com/img/logo/logo-3.svg",
+        content: "Zero Place has provided us with the creative solutions we needed to stand out.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
+    },
+    {
+        name: "Liam Walker",
+        role: "CEO",
+        logo: "https://logoipsum.com/img/logo/logo-3.svg",
+        content: "A pivotal partner in our journey. Zero Place delivers excellence.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
+    },
+    {
+        name: "Natasha Green",
+        role: "Executive Manager",
+        logo: "https://logoipsum.com/img/logo/logo-3.svg",
+        content: "Our experience with Zero Place has been exceptional from start to finish.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
     },
 ];

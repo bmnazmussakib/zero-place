@@ -86,3 +86,11 @@ export interface FAQItem {
     question: string;
     answer: string;
 }
+
+export interface TestimonialItem {
+    name: string;
+    role: string;
+    logo: string;
+    content: string;
+    avatar: string;
+}
