@@ -67,7 +67,7 @@ const fadeInRight = {
 function OurBrands() {
     return (
         <>
-            <div className='bg-footer-bg'>
+            <div className='bg-footer-bg overflow-hidden'>
                 <SectionContainer className="py-10 md:py-16 lg:py-24">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                         <motion.div

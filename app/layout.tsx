@@ -31,16 +31,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ViewTransitions>
-      <html lang="en" className={`${inter.variable} ${funnelDisplay.variable}`}>
-        <body
-          className="antialiased"
-        >
-          <SmoothScrollProvider>
-            {children}
-          </SmoothScrollProvider>
-        </body>
-      </html>
-    </ViewTransitions>
+    <>
+      <ViewTransitions>
+        <html lang="en" className={`${inter.variable} ${funnelDisplay.variable}`}>
+          <body
+            className="antialiased"
+          >
+            <SmoothScrollProvider>
+              {children}
+            </SmoothScrollProvider>
+          </body>
+        </html>
+      </ViewTransitions>
+    </>
   );
 }
