@@ -1,4 +1,4 @@
-import { NavItem, PricingTier, Service, ServiceItem, ServiceDetail, Brand, WorkStepItem, FAQItem, TestimonialItem } from "@/types";
+import { NavItem, PricingTier, Service, ServiceItem, ServiceDetail, Brand, WorkStepItem, FAQItem, TestimonialItem, ServiceCategory, DifferentiatorItem } from "@/types";
 import {
     Palette,
     Globe,
@@ -389,7 +389,7 @@ export const categories = [
     "Social Media banners & Ad Creative", "Gifs", "Printing", "Videos"
 ];
 
-export const servicesCategories = [
+export const servicesCategories: ServiceCategory[] = [
     {
         title: "UI/UX Design",
         slug: "ui-ux-design",
@@ -882,4 +882,51 @@ export const testimonials: TestimonialItem[] = [
         content: "Our experience with Zero Place has been exceptional from start to finish.",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
     },
+];
+
+export const serviceDifferentiators: DifferentiatorItem[] = [
+    {
+        icon: "Infinity",
+        text: "Unlimited requests"
+    },
+    {
+        icon: "Users",
+        text: "Real-time collaboration"
+    },
+    {
+        icon: "RefreshCcw",
+        text: "Unlimited revisions"
+    },
+    {
+        icon: "Trello",
+        text: "Trello Project Management"
+    },
+    {
+        icon: "FolderOpen",
+        text: "Unlimited brand profiles"
+    },
+    {
+        icon: "DollarSign",
+        text: "7-day money-back guarantee"
+    },
+    {
+        icon: "FileCode2",
+        text: "Native source files"
+    },
+    {
+        icon: "XCircle",
+        text: "Cancel anytime"
+    },
+    {
+        icon: "Briefcase",
+        text: "Art Director"
+    },
+    {
+        icon: "GraduationCap",
+        text: "Middle+/Senior Designer"
+    },
+    {
+        icon: "Users",
+        text: "Project Manager"
+    }
 ];

@@ -1,71 +1,29 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SectionContainer from '../shared/SectionContainer';
 import SectionBadge from '../shared/SectionBadge';
-import {
-    Infinity,
-    RefreshCcw,
-    FolderOpen,
-    FileCode2,
-    Users,
-    Trello,
-    DollarSign,
-    XCircle,
-    GraduationCap,
-    Briefcase
-} from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
+import { DifferentiatorItem } from '@/types';
 
 import * as motion from "motion/react-client";
 
-const features = [
-    {
-        icon: <Infinity className="w-5 h-5" />,
-        text: "Unlimited requests"
-    },
-    {
-        icon: <Users className="w-5 h-5" />,
-        text: "Real-time collaboration"
-    },
-    {
-        icon: <RefreshCcw className="w-5 h-5" />,
-        text: "Unlimited revisions"
-    },
-    {
-        icon: <Trello className="w-5 h-5" />,
-        text: "Trello Project Management"
-    },
-    {
-        icon: <FolderOpen className="w-5 h-5" />,
-        text: "Unlimited brand profiles"
-    },
-    {
-        icon: <DollarSign className="w-5 h-5" />,
-        text: "7-day money-back guarantee"
-    },
-    {
-        icon: <FileCode2 className="w-5 h-5" />,
-        text: "Native source files"
-    },
-    {
-        icon: <XCircle className="w-5 h-5" />,
-        text: "Cancel anytime"
-    },
-    {
-        icon: <Briefcase className="w-5 h-5" />,
-        text: "Art Director"
-    },
-    {
-        icon: <GraduationCap className="w-5 h-5" />,
-        text: "Middle+/Senior Designer"
-    },
-    {
-        icon: <Users className="w-5 h-5" />,
-        text: "Project Manager"
-    }
-];
 
 export default function ServiceDifferentiators() {
+    const [differentiators, setDifferentiators] = useState<DifferentiatorItem[]>([]);
+
+    useEffect(() => {
+        const fetchDifferentiators = async () => {
+            try {
+                const response = await fetch('/api/service-differentiators');
+                const data = await response.json();
+                setDifferentiators(data);
+            } catch (error) {
+                console.error('Error fetching service differentiators:', error);
+            }
+        };
+        fetchDifferentiators();
+    }, []);
     const fadeInUp = {
         hidden: { opacity: 0, y: 30 },
         visible: {
@@ -129,22 +87,25 @@ export default function ServiceDifferentiators() {
                     variants={containerVariants}
                     className="grid grid-cols-1 md:grid-cols-2 lg:gap-y-6 gap-y-4 gap-x-8"
                 >
-                    {features.map((feature, index) => (
-                        <motion.div
-                            key={index}
-                            variants={fadeInUp}
-                            whileHover={{ scale: 1.05, x: 5 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                            className="flex items-center gap-3 group cursor-default"
-                        >
-                            <div className="shrink-0 mt-0.5 p-2 rounded-lg bg-[#6c46fd]/5 text-[#6c46fd] transition-colors group-hover:bg-[#6c46fd] group-hover:text-white">
-                                {feature.icon}
-                            </div>
-                            <p className="text-gray-700 text-sm md:text-base lg:text-lg font-medium group-hover:text-[#6c46fd] transition-colors">
-                                {feature.text}
-                            </p>
-                        </motion.div>
-                    ))}
+                    {differentiators.map((feature, index) => {
+                        const IconComponent = (LucideIcons as any)[feature.icon] || LucideIcons.Circle;
+                        return (
+                            <motion.div
+                                key={index}
+                                variants={fadeInUp}
+                                whileHover={{ scale: 1.05, x: 5 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                                className="flex items-center gap-3 group cursor-default"
+                            >
+                                <div className="shrink-0 mt-0.5 p-2 rounded-lg bg-[#6c46fd]/5 text-[#6c46fd] transition-colors group-hover:bg-[#6c46fd] group-hover:text-white">
+                                    <IconComponent className="w-5 h-5" />
+                                </div>
+                                <p className="text-gray-700 text-sm md:text-base lg:text-lg font-medium group-hover:text-[#6c46fd] transition-colors">
+                                    {feature.text}
+                                </p>
+                            </motion.div>
+                        );
+                    })}
                 </motion.div>
 
             </div>
