@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 interface PremiumButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -156,16 +157,17 @@ const PremiumButton = ({
 
   if (href) {
     return (
-      <a
+      <Link
         href={href}
         className={buttonBase}
         style={bgColor ? { backgroundColor: bgColor } : {}}
         {...(props as any)}
       >
         {content}
-      </a>
+      </Link>
     );
   }
+
 
   return (
     <button

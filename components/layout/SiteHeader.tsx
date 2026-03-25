@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { navItems } from "@/lib/constants";
 import Logo from "@/components/shared/Logo";
 import PremiumButton from "@/components/shared/PremiumButton";
@@ -12,19 +12,23 @@ import SectionContainer from "../shared/SectionContainer";
 
 export default function SiteHeader() {
     const pathname = usePathname();
+    const searchParams = useSearchParams();
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
     const [isMenuBox, setIsMenuBox] = useState<boolean>(false);
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
     const [hoveredService, setHoveredService] = useState<any>(null);
-    console.log({ hoveredService })
+    console.log({ isMenuBox, hoveredItem, isMobileMenuOpen })
 
-    // Close menu on route change
     useEffect(() => {
         setIsMenuBox(false);
         setHoveredItem(null);
         setIsMobileMenuOpen(false);
-    }, [pathname]);
+        // Ensure focus is removed from any active element (like dropdowns)
+        if (typeof document !== 'undefined' && document.activeElement instanceof HTMLElement) {
+            document.activeElement.blur();
+        }
+    }, [pathname, searchParams]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -274,7 +278,7 @@ export default function SiteHeader() {
 
                         {/* Mobile Menu Toggle */}
                         <button
-                            className="p-2 hidden text-text-heading hover:bg-primary/5 rounded-xl transition-all"
+                            className="p-2 flex hidden text-text-heading hover:bg-primary/5 rounded-xl transition-all"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         >
                             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -293,7 +297,11 @@ export default function SiteHeader() {
                         <MobileNavItem key={item.title} item={item} />
                     ))}
                     <div className="pt-8 px-4 pb-20">
-                        <PremiumButton href="/book-a-call" className="w-full ">
+                        <PremiumButton
+                            href="/book-a-call"
+                            className="w-full"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
                             Book a Call
                         </PremiumButton>
                     </div>
