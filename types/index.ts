@@ -62,7 +62,7 @@ export interface ServiceDetail {
             features: string[];
         }>;
     };
-        benefits: {
+    benefits: {
         items: {
             icon: string; // Lucide icon name
             title: string;
@@ -102,6 +102,7 @@ export interface ServiceCategory {
     colSpan: number;
     description?: string;
     color?: string;
+    textColor?: string;
 }
 
 export interface DifferentiatorItem {
