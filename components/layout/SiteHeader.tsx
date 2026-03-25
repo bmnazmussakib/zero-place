@@ -5,22 +5,30 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { navItems } from "@/lib/constants";
 import Logo from "@/components/shared/Logo";
 import PremiumButton from "@/components/shared/PremiumButton";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X, ChevronDown } from "lucide-react";
 import SectionContainer from "../shared/SectionContainer";
 
+function SearchParamsWrapper({ onPathnameChange }: { onPathnameChange: () => void }) {
+    const searchParams = useSearchParams();
+
+    useEffect(() => {
+        onPathnameChange();
+    }, [searchParams, onPathnameChange]);
+
+    return null;
+}
+
 export default function SiteHeader() {
     const pathname = usePathname();
-    const searchParams = useSearchParams();
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
     const [isMenuBox, setIsMenuBox] = useState<boolean>(false);
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
     const [hoveredService, setHoveredService] = useState<any>(null);
-    console.log({ isMenuBox, hoveredItem, isMobileMenuOpen })
 
-    useEffect(() => {
+    const handleClose = useCallback(() => {
         setIsMenuBox(false);
         setHoveredItem(null);
         setIsMobileMenuOpen(false);
@@ -28,7 +36,11 @@ export default function SiteHeader() {
         if (typeof document !== 'undefined' && document.activeElement instanceof HTMLElement) {
             document.activeElement.blur();
         }
-    }, [pathname, searchParams]);
+    }, []);
+
+    useEffect(() => {
+        handleClose();
+    }, [pathname, handleClose]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -87,6 +99,9 @@ export default function SiteHeader() {
         >
             <SectionContainer>
                 <div className="flex items-center md:justify-between justify-center relative">
+                    <Suspense fallback={null}>
+                        <SearchParamsWrapper onPathnameChange={handleClose} />
+                    </Suspense>
                     <div className="flex items-center ">
                         <Logo />
                     </div>
