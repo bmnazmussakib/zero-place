@@ -204,10 +204,7 @@ export default function SiteFooter() {
                             {[
                                 { name: 'Contact Us' },
                                 { name: 'Privacy Policy' },
-                                { name: 'Recognitions' },
-                                { name: 'Careers', badge: 'NEW' },
-                                { name: 'News' },
-                                { name: 'Feedback' }
+                                { name: 'Blogs' },
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link href="#" className="text-sm font-medium hover:text-primary transition-all duration-300 flex items-center gap-3 group">

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import SectionContainer from '../shared/SectionContainer';
 import { FAQItem } from '@/types';
+import { faqs } from '@/lib/constants';
 import { Plus, Minus, ArrowUpRight, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import PremiumButton from '../shared/PremiumButton';
@@ -13,22 +14,6 @@ import { AnimatePresence } from "motion/react";
 
 export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
-    const [faqs, setFaqs] = useState<FAQItem[]>([]);
-
-    useEffect(() => {
-        const fetchFaqs = async () => {
-            try {
-                const res = await fetch('/api/faqs');
-                if (res.ok) {
-                    const data = await res.json();
-                    setFaqs(data);
-                }
-            } catch (err) {
-                console.error("Error fetching FAQs:", err);
-            }
-        };
-        fetchFaqs();
-    }, []);
 
     const fadeInUp = {
         hidden: { opacity: 0, y: 20 },
