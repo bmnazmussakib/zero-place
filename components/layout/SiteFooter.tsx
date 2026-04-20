@@ -222,7 +222,7 @@ export default function SiteFooter() {
                                 { name: 'Contact Us' },
                                 { name: 'Privacy Policy' },
                                 { name: 'Blogs' },
-                            ].map((item) => (
+                            ].map((item: { name: string; badge?: string }) => (
                                 <li key={item.name}>
                                     <Link href="#" className="text-sm font-medium hover:text-primary transition-all duration-300 flex items-center gap-3 group">
                                         <motion.span whileHover={{ x: 5 }} className="flex items-center">

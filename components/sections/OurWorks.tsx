@@ -10,17 +10,18 @@ import { Autoplay, FreeMode } from 'swiper/modules';
 import SectionContainer from '../shared/SectionContainer';
 import * as motion from "motion/react-client";
 import { portfolioItems } from '@/lib/constants';
+import { PortfolioItem } from '@/types';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 
 export interface OurWorksProps {
-    initialWorks?: WorkItem[];
+    initialWorks?: PortfolioItem[];
 }
 
 export function OurWorks({ initialWorks }: OurWorksProps) {
-    const [works, setWorks] = useState<WorkItem[]>(initialWorks || portfolioItems);
+    const [works, setWorks] = useState<PortfolioItem[]>(initialWorks || portfolioItems);
 
     const swiperConfig = {
         modules: [Autoplay, FreeMode],

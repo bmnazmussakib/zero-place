@@ -20,6 +20,12 @@ export interface PricingTier {
     isPopular?: boolean;
 }
 
+export interface PortfolioItem {
+    title: string;
+    category: string;
+    image: string;
+}
+
 export interface Service {
     title: string;
     description: string;

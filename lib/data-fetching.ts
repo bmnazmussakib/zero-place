@@ -35,7 +35,8 @@ export async function getServiceItems() {
 
 export async function getServiceDetails(slug: string) {
   await connectDB();
-  return await ServiceDetail.findOne({ slug });
+  const detail = await ServiceDetail.findOne({ slug }).lean();
+  return detail ? JSON.parse(JSON.stringify(detail)) : null;
 }
 
 export async function getFAQs() {

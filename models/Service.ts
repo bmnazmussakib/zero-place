@@ -65,11 +65,13 @@ export interface IServiceDetail extends Document {
   pricing: {
     title: string;
     description: string;
-    planData: Map<string, {
-      price: string;
-      discountLabel?: string;
-      features: string[];
-    }>;
+    planData: {
+      [key: string]: {
+        price: string;
+        discountLabel?: string;
+        features: string[];
+      };
+    };
   };
   benefits: {
     items: Array<{
@@ -100,12 +102,8 @@ const ServiceDetailSchema = new Schema({
     title: { type: String, required: true },
     description: { type: String, required: true },
     planData: {
-      type: Map,
-      of: {
-        price: String,
-        discountLabel: String,
-        features: [String],
-      },
+      type: Object,
+      default: {},
     },
   },
   benefits: {
