@@ -11,7 +11,7 @@ export async function updateNavigation(formData: FormData) {
   const navItems = navItemsRaw ? JSON.parse(navItemsRaw) : [];
 
   // Helper function to flat save items
-  async function saveItems(items: any[], parentId: string | null = null) {
+  async function saveItems(items: any[], parentId: string | null = null): Promise<string[]> {
     const results = [];
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
