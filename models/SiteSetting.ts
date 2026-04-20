@@ -9,10 +9,14 @@ export interface ISiteSetting extends Document {
   contactEmail: string;
   contactPhone: string;
   googleAnalyticsId: string;
-  socialLinks: {
-    platform: string;
-    url: string;
-  }[];
+  address: string;
+  officeHours: string;
+  footerDescription: string;
+  facebookUrl: string;
+  instagramUrl: string;
+  twitterUrl: string;
+  linkedinUrl: string;
+  navItems: any[];
 }
 
 const SiteSettingSchema = new Schema({
@@ -24,12 +28,14 @@ const SiteSettingSchema = new Schema({
   contactEmail: { type: String, default: 'hello@zeroplace.com' },
   contactPhone: { type: String, default: '+1 (888) 333-8181' },
   googleAnalyticsId: { type: String, default: '' },
-  socialLinks: [
-    {
-      platform: { type: String },
-      url: { type: String }
-    }
-  ],
+  address: { type: String, default: '993 Renner Burg, West Road, MT 94251-030, USA.' },
+  officeHours: { type: String, default: 'Mon-Fri 09am-06pm' },
+  footerDescription: { type: String, default: 'Every great solution starts understanding the time into learn about. Unlimited design requests for modern brands.' },
+  facebookUrl: { type: String, default: '#' },
+  instagramUrl: { type: String, default: '#' },
+  twitterUrl: { type: String, default: '#' },
+  linkedinUrl: { type: String, default: '#' },
+  navItems: { type: [Schema.Types.Mixed], default: [] },
 }, { timestamps: true });
 
 export const SiteSetting: Model<ISiteSetting> = 

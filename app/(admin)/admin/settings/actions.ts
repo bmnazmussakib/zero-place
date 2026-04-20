@@ -12,8 +12,6 @@ export async function updateSettings(formData: FormData) {
   const logoWhiteUrl = formData.get("logoWhiteUrl") as string;
   const description = formData.get("description") as string;
   const keywords = formData.get("keywords") as string;
-  const contactEmail = formData.get("contactEmail") as string;
-  const contactPhone = formData.get("contactPhone") as string;
   const googleAnalyticsId = formData.get("googleAnalyticsId") as string;
 
   await SiteSetting.findOneAndUpdate({}, {
@@ -22,8 +20,6 @@ export async function updateSettings(formData: FormData) {
     logoWhiteUrl,
     description,
     keywords,
-    contactEmail,
-    contactPhone,
     googleAnalyticsId
   }, { upsert: true });
 

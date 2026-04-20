@@ -1,0 +1,77 @@
+import React from 'react';
+import { 
+  Palette, 
+  Globe, 
+  Video, 
+  Code2, 
+  Smartphone, 
+  LayoutDashboard, 
+  Package, 
+  Brush, 
+  Code,
+  Zap,
+  CheckCircle,
+  Users,
+  Clock,
+  Search,
+  ShieldCheck,
+  LifeBuoy,
+  Lock,
+  Activity,
+  Cpu,
+  GitBranch,
+  Terminal,
+  Cloud,
+  Bell,
+  Layout,
+  ChevronDown,
+  Mail,
+  MapPin,
+  Phone,
+  Facebook,
+  Instagram,
+  Twitter,
+  Linkedin
+} from 'lucide-react';
+
+const iconMap: Record<string, React.ReactNode> = {
+  Palette: React.createElement(Palette, { size: 18 }),
+  Globe: React.createElement(Globe, { size: 18 }),
+  Video: React.createElement(Video, { size: 18 }),
+  Code2: React.createElement(Code2, { size: 18 }),
+  Smartphone: React.createElement(Smartphone, { size: 18 }),
+  LayoutDashboard: React.createElement(LayoutDashboard, { size: 18 }),
+  Package: React.createElement(Package, { size: 18 }),
+  Brush: React.createElement(Brush, { size: 18 }),
+  Code: React.createElement(Code, { size: 18 }),
+  Zap: React.createElement(Zap, { size: 18 }),
+  CheckCircle: React.createElement(CheckCircle, { size: 18 }),
+  Users: React.createElement(Users, { size: 18 }),
+  Clock: React.createElement(Clock, { size: 18 }),
+  Search: React.createElement(Search, { size: 18 }),
+  ShieldCheck: React.createElement(ShieldCheck, { size: 18 }),
+  LifeBuoy: React.createElement(LifeBuoy, { size: 18 }),
+  Lock: React.createElement(Lock, { size: 18 }),
+  Activity: React.createElement(Activity, { size: 18 }),
+  Cpu: React.createElement(Cpu, { size: 18 }),
+  GitBranch: React.createElement(GitBranch, { size: 18 }),
+  Terminal: React.createElement(Terminal, { size: 18 }),
+  Cloud: React.createElement(Cloud, { size: 18 }),
+  Bell: React.createElement(Bell, { size: 18 }),
+  Layout: React.createElement(Layout, { size: 18 }),
+  ChevronDown: React.createElement(ChevronDown, { size: 18 }),
+  Mail: React.createElement(Mail, { size: 18 }),
+  MapPin: React.createElement(MapPin, { size: 18 }),
+  Phone: React.createElement(Phone, { size: 18 }),
+  Facebook: React.createElement(Facebook, { size: 18 }),
+  Instagram: React.createElement(Instagram, { size: 18 }),
+  Twitter: React.createElement(Twitter, { size: 18 }),
+  Linkedin: React.createElement(Linkedin, { size: 18 }),
+};
+
+export function getIcon(name: string | undefined): React.ReactNode {
+  if (!name || !iconMap[name]) return null;
+  return iconMap[name];
+}
+
+export const availableIcons = Object.keys(iconMap);

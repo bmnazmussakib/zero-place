@@ -29,6 +29,8 @@ const sidebarItems = [
   { name: "Pricing", href: "/admin/pricing", icon: CreditCard },
   { name: "Brands", href: "/admin/brands", icon: Shapes },
   { name: "Work Steps", href: "/admin/work-steps", icon: CheckCircle },
+  { name: "Navigation", href: "/admin/navigation", icon: Menu },
+  { name: "Footer", href: "/admin/footer", icon: CreditCard },
   { name: "Settings", href: "/admin/settings", icon: Settings },
 ];
 

@@ -6,8 +6,6 @@ import {
   Save, 
   Globe, 
   Search, 
-  Mail, 
-  Phone,
   Loader2
 } from "lucide-react";
 import ImageUpload from "@/components/admin/ImageUpload";
@@ -141,43 +139,6 @@ export default function SettingsForm({ initialData }: SettingsFormProps) {
         </div>
       </div>
 
-      {/* Contact Info */}
-      <div className="bg-white rounded-md border border-primary/10 overflow-hidden shadow-sm">
-        <div className="p-6 border-b border-primary/5 flex items-center gap-4 bg-primary/5">
-          <div className="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary">
-            <Mail className="w-5 h-5" />
-          </div>
-          <div>
-            <h3 className="text-lg font-black font-heading text-slate-900 uppercase leading-none">Contact Information</h3>
-            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Company Details</p>
-          </div>
-        </div>
-        <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <label className="text-xs font-bold text-slate-600 uppercase tracking-tight">Contact Email</label>
-            <div className="relative">
-              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300" />
-              <input 
-                name="contactEmail"
-                defaultValue={initialData.contactEmail}
-                className="input input-sm h-11 w-full rounded-md pl-10 bg-white border-primary/10 focus:border-primary transition-all text-sm" 
-              />
-            </div>
-          </div>
-          <div className="space-y-2">
-            <label className="text-xs font-bold text-slate-600 uppercase tracking-tight">Contact Phone</label>
-            <div className="relative">
-              <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300" />
-              <input 
-                name="contactPhone"
-                defaultValue={initialData.contactPhone}
-                className="input input-sm h-11 w-full rounded-md pl-10 bg-white border-primary/10 focus:border-primary transition-all text-sm" 
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="fixed bottom-8 right-8 z-50">
         <button 
           type="submit" 
@@ -189,7 +150,7 @@ export default function SettingsForm({ initialData }: SettingsFormProps) {
           ) : (
             <Save className="w-5 h-5" />
           )}
-          {isPending ? "Saving changes..." : "Save All Changes"}
+          {isPending ? "Saving..." : "Save Branding & SEO"}
         </button>
       </div>
     </form>

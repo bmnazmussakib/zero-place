@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { navItems } from "@/lib/constants";
+import { getIcon } from "@/lib/icon-utils";
 import Logo from "@/components/shared/Logo";
 import PremiumButton from "@/components/shared/PremiumButton";
 import { useEffect, useState, Suspense, useCallback } from "react";
@@ -88,13 +88,15 @@ export default function SiteHeader() {
             >
                 {item.icon && (
                     <span className="shrink-0 text-text-muted group-hover:text-primary transition-colors">
-                        {item.icon}
+                        {getIcon(item.icon)}
                     </span>
                 )}
                 {item.title}
             </Link>
         );
     };
+
+    const dynamicNavItems = settings?.navItems?.length > 0 ? settings.navItems : [];
 
     return (
         <header
@@ -125,7 +127,7 @@ export default function SiteHeader() {
 
                     <nav className="hidden md:flex items-stretch h-full">
                         <ul className="menu menu-horizontal p-0 gap-2 items-stretch text-text-body h-full">
-                            {navItems.map((item) => (
+                            {dynamicNavItems.map((item: any) => (
                                 <li
                                     key={item.title}
                                     className={cn(
@@ -194,7 +196,7 @@ export default function SiteHeader() {
                                                                                         "shrink-0 transition-colors",
                                                                                         hoveredService?.title === sub.title ? "text-primary" : "text-text-muted group-hover:text-primary"
                                                                                     )}>
-                                                                                        {sub.icon}
+                                                                                        {getIcon(sub.icon)}
                                                                                     </span>
                                                                                 )}
                                                                                 {/* <span className="relative overflow-hidden h-[26px] flex items-center">
@@ -325,7 +327,7 @@ export default function SiteHeader() {
                 isMobileMenuOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-4"
             )}>
                 <div className="flex flex-col p-6 space-y-2">
-                    {navItems.map((item) => (
+                    {dynamicNavItems.map((item: any) => (
                         <MobileNavItem key={item.title} item={item} />
                     ))}
                     <div className="pt-8 px-4 pb-20">

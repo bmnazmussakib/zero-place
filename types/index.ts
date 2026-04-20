@@ -1,7 +1,7 @@
 export interface NavItem {
     title: string;
     href: string;
-    icon?: React.ReactNode;
+    icon?: string;
     children?: NavItem[];
     type?: 'dropdown' | 'megamenu' | 'link';
     details?: string[];

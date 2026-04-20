@@ -135,14 +135,20 @@ export default function SiteFooter() {
                             <div className="flex flex-col md:flex-row items-center lg:gap-6 gap-2 justify-center lg:justify-start">
                                 <p className="text-white font-bold text-sm tracking-widest uppercase opacity-80">Follow us:</p>
                                 <div className="flex items-center gap-4">
-                                    {[Facebook, Instagram, Twitter, Linkedin].map((Icon, i) => (
+                                    {[
+                                        { Icon: Facebook, href: settings?.facebookUrl },
+                                        { Icon: Instagram, href: settings?.instagramUrl },
+                                        { Icon: Twitter, href: settings?.twitterUrl },
+                                        { Icon: Linkedin, href: settings?.linkedinUrl }
+                                    ].map(({ Icon, href }, i) => (
                                         <motion.div
                                             key={i}
                                             whileHover={{ scale: 1.1, rotate: -6 }}
                                             whileTap={{ scale: 0.9 }}
                                         >
                                             <Link
-                                                href="#"
+                                                href={href || "#"}
+                                                target="_blank"
                                                 className="lg:w-11 lg:h-11 w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-white border border-white/10 hover:bg-white hover:text-primary transition-all duration-500"
                                             >
                                                 <Icon className="lg:w-5 lg:h-5 w-4 h-5  " />
@@ -173,7 +179,7 @@ export default function SiteFooter() {
                             logoWhiteUrl={settings?.logoWhiteUrl}
                         />
                         <p className="max-w-xs text-base leading-relaxed text-zinc-400 ">
-                            Every great solution starts understanding the time into learn about. Unlimited design requests for modern brands.
+                            {settings?.footerDescription || "Every great solution starts understanding the time into learn about. Unlimited design requests for modern brands."}
                         </p>
                         <div className="hidden md:flex flex-wrap gap-5">
                             <motion.div whileHover={{ y: -4 }}>
@@ -248,7 +254,7 @@ export default function SiteFooter() {
                                     <MapPin className="lg:w-5 lg:h-5 w-4 h-4 text-primary group-hover:text-white transition-colors" />
                                 </div>
                                 <p className="md:text-base text-sm leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors">
-                                    993 Renner Burg, West Road, <br /> MT 94251-030, USA.
+                                    {settings?.address || "993 Renner Burg, West Road, MT 94251-030, USA."}
                                 </p>
                             </motion.div>
                             <motion.div whileHover={{ x: 5 }} className="flex gap-5 cursor-default group">
@@ -269,7 +275,7 @@ export default function SiteFooter() {
                                     <Clock className="lg:w-5 lg:h-5 w-4 h-4 text-primary group-hover:text-white transition-colors" />
                                 </div>
                                 <div>
-                                    <p className="md:text-base text-sm font-bold text-zinc-300 group-hover:text-zinc-100 transition-colors">Mon-Fri 09am-06pm</p>
+                                    <p className="md:text-base text-sm font-bold text-zinc-300 group-hover:text-zinc-100 transition-colors">{settings?.officeHours || "Mon-Fri 09am-06pm"}</p>
                                     <p className="text-xs text-zinc-600 mt-1 uppercase font-bold tracking-widest">Support Hours</p>
                                 </div>
                             </motion.div>

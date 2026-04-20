@@ -16,7 +16,13 @@ export async function GET() {
         contactEmail: 'hello@zeroplace.com',
         contactPhone: '+1 (888) 333-8181',
         googleAnalyticsId: '',
-        socialLinks: []
+        address: '993 Renner Burg, West Road, MT 94251-030, USA.',
+        officeHours: 'Mon-Fri 09am-06pm',
+        footerDescription: 'Every great solution starts understanding the time into learn about. Unlimited design requests for modern brands.',
+        facebookUrl: '#',
+        instagramUrl: '#',
+        twitterUrl: '#',
+        linkedinUrl: '#'
       });
     }
     return NextResponse.json(settings);
