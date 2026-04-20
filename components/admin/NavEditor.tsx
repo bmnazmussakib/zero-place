@@ -332,21 +332,19 @@ function SortableNavItem({ item, onUpdate, onDelete, onMove }: {
             </div>
           </div>
 
-          {item.type === 'megamenu' && (
-             <div className="space-y-2 pt-4 border-t border-slate-200">
-               <label className="text-[10px] font-black uppercase text-slate-400 flex justify-between items-center tracking-wider">
-                 Feature Details List
-                 <span className="text-[8px] font-normal lowercase">(One feature per line)</span>
-               </label>
-               <textarea 
-                  value={item.details?.join('\n')}
-                  onChange={(e) => onUpdate({ details: e.target.value.split('\n').filter(Boolean) })}
-                  rows={4}
-                  className="w-full px-4 py-3 text-sm bg-white border border-slate-200 rounded-md focus:border-primary outline-none transition-all resize-none shadow-inner"
-                  placeholder="Premium Support&#10;Unlimited Revisions&#10;Source Files Included"
-               />
-             </div>
-          )}
+          <div className="space-y-2 pt-4 border-t border-slate-200">
+            <label className="text-[10px] font-black uppercase text-slate-400 flex justify-between items-center tracking-wider">
+              Feature Details List
+              <span className="text-[8px] font-normal lowercase">(For Megamenu sub-items | One per line)</span>
+            </label>
+            <textarea 
+              value={item.details?.join('\n') || ''}
+              onChange={(e) => onUpdate({ details: e.target.value.split('\n').filter(Boolean) })}
+              rows={4}
+              className="w-full px-4 py-3 text-sm bg-white border border-slate-200 rounded-md focus:border-primary outline-none transition-all resize-none shadow-inner"
+              placeholder="Premium Support&#10;Unlimited Revisions&#10;Source Files Included"
+            />
+          </div>
 
           <div className="flex items-center justify-between pt-4 border-t border-slate-200">
             <button 
