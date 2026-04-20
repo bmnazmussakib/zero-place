@@ -73,18 +73,21 @@ export const serviceItems: ServiceItem[] = [
 
 export const navItems: NavItem[] = [
     {
+        id: "nav-services",
         title: "Services",
         href: "/services",
         type: "megamenu",
         children: [
             {
+                id: "nav-design",
                 title: "Design",
                 href: "#",
                 children: [
                     {
+                        id: "nav-uiux",
                         title: "UI/UX Design",
                         href: "/services/ui-ux-design",
-                        icon: React.createElement(Palette, { size: 18 }),
+                        icon: "Palette",
                         details: [
                             "User Research",
                             "Persona Mapping",
@@ -95,9 +98,10 @@ export const navItems: NavItem[] = [
                         ]
                     },
                     {
+                        id: "nav-webdesign",
                         title: "Website Design",
                         href: "/services/website-design",
-                        icon: React.createElement(Globe, { size: 18 }),
+                        icon: "Globe",
                         details: [
                             "Landing Page Design",
                             "Responsive Layouts",
@@ -108,9 +112,10 @@ export const navItems: NavItem[] = [
                         ]
                     },
                     {
+                        id: "nav-saasdesign",
                         title: "SaaS Design",
                         href: "/services/saas-design",
-                        icon: React.createElement(Code2, { size: 18 }),
+                        icon: "Code2",
                         details: [
                             "Dashboard Design",
                             "Complex Workflows",
@@ -121,9 +126,10 @@ export const navItems: NavItem[] = [
                         ]
                     },
                     {
+                        id: "nav-branddesign",
                         title: "Brand Identity Design",
                         href: "/services/branding",
-                        icon: React.createElement(Palette, { size: 18 }),
+                        icon: "Palette",
                         details: [
                             "Logo Design",
                             "Typography & Color",
@@ -136,13 +142,15 @@ export const navItems: NavItem[] = [
                 ]
             },
             {
+                id: "nav-dev",
                 title: "Development",
                 href: "#",
                 children: [
                     {
+                        id: "nav-webdev",
                         title: "Website Development",
                         href: "/services/web-dev",
-                        icon: React.createElement(Code2, { size: 18 }),
+                        icon: "Code2",
                         details: [
                             "Next.js / React Development",
                             "E-Commerce Solutions",
@@ -153,9 +161,10 @@ export const navItems: NavItem[] = [
                         ]
                     },
                     {
+                        id: "nav-appdev",
                         title: "Mobile App Design",
                         href: "/services/app-dev",
-                        icon: React.createElement(Smartphone, { size: 18 }),
+                        icon: "Smartphone",
                         details: [
                             "iOS & Android Apps",
                             "Cross-Platform Dev",
@@ -169,18 +178,8 @@ export const navItems: NavItem[] = [
             }
         ]
     },
-    // {
-    //     title: "Service",
-    //     href: "#",
-    //     type: "dropdown",
-    //     children: [
-    //         { title: "Blog", href: "/blog" },
-    //         { title: "Case Studies", href: "/case-studies" },
-    //         { title: "Documentation", href: "/docs" },
-    //     ]
-    // },
-    { title: "Portfolio", href: "/portfolio" },
-    { title: "Pricing", href: "/pricing" },
+    { id: "nav-portfolio", title: "Portfolio", href: "/portfolio" },
+    { id: "nav-pricing", title: "Pricing", href: "/pricing" },
 ];
 
 export const pricingTiers: PricingTier[] = [

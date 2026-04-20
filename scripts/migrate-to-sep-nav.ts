@@ -10,7 +10,7 @@ async function migrate() {
   console.log('Connecting to MongoDB...');
   await connectDB();
 
-  const settings = await SiteSetting.findOne();
+  const settings = await SiteSetting.findOne() as any;
   if (!settings || !settings.navItems || settings.navItems.length === 0) {
     console.log('No navigation items found in SiteSetting to migrate.');
     process.exit(0);
