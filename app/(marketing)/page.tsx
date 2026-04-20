@@ -36,6 +36,7 @@ export default async function HomePage() {
         <>
             <HeroSection />
 
+
             <OurBrands initialBrands={JSON.parse(JSON.stringify(brands))} />
 
             <ServicesPreview initialServices={JSON.parse(JSON.stringify(serviceItems))} />
