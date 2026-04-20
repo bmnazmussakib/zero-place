@@ -26,6 +26,7 @@ const sidebarItems = [
   { name: "Portfolio", href: "/admin/portfolio", icon: ImageIcon },
   { name: "Testimonials", href: "/admin/testimonials", icon: MessageSquare },
   { name: "FAQs", href: "/admin/faqs", icon: HelpCircle },
+  { name: "Pricing", href: "/admin/pricing", icon: CreditCard },
   { name: "Brands", href: "/admin/brands", icon: Shapes },
   { name: "Work Steps", href: "/admin/work-steps", icon: CheckCircle },
   { name: "Settings", href: "/admin/settings", icon: Settings },
@@ -83,7 +84,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    "flex items-center gap-3 px-4 py-2.5 rounded-sm text-sm font-semibold transition-all group",
+                    "flex items-center gap-3 px-4 py-2.5 rounded-md text-sm font-semibold transition-all group",
                     isActive 
                       ? "bg-primary text-white shadow shadow-primary/20" 
                       : "text-slate-600 hover:bg-primary/5 hover:text-primary"
@@ -109,7 +110,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
           <button
             onClick={() => signOut()}
-            className="flex items-center gap-3 px-4 py-2 rounded-sm text-xs font-bold text-slate-400 hover:bg-rose-50 hover:text-rose-500 transition-colors w-full"
+            className="flex items-center gap-3 px-4 py-2 rounded-md text-xs font-bold text-slate-400 hover:bg-rose-50 hover:text-rose-500 transition-colors w-full"
           >
             <LogOut className="w-4 h-4" />
             Sign Out
@@ -122,14 +123,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Topbar */}
         <header className="h-16 bg-white border-b border-primary/10 flex items-center justify-between px-6 lg:px-8 sticky top-0 z-30">
           <button 
-            className="p-2 -ml-2 rounded-sm lg:hidden hover:bg-slate-100 transition-colors"
+            className="p-2 -ml-2 rounded-md lg:hidden hover:bg-slate-100 transition-colors"
             onClick={() => setIsSidebarOpen(true)}
           >
             <Menu className="w-5 h-5 text-slate-600" />
           </button>
 
           <div className="flex items-center gap-4 ml-auto">
-            <Link href="/admin/settings" className="p-2 rounded-sm text-slate-400 hover:text-primary hover:bg-primary/5 transition-all">
+            <Link href="/admin/settings" className="p-2 rounded-md text-slate-400 hover:text-primary hover:bg-primary/5 transition-all">
                 <Settings className="w-4 h-4" />
             </Link>
           </div>

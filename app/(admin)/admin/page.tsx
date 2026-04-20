@@ -39,7 +39,7 @@ export default async function AdminDashboard() {
           <h1 className="text-2xl font-black font-heading text-slate-900 tracking-tight mb-1 uppercase leading-none">Dashboard</h1>
           <p className="text-sm text-slate-500 font-medium">Welcome back to Zero Place Admin.</p>
         </div>
-        <button className="btn btn-sm h-11 rounded-sm bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold gap-2 transition-all shadow-md shadow-primary/20">
+        <button className="btn btn-sm h-11 rounded-md bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold gap-2 transition-all shadow-md shadow-primary/20">
           <Plus className="w-4 h-4" />
           Quick Action
         </button>
@@ -95,7 +95,7 @@ export default async function AdminDashboard() {
               </div>
             ))}
           </div>
-          <button className="btn btn-sm btn-ghost w-full rounded-sm mt-6 text-slate-500 font-bold hover:bg-primary/5 transition-colors">
+          <button className="btn btn-sm btn-ghost w-full rounded-md mt-6 text-slate-500 font-bold hover:bg-primary/5 transition-colors">
             View All Activity
           </button>
         </div>

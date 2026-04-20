@@ -3,6 +3,7 @@ import { ServiceCategory, ServiceItem, ServiceDetail } from "@/models/Service";
 import { FAQ, Brand, WorkStep } from "@/models/Utility";
 import { PortfolioItem, Testimonial } from "@/models/Showcase";
 import { SiteSetting } from "@/models/SiteSetting";
+import { PricingPlan } from "@/models/Pricing";
 
 export async function getSiteSettings() {
   try {
@@ -113,6 +114,17 @@ export async function getWorkSteps() {
     return await WorkStep.find().sort({ order: 1 });
   } catch (error) {
     console.error("Failed to fetch work steps:", error);
+    return [];
+  }
+}
+
+export async function getPricingPlans(type?: 'one-time' | 'subscription') {
+  try {
+    await connectDB();
+    const query = type ? { type } : {};
+    return await PricingPlan.find(query).sort({ order: 1 });
+  } catch (error) {
+    console.error("Failed to fetch pricing plans:", error);
     return [];
   }
 }

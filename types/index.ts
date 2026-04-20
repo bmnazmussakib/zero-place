@@ -20,6 +20,17 @@ export interface PricingTier {
     isPopular?: boolean;
 }
 
+export interface DBPricingPlan {
+    _id: string;
+    name: string;
+    priceText: string;
+    description: string;
+    type: 'one-time' | 'subscription';
+    isPopular: boolean;
+    order: number;
+    features: PricingFeature[];
+}
+
 export interface PortfolioItem {
     title: string;
     category: string;

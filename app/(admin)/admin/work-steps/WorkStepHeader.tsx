@@ -38,7 +38,7 @@ export default function WorkStepHeader() {
         </div>
         <button 
           onClick={() => setIsOpen(true)}
-          className="btn btn-sm h-11 rounded-sm bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold gap-2 transition-all uppercase tracking-tighter shadow-md shadow-primary/20"
+          className="btn btn-sm h-11 rounded-md bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold gap-2 transition-all uppercase tracking-tighter shadow-md shadow-primary/20"
         >
           <Plus className="w-4 h-4" />
           Add Step
@@ -66,7 +66,7 @@ export default function WorkStepHeader() {
                   name="title"
                   required
                   placeholder="e.g. Discovery Call"
-                  className="input input-sm h-11 w-full rounded-sm bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
+                  className="input input-sm h-11 w-full rounded-md bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
                 />
               </div>
 
@@ -77,7 +77,7 @@ export default function WorkStepHeader() {
                   required
                   rows={3}
                   placeholder="Explain what happens in this step..."
-                  className="textarea textarea-sm w-full rounded-sm bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm p-4 h-28" 
+                  className="textarea textarea-sm w-full rounded-md bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm p-4 h-28" 
                 />
               </div>
 
@@ -86,7 +86,7 @@ export default function WorkStepHeader() {
                 <input 
                   name="icon"
                   defaultValue="CheckCircle"
-                  className="input input-sm h-11 w-full rounded-sm bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
+                  className="input input-sm h-11 w-full rounded-md bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
                 />
               </div>
 
@@ -94,14 +94,14 @@ export default function WorkStepHeader() {
                 <button 
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="btn btn-sm h-11 rounded-sm bg-slate-100 border-none hover:bg-slate-200 text-slate-600 px-6 font-bold flex-1"
+                  className="btn btn-sm h-11 rounded-md bg-slate-100 border-none hover:bg-slate-200 text-slate-600 px-6 font-bold flex-1"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit"
                   disabled={isPending}
-                  className="btn btn-sm h-11 rounded-sm bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold flex-[2] gap-2 shadow-lg shadow-primary/20"
+                  className="btn btn-sm h-11 rounded-md bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold flex-[2] gap-2 shadow-lg shadow-primary/20"
                 >
                   {isPending && <Loader2 className="w-4 h-4 animate-spin" />}
                   {isPending ? "Adding Step..." : "Add Step"}

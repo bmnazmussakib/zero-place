@@ -38,7 +38,7 @@ export default function FAQHeader() {
         </div>
         <button 
           onClick={() => setIsOpen(true)}
-          className="btn btn-sm h-11 rounded-sm bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold gap-2 transition-all uppercase tracking-tighter shadow-md shadow-primary/20"
+          className="btn btn-sm h-11 rounded-md bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold gap-2 transition-all uppercase tracking-tighter shadow-md shadow-primary/20"
         >
           <Plus className="w-4 h-4" />
           Add FAQ
@@ -66,7 +66,7 @@ export default function FAQHeader() {
                   name="question"
                   required
                   placeholder="e.g. How does the subscription work?"
-                  className="input input-sm h-11 w-full rounded-sm bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
+                  className="input input-sm h-11 w-full rounded-md bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
                 />
               </div>
 
@@ -77,7 +77,7 @@ export default function FAQHeader() {
                   required
                   rows={4}
                   placeholder="Provide a detailed answer..."
-                  className="textarea textarea-sm w-full rounded-sm bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm p-4 h-32" 
+                  className="textarea textarea-sm w-full rounded-md bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm p-4 h-32" 
                 />
               </div>
 
@@ -85,14 +85,14 @@ export default function FAQHeader() {
                 <button 
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="btn btn-sm h-11 rounded-sm bg-slate-100 border-none hover:bg-slate-200 text-slate-600 px-6 font-bold flex-1"
+                  className="btn btn-sm h-11 rounded-md bg-slate-100 border-none hover:bg-slate-200 text-slate-600 px-6 font-bold flex-1"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit"
                   disabled={isPending}
-                  className="btn btn-sm h-11 rounded-sm bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold flex-[2] gap-2 shadow-lg shadow-primary/20"
+                  className="btn btn-sm h-11 rounded-md bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold flex-[2] gap-2 shadow-lg shadow-primary/20"
                 >
                   {isPending && <Loader2 className="w-4 h-4 animate-spin" />}
                   {isPending ? "Adding FAQ..." : "Add FAQ"}

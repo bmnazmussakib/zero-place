@@ -50,7 +50,7 @@ export default function TestimonialsHeader() {
         </div>
         <button 
           onClick={() => setIsOpen(true)}
-          className="btn btn-sm h-11 rounded-sm bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold gap-2 transition-all uppercase tracking-tighter shadow-md shadow-primary/20"
+          className="btn btn-sm h-11 rounded-md bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold gap-2 transition-all uppercase tracking-tighter shadow-md shadow-primary/20"
         >
           <Plus className="w-4 h-4" />
           Add Feedback
@@ -78,7 +78,7 @@ export default function TestimonialsHeader() {
                       name="name"
                       required
                       placeholder="e.g. John Doe"
-                      className="input input-sm h-11 w-full rounded-sm bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
+                      className="input input-sm h-11 w-full rounded-md bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
                     />
                   </div>
                   <div className="space-y-2">
@@ -87,7 +87,7 @@ export default function TestimonialsHeader() {
                       name="role"
                       required
                       placeholder="e.g. CEO at TechFlow"
-                      className="input input-sm h-11 w-full rounded-sm bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
+                      className="input input-sm h-11 w-full rounded-md bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
                     />
                   </div>
                </div>
@@ -99,7 +99,7 @@ export default function TestimonialsHeader() {
                   required
                   rows={3}
                   placeholder="What they said about us..."
-                  className="textarea textarea-sm w-full rounded-sm bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm p-4 h-24" 
+                  className="textarea textarea-sm w-full rounded-md bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm p-4 h-24" 
                 />
               </div>
 
@@ -128,14 +128,14 @@ export default function TestimonialsHeader() {
                 <button 
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="btn btn-sm h-11 rounded-sm bg-slate-100 border-none hover:bg-slate-200 text-slate-600 px-6 font-bold flex-1"
+                  className="btn btn-sm h-11 rounded-md bg-slate-100 border-none hover:bg-slate-200 text-slate-600 px-6 font-bold flex-1"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit"
                   disabled={isPending}
-                  className="btn btn-sm h-11 rounded-sm bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold flex-[2] gap-2"
+                  className="btn btn-sm h-11 rounded-md bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold flex-[2] gap-2"
                 >
                   {isPending && <Loader2 className="w-4 h-4 animate-spin" />}
                   {isPending ? "Adding Testimonial..." : "Add Feedback"}

@@ -1,6 +1,5 @@
 import PricingHero from "@/components/sections/PricingHero";
 import ConfidenceSection from "@/components/sections/ConfidenceSection";
-import { pricingTiers, subscriptionTiers } from "@/lib/constants";
 import OurBrands from "@/components/sections/OurBrands";
 import FAQ from "@/components/sections/FAQ";
 import Testimonial from "@/components/sections/Testimonial";
@@ -9,34 +8,53 @@ import {
   getBrands, 
   getPortfolioItems, 
   getFAQs, 
-  getTestimonials 
+  getTestimonials,
+  getPricingPlans
 } from "@/lib/data-fetching";
 
 export default async function PricingPage() {
-  const [brands, portfolio, faqs, testimonials] = await Promise.all([
+  const [brands, portfolio, faqs, testimonials, oneTimePlans, subscriptionPlans] = await Promise.all([
     getBrands(),
     getPortfolioItems(),
     getFAQs(),
-    getTestimonials()
+    getTestimonials(),
+    getPricingPlans('one-time'),
+    getPricingPlans('subscription')
   ]);
+
+  // Transform DB plans to PricingTier type if necessary
+  const formatPlans = (plans: any[]) => plans.map(p => ({
+    name: p.name,
+    price: p.priceText,
+    description: p.description,
+    features: p.features.map((f: any) => ({ name: f.name, price: f.price })),
+    isPopular: p.isPopular
+  }));
+
+  const dynamicOneTime = formatPlans(oneTimePlans);
+  const dynamicSubscriptions = formatPlans(subscriptionPlans);
 
   return (
     <div className="bg-[#ffffff] min-h-screen">
-      <PricingHero
-        badge="One Time Plan"
-        titlePrefix="One Time Pricing for"
-        plans={pricingTiers}
-        priceSuffix="/lifetime"
-      />
+      {dynamicOneTime.length > 0 && (
+        <PricingHero
+          badge="One Time Plan"
+          titlePrefix="One Time Pricing for"
+          plans={dynamicOneTime}
+          priceSuffix="/lifetime"
+        />
+      )}
 
       <ConfidenceSection />
 
-      <PricingHero
-        badge="Monthly Subscription"
-        titlePrefix="Monthly Subscription for"
-        plans={subscriptionTiers}
-        priceSuffix="/per month"
-      />
+      {dynamicSubscriptions.length > 0 && (
+        <PricingHero
+          badge="Monthly Subscription"
+          titlePrefix="Monthly Subscription for"
+          plans={dynamicSubscriptions}
+          priceSuffix="/per month"
+        />
+      )}
 
       <OurBrands initialBrands={JSON.parse(JSON.stringify(brands))} />
       <OurWorks initialWorks={JSON.parse(JSON.stringify(portfolio))} />

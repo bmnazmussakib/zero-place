@@ -64,7 +64,7 @@ export default function SettingsForm({ initialData }: SettingsFormProps) {
               name="siteName"
               defaultValue={initialData.siteName}
               placeholder="Zero Place"
-              className="input input-sm h-11 w-full rounded-sm bg-white border-primary/10 focus:border-primary transition-all text-sm" 
+              className="input input-sm h-11 w-full rounded-md bg-white border-primary/10 focus:border-primary transition-all text-sm" 
             />
           </div>
 
@@ -118,7 +118,7 @@ export default function SettingsForm({ initialData }: SettingsFormProps) {
               name="googleAnalyticsId"
               defaultValue={initialData.googleAnalyticsId}
               placeholder="G-XXXXXXXXXX"
-              className="input input-sm h-11 w-full rounded-sm bg-white border-primary/10 focus:border-primary transition-all text-sm" 
+              className="input input-sm h-11 w-full rounded-md bg-white border-primary/10 focus:border-primary transition-all text-sm" 
             />
           </div>
           <div className="space-y-2">
@@ -127,7 +127,7 @@ export default function SettingsForm({ initialData }: SettingsFormProps) {
               name="description"
               defaultValue={initialData.description}
               rows={3}
-              className="textarea textarea-sm w-full rounded-sm bg-white border-primary/10 focus:border-primary transition-all text-sm p-4 h-32" 
+              className="textarea textarea-sm w-full rounded-md bg-white border-primary/10 focus:border-primary transition-all text-sm p-4 h-32" 
             />
           </div>
           <div className="space-y-2">
@@ -135,7 +135,7 @@ export default function SettingsForm({ initialData }: SettingsFormProps) {
             <input 
               name="keywords"
               defaultValue={initialData.keywords}
-              className="input input-sm h-11 w-full rounded-sm bg-white border-primary/10 focus:border-primary transition-all text-sm" 
+              className="input input-sm h-11 w-full rounded-md bg-white border-primary/10 focus:border-primary transition-all text-sm" 
             />
           </div>
         </div>
@@ -160,7 +160,7 @@ export default function SettingsForm({ initialData }: SettingsFormProps) {
               <input 
                 name="contactEmail"
                 defaultValue={initialData.contactEmail}
-                className="input input-sm h-11 w-full rounded-sm pl-10 bg-white border-primary/10 focus:border-primary transition-all text-sm" 
+                className="input input-sm h-11 w-full rounded-md pl-10 bg-white border-primary/10 focus:border-primary transition-all text-sm" 
               />
             </div>
           </div>
@@ -171,7 +171,7 @@ export default function SettingsForm({ initialData }: SettingsFormProps) {
               <input 
                 name="contactPhone"
                 defaultValue={initialData.contactPhone}
-                className="input input-sm h-11 w-full rounded-sm pl-10 bg-white border-primary/10 focus:border-primary transition-all text-sm" 
+                className="input input-sm h-11 w-full rounded-md pl-10 bg-white border-primary/10 focus:border-primary transition-all text-sm" 
               />
             </div>
           </div>
@@ -182,7 +182,7 @@ export default function SettingsForm({ initialData }: SettingsFormProps) {
         <button 
           type="submit" 
           disabled={isPending}
-          className="btn btn-sm h-14 rounded-sm bg-primary border-none hover:bg-primary-hover text-white px-8 font-black gap-3 transition-all uppercase tracking-tighter shadow-xl shadow-primary/40 disabled:bg-slate-200"
+          className="btn btn-sm h-14 rounded-md bg-primary border-none hover:bg-primary-hover text-white px-8 font-black gap-3 transition-all uppercase tracking-tighter shadow-xl shadow-primary/40 disabled:bg-slate-200"
         >
           {isPending ? (
             <Loader2 className="w-5 h-5 animate-spin" />

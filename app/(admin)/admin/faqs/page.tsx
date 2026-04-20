@@ -32,7 +32,7 @@ export default async function AdminFAQsPage() {
               <input 
                 type="text" 
                 placeholder="Search questions..." 
-                className="input input-sm h-10 w-full pl-10 rounded-sm bg-white border-primary/10 focus:border-primary focus:ring-0 transition-all text-sm"
+                className="input input-sm h-10 w-full pl-10 rounded-md bg-white border-primary/10 focus:border-primary focus:ring-0 transition-all text-sm"
               />
            </div>
            <div className="flex items-center gap-2">

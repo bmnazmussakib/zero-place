@@ -47,7 +47,7 @@ export default function PortfolioHeader() {
         </div>
         <button 
           onClick={() => setIsOpen(true)}
-          className="btn btn-sm h-11 rounded-sm bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold gap-2 transition-all uppercase tracking-tighter shadow-md shadow-primary/20"
+          className="btn btn-sm h-11 rounded-md bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold gap-2 transition-all uppercase tracking-tighter shadow-md shadow-primary/20"
         >
           <Plus className="w-4 h-4" />
           Add Project
@@ -74,7 +74,7 @@ export default function PortfolioHeader() {
                   name="title"
                   required
                   placeholder="e.g. Modern Mobile App"
-                  className="input input-sm h-11 w-full rounded-sm bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
+                  className="input input-sm h-11 w-full rounded-md bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
                 />
               </div>
 
@@ -84,7 +84,7 @@ export default function PortfolioHeader() {
                   name="category"
                   required
                   placeholder="e.g. UI/UX Design"
-                  className="input input-sm h-11 w-full rounded-sm bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
+                  className="input input-sm h-11 w-full rounded-md bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
                 />
               </div>
 
@@ -102,14 +102,14 @@ export default function PortfolioHeader() {
                 <button 
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="btn btn-sm h-11 rounded-sm bg-slate-100 border-none hover:bg-slate-200 text-slate-600 px-6 font-bold flex-1"
+                  className="btn btn-sm h-11 rounded-md bg-slate-100 border-none hover:bg-slate-200 text-slate-600 px-6 font-bold flex-1"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit"
                   disabled={isPending}
-                  className="btn btn-sm h-11 rounded-sm bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold flex-[2] gap-2"
+                  className="btn btn-sm h-11 rounded-md bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold flex-[2] gap-2"
                 >
                   {isPending && <Loader2 className="w-4 h-4 animate-spin" />}
                   {isPending ? "Adding Project..." : "Add Project"}

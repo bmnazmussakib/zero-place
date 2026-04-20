@@ -55,14 +55,14 @@ export default function FAQActions({ faq }: { faq: any }) {
       <div className="flex items-center justify-end gap-2">
         <button 
            onClick={() => setIsEditOpen(true)}
-           className="p-2.5 rounded-sm text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-all focus:outline-none"
+           className="p-2.5 rounded-md text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-all focus:outline-none"
            type="button"
         >
           <Edit2 className="w-4 h-4" />
         </button>
         <button 
            onClick={() => setIsDeleteOpen(true)}
-           className="p-2.5 rounded-sm text-rose-300 hover:text-rose-500 hover:bg-rose-50 transition-all focus:outline-none"
+           className="p-2.5 rounded-md text-rose-300 hover:text-rose-500 hover:bg-rose-50 transition-all focus:outline-none"
            type="button"
         >
           <Trash2 className="w-4 h-4" />
@@ -91,7 +91,7 @@ export default function FAQActions({ faq }: { faq: any }) {
                   name="question"
                   required
                   defaultValue={faq.question}
-                  className="input input-sm h-11 w-full rounded-sm bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
+                  className="input input-sm h-11 w-full rounded-md bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
                 />
               </div>
 
@@ -102,7 +102,7 @@ export default function FAQActions({ faq }: { faq: any }) {
                   required
                   rows={4}
                   defaultValue={faq.answer}
-                  className="textarea textarea-sm w-full rounded-sm bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm p-4 h-32" 
+                  className="textarea textarea-sm w-full rounded-md bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm p-4 h-32" 
                 />
               </div>
 
@@ -110,14 +110,14 @@ export default function FAQActions({ faq }: { faq: any }) {
                 <button 
                   type="button"
                   onClick={() => setIsEditOpen(false)}
-                  className="btn btn-sm h-11 rounded-sm bg-slate-100 border-none hover:bg-slate-200 text-slate-600 px-6 font-bold flex-1"
+                  className="btn btn-sm h-11 rounded-md bg-slate-100 border-none hover:bg-slate-200 text-slate-600 px-6 font-bold flex-1"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit"
                   disabled={isPending}
-                  className="btn btn-sm h-11 rounded-sm bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold flex-[2] gap-2 shadow-lg shadow-primary/20"
+                  className="btn btn-sm h-11 rounded-md bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold flex-[2] gap-2 shadow-lg shadow-primary/20"
                 >
                   {isPending && <Loader2 className="w-4 h-4 animate-spin" />}
                   {isPending ? "Updating..." : "Save Changes"}

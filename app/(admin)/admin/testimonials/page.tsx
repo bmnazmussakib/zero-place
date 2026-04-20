@@ -61,7 +61,7 @@ export default async function AdminTestimonialsPage() {
              </div>
 
              <div className="mt-8 pt-6 border-t border-primary/5 flex items-center justify-between">
-                <div className="h-6 w-20 relative opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all bg-slate-50/50 p-1 rounded-sm">
+                <div className="h-6 w-20 relative opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all bg-slate-50/50 p-1 rounded-md">
                     {testimonial.logo && (
                         <Image 
                             src={testimonial.logo} 

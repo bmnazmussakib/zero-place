@@ -59,7 +59,7 @@ export default function ServicesHeader() {
         </div>
         <button 
           onClick={() => setIsOpen(true)}
-          className="btn btn-sm h-11 rounded-sm bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold gap-2 transition-all uppercase tracking-tighter shadow-md shadow-primary/20"
+          className="btn btn-sm h-11 rounded-md bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold gap-2 transition-all uppercase tracking-tighter shadow-md shadow-primary/20"
         >
           <Plus className="w-4 h-4" />
           Add Category
@@ -86,7 +86,7 @@ export default function ServicesHeader() {
                   name="title"
                   required
                   placeholder="e.g. Branding & Identity"
-                  className="input input-sm h-11 w-full rounded-sm bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
+                  className="input input-sm h-11 w-full rounded-md bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm" 
                 />
               </div>
 
@@ -97,14 +97,14 @@ export default function ServicesHeader() {
                   required
                   rows={2}
                   placeholder="Short summary of the service"
-                  className="textarea textarea-sm w-full rounded-sm bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm p-4 h-24" 
+                  className="textarea textarea-sm w-full rounded-md bg-slate-50 border-primary/10 focus:border-primary transition-all text-sm p-4 h-24" 
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                     <label className="text-xs font-bold text-slate-600 uppercase tracking-tight">Span Size</label>
-                    <select name="colSpan" className="select select-sm h-11 w-full rounded-sm bg-slate-50 border-primary/10 focus:border-primary text-sm">
+                    <select name="colSpan" className="select select-sm h-11 w-full rounded-md bg-slate-50 border-primary/10 focus:border-primary text-sm">
                         <option value="1">Small (1 Column)</option>
                         <option value="2">Large (2 Columns)</option>
                     </select>
@@ -139,14 +139,14 @@ export default function ServicesHeader() {
                 <button 
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="btn btn-sm h-11 rounded-sm bg-slate-100 border-none hover:bg-slate-200 text-slate-600 px-6 font-bold flex-1"
+                  className="btn btn-sm h-11 rounded-md bg-slate-100 border-none hover:bg-slate-200 text-slate-600 px-6 font-bold flex-1"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit"
                   disabled={isPending}
-                  className="btn btn-sm h-11 rounded-sm bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold flex-[2] gap-2"
+                  className="btn btn-sm h-11 rounded-md bg-primary border-none hover:bg-primary-hover text-white px-6 font-bold flex-[2] gap-2"
                 >
                   {isPending && <Loader2 className="w-4 h-4 animate-spin" />}
                   {isPending ? "Adding Category..." : "Add Category"}

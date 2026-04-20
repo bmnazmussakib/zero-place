@@ -59,6 +59,10 @@ export default function PricingHero({
 
     const activePlan = plans[activeIndex];
 
+    if (!activePlan) {
+        return null;
+    }
+
     const toggleFeature = (index: number) => {
         const next = new Set(selectedFeatures);
         if (next.has(index)) {
