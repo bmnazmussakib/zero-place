@@ -1,6 +1,20 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+/* Move @property declarations to the top level (outside layers) */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Add DaisyUI's @property declaration here to satisfies the parser/optimizer */
+@property --radialprogress {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 0%;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -142,12 +156,6 @@ html.lenis body {
   100% {
     --gradient-angle: 360deg;
   }
-}
-
-@property --gradient-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
 }
 
 .logo {
