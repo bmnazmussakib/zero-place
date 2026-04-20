@@ -57,8 +57,12 @@ const fadeInRight = {
     visible: { opacity: 1, x: 0, transition: { duration: 0.7 } }
 };
 
-function OurBrands() {
-    const [brands, setBrands] = useState<Brand[]>(brandsData);
+interface OurBrandsProps {
+    initialBrands?: Brand[];
+}
+
+function OurBrands({ initialBrands }: OurBrandsProps) {
+    const [brands, setBrands] = useState<Brand[]>(initialBrands || brandsData);
 
     // Split brands for the two marquees, handle case when brands is empty
     const firstRow = brands.length > 0 ? brands.slice(0, Math.ceil(brands.length / 2)) : [];

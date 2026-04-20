@@ -3,18 +3,27 @@ import { cn } from "@/lib/utils";
 
 export default function Logo({
     className,
-    variant = "color"
+    variant = "color",
+    logoUrl,
+    logoWhiteUrl,
+    siteName = "ZeroPlace"
 }: {
     className?: string;
     variant?: "white" | "color";
+    logoUrl?: string;
+    logoWhiteUrl?: string;
+    siteName?: string;
 }) {
     const isWhite = variant === "white";
+    const displayLogo = isWhite 
+        ? (logoWhiteUrl || "/images/ZeroPlace White Color Logo.svg")
+        : (logoUrl || "/images/zero-place-color-logo.svg");
 
     return (
         <Link href="/" className={cn("flex items-center gap-2 group", className)}>
             <img
-                src={isWhite ? "/images/ZeroPlace White Color Logo.svg" : "/images/zero-place-color-logo.svg"}
-                alt="ZeroPlace"
+                src={displayLogo}
+                alt={siteName}
                 className="w-44 md:w-50"
             />
             {/* <span className={cn(

@@ -5,8 +5,21 @@ import OurBrands from "@/components/sections/OurBrands";
 import FAQ from "@/components/sections/FAQ";
 import Testimonial from "@/components/sections/Testimonial";
 import { OurWorks } from "@/components/sections/OurWorks";
+import { 
+  getBrands, 
+  getPortfolioItems, 
+  getFAQs, 
+  getTestimonials 
+} from "@/lib/data-fetching";
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const [brands, portfolio, faqs, testimonials] = await Promise.all([
+    getBrands(),
+    getPortfolioItems(),
+    getFAQs(),
+    getTestimonials()
+  ]);
+
   return (
     <div className="bg-[#ffffff] min-h-screen">
       <PricingHero
@@ -25,10 +38,10 @@ export default function PricingPage() {
         priceSuffix="/per month"
       />
 
-      <OurBrands />
-      <OurWorks />
-      <FAQ />
-      <Testimonial />
+      <OurBrands initialBrands={JSON.parse(JSON.stringify(brands))} />
+      <OurWorks initialWorks={JSON.parse(JSON.stringify(portfolio))} />
+      <FAQ initialFaqs={JSON.parse(JSON.stringify(faqs))} />
+      <Testimonial initialTestimonials={JSON.parse(JSON.stringify(testimonials))} />
     </div>
   );
 }

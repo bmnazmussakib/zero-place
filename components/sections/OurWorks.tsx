@@ -15,14 +15,12 @@ import { portfolioItems } from '@/lib/constants';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 
-export interface WorkItem {
-    title: string;
-    category: string;
-    image: string;
+export interface OurWorksProps {
+    initialWorks?: WorkItem[];
 }
 
-export function OurWorks() {
-    const [works, setWorks] = useState<WorkItem[]>(portfolioItems);
+export function OurWorks({ initialWorks }: OurWorksProps) {
+    const [works, setWorks] = useState<WorkItem[]>(initialWorks || portfolioItems);
 
     const swiperConfig = {
         modules: [Autoplay, FreeMode],

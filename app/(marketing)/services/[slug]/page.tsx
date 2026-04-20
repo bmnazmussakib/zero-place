@@ -6,12 +6,12 @@ import ServiceWhy from "@/components/sections/ServiceWhy";
 import ServiceBenefits from "@/components/sections/ServiceBenefits";
 import ServicePricing from "@/components/sections/ServicePricing";
 import Testimonial from "@/components/sections/Testimonial";
-import { servicesDetails } from "@/lib/constants";
+import { getServiceDetails } from "@/lib/data-fetching";
 import { notFound } from "next/navigation";
 
 export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const data = servicesDetails[slug];
+  const data = await getServiceDetails(slug);
 
   if (!data) {
     notFound();

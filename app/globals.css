@@ -69,10 +69,10 @@
   --font-body: var(--font-sans);
 
   --shadow-brand: 0 8px 30px rgba(108, 70, 253, 0.12);
-  --radius-xl: 1.5rem;
-  --radius-lg: 1rem;
-  --radius-md: 0.75rem;
-  --radius-sm: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-lg: 0.5rem;
+  --radius-md: 0.375rem;
+  --radius-sm: 0.25rem;
 
   --animate-float: float 3s ease-in-out infinite;
 

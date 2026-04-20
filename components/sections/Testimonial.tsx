@@ -17,9 +17,13 @@ import 'swiper/css/effect-cards';
 import 'swiper/css/navigation';
 
 
-export default function Testimonial() {
+interface TestimonialProps {
+    initialTestimonials?: TestimonialItem[];
+}
+
+export default function Testimonial({ initialTestimonials }: TestimonialProps) {
     const swiperRef = useRef<any>(null);
-    const [testimonials, setTestimonials] = useState<TestimonialItem[]>(testimonialData);
+    const [testimonials, setTestimonials] = useState<TestimonialItem[]>(initialTestimonials || testimonialData);
 
     const fadeInUp = {
         hidden: { opacity: 0, y: 20 },

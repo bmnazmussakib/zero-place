@@ -10,14 +10,14 @@ import { ArrowUpRight } from 'lucide-react';
 import * as motion from "motion/react-client";
 
 import { ServiceCategory } from '@/types';
-import { servicesCategories } from '@/lib/constants';
+import { servicesCategories as defaultCategories } from '@/lib/constants';
 
 interface ServicesGridProps {
     services?: ServiceCategory[];
 }
 
 export default function ServicesGrid({ services: initialServices }: ServicesGridProps) {
-    const [services, setServices] = React.useState<ServiceCategory[]>(initialServices || servicesCategories);
+    const [services, setServices] = React.useState<ServiceCategory[]>(initialServices || defaultCategories);
 
     const fadeInUp = {
         hidden: { opacity: 0, y: 30 },

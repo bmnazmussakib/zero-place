@@ -17,26 +17,17 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import { WorkStepItem } from '@/types';
+import { workSteps as defaultSteps } from '@/lib/constants';
 
-export default function WorkStep() {
+interface WorkStepProps {
+    initialSteps?: WorkStepItem[];
+}
+
+export default function WorkStep({ initialSteps }: WorkStepProps) {
     const swiperRef = useRef<any>(null);
     const [activeIndex, setActiveIndex] = useState(0);
-    const [steps, setSteps] = useState<WorkStepItem[]>([]);
+    const [steps, setSteps] = useState<WorkStepItem[]>(initialSteps || defaultSteps);
 
-    useEffect(() => {
-        const fetchSteps = async () => {
-            try {
-                const res = await fetch('/api/work-steps');
-                if (res.ok) {
-                    const data = await res.json();
-                    setSteps(data);
-                }
-            } catch (err) {
-                console.error("Error fetching work steps:", err);
-            }
-        };
-        fetchSteps();
-    }, []);
 
     const fadeInUp = {
         hidden: { opacity: 0, y: 20 },

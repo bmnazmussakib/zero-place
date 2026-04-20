@@ -12,27 +12,45 @@ import RealtimeDashboard from "@/components/sections/RealtimeDashboard";
 import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/FAQ";
 import Testimonial from "@/components/sections/Testimonial";
+import { 
+  getBrands, 
+  getServicesCategories, 
+  getPortfolioItems, 
+  getWorkSteps, 
+  getFAQs, 
+  getTestimonials,
+  getServiceItems
+} from "@/lib/data-fetching";
 
-export default function HomePage() {
+export default async function HomePage() {
+    const [brands, portfolio, workSteps, faqs, testimonials, serviceItems] = await Promise.all([
+        getBrands(),
+        getPortfolioItems(),
+        getWorkSteps(),
+        getFAQs(),
+        getTestimonials(),
+        getServiceItems()
+    ]);
+
     return (
         <>
             <HeroSection />
 
-            <OurBrands />
+            <OurBrands initialBrands={JSON.parse(JSON.stringify(brands))} />
 
-            <ServicesPreview />
+            <ServicesPreview initialServices={JSON.parse(JSON.stringify(serviceItems))} />
 
-            <OurWorks />
+            <OurWorks initialWorks={JSON.parse(JSON.stringify(portfolio))} />
 
-            <WorkStep />
+            <WorkStep initialSteps={JSON.parse(JSON.stringify(workSteps))} />
 
             <Pricing />
 
             <RealtimeDashboard />
 
-            <FAQ />
+            <FAQ initialFaqs={JSON.parse(JSON.stringify(faqs))} />
 
-            <Testimonial />
+            <Testimonial initialTestimonials={JSON.parse(JSON.stringify(testimonials))} />
         </>
     );
 }

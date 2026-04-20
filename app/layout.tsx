@@ -17,13 +17,24 @@ const funnelDisplay = Funnel_Display({
 
 
 
-export const metadata: Metadata = {
-  title: "Zero Place | Design Studio",
-  description: "Subscription-based design studio for modern brands. Unlimited requests, flat monthly fee.",
-};
+import { getSiteSettings } from "@/lib/data-fetching";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSiteSettings();
+  
+  return {
+    title: {
+      template: `%s | ${settings.siteName}`,
+      default: `${settings.siteName} | Design Studio`,
+    },
+    description: settings.description,
+    keywords: settings.keywords,
+  };
+}
 
 import { ViewTransitions } from 'next-view-transitions'
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import { Providers } from "@/components/providers/Providers";
 
 export default function RootLayout({
   children,
@@ -37,9 +48,11 @@ export default function RootLayout({
           <body
             className="antialiased"
           >
-            <SmoothScrollProvider>
-              {children}
-            </SmoothScrollProvider>
+            <Providers>
+              <SmoothScrollProvider>
+                {children}
+              </SmoothScrollProvider>
+            </Providers>
           </body>
         </html>
       </ViewTransitions>

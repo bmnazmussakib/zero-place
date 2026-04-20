@@ -6,7 +6,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import * as motion from "motion/react-client";
 import { ServiceItem } from '@/types';
-import { serviceItems } from '@/lib/constants';
+import { serviceItems as defaultServiceItems } from '@/lib/constants';
+
+interface ServicesPreviewProps {
+    initialServices?: ServiceItem[];
+}
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -37,8 +41,8 @@ const cardVariant = {
     }
 };
 
-export function ServicesPreview() {
-    const [services, setServices] = useState<ServiceItem[]>(serviceItems);
+export function ServicesPreview({ initialServices }: ServicesPreviewProps) {
+    const [services, setServices] = useState<ServiceItem[]>(initialServices || defaultServiceItems);
     const [loading, setLoading] = useState(false);
 
     return (

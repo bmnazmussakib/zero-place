@@ -12,7 +12,12 @@ import * as motion from "motion/react-client";
 import { AnimatePresence } from "motion/react";
 
 
-export default function FAQ() {
+interface FAQProps {
+    initialFaqs?: FAQItem[];
+}
+
+export default function FAQ({ initialFaqs }: FAQProps) {
+    const [faqItems, setFaqItems] = useState<FAQItem[]>(initialFaqs || faqs);
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     const fadeInUp = {
@@ -108,7 +113,7 @@ export default function FAQ() {
                         viewport={{ once: true, margin: "-100px" }}
                         variants={containerVariants}
                     >
-                        {faqs.map((faq, index) => {
+                        {faqItems.map((faq, index) => {
                             const isOpen = openIndex === index;
                             return (
                                 <motion.div

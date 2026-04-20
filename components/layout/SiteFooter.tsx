@@ -28,6 +28,18 @@ import { servicesCategories } from '@/lib/constants';
 
 export default function SiteFooter() {
     const [scrolled, setScrolled] = useState(false);
+    const [settings, setSettings] = useState<any>(null);
+
+    useEffect(() => {
+        const fetchSettings = async () => {
+            const res = await fetch("/api/settings");
+            if (res.ok) {
+                const data = await res.json();
+                setSettings(data);
+            }
+        };
+        fetchSettings();
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 400);
@@ -154,7 +166,12 @@ export default function SiteFooter() {
                 >
                     {/* Brand Column */}
                     <motion.div variants={fadeInUp} className="lg:col-span-4 lg:space-y-10 md:space-y-6 space-y-4">
-                        <Logo variant="white" />
+                        <Logo 
+                            variant="white" 
+                            siteName={settings?.siteName}
+                            logoUrl={settings?.logoUrl}
+                            logoWhiteUrl={settings?.logoWhiteUrl}
+                        />
                         <p className="max-w-xs text-base leading-relaxed text-zinc-400 ">
                             Every great solution starts understanding the time into learn about. Unlimited design requests for modern brands.
                         </p>
@@ -238,9 +255,13 @@ export default function SiteFooter() {
                                 <div className="lg:w-12 lg:h-12 w-10 h-10 lg:rounded-2xl rounded-md bg-white/5 flex items-center justify-center shrink-0 border border-white/10 group-hover:bg-primary transition-all duration-500">
                                     <Phone className="lg:w-5 lg:h-5 w-4 h-4 text-primary group-hover:text-white transition-colors" />
                                 </div>
-                                <div>
-                                    <p className="md:text-lg text-sm font-bold text-white tracking-tight mb-1 group-hover:text-primary transition-colors">P: +1 (009) 544-7818</p>
-                                    <Link href="#" className="text-sm text-zinc-500 hover:text-primary transition-colors">E: support@tekmino.com</Link>
+                                 <div>
+                                    <p className="md:text-lg text-sm font-bold text-white tracking-tight mb-1 group-hover:text-primary transition-colors">
+                                        P: {settings?.contactPhone || "+1 (009) 544-7818"}
+                                    </p>
+                                    <Link href={`mailto:${settings?.contactEmail || 'support@tekmino.com'}`} className="text-sm text-zinc-500 hover:text-primary transition-colors">
+                                        E: {settings?.contactEmail || "support@tekmino.com"}
+                                    </Link>
                                 </div>
                             </motion.div>
                             <motion.div whileHover={{ x: 5 }} className="flex gap-5 cursor-default group">
@@ -286,7 +307,7 @@ export default function SiteFooter() {
             <SectionContainer className='border-t border-white/5 '>
                 <div className="lg:pt-10 pt-4 flex flex-col md:flex-row justify-between items-center md:gap-8 gap-4 relative">
                     <p className="md:text-sm text-xs font-medium tracking-wide text-zinc-500">
-                        Xeroplace © {new Date().getFullYear()}. All right reserved.
+                        {settings?.siteName || "Xeroplace"} © {new Date().getFullYear()}. All right reserved.
                     </p>
 
                     <div className="flex items-center md:gap-10 gap-4 text-sm font-medium">

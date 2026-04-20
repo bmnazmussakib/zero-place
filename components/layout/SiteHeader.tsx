@@ -27,6 +27,18 @@ export default function SiteHeader() {
     const [isMenuBox, setIsMenuBox] = useState<boolean>(false);
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
     const [hoveredService, setHoveredService] = useState<any>(null);
+    const [settings, setSettings] = useState<any>(null);
+
+    useEffect(() => {
+        const fetchSettings = async () => {
+            const res = await fetch("/api/settings");
+            if (res.ok) {
+                const data = await res.json();
+                setSettings(data);
+            }
+        };
+        fetchSettings();
+    }, []);
 
     const handleClose = useCallback(() => {
         setIsMenuBox(false);
@@ -102,8 +114,13 @@ export default function SiteHeader() {
                     <Suspense fallback={null}>
                         <SearchParamsWrapper onPathnameChange={handleClose} />
                     </Suspense>
-                    <div className="flex items-center ">
-                        <Logo />
+                     <div className="flex items-center ">
+                        <Logo 
+                            siteName={settings?.siteName}
+                            logoUrl={settings?.logoUrl}
+                            logoWhiteUrl={settings?.logoUrl}
+                            variant={isScrolled || isMobileMenuOpen ? "color" : "white"}
+                        />
                     </div>
 
                     <nav className="hidden md:flex items-stretch h-full">
