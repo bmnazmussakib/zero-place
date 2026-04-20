@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules';
 import SectionContainer from '../shared/SectionContainer';
 import * as motion from "motion/react-client";
+import { portfolioItems } from '@/lib/constants';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -21,22 +22,7 @@ export interface WorkItem {
 }
 
 export function OurWorks() {
-    const [works, setWorks] = useState<WorkItem[]>([]);
-    
-    useEffect(() => {
-        const fetchWorks = async () => {
-            try {
-                const res = await fetch('/api/works');
-                if (res.ok) {
-                    const data = await res.json();
-                    setWorks(data);
-                }
-            } catch (err) {
-                console.error("Error fetching works:", err);
-            }
-        };
-        fetchWorks();
-    }, []);
+    const [works, setWorks] = useState<WorkItem[]>(portfolioItems);
 
     const swiperConfig = {
         modules: [Autoplay, FreeMode],

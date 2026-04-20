@@ -1,3 +1,5 @@
+"use client";
+
 import * as motion from "motion/react-client";
 import PremiumButton from "../shared/PremiumButton";
 import SectionContainer from "../shared/SectionContainer";

@@ -1,3 +1,5 @@
+"use client";
+
 // serviceHero.tsx
 import React from 'react';
 import SectionContainer from '../shared/SectionContainer';

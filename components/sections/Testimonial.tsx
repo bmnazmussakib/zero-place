@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 import SectionBadge from '../shared/SectionBadge';
 import * as motion from "motion/react-client";
 import { TestimonialItem } from '@/types';
+import { testimonials as testimonialData } from '@/lib/constants';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -18,20 +19,7 @@ import 'swiper/css/navigation';
 
 export default function Testimonial() {
     const swiperRef = useRef<any>(null);
-    const [testimonials, setTestimonials] = useState<TestimonialItem[]>([]);
-
-    useEffect(() => {
-        const fetchTestimonials = async () => {
-            try {
-                const response = await fetch('/api/testimonials');
-                const data = await response.json();
-                setTestimonials(data);
-            } catch (error) {
-                console.error('Error fetching testimonials:', error);
-            }
-        };
-        fetchTestimonials();
-    }, []);
+    const [testimonials, setTestimonials] = useState<TestimonialItem[]>(testimonialData);
 
     const fadeInUp = {
         hidden: { opacity: 0, y: 20 },

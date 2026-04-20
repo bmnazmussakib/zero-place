@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import * as motion from "motion/react-client";
 import { ServiceItem } from '@/types';
+import { serviceItems } from '@/lib/constants';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -37,26 +38,8 @@ const cardVariant = {
 };
 
 export function ServicesPreview() {
-    const [services, setServices] = useState<ServiceItem[]>([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchServices = async () => {
-            try {
-                const response = await fetch('/api/services');
-                if (response.ok) {
-                    const data = await response.json();
-                    setServices(data);
-                }
-            } catch (error) {
-                console.error('Failed to fetch services:', error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchServices();
-    }, []);
+    const [services, setServices] = useState<ServiceItem[]>(serviceItems);
+    const [loading, setLoading] = useState(false);
 
     return (
         <section className="overflow-hidden bg-gray-50 py-10 md:py-16 lg:py-24">

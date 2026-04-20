@@ -10,28 +10,14 @@ import { ArrowUpRight } from 'lucide-react';
 import * as motion from "motion/react-client";
 
 import { ServiceCategory } from '@/types';
+import { servicesCategories } from '@/lib/constants';
 
 interface ServicesGridProps {
     services?: ServiceCategory[];
 }
 
 export default function ServicesGrid({ services: initialServices }: ServicesGridProps) {
-    const [services, setServices] = React.useState<ServiceCategory[]>(initialServices || []);
-
-    React.useEffect(() => {
-        if (!initialServices) {
-            const fetchServices = async () => {
-                try {
-                    const response = await fetch('/api/services-categories');
-                    const data = await response.json();
-                    setServices(data);
-                } catch (error) {
-                    console.error('Error fetching services categories:', error);
-                }
-            };
-            fetchServices();
-        }
-    }, [initialServices]);
+    const [services, setServices] = React.useState<ServiceCategory[]>(initialServices || servicesCategories);
 
     const fadeInUp = {
         hidden: { opacity: 0, y: 30 },

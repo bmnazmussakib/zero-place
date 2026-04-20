@@ -8,6 +8,7 @@ import PremiumButton from '../shared/PremiumButton';
 import * as motion from "motion/react-client";
 
 import { Brand } from '@/types';
+import { brands as brandsData } from '@/lib/constants';
 
 function BrandCard({ logo, name }: { logo: string; name: string }) {
   return (
@@ -57,22 +58,7 @@ const fadeInRight = {
 };
 
 function OurBrands() {
-    const [brands, setBrands] = useState<Brand[]>([]);
-
-    useEffect(() => {
-        const fetchBrands = async () => {
-            try {
-                const res = await fetch('/api/brands');
-                if (!res.ok) throw new Error("Failed to fetch");
-                const data = await res.json();
-                setBrands(data);
-            } catch (err) {
-                console.error("Error fetching brands:", err);
-            }
-        };
-
-        fetchBrands();
-    }, []);
+    const [brands, setBrands] = useState<Brand[]>(brandsData);
 
     // Split brands for the two marquees, handle case when brands is empty
     const firstRow = brands.length > 0 ? brands.slice(0, Math.ceil(brands.length / 2)) : [];

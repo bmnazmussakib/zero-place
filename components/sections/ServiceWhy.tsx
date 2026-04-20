@@ -1,3 +1,5 @@
+"use client";
+
 // components/WhyDuckDesign.tsx  (or whatever name you prefer)
 
 import * as motion from "motion/react-client";

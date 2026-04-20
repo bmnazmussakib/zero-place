@@ -5,25 +5,11 @@ import SectionContainer from '../shared/SectionContainer';
 import * as motion from "motion/react-client";
 import * as LucideIcons from 'lucide-react';
 import { ServiceDetail, BenefitItem } from '@/types';
+import { serviceBenefits } from '@/lib/constants';
 
 
 export default function ServiceBenefits({ data }: { data?: ServiceDetail['benefits'] }) {
-    const [items, setItems] = useState<BenefitItem[]>(data?.items || []);
-
-    useEffect(() => {
-        if (!data) {
-            const fetchBenefits = async () => {
-                try {
-                    const response = await fetch('/api/service-benefits');
-                    const fetchedData = await response.json();
-                    setItems(fetchedData);
-                } catch (error) {
-                    console.error('Error fetching service benefits:', error);
-                }
-            };
-            fetchBenefits();
-        }
-    }, [data]);
+    const [items, setItems] = useState<BenefitItem[]>(data?.items || serviceBenefits);
     const fadeInUp = {
         hidden: { opacity: 0, y: 30 },
         visible: {

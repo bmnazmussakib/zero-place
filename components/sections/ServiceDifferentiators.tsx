@@ -5,25 +5,13 @@ import SectionContainer from '../shared/SectionContainer';
 import SectionBadge from '../shared/SectionBadge';
 import * as LucideIcons from 'lucide-react';
 import { DifferentiatorItem } from '@/types';
+import { serviceDifferentiators } from '@/lib/constants';
 
 import * as motion from "motion/react-client";
 
 
 export default function ServiceDifferentiators() {
-    const [differentiators, setDifferentiators] = useState<DifferentiatorItem[]>([]);
-
-    useEffect(() => {
-        const fetchDifferentiators = async () => {
-            try {
-                const response = await fetch('/api/service-differentiators');
-                const data = await response.json();
-                setDifferentiators(data);
-            } catch (error) {
-                console.error('Error fetching service differentiators:', error);
-            }
-        };
-        fetchDifferentiators();
-    }, []);
+    const [differentiators, setDifferentiators] = useState<DifferentiatorItem[]>(serviceDifferentiators);
     const fadeInUp = {
         hidden: { opacity: 0, y: 30 },
         visible: {
