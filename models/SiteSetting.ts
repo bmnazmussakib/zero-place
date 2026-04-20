@@ -16,7 +16,6 @@ export interface ISiteSetting extends Document {
   instagramUrl: string;
   twitterUrl: string;
   linkedinUrl: string;
-  navItems: any[];
 }
 
 const SiteSettingSchema = new Schema({
@@ -35,7 +34,6 @@ const SiteSettingSchema = new Schema({
   instagramUrl: { type: String, default: '#' },
   twitterUrl: { type: String, default: '#' },
   linkedinUrl: { type: String, default: '#' },
-  navItems: { type: [Schema.Types.Mixed], default: [] },
 }, { timestamps: true });
 
 export const SiteSetting: Model<ISiteSetting> = 

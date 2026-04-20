@@ -1,12 +1,29 @@
 import connectDB from "@/lib/db";
-import { SiteSetting } from "@/models/SiteSetting";
+import { NavigationItem } from "@/models/NavigationItem";
+import { NavItem } from "@/types";
 import NavigationForm from "./NavigationForm";
 
 export default async function NavigationPage() {
   await connectDB();
-  const settings = await SiteSetting.findOne();
+  const items = await NavigationItem.find().sort({ order: 1 }).lean();
   
-  const initialData = settings ? JSON.parse(JSON.stringify(settings)) : { navItems: [] };
+  // Reconstruct tree for the editor
+  const buildTree = (parentId: string | null = null): NavItem[] => {
+    return items
+      .filter((item: any) => item.parentId === parentId)
+      .map((item: any) => ({
+        id: item.id,
+        title: item.title,
+        href: item.href,
+        icon: item.icon,
+        type: item.type,
+        details: item.details,
+        children: buildTree(item.id),
+      }));
+  };
+
+  const navItems = buildTree(null);
+  const initialData = { navItems };
 
   return (
     <div className="space-y-6">

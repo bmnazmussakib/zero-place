@@ -28,6 +28,7 @@ export default function SiteHeader() {
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
     const [hoveredService, setHoveredService] = useState<any>(null);
     const [settings, setSettings] = useState<any>(null);
+    const [navItems, setNavItems] = useState<any[]>([]);
 
     useEffect(() => {
         const fetchSettings = async () => {
@@ -37,8 +38,19 @@ export default function SiteHeader() {
                 setSettings(data);
             }
         };
+
+        const fetchNavigation = async () => {
+            // Using a timestamp to bypass browser cache and ensures fresh data after admin updates
+            const res = await fetch(`/api/navigation?t=${Date.now()}`, { cache: 'no-store' });
+            if (res.ok) {
+                const data = await res.json();
+                setNavItems(data);
+            }
+        };
+
         fetchSettings();
-    }, []);
+        fetchNavigation();
+    }, [pathname]); // Refetch on pathname change ensures that coming back from admin reflects changes
 
     const handleClose = useCallback(() => {
         setIsMenuBox(false);
@@ -96,7 +108,7 @@ export default function SiteHeader() {
         );
     };
 
-    const dynamicNavItems = settings?.navItems?.length > 0 ? settings.navItems : [];
+    const dynamicNavItems = navItems.length > 0 ? navItems : [];
 
     return (
         <header
