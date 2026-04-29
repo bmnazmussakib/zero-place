@@ -75,10 +75,11 @@ export default function AdminLoginPage() {
 
           <button
             type="submit"
-            className={`btn btn-primary w-full rounded-xl bg-[#6c46fd] border-none hover:bg-[#5b3bdb] text-white font-bold h-12 shadow-lg shadow-[#6c46fd]/30 transition-all ${loading ? 'loading' : ''}`}
+            className={`btn btn-primary w-full rounded-xl bg-[#6c46fd] border-none hover:bg-[#5b3bdb] text-white font-bold h-12 shadow-lg shadow-[#6c46fd]/30 transition-all `}
             disabled={loading}
           >
-            {loading ? "Signing in..." : "Sign In"}
+            {loading ?
+              <><span className="loading loading-spinner"></span>{"Signing in..."}</> : "Sign In"}
           </button>
         </form>
 
